@@ -5,7 +5,8 @@
 }
 /* variable */
 :root{
-    --primarycolor:#0480FC; 
+    --primarycolor:white; 
+    --primarybackgroundcolor: #0480FC;
     --fontsize__header: 20px;
 }
 
@@ -13,7 +14,8 @@
 .header{
     height: 80px;
     text-transform: uppercase;
-    background-color: black;
+    background-color: var(--primarybackgroundcolor);
+    z-index: 3;
 }
 .navbar {
     display: flex;
@@ -64,7 +66,6 @@
 }
 .nav-list ul {
     font-size:var(--fontsize__header);
-    padding: 20px;
 }
 
 .nav-list li {
@@ -76,6 +77,7 @@
 .drop-down__Teachers {
     position: relative;
     cursor: pointer;
+    padding: 30px;
 }
 .Courses-show,
 .Events-show,
@@ -83,16 +85,18 @@
 .Teachers-show{
     display: none;
     position: absolute;
-    top: 85%;
-    left: -51%;
+    top: 98%;
+    left: -15%;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     text-align: center;
+    background-color: var(--primarybackgroundcolor);
+    padding-bottom: 10px;
 }
 .Blog-show{
-    left: -86%;
+    left: -35%;
 }
-.Teachers-show{
-    left: -40%;
+.Events-show{
+    left: -20%;
 }
 .drop-down__Course:hover .Courses-show,
 .drop-down__Events:hover .Events-show,
@@ -106,7 +110,7 @@
 .Blog-show li:hover,
 .Teachers-show li:hover{
     text-decoration: underline;
-    background-color: aliceblue;
+    color: black;
 }
 .nav-right {
     display: flex;
@@ -138,7 +142,7 @@
     flex-direction: column;
     justify-content: space-around;
     height: 280px;
-    background-color: black;
+    background-color: var(--primarybackgroundcolor);
     color: var(--primarycolor);
 }
 .footer__top {
@@ -171,7 +175,7 @@
     color: var(--primarycolor);
 }
 .footer__address a:hover{
-    color: white;
+    color: black;
     text-decoration: underline;
 }
 .footer__address li{
@@ -195,7 +199,7 @@
     margin: 0 12px;
 }
 .bi:hover {
-    color: var(--primarycolor);
+    color: black;
 }
 /* animation */
     @keyframes MoveInfinite{
