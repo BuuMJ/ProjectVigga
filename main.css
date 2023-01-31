@@ -3,10 +3,13 @@
     margin: 0;
     box-sizing: border-box;
 }
+/* variable */
 :root{
     --primarycolor:#0480FC; 
     --fontsize__header: 20px;
 }
+
+/* header */
 .header{
     height: 80px;
     text-transform: uppercase;
@@ -124,9 +127,88 @@
     animation-delay: .5s;
 }
 
+/* main */
+.main {
+    height: 800px;
+}
 
+/* footer */
+.footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 280px;
+    background-color: black;
+    color: var(--primarycolor);
+}
+.footer__top {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    width: 100%;
+}
+.footer__address {
+    width: 20%;
+    text-align: center;
+    position: relative;
+    border: 1px solid var(--primarycolor);
+}
+.footer__address img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: absolute;
+    top: 5%;
+    left: 5%;
+}
+.footer__address h3{
+    font-size: 20px;
+    padding: 20px;
+    border-bottom: 1px solid var(--primarycolor);
+}
+.footer__address a {
+    text-decoration: none;
+    color: var(--primarycolor);
+}
+.footer__address a:hover{
+    color: white;
+    text-decoration: underline;
+}
+.footer__address li{
+    list-style-type: none;
+    margin-top: 12px;
+}
+.underline {
+    width: 100%;
+    height: 1px;
+    background-color: var(--primarycolor);
+}
+.footer__icon{
+   text-align: center;
+}
+.bi {
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+}
+.bi-instagram {
+    margin: 0 12px;
+}
+.bi:hover {
+    color: var(--primarycolor);
+}
 /* animation */
-
+    @keyframes MoveInfinite{
+        0%{
+            transform: translateX(0);
+        }
+        50%{
+            transform: translateX(200px);
+        }
+        100%{
+            transform: translateX(0);
+        }
+        }
     @keyframes MoveInLeft {
         0% {
           opacity: 0;
@@ -135,22 +217,22 @@
           opacity: 1;
           transform: translatex(0px); } 
         }
-@keyframes Expansion {
-    0% {
-        scale: 1;
+    @keyframes Expansion {
+        0% {
+            scale: 1;
+        }
+        100% {
+            scale: 2;
+        }
     }
-    100% {
-        scale: 2;
+    @keyframes rotate-scale-up {
+        0% {
+        transform: scale(0.5) rotateZ(0);
+        }
+        /* 50% {
+        transform: scale(1) rotateZ(180deg);
+        } */
+        100% {
+        transform: scale(1.5) rotateZ(360deg);
+        }
     }
-}
-@keyframes rotate-scale-up {
-    0% {
-      transform: scale(0.5) rotateZ(0);
-    }
-    /* 50% {
-      transform: scale(1) rotateZ(180deg);
-    } */
-    100% {
-      transform: scale(1.5) rotateZ(360deg);
-    }
-  }
