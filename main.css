@@ -25,16 +25,25 @@
     height: 100%;
 }
 .navbar-left {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     width: 20%;
     text-align: center;
     animation-name: rotate-scale-up;
     animation-duration: 1s ;
     animation-delay: .5s;
 }
-.navbar-left h1{
+.navbar-left img {
+    width: 30px;
+    height: 30px;
+}
+.navbar-left span{
     font-size: var(--fontsize__header);
     color: var(--primarycolor);
     cursor: pointer;
+    margin: 0 6px;
 
 }
 .navbar-center{
@@ -104,11 +113,19 @@
 .drop-down__Teachers:hover .Teachers-show{
     display: block;
 }
-
-.Courses-show li:hover,
-.Events-show li:hover,
-.Blog-show li:hover,
-.Teachers-show li:hover{
+.drop-down__Home:hover span,
+.drop-down__Course:hover span,
+.drop-down__Events:hover span,
+.drop-down__Blog:hover span,
+.drop-down__Teachers:hover span,
+.login:hover a,
+.register:hover a{
+    text-shadow: 2px 2px 1px rgba(0,0,0,0.7);
+}
+.Courses-show li:hover a,
+.Events-show li:hover a,
+.Blog-show li:hover a,
+.Teachers-show li:hover a{
     text-decoration: underline;
     color: black;
 }
@@ -194,10 +211,9 @@
     font-size: 20px;
     color: white;
     cursor: pointer;
-}
-.bi-instagram {
     margin: 0 12px;
 }
+
 .bi:hover {
     color: black;
 }
