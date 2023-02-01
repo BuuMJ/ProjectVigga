@@ -2,12 +2,24 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    transition: .5s;
+}
+body{
+    font-family: sans-serif;
 }
 /* variable */
 :root{
     --primarycolor:white; 
     --primarybackgroundcolor: #0480FC;
     --fontsize__header: 20px;
+    --primarycoloricon: black;
+    --primarycolotextshadow: 2px 2px 1px rgba(0,0,0,0.7); 
+}
+body.dark{
+    background-color: gray;
+    --primarybackgroundcolor: black;
+    --primarycoloricon: #0480FC;
+    --primarycolotextshadow: 2px 2px 1px #0480fcc9; 
 }
 
 /* header */
@@ -45,7 +57,7 @@
     color: var(--primarycolor);
     cursor: pointer;
     margin: 0 6px;
-
+    
 }
 .navbar-left .text__left{
     animation-name: MoveInLeft ;
@@ -132,14 +144,14 @@
 .drop-down__Teachers:hover span,
 .login:hover a,
 .register:hover a{
-    text-shadow: 2px 2px 1px rgba(0,0,0,0.7);
+    text-shadow: var(--primarycolotextshadow);
 }
 .Courses-show li:hover a,
 .Events-show li:hover a,
 .Blog-show li:hover a,
 .Teachers-show li:hover a{
     text-decoration: underline;
-    color: black;
+    color: var(--primarycoloricon);
 }
 .nav-right {
     display: flex;
@@ -162,9 +174,55 @@
 
 /* main */
 .main {
+    padding: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
     height: 800px;
 }
-
+.taskbar{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 16%;
+}
+.darkmod{
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.darkmod h4{
+    font-size: 20px;
+}
+.darkmod .changetexth4{
+    color: var(--primarycolor);
+}
+.open__darkmod{
+    display: block;
+    width: 50px;
+    height: 20px;
+    background-color: var(--primarybackgroundcolor);
+    border-radius: 10px;
+}
+.open__darkmod label {
+    display: block;
+    width: 18px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #adadad;
+    transition: .5s;
+}
+.open__darkmod input:checked + label{
+    margin-left: 50px;
+    transform: translateX(-100%);
+}
+.content{
+    width: 84%;
+}
 /* footer */
 .footer {
     display: flex;
@@ -174,29 +232,30 @@
     background-color: var(--primarybackgroundcolor);
     color: var(--primarycolor);
 }
-.footer__top {
+.footer__info {
     display: flex;
-    justify-content: space-around;
-    align-items: flex-start;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
+    font-size: 16px;
 }
 .footer__address {
-    width: 20%;
+    width: 100%;
     text-align: center;
     position: relative;
     border: 1px solid var(--primarycolor);
 }
 .footer__address img{
-    width: 50px;
-    height: 50px;
+    width: 28px;
+    height: 28px;
     border-radius: 50%;
     position: absolute;
     top: 5%;
     left: 5%;
 }
 .footer__address h3{
-    font-size: 20px;
-    padding: 20px;
+    padding: 10px;
     border-bottom: 1px solid var(--primarycolor);
 }
 .footer__address a {
@@ -217,7 +276,7 @@
     background-color: var(--primarycolor);
 }
 .footer__icon{
-   text-align: center;
+    text-align: center;
 }
 .bi {
     font-size: 20px;
@@ -227,7 +286,7 @@
 }
 
 .bi:hover {
-    color: black;
+    color: var(--primarycoloricon);
 }
 /* animation */
     @keyframes MoveInLeft {
