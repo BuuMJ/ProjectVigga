@@ -16,7 +16,7 @@ body{
     --primarycolotextshadow: 2px 2px 1px rgba(0,0,0,0.7); 
 }
 body.dark{
-    background-color: gray;
+    background-color: rgb(51, 50, 50);
     --primarybackgroundcolor: black;
     --primarycoloricon: #0480FC;
     --primarycolotextshadow: 2px 2px 1px #0480fcc9; 
@@ -171,7 +171,14 @@ body.dark{
     animation-duration: 1.5s;
     animation-delay: .5s;
 }
-
+/* ads */
+.ads {
+    margin: 12px;
+}
+.ads img{
+    width: 100%;
+    height: 650px;
+}
 /* main */
 .main {
     padding: 30px;
@@ -187,6 +194,11 @@ body.dark{
     justify-content: space-around;
     align-items: center;
     width: 16%;
+}
+.overplay{
+    display: block;
+    width: 50px;
+    height: 20px;
 }
 .darkmod{
     width: 80%;
