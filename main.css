@@ -279,7 +279,7 @@ span.primary__content{
     flex-wrap: wrap;
     width: 100%;
     position: relative;
-    padding: 50px 30px;
+    padding: 70px 30px;
     background-color: #E4E4E4;
 }
 .content__blog {
@@ -333,7 +333,19 @@ input.inputdislike{
 input.inputlike{
     width: 140px;
 }
-
+.content__list--blog a{
+    position: absolute;
+    bottom: 16px;
+    text-decoration: none;
+    color: black;
+    padding: 10px 20px;
+    background-color: rgba(0,0,0,0.3);
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px white;
+}
+.content__list--blog a:hover {
+    transform: scale(1.1);
+}
 /* Course Page */
 .main {
     padding: 30px;
