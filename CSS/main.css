@@ -180,16 +180,14 @@ body{
 }
 
 /* primary web home */
-.container{
 
-}
 .intro{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 400px;
-    background: linear-gradient(to right, rgba(0,0,0,0.2), rgba(0, 0, 255, 0.39)), url("./image/bgcontent.jpg") center / cover no-repeat ;
+    background: linear-gradient(to right, rgba(0,0,0,0.2), rgba(0, 0, 255, 0.39)), url("/image/bgcontent.jpg") center / cover no-repeat ;
     text-align: center;
     color: black;
     margin-top: 80px;

@@ -24,10 +24,12 @@ btnlike[i].addEventListener('click',() => {
         clicked = false;
         btnlike[i].innerHTML = `<i class="bi bi-heart"></i>`
         inputlike[i].value = parseInt(inputlike[i].value) - 1;
+        inputlike[i].style.color = 'black'
     }
 })
 for (let i = 0; i < btndislike.length; i++)
 for (let i = 0; i < inputdislike.length; i++)
+
 btndislike[i].addEventListener('click',() => {
     if(!clicked) {
         clicked = true;
@@ -39,10 +41,7 @@ btndislike[i].addEventListener('click',() => {
         clicked = false;
         btndislike[i].innerHTML = `<i class="bi bi-heart-fill"></i>`
         inputdislike[i].value = parseInt(inputdislike[i].value) - 1;
+        inputdislike[i].style.color = 'black'
     }
 })
 
-// btndislike.addEventListener('click',() => {
-//     inputdislike.value = parseInt(inputdislike.value) - 1;
-//     inputdislike.style.color ='red'
-// })
