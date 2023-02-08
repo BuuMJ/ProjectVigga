@@ -442,14 +442,6 @@ input.inputlike{
     color: var(--primarycoloricon);
 }
 
-.blogC {
-    margin-top: 100px;
-}
-.blogC div {
-
-    margin-bottom: 10px;
-    padding: 0 20px ;
-}
 /* animation */
     @keyframes MoveInLeft {
         0% {

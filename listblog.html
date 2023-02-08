@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/CSS/blog.css">
+    <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <title>Document</title>
+</head>
+<body>
+        <div class="content__list--blog">
+            <div class="content__blog ">
+                <span>Title:</span>
+                <span>Content:</span>
+                <span>Role:</span>
+                <span>Course:</span>
+                <span>Deadline First:</span>
+                <span>Deadline Second: </span>
+                <div class="blog__icon">
+                        <button class="btnlike">
+                            <i class="bi bi-heart"></i>
+                        </button>
+                        <input type="text" class="inputlike" value="0">
+                        <button class="btndislike">
+                            <i class="bi bi-heart-fill"></i>
+                        </button>
+                        <input type="text" class="inputdislike" value="0">
+                        <div class="comment">
+                            <textarea id="content__comment" placeholder="Add Your Comment Here"></textarea>
+                            <div class="btn__comment">
+                                <button>Cancel</button>
+                                <input type="submit" value="Comment">
+                            </div>
+                        </div>
+                </div>
+            </div> 
+            <div class="content__blog ">
+                <span>Title:</span>
+                <span>Content:</span>
+                <span>Role:</span>
+                <span>Course:</span>
+                <span>Deadline First:</span>
+                <span>Deadline Second: </span>
+                <div class="blog__icon">
+                        <button class="btnlike">
+                            <i class="bi bi-heart"></i>
+                        </button>
+                        <input type="number" class="inputlike" value="0">
+                        <button class="btndislike">
+                            <i class="bi bi-heart-fill"></i>
+                        </button>
+                        <input type="number" class="inputdislike" value="0">
+                </div>
+            </div>
+        </div>
+        <script src="main.js"></script>
+        </body>
+</html>

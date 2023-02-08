@@ -1,0 +1,44 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+form .col-md-2 {
+    width: unset;
+    margin-bottom: 12px;
+}
+
+.col {
+    flex: none;
+}
+.submitCreate {
+    margin-top: 10px;
+    text-align: center;
+}
+.btn-back {
+    width: 125.21px;
+    height: 38px;
+    text-align: center;
+    background-color: grey;
+    color: white;
+}
+.btn-primary:hover {
+    background-color: white;
+    border: 1px solid #0d6efd;
+    color: #0d6efd;
+}
+.btn-back:hover {
+    background-color: white;
+    border: 1px solid red;
+    color: red;
+}
+.btn-primary,
+.btn-back{
+    transition: .5s;
+}
+.col-md-2 textarea {
+    resize: none;
+}
