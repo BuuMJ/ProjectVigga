@@ -1,9 +1,11 @@
+body{
+    height: 100vh;
+}
 .main {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
 }
 
 form .col-md-2 {
@@ -41,4 +43,97 @@ form .col-md-2 {
 }
 .col-md-2 textarea {
     resize: none;
+}
+#content__list--blog{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 70px 30px;
+    height: 1000px;
+    background-color: beige;
+}
+.content__blog {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 80%;
+    height: 300px;
+    background-color: white;
+    box-shadow: 1px 2px 2px rgba(0,0,0,0.5);
+}
+.blog__icon{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 0 20px;
+}
+.content__blog .bi{
+    color: grey;
+    font-size: 20px;
+    cursor: pointer;
+    margin: 0 12px 0 0;
+}
+.content__blog span,
+.content__blog p{
+    padding: 0 20px;
+}
+button.btnlike,
+button.btndislike{
+    border: none;
+    background-color: unset;
+}
+input.inputlike,
+input.inputdislike{
+    border: none;
+    pointer-events: none;
+    background-color: unset;
+}
+input.inputdislike{
+    width: 30px;
+}
+input.inputlike{
+    width: 30px;
+}
+.content__list--blog a{
+    position: absolute;
+    bottom: 16px;
+    text-decoration: none;
+    color: black;
+    padding: 10px 20px;
+    background-color: rgba(0,0,0,0.3);
+    border-radius: 10px;
+}
+.content__list--blog a:hover {
+    transform: scale(1.1);
+}
+.comment {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around ;
+    width: 90%;
+    height: 100px;
+    padding: 0 20px;
+}
+.comment textarea {
+    resize: none;
+    border: none;
+    padding: 20px;
+    height: 20px;
+    border-bottom: 2px solid #333;
+    outline: none;
+    overflow: hidden;
+}
+.btn__comment{
+    width: 100%;
+}
+.btn__comment button,
+.btn__comment input {
+    border: none;
+    padding: 10px 30px;
+    border-radius: 10px;
 }

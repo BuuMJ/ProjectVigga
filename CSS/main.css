@@ -108,7 +108,6 @@ body{
     font-size: 16px;
 }
 .drop-down__Course,
-/* .drop-down__Events, */
 .drop-down__Blog,
 .drop-down__Teachers {
     position: relative;
@@ -116,7 +115,6 @@ body{
     padding: 30px;
 }
 .Courses-show,
-/* .Events-show, */
 .Blog-show,
 .Teachers-show{
     display: none;
@@ -135,14 +133,13 @@ body{
     left: -20%;
 }
 .drop-down__Course:hover .Courses-show,
-/* .drop-down__Events:hover .Events-show, */
 .drop-down__Blog:hover .Blog-show,
 .drop-down__Teachers:hover .Teachers-show{
     display: block;
 }
 .drop-down__Home:hover span,
 .drop-down__Course:hover span,
-/* .drop-down__Events:hover span, */
+.drop-down__Community:hover span,
 .drop-down__Blog:hover span,
 .drop-down__Teachers:hover span,
 .login:hover a,

@@ -4,7 +4,7 @@
     box-sizing: border-box;
     transition: .5s;
 }
-.content__list--blog{
+#content__list--blog{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
