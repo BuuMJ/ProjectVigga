@@ -5,10 +5,10 @@
 //     body.classList.toggle('dark')
 //     changeText.classList.toggle('changetexth4')
 // })
-const btnlike = document.querySelectorAll('.btnlike');
-const btndislike = document.querySelectorAll('.btndislike');
-const inputlike = document.querySelectorAll('.inputlike');
-const inputdislike = document.querySelectorAll('.inputdislike');
+var btnlike = document.querySelectorAll('.btnlike');
+var btndislike = document.querySelectorAll('.btndislike');
+var inputlike = document.querySelectorAll('.inputlike');
+var inputdislike = document.querySelectorAll('.inputdislike');
 // btn click
 let clicked = false;
 for (let i = 0; i < btnlike.length; i++)
