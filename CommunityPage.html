@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/CSS/community.css">  
+    <title>Document</title>
+</head>
+<body>
+  <div class="main">
+    <div class="showcreate">
+      <textarea id="createpost" placeholder="What Are You Thinking?" onclick="clickOn()"></textarea>
+    </div>
+    <div id="overplay" onclick="clickOff()"></div>
+      <form id="show" class="col g-3 blogC shadow-lg p-3 bg-body rounded">
+        <h1>Create Post</h1>
+          <div class="col-md-2">
+              <label for="validationDefault03" class="form-label">Title</label>
+              <input type="text" class="form-control " id="title" placeholder="Click to add title" required>
+            </div>
+            <div class="col-md-2">
+              <label for="validationDefault03" class="form-label">Content</label>
+              <textarea type="text" class="form-control" id="content" placeholder="Click to add Content" required></textarea>
+            </div>
+          <div class="col-md-2">
+              <label for="chooserole" class="form-label">Select</label>
+              <select id="chooserole" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" required>
+                  <option disabled selected value="">Role</option>
+                  <option value="Staff">Staff</option>
+                  <option value="Teacher">Teacher</option>
+                  <option value="Student">Student</option>
+                </select>
+                <select id="choosecourse" class="form-select form-select-sm" aria-label=".form-select-sm example" required>
+                  <option disabled selected value="">Choose Your Course</option>
+                  <option value="Pre Foundation">Pre Foundation</option>
+                  <option value="Foundation">Foundation</option>
+                  <option value="Ielts">Ielts</option>
+                </select>
+          </div>
+          <div class="col-md-2">
+              <label for="validationDefault05" class="form-label">UpLoad File</label>
+              <input type="file" class="form-control" id="myFile " >
+            </div>
+          <div class="col-12">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="invalidCheck2" required>
+              <label class="form-check-label" for="invalidCheck2">
+                Agree to terms and conditions
+              </label>
+            </div>
+          </div>
+          <div class="col-12 submitCreate">
+            <a class="btn btn-back" onclick="clickOff()">Back</a>
+            <button class="btn btn-primary"  onclick="add();clickOff()">Create Course</button>
+          </div>
+        </form>
+    <div id="content__list--blog"></div>
+    </div>
+</body>
+<script src="crud.js"></script>
+<script src="main.js"></script>
+<script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</html>

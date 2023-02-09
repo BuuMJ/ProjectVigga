@@ -5,28 +5,28 @@ function add(){
     var blogContent = document.getElementById("content").value
     var blogRole = document.getElementById("chooserole").value
     var blogCourse = document.getElementById("choosecourse").value
-    var blogDeadlineFirst = document.getElementById("deadlinefirst").value
-    var blogDeadlineSecond = document.getElementById("deadlinesecond").value
+    // var blogDeadlineFirst = document.getElementById("deadlinefirst").value
+    // var blogDeadlineSecond = document.getElementById("deadlinesecond").value
     var blogItem = {
         Title: blogTitle,
         Content: blogContent,
         Role: blogRole,
         Course: blogCourse,
-        DeadlineFirst: blogDeadlineFirst,
-        DeadlineSecond: blogDeadlineSecond,
+        // DeadlineFirst: blogDeadlineFirst,
+        // DeadlineSecond: blogDeadlineSecond,
         // Upload: blogFile
     }
     data.push(blogItem)
     renderBlog()
     
     function renderBlog() {
+        // <span>Deadline First: ${blogDeadlineFirst}</span>
+        // <span>Deadline Second: ${blogDeadlineSecond} </span>
         table = ` <div class="content__blog ">
         <span>Title: ${blogTitle}</span>
         <span>Content: ${blogContent}</span>
         <span>Role: ${blogRole}</span>
         <span>Course: ${blogCourse}</span>
-        <span>Deadline First: ${blogDeadlineFirst}</span>
-        <span>Deadline Second: ${blogDeadlineSecond} </span>
         <div class="blog__icon">
                 <button class="btnlike">
                     <i class="bi bi-heart"></i>
@@ -48,4 +48,14 @@ function add(){
         document.getElementById('content__list--blog').innerHTML = table
     
     }
+}
+
+
+function clickOn(){
+    document.getElementById('overplay').style.display = 'block';
+    document.getElementById('show').style.display = 'block';
+}
+function clickOff(){
+    document.getElementById('overplay').style.display = 'none';
+    document.getElementById('show').style.display = 'none';
 }

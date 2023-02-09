@@ -108,14 +108,13 @@ body{
     font-size: 16px;
 }
 .drop-down__Course,
-.drop-down__Blog,
+.drop-down__Community,
 .drop-down__Teachers {
     position: relative;
     cursor: pointer;
     padding: 30px;
 }
 .Courses-show,
-.Blog-show,
 .Teachers-show{
     display: none;
     position: absolute;
@@ -126,29 +125,23 @@ body{
     background-color: var(--primarybackgroundcolor);
     padding-bottom: 10px;
 }
-.Blog-show{
-    left: -35%;
-}
-.Events-show{
-    left: -20%;
+.Teachers-show{
+    left: -8%;
 }
 .drop-down__Course:hover .Courses-show,
-.drop-down__Blog:hover .Blog-show,
 .drop-down__Teachers:hover .Teachers-show{
     display: block;
 }
 .drop-down__Home:hover span,
 .drop-down__Course:hover span,
+
 .drop-down__Community:hover span,
-.drop-down__Blog:hover span,
 .drop-down__Teachers:hover span,
 .login:hover a,
 .register:hover a{
     text-shadow: var(--primarycolotextshadow);
 }
 .Courses-show li:hover a,
-/* .Events-show li:hover a, */
-.Blog-show li:hover a,
 .Teachers-show li:hover a{
     text-decoration: underline;
     color: var(--primarycoloricon);
