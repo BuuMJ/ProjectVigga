@@ -50,12 +50,90 @@ function add(){
     }
 }
 
-
+var show = document.getElementById('createpost')
+var overplay =  document.getElementById('overplay')
+var tabShow = document.getElementById('show')
+var btnBack= document.getElementById('btn-back')
+var btnPrimary = document.getElementById('btn-primary')
 function clickOn(){
-    document.getElementById('overplay').style.display = 'block';
-    document.getElementById('show').style.display = 'block';
+    overplay.style.cssText = `transform: translateY(0); transition: .5s`;
+    tabShow.style.cssText= `transform: translateY(0); transition: .5s`;
 }
 function clickOff(){
-    document.getElementById('overplay').style.display = 'none';
-    document.getElementById('show').style.display = 'none';
+    overplay.style.cssText = `transform: translateY(-200%); transition: .5s`;
+    tabShow.style.cssText= `transform: translateY(-200%); transition: .5s`;
 }
+
+show.onclick = function() {
+    clickOn()
+}
+
+overplay.onclick = function() {
+    showAlertCancle()
+    showOverplayCancle()
+}
+btnBack.onclick = function() {
+    showAlertCancle()
+    showOverplayCancle()
+}
+
+btnPrimary.onclick = function() {
+    add()
+    clickOff()
+    showAlertSucces()
+    hideTimeOut()
+}
+ 
+
+
+// show alert
+
+var alertSuccess = document.getElementById('alertSuccess')
+
+function showAlertSucces(){
+    alertSuccess.style.cssText = `transform: translatex(350%); transition: .5s`
+}
+function hideAlertSucces(){
+    alertSuccess.style.cssText = `transform: translatex(500%); transition: .5s`
+}
+let hideAlertS;
+function hideTimeOut(){
+    hideAlertS = setTimeout(hideAlertSucces,2000)
+}
+
+var alertCancle = document.getElementById('alertCancle')
+var overplayCancle = document.getElementById('overplayCancle')
+var nonCancle = document.querySelector('.nonCancle')
+var doCancle = document.querySelector('.doCancle')
+
+function showAlertCancle(){
+    alertCancle.style.cssText = `transform: translatey(0); transition: .5s`
+}
+function hieAlertCancle(){
+    alertCancle.style.cssText = `transform: translatey(-300%); transition: .5s`
+}
+function showOverplayCancle(){
+    overplayCancle.style.cssText = `transform: translatey(0); transition: .5s`
+}
+
+function hideOverPlayCancle(){
+    overplayCancle.style.cssText = `transform: translatey(-300%); transition: .5s`
+}
+
+
+overplayCancle.onclick = function(){
+    hideOverPlayCancle()
+    hieAlertCancle()
+}
+
+nonCancle.onclick = function(){
+    hideOverPlayCancle()
+    hieAlertCancle()
+}
+
+doCancle.onclick = function(){
+    hideOverPlayCancle()
+    hieAlertCancle()
+    clickOff()
+}
+

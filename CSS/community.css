@@ -4,9 +4,6 @@
     box-sizing: border-box;
     transition: .5s;
 }
-body{
-    height: 2000px;
-}
 .main{
     padding: 20px 0;
     display: flex;
@@ -31,11 +28,108 @@ body{
     border-radius: 20px;
     outline: none;
     overflow: hidden;
-    padding: 12px 8px;
+    padding: 12px 16px;
     cursor: pointer;
 }
+#alertSuccess {
+    position: absolute;
+    top: 150px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 400px;
+    height: 100px;
+    border: 5px solid #04E474;
+    border-radius: 10px;
+    color: #04E474 ;
+    transform: translateX(500%);
+}
+#alertSuccess i {
+    font-size: 40px;
+}
+.textSuccess span {
+    font-size: 25px;
+    text-transform: uppercase;
+}
+.textSuccess p {
+    margin: unset;
+    color: #9C9C9C;
+    font-size: 18px;
+}
+#overplayCancle {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.9);
+    width: 100%;
+    height: 100%;
+    transform: translatey(-300%);
+    z-index: 4;
+    cursor: pointer;
+}
+#alertCancle {
+    position: absolute;
+    top: 20%;
+    left: 40%;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 400px;
+    height: 240px;
+    border: 5px solid #FC0404;
+    color: #FC0404 ;
+    border-radius: 10px;
+    text-align: center;
+    transform: translatey(-300%);
+    z-index: 5;
+}
+#alertCancle i {
+    font-size: 40px;
+}
+.textCancle span {
+    font-size: 25px;
+    text-transform: uppercase;
+}
+.textCancle p {
+    margin: unset;
+    color: #9C9C9C;
+    font-size: 18px;
+}
+.btnCancle button { 
+    border: none;
+    width: 80px;
+    height: 40px;
+    border-radius: 10px;
+}
+.doCancle {
+    background-color: #FC0404;
+    color: white;
+}
+.nonCancle {
+    background-color: #04E474;
+    color: white;
+}
+.doCancle:hover {
+    background-color: white;
+    color: #FC0404;
+    border: 1px solid #FC0404;
+}
+.nonCancle:hover {
+    background-color: white;
+    color: #04E474;
+    border: 1px solid #04E474;
+}
 #overplay{
-    display: none;
+    display: block;
     position: fixed; 
     width: 100%; 
     height: 100%; 
@@ -48,7 +142,7 @@ body{
     cursor: pointer;
 }
 .bg-body {
-    display: none;
+    display: block;
     margin: auto;
     width: 60%;
     height: 600px;
@@ -60,6 +154,10 @@ body{
     left: 0;
     right: 0;
     bottom: 10%;
+}
+#overplay,
+#show {
+    transform: translateY(-200%);
 }
 form > *{
     padding: 0 24px;
