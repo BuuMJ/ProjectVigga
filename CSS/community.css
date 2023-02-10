@@ -27,12 +27,12 @@ body{
 .showcreate textarea {
     resize: none;
     border: none;
-    padding: 26px;
-    height: 20px;
-    border-bottom: 2px solid #333;
+    height: 48px;
     border-radius: 20px;
     outline: none;
     overflow: hidden;
+    padding: 12px 8px;
+    cursor: pointer;
 }
 #overplay{
     display: none;
@@ -50,8 +50,8 @@ body{
 .bg-body {
     display: none;
     margin: auto;
-    width: 70%;
-    height: 630px;
+    width: 60%;
+    height: 600px;
     border-radius: 20px !important;
     box-shadow: 0 0 40px rgb(8 7 16 / 60%) !important;
     z-index: 3;
@@ -59,13 +59,17 @@ body{
     top: 0;
     left: 0;
     right: 0;
-    bottom: 0;
+    bottom: 10%;
+}
+form > *{
+    padding: 0 24px;
 }
 form h1 {
     width: 100%;
     text-align: center;
     text-transform: uppercase;
-    padding: 20px;
+    padding: 12px;
+    margin: unset;
 }
 form .col-md-2 {
     width: unset;
@@ -76,7 +80,7 @@ form .col-md-2 {
     flex: none;
 }
 .submitCreate {
-    margin-top: 10px;
+    padding: 8px 0 12px 0;
     text-align: center;
 }
 .btn-back {
@@ -103,6 +107,7 @@ form .col-md-2 {
 .col-md-2 textarea {
     resize: none;
 }
+
 #content__list--blog{
     display: flex;
     flex-direction: row;

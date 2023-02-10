@@ -4,14 +4,14 @@ function add(){
     var blogTitle = document.getElementById("title").value
     var blogContent = document.getElementById("content").value
     var blogRole = document.getElementById("chooserole").value
-    var blogCourse = document.getElementById("choosecourse").value
+    var blogCategory = document.getElementById("choosecategory").value
     // var blogDeadlineFirst = document.getElementById("deadlinefirst").value
     // var blogDeadlineSecond = document.getElementById("deadlinesecond").value
     var blogItem = {
         Title: blogTitle,
         Content: blogContent,
         Role: blogRole,
-        Course: blogCourse,
+        Category: blogCategory,
         // DeadlineFirst: blogDeadlineFirst,
         // DeadlineSecond: blogDeadlineSecond,
         // Upload: blogFile
@@ -26,7 +26,7 @@ function add(){
         <span>Title: ${blogTitle}</span>
         <span>Content: ${blogContent}</span>
         <span>Role: ${blogRole}</span>
-        <span>Course: ${blogCourse}</span>
+        <span>Category: ${blogCategory}</span>
         <div class="blog__icon">
                 <button class="btnlike">
                     <i class="bi bi-heart"></i>
