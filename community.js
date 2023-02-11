@@ -56,11 +56,11 @@ var tabShow = document.getElementById('show')
 var btnBack= document.getElementById('btn-back')
 var btnPrimary = document.getElementById('btn-primary')
 function clickOn(){
-    overplay.style.cssText = `transform: translateY(0); transition: .5s`;
+    overplay.style.display = 'block'
     tabShow.style.cssText= `transform: translateY(0); transition: .5s`;
 }
 function clickOff(){
-    overplay.style.cssText = `transform: translateY(-200%); transition: .5s`;
+    overplay.style.display = 'none'
     tabShow.style.cssText= `transform: translateY(-200%); transition: .5s`;
 }
 
@@ -113,11 +113,11 @@ function hieAlertCancle(){
     alertCancle.style.cssText = `transform: translatey(-300%); transition: .5s`
 }
 function showOverplayCancle(){
-    overplayCancle.style.cssText = `transform: translatey(0); transition: .5s`
+    overplayCancle.style.display = 'block'
 }
 
 function hideOverPlayCancle(){
-    overplayCancle.style.cssText = `transform: translatey(-300%); transition: .5s`
+    overplayCancle.style.display = 'none'
 }
 
 

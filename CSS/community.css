@@ -61,6 +61,7 @@
     font-size: 18px;
 }
 #overplayCancle {
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
@@ -69,7 +70,6 @@
     background-color: rgba(0,0,0,0.9);
     width: 100%;
     height: 100%;
-    transform: translatey(-300%);
     z-index: 4;
     cursor: pointer;
 }
@@ -119,17 +119,17 @@
     color: white;
 }
 .doCancle:hover {
-    background-color: white;
-    color: #FC0404;
+    background-color: rgba(0,0,0,0.1);
+    color: #F80404;
     border: 1px solid #FC0404;
 }
 .nonCancle:hover {
-    background-color: white;
+    background-color: rgba(0,0,0,0.1);
     color: #04E474;
     border: 1px solid #04E474;
 }
 #overplay{
-    display: block;
+    display: none;
     position: fixed; 
     width: 100%; 
     height: 100%; 
@@ -155,7 +155,6 @@
     right: 0;
     bottom: 10%;
 }
-#overplay,
 #show {
     transform: translateY(-200%);
 }

@@ -10,7 +10,7 @@ var btndislike = document.querySelectorAll('.btndislike');
 var inputlike = document.querySelectorAll('.inputlike');
 var inputdislike = document.querySelectorAll('.inputdislike');
 // btn click
-let clicked = false;
+var clicked = false;
 for (let i = 0; i < btnlike.length; i++)
 for (let i = 0; i < inputlike.length; i++)
 btnlike[i].addEventListener('click',() => {
