@@ -228,110 +228,47 @@ span.primary__content{
 .content__card {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     margin-top: 40px;
     width: 33.33%;
+    height: 500px;
 }
 .content__card img {
-    width: 80%;
+    width: 86%;
     height: 250px;
 }
-.content__card span {
+
+.content__card .primary__content__text {
     width: 80%;
     text-align: center;
-    padding: 8px 24px;
+    padding: 0 28px;
+    height: 20px;
 }
-.content__card a {
+.content__card span{
+    width: 100%;
+    height: 100px;
+    padding: 12px 50px;
+}
+.btn__visit{
+    width: 100%;
+    height: 50px;
+}
+.content__card .btn__visit a {
     text-decoration: none;
     color: black;
-    padding: 10px 0;
-    width: 120px;
+    padding: 12px 20px;
     background-color: rgba(0,0,0,0.1);
     border-radius: 10px;
     box-shadow: 1px 1px 1px  rgba(0,0,0,0.6);
 }
 .content__card b{
     font-size: 16px;
+    height: 100%;
 }
 .content__card a:hover {
     color: var(--primarybackgroundcolor);
     box-shadow: 1px 1px 1px  rgba(0,0,0,0.2);
-}
-/* blog of student */
-.content__list--blog{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    width: 100%;
-    position: relative;
-    padding: 70px 30px;
-    background-color: #E4E4E4;
-}
-.content__blog {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    width: 20%;
-    height: 350px;
-    background-color: white;
-    box-shadow: 1px 2px 2px rgba(0,0,0,0.5);
-    margin: 24px 42px;
-}
-.blog__icon{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    width: 100%;
-}
-.content__blog .bi{
-    color: grey;
-    font-size: 20px;
-    cursor: pointer;
-    margin: 0 12px;
-}
-.content__blog span,
-.content__blog p{
-    padding: 0 20px;
-}
-.primary__blog{
-    padding: 20px;
-    font-size: 30px;
-    position: absolute;
-    top: 0;
-    text-transform: uppercase;
-}
-button.btnlike,
-button.btndislike{
-    border: none;
-    background-color: unset;
-}
-input.inputlike,
-input.inputdislike{
-    border: none;
-    pointer-events: none;
-    background-color: unset;
-}
-input.inputdislike{
-    width: 50px;
-}
-input.inputlike{
-    width: 140px;
-}
-.content__list--blog a{
-    position: absolute;
-    bottom: 16px;
-    text-decoration: none;
-    color: black;
-    padding: 10px 20px;
-    background-color: rgba(0,0,0,0.3);
-    border-radius: 10px;
-}
-.content__list--blog a:hover {
-    transform: scale(1.1);
 }
 /* .overplay{
     display: block;
