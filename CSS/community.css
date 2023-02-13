@@ -4,12 +4,30 @@
     box-sizing: border-box;
     transition: .5s;
 }
+.header {
+    width: 100%;
+    height: 120px;
+    border-bottom: 1px solid black;
+}
 .main{
-    padding: 20px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+}
+.main__content{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    width: 80%;
+}
+.sidebar{
+    display: flex;
+    flex-direction: row;
+    width: 12%;
+    height: 500px;
+    border-right: 1px solid black;
 }
 .showcreate {
     display: flex;
@@ -20,6 +38,7 @@
     padding: 0 20px;
     background-color: rgba(0,0,0,0.3);
     border-radius: 10px;
+    margin-top: 20px;
 }
 .showcreate textarea {
     resize: none;
@@ -48,17 +67,47 @@
     color: #04E474 ;
     transform: translateX(500%);
 }
-#alertSuccess i {
+#alertSuccess i,
+#alertComment i,
+#alertFail {
     font-size: 40px;
 }
-.textSuccess span {
+.textSuccess span,
+.textComment span,
+.textFail span {
     font-size: 25px;
     text-transform: uppercase;
 }
-.textSuccess p {
+.textSuccess p,
+.textComment p{
     margin: unset;
     color: #9C9C9C;
     font-size: 18px;
+}
+#alertFail{
+    position: absolute;
+    top: 0;
+    left: 35%;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 500px;
+    height: 100px;
+    background-color: white;
+    border: 5px solid #DA0404;
+    border-radius: 10px;
+    color: #DA0404 ;
+    transform: translateY(-200%);
+    z-index: 6;
+}
+.textFail {
+    padding: 6px;
+}
+.textFail p {
+    font-size: 16px;
 }
 #overplayCancle {
     display: none;
@@ -128,6 +177,22 @@
     color: #04E474;
     border: 1px solid #04E474;
 }
+#alertComment {
+    position: absolute;
+    top: 45%;
+    right: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 400px;
+    height: 100px;
+    border: 5px solid #FCAC34;
+    border-radius: 10px;
+    color: #FCAC34 ;
+    transform: translatex(150%);
+}
+
 #overplay{
     display: none;
     position: fixed; 
@@ -141,11 +206,11 @@
     z-index: 2; 
     cursor: pointer;
 }
-.bg-body {
+#show {
     display: block;
     margin: auto;
     width: 60%;
-    height: 600px;
+    height: 520px;
     border-radius: 20px !important;
     box-shadow: 0 0 40px rgb(8 7 16 / 60%) !important;
     z-index: 3;
@@ -154,8 +219,6 @@
     left: 0;
     right: 0;
     bottom: 10%;
-}
-#show {
     transform: translateY(-200%);
 }
 form > *{
@@ -211,9 +274,7 @@ form .col-md-2 {
     justify-content: space-around;
     align-items: flex-start;
     flex-wrap: wrap;
-    width: 100%;
-    padding: 70px 30px;
-    height: 1000px;
+    width: 80%;
 }
 .content__blog {
     display: flex;
@@ -221,16 +282,24 @@ form .col-md-2 {
     justify-content: space-around;
     flex-wrap: wrap;
     width: 80%;
-    height: 300px;
     background-color: white;
     box-shadow: 1px 2px 2px rgba(0,0,0,0.5);
+    margin: 30px;
+    height: auto;
+}
+.linkDownload {
+    padding: 12px 20px;
+    text-decoration: none;
+}
+.linkDownload:hover {
+    text-decoration: underline;
 }
 .blog__icon{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: flex-start;
     width: 100%;
-    padding: 0 20px;
+    padding: 12px 20px;
 }
 .content__blog .bi{
     color: grey;
@@ -238,9 +307,8 @@ form .col-md-2 {
     cursor: pointer;
     margin: 0 12px 0 0;
 }
-.content__blog span,
-.content__blog p{
-    padding: 0 20px;
+.content__blog span{
+    padding: 12px 20px;
 }
 button.btnlike,
 button.btndislike{
@@ -271,29 +339,47 @@ input.inputlike{
 .content__list--blog a:hover {
     transform: scale(1.1);
 }
-.comment {
+#comment {
     display: flex;
     flex-direction: column;
     justify-content: space-around ;
     width: 90%;
-    height: 100px;
-    padding: 0 20px;
+    padding: 12px 20px;
 }
-.comment textarea {
+#comment textarea {
     resize: none;
-    border: none;
-    padding: 20px;
-    height: 20px;
-    border-bottom: 2px solid #333;
+    border-radius: 10px;
+    height: 36px;
+    padding: 4px 4px 4px 12px;
     outline: none;
     overflow: hidden;
 }
 .btn__comment{
     width: 100%;
+    padding: 12px 0;
 }
 .btn__comment button,
 .btn__comment input {
     border: none;
     padding: 10px 30px;
     border-radius: 10px;
+}
+
+.comment__section{
+    list-style-type: none;
+    margin: 8px 0;
+}
+.comment__info p {
+    margin: unset;
+}
+
+.comment__text {
+    display: inline-block;
+    font-size: 20px;
+    background-color: #BCBCBB;
+    padding: 6px 6px;
+    border-radius: 10px;
+}
+.comment__date {
+    font-size: 12px;
 }

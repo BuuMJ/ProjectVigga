@@ -470,3 +470,87 @@ input.inputlike{
         from{transform: translateX(0);}
         to {transform: translateX(95VW);}
     }
+
+    @media screen and (max-width: 768px) {
+        .navbar-left,
+        .navbar-center,
+        .nav-right {
+          text-align: center;
+        }
+        .navbar-left{
+            width: 20%;
+        }
+        .navbar-center {
+            width: 60%;
+        }
+        .nav-right{
+            width: 10%;
+        }
+        .navbar-left span {
+            font-size: 18px;
+        }
+        .nav-list {
+          justify-content: center;
+        }
+      
+        .nav-list a,
+        .nav-list li {
+          width: 100%;
+          font-size: 18px;
+        }
+      
+        .drop-down__Home,
+        .drop-down__Course,
+        .drop-down__Community,
+        .drop-down__Teachers {
+          padding: 14px;
+        }
+
+        .Courses-show,
+        .Teachers-show {
+            width: 158px;
+        }
+        .Courses-show{
+            left: -17%;
+        }
+        .Teachers-show{
+            left: -12%;
+        }
+        .Courses-show a,
+        .Teachers-show a{
+            font-size: 14px;
+            padding: 0 2px;
+        }
+    .login a {
+        text-decoration: none;
+        color: var(--primarycolor);
+        font-size: 18px;
+    }
+    .login{
+        animation-name: Expansion;
+        animation-duration: 1.5s;
+        animation-delay: .5s;
+    }
+    .ads {
+        margin: 12px;
+    }
+    .intro {
+        height: 240px;
+        margin-top: 80px;
+    }
+    .intro h2 {
+        font-size: 30px;
+    }
+    .intro p {
+        font-size: 20px;
+        padding: 12px 12%;
+    }
+    .intro a {
+        width: 30%;
+    }
+    .intro b {
+        font-size: 20px;
+    }
+
+}
+      
