@@ -27,6 +27,23 @@ function add() {
     showAlertFail();
     return;
   }
+ if (!blogRole){
+  var checkConfirmRole = confirm('By default you will be anonymous') 
+    if(checkConfirmRole == true){
+    }
+    else{
+      return
+    }
+ }
+ if (!blogCategory){
+  var checkConFirmCategory = confirm('By default you will choose the social category')
+    if(checkConFirmCategory == true){
+
+    }
+    else{
+      return
+    }
+ }
   if (blogContent) {
     var blogRoleDisplay = blogRole || "Anonymous";
     var blogCategoryDisplay = blogCategory || "social";
@@ -68,7 +85,7 @@ function add() {
                 <ul id="comment">
                     <textarea id="content__comment" placeholder="Add Your Comment Here"></textarea>
                     <div class="btn__comment">
-                        <input type="submit" value="Comment">
+                        <input id="submitComment" type="submit" value="Comment">
                     </div>
                 </ul>
                 </li> `;
@@ -113,7 +130,6 @@ function add() {
               btndislike[i].innerHTML = `<i class="bi bi-heartbreak-fill"></i>`;
               inputdislike[i].value = "1";
               inputdislike[i].style.color = "red";
-              console.log(btndislike[i])
             } else {
               clicked = false;
               btndislike[i].innerHTML = `<i class="bi bi-heart-fill"></i>`;
@@ -128,6 +144,14 @@ function add() {
           });
     }
     //   function comment
+    var pressEnterComment = document.getElementById('content__comment')
+    pressEnterComment.addEventListener('keypress', function(e){
+      if(e.key === 'Enter'){
+        e.preventDefault();
+        document.getElementById('submitComment').click();
+        pressEnterComment.value ='';
+      }
+    })
     var commentInput = document.querySelectorAll("#content__comment");
     var commentBtn = document.querySelectorAll(
       ".btn__comment input[type='submit']"
@@ -167,6 +191,7 @@ function add() {
           }
         };
       }
+    
     var alertComment = document.getElementById("alertComment");
     function showAlertComment() {
       alertComment.style.cssText = `transform: translatex(-5%); transition: .5s`;
@@ -197,6 +222,9 @@ function clickOn() {
 function clickOff() {
   overplay.style.display = "none";
   tabShow.style.cssText = `transform: translateY(-200%); transition: .5s`;
+  document.getElementById("content").value = '';
+  document.getElementById("chooserole").value = '';
+  document.getElementById("choosecategory").value = '';
 }
 
 show.onclick = function () {
@@ -211,10 +239,17 @@ btnBack.onclick = function () {
   showAlertCancle();
   showOverplayCancle();
 };
-btnPrimary.onclick = function () {
+btnPrimary.onclick = function (e) {
   add();
 };
 
+var pressEnter = document.getElementById('content')
+pressEnter.addEventListener('keypress', function(e){
+  if(e.key === 'Enter'){
+    e.preventDefault();
+    document.getElementById('btn-primary').click()
+  }
+})
 // show alert
 
 var alertSuccess = document.getElementById("alertSuccess");
