@@ -144,14 +144,7 @@ function add() {
           });
     }
     //   function comment
-    var pressEnterComment = document.getElementById('content__comment')
-    pressEnterComment.addEventListener('keypress', function(e){
-      if(e.key === 'Enter'){
-        e.preventDefault();
-        document.getElementById('submitComment').click();
-        pressEnterComment.value ='';
-      }
-    })
+ 
     var commentInput = document.querySelectorAll("#content__comment");
     var commentBtn = document.querySelectorAll(
       ".btn__comment input[type='submit']"
@@ -160,6 +153,14 @@ function add() {
 
     for (let i = 0; i < commentBtn.length; i++) {
         commentBtn[i].addEventListener("click", addComment(i));
+        // function pressEnter
+        commentInput[i].addEventListener('keypress', function(e){
+          if(e.key === 'Enter'){
+            e.preventDefault();
+            commentBtn[i].click();
+            commentInput[i].value ='';
+          }
+        })
       }
       
       function addComment(index) {
@@ -239,11 +240,10 @@ btnBack.onclick = function () {
   showAlertCancle();
   showOverplayCancle();
 };
-btnPrimary.onclick = function (e) {
+btnPrimary.onclick = function () {
   add();
 };
-
-var pressEnter = document.getElementById('content')
+var pressEnter = document.querySelector('.blogC')
 pressEnter.addEventListener('keypress', function(e){
   if(e.key === 'Enter'){
     e.preventDefault();
