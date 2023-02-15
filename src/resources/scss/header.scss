@@ -1,0 +1,142 @@
+#toTop {
+    position: relative;
+    top: -200px;
+}
+.header{
+    height: 80px;
+    text-transform: uppercase;
+    background-color: $primarybackgroundcolor;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 5;
+}
+.header__navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+}
+.navbar-left {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    text-align: center;
+}
+.navbar-left img {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    animation-name: MoveInDown;
+    animation-duration: 2s;
+    animation-delay: 2;
+}
+.navbar-left span{
+    font-size: $fontsize__header;
+    color: $primarycolor;
+    cursor: pointer;
+    margin: 0 6px;
+    
+}
+.navbar-left .text__left{
+    animation-name: MoveInLeft ;
+    animation-duration: 2s;
+    animation-delay: 2;
+}
+.navbar-left .text__right{
+    animation-name: MoveInRight;
+    animation-duration: 2s;
+    animation-delay: 2;
+}
+
+.navbar-center{
+    width: 55%;
+}
+.nav-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    animation-name: MoveInLeft;
+    animation-duration: 0.7s ;
+    animation-delay: .5s;
+    animation-timing-function: linear;
+}
+.nav-list ul
+{
+    color: $primarycolor;
+    cursor: pointer;
+}
+.nav-list a,
+.nav-list li{
+    color: $primarycolor;
+    text-decoration: none;
+    list-style: none;
+    width: 200px;
+    margin-top: 16px;
+}
+.nav-list ul {
+    font-size: $fontsize__header;
+}
+
+.nav-list li {
+    font-size: 16px;
+}
+.drop-down__Course,
+.drop-down__Community,
+.drop-down__Teachers {
+    position: relative;
+    cursor: pointer;
+    padding: 30px;
+}
+.Courses-show,
+.Teachers-show{
+    display: none;
+    position: absolute;
+    top: 98%;
+    left: -15%;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    text-align: center;
+    background-color: $primarybackgroundcolor;
+    padding-bottom: 10px;
+}
+.Teachers-show{
+    left: -8%;
+}
+.drop-down__Course:hover .Courses-show,
+.drop-down__Teachers:hover .Teachers-show{
+    display: block;
+}
+.drop-down__Home:hover span,
+.drop-down__Course:hover span,
+
+.drop-down__Community:hover span,
+.drop-down__Teachers:hover span,
+.login:hover a,
+.register:hover a{
+    text-shadow: $primarycolotextshadow;
+}
+.Courses-show li:hover a,
+.Teachers-show li:hover a{
+    text-decoration: underline;
+    color: $primarycoloricon;
+}
+.nav-right {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 20%;
+}
+.login a {
+    text-decoration: none;
+    color: $primarycolor;
+    font-size: $fontsize__header;
+}
+.login {
+    animation-name: Expansion;
+    animation-duration: 1.5s;
+    animation-delay: .5s;
+}

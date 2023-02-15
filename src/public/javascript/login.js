@@ -10,5 +10,5 @@ btn.addEventListener("click", () => {
   if (passW.value == "") {
     alert("Please enter password..");
     return false;
-  } else btn.href = "home.html";
+  } else btn.href = "/home";
 });
