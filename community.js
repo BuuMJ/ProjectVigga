@@ -116,9 +116,9 @@ function add() {
               inputlike[i].style.color = "black";
             }
             return (
-              (btndislike[i].innerHTML = `<i class="bi bi-heart-fill"></i>`),
-              (inputdislike[i].value = "0"),
-              (inputdislike[i].style.color = "black")
+              btndislike[i].innerHTML = `<i class="bi bi-heart-fill"></i>`,
+              inputdislike[i].value = "0",
+              inputdislike[i].style.color = "black"
             );
           });
 
@@ -137,9 +137,9 @@ function add() {
               inputdislike[i].style.color = "black";
             }
             return (
-              (btnlike[i].innerHTML = `<i class="bi bi-heart"></i>`),
-              (inputlike[i].value = "0"),
-              (inputlike[i].style.color = "black")
+              btnlike[i].innerHTML = `<i class="bi bi-heart"></i>`,
+              inputlike[i].value = "0",
+              inputlike[i].style.color = "black"
             );
           });
     }
@@ -223,6 +223,7 @@ function clickOn() {
 function clickOff() {
   overplay.style.display = "none";
   tabShow.style.cssText = `transform: translateY(-200%); transition: .5s`;
+  document.getElementById('createpost').value = '';
   document.getElementById("content").value = '';
   document.getElementById("chooserole").value = '';
   document.getElementById("choosecategory").value = '';
@@ -255,7 +256,7 @@ pressEnter.addEventListener('keypress', function(e){
 var alertSuccess = document.getElementById("alertSuccess");
 
 function showAlertSucces() {
-  alertSuccess.style.cssText = `transform: translatex(350%); transition: .5s`;
+  alertSuccess.style.cssText = `transform: translatex(325%); transition: .5s`;
 }
 function hideAlertSucces() {
   alertSuccess.style.cssText = `transform: translatex(500%); transition: .5s`;
@@ -269,7 +270,6 @@ var alertCancle = document.getElementById("alertCancle");
 var overplayCancle = document.getElementById("overplayCancle");
 var nonCancle = document.querySelector(".nonCancle");
 var doCancle = document.querySelector(".doCancle");
-
 function showAlertCancle() {
   alertCancle.style.cssText = `transform: translatey(0); transition: .5s`;
 }
