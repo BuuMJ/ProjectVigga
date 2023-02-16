@@ -327,22 +327,29 @@ a.btn:hover {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  padding: 100px 0;
+  padding-top: 130px;
   overflow-x: hidden; }
 
 .main__content {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%; }
+  align-items: flex-start;
+  width: 65%; }
 
 .sidebar {
   display: flex;
-  flex-direction: row;
-  width: 12%;
-  height: 500px;
-  border-right: 1px solid black; }
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 30%; }
+
+.sidebar-card__ads {
+  width: 80%;
+  box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.5);
+  margin-bottom: 24px; }
+
+.sidebar-card__ads img {
+  height: 40%; }
 
 ul {
   margin-bottom: 0 !important;
@@ -358,7 +365,7 @@ ul {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  width: 70%;
+  width: 90%;
   height: 100px;
   padding: 0 20px;
   background-color: rgba(0, 0, 0, 0.3);
@@ -388,7 +395,8 @@ ul {
   border: 5px solid #04E474;
   border-radius: 10px;
   color: #04E474;
-  transform: translatey(-150%); }
+  transform: translatey(-150%);
+  z-index: 10; }
 
 #alertSuccess i,
 #alertComment i,
@@ -424,7 +432,7 @@ ul {
   border-radius: 10px;
   color: #DA0404;
   transform: translateY(-200%);
-  z-index: 6; }
+  z-index: 10; }
 
 .textFail {
   padding: 6px; }
@@ -442,7 +450,7 @@ ul {
   background-color: rgba(0, 0, 0, 0.9);
   width: 100%;
   height: 100%;
-  z-index: 4;
+  z-index: 10;
   cursor: pointer; }
 
 #alertCancle {
@@ -462,7 +470,7 @@ ul {
   border-radius: 10px;
   text-align: center;
   transform: translatey(-300%);
-  z-index: 5; }
+  z-index: 10; }
 
 #alertCancle i {
   font-size: 40px; }
@@ -513,7 +521,8 @@ ul {
   border: 5px solid #FCAC34;
   border-radius: 10px;
   color: #FCAC34;
-  transform: translatey(-150%); }
+  transform: translatey(-150%);
+  z-index: 10; }
 
 #overplay {
   display: none;
@@ -602,9 +611,11 @@ form .col-md-2 {
   flex-wrap: wrap;
   width: 80%;
   background-color: white;
+  border: 1px solid #BCBCBB;
   box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.5);
   margin: 30px;
-  height: auto; }
+  height: auto;
+  border-radius: 10px; }
 
 .linkDownload {
   padding: 12px 20px;
@@ -627,7 +638,9 @@ form .col-md-2 {
   margin: 0 12px 0 0; }
 
 .content__blog span {
-  padding: 12px 20px; }
+  display: inline-block;
+  padding: 12px 20px;
+  overflow-wrap: anywhere; }
 
 button.btnlike,
 button.btndislike {

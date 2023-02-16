@@ -1,5 +1,5 @@
 // function Create status
-var data = [];
+var data = localStorage.getItem('Post') ? JSON.parse(localStorage.getItem('Post')) : [];
 
 function add() {
   var blogContent = document.getElementById("content").value;
@@ -57,8 +57,9 @@ function add() {
 
     data.push(blogItem);
     renderAndBind();
-
+    localStorage.setItem('Post', JSON.stringify(data))
     function renderBlog() {
+      var data = localStorage.getItem('Post') ? JSON.parse(localStorage.getItem('Post')) : [];
       table = "";
       for (var i = 0; i < data.length; i++) {
         var fileNames = "";
@@ -92,6 +93,8 @@ function add() {
       }
       document.getElementById("content__list--blog").innerHTML = table;
     }
+   
+
     function renderAndBind() {
       renderBlog();
       // function like and dislike
@@ -193,7 +196,6 @@ function add() {
           }
         };
       }
-    
     var alertComment = document.getElementById("alertComment");
     function showAlertComment() {
       alertComment.style.cssText = `transform: translatey(300%); transition: .5s`;
@@ -228,6 +230,7 @@ function clickOff() {
   document.getElementById("content").value = '';
   document.getElementById("chooserole").value = '';
   document.getElementById("choosecategory").value = '';
+  document.getElementById("myFile").value = '';
 }
 
 show.onclick = function () {
