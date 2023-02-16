@@ -10,7 +10,7 @@ function add() {
   var date =
     today.getDate() + "/" + (today.getMonth() + 1) + "/" + today.getFullYear();
   var time = today.getHours() + ":" + today.getMinutes();
-  var dateTime = date + " On " + time;
+  var dateTime = date + " at " + time;
   if (!blogContent) {
     var alertFail = document.getElementById("alertFail");
     function showAlertFail() {
@@ -177,7 +177,7 @@ function add() {
               todayComment.getFullYear();
             var timeComment =
               todayComment.getHours() + ":" + todayComment.getMinutes();
-            var commentTime = dateComment + " On " + timeComment;
+            var commentTime = dateComment + " at " + timeComment;
             var commentSection = `<li class="comment__section">
                                   <div class="comment__info">
                                   <p class="comment__text"> ${comment}</p>
@@ -186,6 +186,7 @@ function add() {
                                 </li>`;
             commentList[index].insertAdjacentHTML("beforeend", commentSection);
             comment = "";
+            document.getElementById('content__comment').value = '';
           } else {
             showAlertComment();
             hideAllertCTimeOut();
@@ -195,10 +196,10 @@ function add() {
     
     var alertComment = document.getElementById("alertComment");
     function showAlertComment() {
-      alertComment.style.cssText = `transform: translatex(-5%); transition: .5s`;
+      alertComment.style.cssText = `transform: translatey(300%); transition: .5s`;
     }
     function hideAlertComment() {
-      alertComment.style.cssText = `transform: translatex(150%); transition: .5s`;
+      alertComment.style.cssText = `transform: translatey(-150%); transition: .5s`;
     }
     let hideAlertC;
     function hideAllertCTimeOut() {
@@ -256,10 +257,10 @@ pressEnter.addEventListener('keypress', function(e){
 var alertSuccess = document.getElementById("alertSuccess");
 
 function showAlertSucces() {
-  alertSuccess.style.cssText = `transform: translatex(325%); transition: .5s`;
+  alertSuccess.style.cssText = `transform: translatey(300%); transition: .5s`;
 }
 function hideAlertSucces() {
-  alertSuccess.style.cssText = `transform: translatex(500%); transition: .5s`;
+  alertSuccess.style.cssText = `transform: translatey(-150%); transition: .5s`;
 }
 let hideAlertS;
 function hideTimeOut() {

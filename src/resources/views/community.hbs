@@ -1,101 +1,79 @@
- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
- <div class="main">
-      <div class="main__content">
-        <div class="showcreate">
-          <textarea
-            id="createpost"
-            placeholder="What Are You Thinking?"
-          ></textarea>
-        </div>
-        <div id="alertSuccess">
-          <i class="bi bi-check-circle-fill"></i>
-          <div class="textSuccess">
-            <span>Success!</span>
-            <p>You have successfully created your post</p>
-          </div>
-        </div>
-        <div id="alertFail">
-          <i class="bi bi-bug-fill"></i>
-          <div class="textFail">
-            <span>Fail!</span>
-            <p>if you wanna Create New Post, You have to enter your content.</p>
-          </div>
-        </div>
-        <div id="alertComment">
-          <i class="bi bi-dash-circle"></i>
-          <div class="textComment">
-            <span>Warning</span>
-            <p>Please enter a comment</p>
-          </div>
-        </div>
-        <div id="overplayCancle"></div>
-        <div id="alertCancle">
-          <i class="bi bi-exclamation-diamond-fill"></i>
-          <div class="textCancle">
-            <span>Are You Sure?</span>
-            <p>Don't wanna create your own posts?</p>
-          </div>
-          <div class="btnCancle">
-            <button class="nonCancle">Cancle</button>
-            <button class="doCancle">Yes</button>
-          </div>
-        </div>
-        <div id="overplay"></div>
-        <form id="show" class="col g-3 blogC shadow-lg p-3 bg-body rounded">
-          <h1>Create New Post</h1>
-          <div class="col-md-2">
-            <label for="validationDefault03" class="form-label">Content</label>
-            <textarea
-              type="text"
-              class="form-control"
-              id="content"
-              placeholder="Click to add Content"
-            ></textarea>
-          </div>
-          <div class="col-md-2">
-            <label for="chooserole" class="form-label">Select</label>
-            <select
-              id="chooserole"
-              class="form-select form-select-lg mb-3"
-              aria-label=".form-select-lg example"
-            >
-              <option disabled selected value="">Role</option>
-              <option value="Staff">Staff</option>
-              <option value="Teacher">Teacher</option>
-              <option value="Student">Student</option>
-            </select>
-            <label for="choosecategory" class="form-label">Category</label>
-            <select
-              id="choosecategory"
-              class="form-select form-select-sm"
-              aria-label=".form-select-sm example"
-            >
-              <option disabled selected value="">
-                select the category you wanna include
-              </option>
-              <option value="New Ideas">New Ideas</option>
-              <option value="Exercises">Exercises</option>
-              <option value="Social">Social</option>
-              <option value="Feeback">Feeback</option>
-            </select>
-          </div>
-          <div class="col-md-2">
-            <label for="validationDefault05" class="form-label"
-              >UpLoad File</label
-            >
-            <input multiple type="file" id="myFile"  class="form-control">
-          </div>
-          <div class="col-12 submitCreate">
-            <a id="btn-back" class="btn btn-back">Back</a>
-            <button id="btn-primary" class="btn btn-primary" type="button">
-              Create Course
-            </button>
-          </div>
-        </form>
-        <ul id="content__list--blog"></ul>
+<div class="main">
+  <div class="main__content">
+    <div class="showcreate">
+      <textarea id="createpost" placeholder="What Are You Thinking?"></textarea>
+    </div>
+    <div id="alertSuccess">
+      <i class="bi bi-check-circle-fill"></i>
+      <div class="textSuccess">
+        <span>Success!</span>
+        <p>You have successfully created your post</p>
       </div>
     </div>
+    <div id="alertFail">
+      <i class="bi bi-bug-fill"></i>
+      <div class="textFail">
+        <span>Fail!</span>
+        <p>if you wanna Create New Post, You have to enter your content</p>
+      </div>
+    </div>
+    <div id="alertComment">
+      <i class="bi bi-dash-circle"></i>
+      <div class="textComment">
+        <span>Warning</span>
+        <p>Please enter a comment</p>
+      </div>
+    </div>
+    <div id="overplayCancle"></div>
+    <div id="alertCancle">
+      <i class="bi bi-exclamation-diamond-fill"></i>
+      <div class="textCancle">
+        <span>Are You Sure?</span>
+        <p>Don't wanna create your own posts?</p>
+      </div>
+      <div class="btnCancle">
+        <button class="nonCancle">Cancle</button>
+        <button class="doCancle">Yes</button>
+      </div>
+    </div>
+    <div id="overplay"></div>
+    <form id="show" class="col g-3 blogC shadow-lg p-3 bg-body rounded">
+      <h1>Create New Post</h1>
+      <div class="col-md-2">
+        <label for="validationDefault03" class="form-label">Content</label>
+        <textarea type="text" class="form-control" id="content" placeholder="Click to add Content"></textarea>
+      </div>
+      <div class="col-md-2">
+        <label for="chooserole" class="form-label">Select</label>
+        <select id="chooserole" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+          <option disabled selected value="">Role</option>
+          <option value="Staff">Staff</option>
+          <option value="Teacher">Teacher</option>
+          <option value="Student">Student</option>
+        </select>
+        <label for="choosecategory" class="form-label">Category</label>
+        <select id="choosecategory" class="form-select form-select-sm" aria-label=".form-select-sm example">
+          <option disabled selected value="">
+            select the category you wanna include
+          </option>
+          <option value="New Ideas">New Ideas</option>
+          <option value="Exercises">Exercises</option>
+          <option value="Social">Social</option>
+          <option value="Feeback">Feeback</option>
+        </select>
+      </div>
+      <div class="col-md-2">
+        <label for="validationDefault05" class="form-label">UpLoad File</label>
+        <input multiple type="file" id="myFile" class="form-control" />
+      </div>
+      <div class="col-12 submitCreate">
+        <a id="btn-back" class="btn btn-back">Back</a>
+        <button id="btn-primary" class="btn btn-primary" type="button">
+          Create Course
+        </button>
+      </div>
+    </form>
+    <ul id="content__list--blog"></ul>
+  </div>
+</div>
 <script src="/javascript/community.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>

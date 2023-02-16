@@ -1,10 +1,10 @@
 
 .main{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-around;
-    width: 100%;
-    padding:100px 0;
+    padding: 100px 0;
+    overflow-x: hidden;
 }
 .main__content{
     display: flex;
@@ -22,6 +22,13 @@
 }
 ul{
     margin-bottom: 0!important;
+    padding-left: 0!important;
+    padding-inline-start: 0!important;
+}
+.Courses-show,
+.Teachers-show{
+    top: 94%;
+    left: -45%;
 }
 .showcreate {
     display: flex;
@@ -46,10 +53,8 @@ ul{
 }
 #alertSuccess {
     position: absolute;
-    top: 150px;
-    left: 0;
+    top: 0;
     right: 0;
-    bottom: 0;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -59,7 +64,7 @@ ul{
     border: 5px solid #04E474;
     border-radius: 10px;
     color: #04E474 ;
-    transform: translateX(500%);
+    transform: translatey(-150%);
 }
 #alertSuccess i,
 #alertComment i,
@@ -173,7 +178,7 @@ ul{
 }
 #alertComment {
     position: absolute;
-    top: 45%;
+    top: 0;
     right: 0;
     display: flex;
     flex-direction: row;
@@ -184,7 +189,7 @@ ul{
     border: 5px solid #FCAC34;
     border-radius: 10px;
     color: #FCAC34 ;
-    transform: translatex(150%);
+    transform: translatey(-150%);
 }
 
 #overplay{
@@ -209,7 +214,7 @@ ul{
     z-index: 3;
     position: absolute;
     top: 0;
-    left: 12%;
+    left: -1%;
     right: 0;
     bottom: 10%;
     transform: translateY(-200%);
@@ -240,22 +245,22 @@ form .col-md-2 {
     width: 125.21px;
     height: 38px;
     text-align: center;
-    background-color: grey;
-    color: white;
+    background-color: grey!important;
+    color: white!important;
 }
 .btn-primary:hover {
-    background-color: white;
-    border: 1px solid #0d6efd;
-    color: #0d6efd;
+    background-color: white!important;
+    border: 1px solid #0d6efd!important;
+    color: #0d6efd!important;
 }
 .btn-back:hover {
-    background-color: white;
-    border: 1px solid red;
-    color: red;
+    background-color: white!important;
+    border: 1px solid red!important;
+    color: red!important;
 }
 .btn-primary,
 .btn-back{
-    transition: .5s;
+    transition: .5s!important;
 }
 .col-md-2 textarea {
     resize: none;
@@ -337,7 +342,7 @@ input.inputlike{
     flex-direction: column;
     justify-content: space-around ;
     width: 90%;
-    padding: 12px 20px;
+    padding: 12px 20px!important;
 }
 #comment textarea {
     resize: none;

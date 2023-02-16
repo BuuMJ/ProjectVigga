@@ -5,7 +5,7 @@ const siteController = require('../app/controllers/SiteController');
 
 
 
-router.use('/home', siteController.home);
-router.use('/login', siteController.login);
+router.get('/login', siteController.login);
+router.get('/', siteController.home);
 
 module.exports = router;

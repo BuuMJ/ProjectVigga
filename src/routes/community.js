@@ -5,6 +5,6 @@ const communityController = require('../app/controllers/CommunityController');
 
 // communityController.index
 
-router.use('/', communityController.index);
+router.get('/', communityController.index);
 
 module.exports = router;

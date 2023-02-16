@@ -58,6 +58,9 @@
 .footer .bi:hover {
     color: $primarycoloricon;
 }
+#moveTopBtn {
+    opacity: 0;
+}
 button#moveTopBtn{
     border: none;
     outline: unset;
