@@ -1,5 +1,5 @@
 // function Create status
-var data = localStorage.getItem('Post') ? JSON.parse(localStorage.getItem('Post')) : [];
+var data = [];
 
 function add() {
   var blogContent = document.getElementById("content").value;
@@ -57,9 +57,7 @@ function add() {
 
     data.push(blogItem);
     renderAndBind();
-    localStorage.setItem('Post', JSON.stringify(data))
     function renderBlog() {
-      var data = localStorage.getItem('Post') ? JSON.parse(localStorage.getItem('Post')) : [];
       table = "";
       for (var i = 0; i < data.length; i++) {
         var fileNames = "";
