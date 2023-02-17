@@ -30,8 +30,8 @@
     100% {
         scale: 2;
     }
-}
+} 
 @keyframes MoveColor {
     from{transform: translateX(0);}
-    to {transform: translateX(95VW);}
+    to {transform: translateX(100vw);}
 }

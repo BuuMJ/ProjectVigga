@@ -40,3 +40,56 @@
         </div>
       </div>
     </div>
+
+    {{!-- header responsive --}}
+    <div class="header-mini">
+      <nav id="navbar-mini" class="navbar navbar-dark fixed-top">
+  <div class="container-fluid">
+         <div class="navbar-left">
+          <a href="/"><span class="text__left">Vigga</span></a>
+          <a href="/"><img src="/img/LOGOVGA.png" alt="" /></a>
+          <a href="/"><span class="text__right">Ielts</span></a>
+        </div>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Menu</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+                <div class="navbar-center">
+          <ul class="nav-list">
+            <ul class="drop-down__Home">
+              <a href="/"><span>Home</span></a>
+            </ul>
+            <ul class="drop-down__Course">
+              <a href="./CoursePage.html"><span>Courses</span></a>
+              <ul class="Courses-show show-mini">
+                <li><a href="./CoursePage.html">List Course</a></li>
+                <li><a href="">Create Course</a></li>
+                <li><a href="">Manager Course</a></li>
+              </ul>
+            </ul>
+            <ul class="drop-down__Community">
+              <a href="/community"><span>Community</span></a>
+            </ul>
+            <ul class="drop-down__Teachers">
+              <a href="./TeacherPage.html"><span>Teachers</span></a>
+              <ul class="Teachers-show show-mini">
+                <li><a href="./TeacherPage.html">List Teacher</a></li>
+                <li><a href="">Create Teacher</a></li>
+                <li><a href="">Manager Teacher</a></li>
+              </ul>
+            </ul>
+            <ul class="header-mini__login">
+              <a href="/login">Login</a>
+              </ul>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+    </div>

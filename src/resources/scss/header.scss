@@ -46,14 +46,14 @@
     
 }
 .navbar-left .text__left{
-    animation-name: MoveInLeft ;
+    animation-name: MoveInLeft;
     animation-duration: 2s;
-    animation-delay: 2;
+    animation-delay: 2s;
 }
 .navbar-left .text__right{
     animation-name: MoveInRight;
     animation-duration: 2s;
-    animation-delay: 2;
+    animation-delay: 2s;
 }
 
 .navbar-center{
@@ -143,4 +143,52 @@
     animation-name: Expansion;
     animation-duration: 1.5s;
     animation-delay: .5s;
+}
+.header-mini {
+    display: none;
+}
+
+// responsive
+@media screen and (min-width: 319px) and (max-width: 415px) {
+    .header {
+        display: none;
+    }
+    .header-mini{
+        display: block;
+    }
+    .header-mini .navbar-left {
+        width: unset;
+    }
+    .header-mini .navbar {
+        background-color: #0480FC; 
+    }
+    .navbar-toggler {
+        background-color: rgba(0, 150, 255,0.5)!important;
+        padding: unset!important;
+    }
+    .offcanvas-header,
+    .offcanvas-body {
+        background-color: #0480FC!important;
+    }
+    .offcanvas-body .nav-list {
+        display: flex;
+        flex-direction: column;
+        // width: 100%;
+        justify-content: space-around;
+        align-items: flex-start;
+    }
+    .nav-list > * {
+        padding: 10px;
+    }
+    .show-mini {
+        z-index: 200;
+        background-color: #0480FC;
+    }
+    .navbar-toggler-icon {
+        background-image: url('/img/tabmenu.webp')!important;
+        background-position: center;
+        background-size: contain;
+        height: 40px!important;
+        width: 50px!important;
+    }
 }
