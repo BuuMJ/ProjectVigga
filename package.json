@@ -1,9 +1,13 @@
 {
   "dependencies": {
+    "bcrypt": "^5.1.0",
+    "body-parser": "^1.20.1",
     "bootstrap": "^5.2.3",
     "bootstrap-icons": "^1.10.3",
     "express": "^4.17.1",
-    "express-handlebars": "^5.1.0"
+    "express-handlebars": "^5.1.0",
+    "form-data": "^4.0.0",
+    "mongoose": "^6.9.2"
   },
   "name": "projectvigga",
   "description": "��#\u0000 \u0000P\u0000r\u0000o\u0000j\u0000e\u0000c\u0000t\u0000V\u0000i\u0000g\u0000g\u0000a\u0000\r\u0000 \u0000",
@@ -11,7 +15,7 @@
   "main": "src/server.js",
   "scripts": {
     "start": "nodemon --inspect src/server.js",
-    "watch":"node-sass --watch src/resources/scss/app.scss src/public/css/app.css",
+    "watch": "node-sass --watch src/resources/scss/app.scss src/public/css/app.css",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

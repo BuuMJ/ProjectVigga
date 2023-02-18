@@ -1,16 +1,19 @@
 <div class="box__login">
+  <form method="POST" action="/apilogin">
       <div class="form">
         <h1>Log In</h1>
 
         <label for="user">User Name</label>
-        <input id="user" name="user" type="user" placeholder="lethanhhoang" />
+        <input id="user" name="username" type="user" placeholder="lethanhhoang" />
         <label for="password">Password</label>
         <input id="password" name="password" type="password" />
-        <a class="submit">submit</a>
+        <button type="submit">submit </button>
         <p class="register">
           no account?
           <a href="register.html">Register</a>
         </p>
       </div>
+    </form>
 </div>
-<script src="/javascript/login.js"></script>
+<script src="../../public/javascript/login.js"></script>
+{{#if msg}}<h1>{{msg}}</h1>{{/if}}
