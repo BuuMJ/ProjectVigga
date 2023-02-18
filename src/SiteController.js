@@ -19,18 +19,16 @@ class SiteController {
       
         AccountModel.findOne({
             username: username,
+            password: password
         })
         .then(data=>{
-          bcrypt.compare(password, data.password, function(err, result) {
-            if(err){console.log(err)}
-            if(result){
-              return res.redirect("/")
-            }else{
-              res.render('login', {msg : 'dang nhap that bai'})
-              // return res.json('dang nhap that bai');
-            }
-          });
-         
+          if(data){
+              
+            return res.redirect("/")
+          }else{
+            res.render('login', {msg : 'dang nhap that bai'})
+            // return res.json('dang nhap that bai');
+          }
         })
       }
 }
