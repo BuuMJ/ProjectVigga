@@ -1024,13 +1024,17 @@ input.inputlike {
 .comment__date {
   font-size: 12px; }
 
+.card-login {
+  box-shadow: 4px 4px 20px #0096ff; }
+
 .login-error {
   font-size: 14px;
   color: #E70707;
   margin: unset; }
 
 .bg-img img {
-  height: 700px; }
+  height: 700px;
+  border-radius: 8px 0 0 8px !important; }
 
 .footer {
   display: flex;

@@ -1,4 +1,7 @@
 
+.card-login {
+    box-shadow: 4px 4px 20px rgba(0, 150, 255,60%);
+}
 .login-error {
     font-size: 14px;
     color: #E70707;
@@ -6,4 +9,5 @@
 }
 .bg-img img {
     height: 700px;
+    border-radius: 8px 0 0 8px !important;
 }
