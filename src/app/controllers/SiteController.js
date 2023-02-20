@@ -26,7 +26,7 @@ class SiteController {
             if(result){
               return res.redirect("/")
             }else{
-              res.render('login', {msg : 'dang nhap that bai'})
+              res.render('login', {msg : 'The user or password is incorrect.'})
               // return res.json('dang nhap that bai');
             }
           });

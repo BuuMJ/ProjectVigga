@@ -345,6 +345,13 @@ a.btn:hover {
         font-size: 12px;
         height: 40px;
     }
+    .btn5-hover:hover {
+        background-position: 90% 0;
+        moz-transition: all .4s ease-in-out;
+        -o-transition: all .4s ease-in-out;
+        -webkit-transition: all .4s ease-in-out;
+        transition: all .4s ease-in-out;
+      }
     .intro b{
         color: #0480FC;
         font-size: 18px;
