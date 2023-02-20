@@ -45,12 +45,12 @@
     margin: 0 6px;
     
 }
-.navbar-left .text__left{
+.navbar-left span.text__left{
     animation-name: MoveInLeft;
     animation-duration: 2s;
     animation-delay: 2s;
 }
-.navbar-left .text__right{
+.navbar-left span.text__right{
     animation-name: MoveInRight;
     animation-duration: 2s;
     animation-delay: 2s;
@@ -91,13 +91,13 @@
 }
 .drop-down__Course,
 .drop-down__Community,
-.drop-down__Teachers {
+.drop-down__Users {
     position: relative;
     cursor: pointer;
     padding: 30px;
 }
 .Courses-show,
-.Teachers-show{
+.Users-show{
     display: none;
     position: absolute;
     top: 98%;
@@ -107,24 +107,25 @@
     background-color: $primarybackgroundcolor;
     padding-bottom: 10px;
 }
-.Teachers-show{
-    left: -8%;
+.Users-show{
+    left: -71%;
+    top: 94%;
 }
 .drop-down__Course:hover .Courses-show,
-.drop-down__Teachers:hover .Teachers-show{
+.drop-down__Users:hover .Users-show{
     display: block;
 }
 .drop-down__Home:hover span,
 .drop-down__Course:hover span,
 
 .drop-down__Community:hover span,
-.drop-down__Teachers:hover span,
+.drop-down__Users:hover span,
 .login:hover a,
 .register:hover a{
     text-shadow: $primarycolotextshadow;
 }
 .Courses-show li:hover a,
-.Teachers-show li:hover a{
+.Users-show li:hover a{
     text-decoration: underline;
     color: $primarycoloricon;
 }

@@ -44,12 +44,12 @@
   cursor: pointer;
   margin: 0 6px; }
 
-.navbar-left .text__left {
+.navbar-left span.text__left {
   animation-name: MoveInLeft;
   animation-duration: 2s;
   animation-delay: 2s; }
 
-.navbar-left .text__right {
+.navbar-left span.text__right {
   animation-name: MoveInRight;
   animation-duration: 2s;
   animation-delay: 2s; }
@@ -87,13 +87,13 @@
 
 .drop-down__Course,
 .drop-down__Community,
-.drop-down__Teachers {
+.drop-down__Users {
   position: relative;
   cursor: pointer;
   padding: 30px; }
 
 .Courses-show,
-.Teachers-show {
+.Users-show {
   display: none;
   position: absolute;
   top: 98%;
@@ -103,23 +103,24 @@
   background-color: #0480FC;
   padding-bottom: 10px; }
 
-.Teachers-show {
-  left: -8%; }
+.Users-show {
+  left: -71%;
+  top: 94%; }
 
 .drop-down__Course:hover .Courses-show,
-.drop-down__Teachers:hover .Teachers-show {
+.drop-down__Users:hover .Users-show {
   display: block; }
 
 .drop-down__Home:hover span,
 .drop-down__Course:hover span,
 .drop-down__Community:hover span,
-.drop-down__Teachers:hover span,
+.drop-down__Users:hover span,
 .login:hover a,
 .register:hover a {
   text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.7); }
 
 .Courses-show li:hover a,
-.Teachers-show li:hover a {
+.Users-show li:hover a {
   text-decoration: underline;
   color: black; }
 
@@ -186,29 +187,51 @@
 
 .intro h2 {
   font-size: 40px;
-  padding: 12px 0; }
+  padding: 12px 0;
+  margin: unset !important; }
 
 .intro p {
   padding: 12px 24% 28px 24%;
   font-size: 25px;
-  color: white; }
+  color: white;
+  margin: unset !important; }
 
-.intro a {
-  text-decoration: none;
-  padding: 10px 12px;
-  color: black;
-  background-color: rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
-  width: 10%; }
+.btn__visit {
+  width: 100%; }
+
+.btn5-hover {
+  width: 10%;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  height: 55px;
+  text-align: center;
+  border: none;
+  background-size: 300% 100%;
+  border-radius: 50px;
+  moz-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out; }
+
+.btn5-hover:hover {
+  background-position: 100% 0;
+  moz-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out; }
+
+.btn5-hover:focus {
+  outline: none; }
+
+.btn5-hover.btn5 {
+  background-image: linear-gradient(to right, #25aae1, #4481eb, #04befe, #3f86ed);
+  box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75); }
 
 .intro b {
   color: #0480FC;
   font-size: 30px; }
-
-.intro a:hover {
-  color: #0480FC;
-  background-color: #242424; }
 
 .aboutus {
   display: flex;
@@ -294,8 +317,19 @@ span.foreign__content {
   width: 100%;
   height: 100% !important; }
 
+.card-img {
+  height: 319px;
+  overflow: hidden;
+  transition: .5s;
+  cursor: pointer;
+  border-bottom-right-radius: 0 !important;
+  border-bottom-left-radius: 0 !important; }
+
 .card-img-top {
-  height: 319px; }
+  height: 100%; }
+
+.card-img-top:hover {
+  transform: scale(1.2); }
 
 .body__content {
   height: 185px; }
@@ -321,27 +355,20 @@ a.btn:hover {
     background: linear-gradient(to right, rgba(0, 0, 0, 0.2), rgba(0, 0, 255, 0.39)), url("/img/bgcontent.jpg") cover/contain no-repeat;
     text-align: center;
     color: black; }
+  .btn5 {
+    width: 50%;
+    font-size: 12px;
+    height: 40px; }
   .intro h2 {
-    font-size: 20px;
+    font-size: 26px;
     padding: 73px 0 12px 0; }
   .intro p {
     padding: 4px 12% 12px 12%;
     font-size: 14px;
     color: white; }
-  .intro a {
-    text-decoration: none;
-    padding: 10px 12px;
-    color: black;
-    background-color: rgba(255, 255, 255, 0.4);
-    border-radius: 10px;
-    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
-    width: 10%; }
   .intro b {
     color: #0480FC;
     font-size: 18px; }
-  .intro a:hover {
-    color: #0480FC;
-    background-color: #242424; }
   .aboutus {
     margin-bottom: 70px; }
   .about__content {
@@ -377,12 +404,14 @@ a.btn:hover {
   .card {
     width: 100%;
     height: 100% !important; }
+  .card-img {
+    height: 240px; }
   .card-img-top {
-    height: 240px !important; }
+    height: 100% !important; }
   .c1 {
     height: 170px !important; }
   .c2 {
-    height: 200px !important; }
+    height: 220px !important; }
   .card-1 {
     height: 100% !important; }
   .card-title {
@@ -393,7 +422,7 @@ a.btn:hover {
     height: 100% !important; }
   .c3,
   .c4 {
-    height: 120px !important; }
+    height: 140px !important; }
   .c5 {
     height: 180px !important; }
   .body__content {
@@ -424,26 +453,19 @@ a.btn:hover {
     text-align: center;
     color: black; }
   .intro h2 {
-    font-size: 20px;
+    font-size: 28px;
     padding: 73px 0 12px 0; }
   .intro p {
     padding: 4px 12% 12px 12%;
     font-size: 14px;
     color: white; }
-  .intro a {
-    text-decoration: none;
-    padding: 10px 12px;
-    color: black;
-    background-color: rgba(255, 255, 255, 0.4);
-    border-radius: 10px;
-    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
-    width: 10%; }
+  .btn5 {
+    width: 36%;
+    font-size: 12px;
+    height: 40px; }
   .intro b {
     color: #0480FC;
     font-size: 18px; }
-  .intro a:hover {
-    color: #0480FC;
-    background-color: #242424; }
   .aboutus {
     margin-bottom: 70px; }
   .about__content {
@@ -479,12 +501,14 @@ a.btn:hover {
   .card {
     width: 100%;
     height: 100% !important; }
+  .card-img {
+    height: 240px; }
   .card-img-top {
     height: 240px !important; }
   .c1 {
-    height: 145px !important; }
+    height: 190px !important; }
   .c2 {
-    height: 210px !important; }
+    height: 240px !important; }
   .card-1 {
     height: 96% !important; }
   .card-2 {
@@ -493,7 +517,7 @@ a.btn:hover {
   .c4 {
     height: 140px !important; }
   .c5 {
-    height: 180px !important; }
+    height: 200px !important; }
   .body__content {
     padding: 14px !important;
     height: 226px; }
@@ -511,6 +535,14 @@ a.btn:hover {
     height: 95% !important; } }
 
 @media screen and (min-width: 600px) and (max-width: 1022px) {
+  .intro h2 {
+    font-size: 40px; }
+  .intro p {
+    font-size: 16px; }
+  .btn5 {
+    width: 26%;
+    font-size: 14px;
+    height: 40px; }
   .aboutus {
     margin-bottom: 0 !important; }
   .about__carousel {
@@ -531,15 +563,16 @@ a.btn:hover {
   span.primary__content {
     padding-top: 0 !important; }
   .body__content {
-    padding: 14px !important;
-    height: 170px !important; }
+    padding: 14px !important; }
+  .card-img {
+    height: 240px; }
   .c2 {
-    height: 180px !important; }
+    height: 165px !important; }
   .c3,
   .c4 {
-    height: 160px !important; }
+    height: 155px !important; }
   .c5 {
-    height: 180px !important; }
+    height: 170px !important; }
   h5.card-title {
     font-size: 16px; }
   p.card-text {
@@ -555,9 +588,13 @@ a.btn:hover {
   .col-sm-6 .card-1 {
     height: 90% !important; }
   .card-1 .c1 {
-    height: 160px !important; } }
+    height: 150px !important; } }
 
 @media screen and (min-width: 1023px) and (max-width: 1367px) {
+  .btn5 {
+    width: 16%;
+    font-size: 14px;
+    height: 46px; }
   .intro p {
     padding: 12px 16% 28px 16% !important; }
   .about__content {
@@ -586,6 +623,8 @@ a.btn:hover {
     margin-right: 0 !important; }
   .col-sm-6 .card {
     width: 100%; }
+  .c2 {
+    height: 160px !important; }
   .body__content {
     height: 130px; } }
 
@@ -1011,6 +1050,14 @@ input.inputlike {
   background-color: #cfc6a8;
   border-radius: 10px; }
 
+.btn-login {
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px; }
+
+.btn-login:hover {
+  box-shadow: 2px 2px 5px black; }
+
 .form a:hover {
   background-color: black;
   color: white; }
@@ -1056,7 +1103,7 @@ input.inputlike {
 
 .underline img {
   height: 60px;
-  animation-name: MoveColor;
+  animation-name: RunAway;
   animation-duration: 5s;
   animation-iteration-count: infinite;
   animation-fill-mode: forwards;
@@ -1123,7 +1170,7 @@ button#moveTopBtn {
   100% {
     scale: 2; } }
 
-@keyframes MoveColor {
+@keyframes RunAway {
   from {
     transform: translateX(0); }
   to {
@@ -1136,4 +1183,4 @@ button#moveTopBtn {
   transition: .5s; }
 
 body {
-  font-family: Arial,Helvetica,sans-serif; }
+  font-family: 'Open Sans', sans-serif !important; }

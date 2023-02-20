@@ -4,13 +4,13 @@
         <h1>Log In</h1>
 
         <label for="user">User Name</label>
-        <input id="user" name="username" type="user" placeholder="lethanhhoang" />
+        <input id="user" name="username" type="user" placeholder="lethanhhoang" oninput="checkValue()" />
         <label for="password">Password</label>
-        <input id="password" name="password" type="password" />
-        <button type="submit">submit </button>
+        <input id="password" name="password" type="password" oninput="checkValue()" />
+        <button class="btn-login" type="submit"> Login </button>
         <p class="register">
           no account?
-          <a href="register.html">Register</a>
+          <a href="/register">Register</a>
         </p>
       </div>
     </form>

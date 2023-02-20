@@ -34,7 +34,14 @@
     border-radius: 10px;
     
 }
-
+.btn-login {
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+}
+.btn-login:hover {
+    box-shadow: 2px 2px 5px black;
+}
 .form a:hover {
     background-color: black;
     color: white;
