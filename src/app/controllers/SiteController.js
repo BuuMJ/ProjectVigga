@@ -21,16 +21,21 @@ class SiteController {
             username: username,
         })
         .then(data=>{
-          bcrypt.compare(password, data.password, function(err, result) {
-            if(err){console.log(err)}
-            if(result){
-              return res.redirect("/")
-            }else{
-              res.render('login', {msg : 'The user or password is incorrect.'})
-              // return res.json('dang nhap that bai');
-            }
-          });
-         
+          if(data){
+            return bcrypt.compare(password, data.password, function(err, result) {
+              if(err){console.log(err)}
+              if(result){
+                return res.redirect("/")
+                // return res.json('dang nhap thanh cong');
+              }else{
+                return res.render('login', {msg : 'The user or password is incorrect.'})
+                // return res.json('dang nhap that bai');
+              }
+            });
+          }else{
+            // return res.json('sai tai khoan');
+            return res.render('login', {msg : 'The user or password is incorrect.'})
+          }
         })
       }
 }
