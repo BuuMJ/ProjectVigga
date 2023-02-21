@@ -46,7 +46,7 @@
     color: $whitecolor;
     cursor: pointer;
     margin: 0 6px;
-    
+    font-weight: 700;
 }
 .navbar-left span.text__left{
     animation-name: MoveInLeft;
@@ -87,19 +87,21 @@
 }
 .nav-list ul {
     font-size: $fontsize__header;
+    font-weight: 700;
 }
 
 .nav-list li {
     font-size: 16px;
+    font-weight: 700;
 }
-.drop-down__Course,
-.drop-down__Community,
+.drop-down__Managements,
+.drop-down__Submission,
 .drop-down__Users {
     position: relative;
     cursor: pointer;
     padding: 30px;
 }
-.Courses-show,
+.Managements-show,
 .Users-show{
     display: none;
     position: absolute;
@@ -108,29 +110,23 @@
     background-color: rgba(0,0,0,0.9);
     padding-bottom: 10px;
     border-bottom: 2px solid #e10d11;
-    top: 96%;
+    top: 99% !important;
 }
-.Courses-show{
+.Managements-show{
     left: -19% !important; 
-    top: 97%;
 }
 .Users-show{
     left: 0;
 }
-.drop-down__Course:hover .Courses-show,
+.drop-down__Managements:hover .Managements-show,
 .drop-down__Users:hover .Users-show{
     display: block;
 }
 .drop-down__Home:hover span,
-.drop-down__Course:hover span,
-
-.drop-down__Community:hover span,
+.drop-down__Managements:hover span,
+.drop-down__Submission:hover span,
 .drop-down__Users:hover span,
-.login:hover a,
-.register:hover a{
-    text-shadow: $primarycolotextshadow;
-}
-.Courses-show li:hover a,
+.Managements-show li:hover a,
 .Users-show li:hover a{
     text-decoration: underline;
 }
@@ -144,6 +140,7 @@
     text-decoration: none;
     color: $whitecolor;
     font-size: $fontsize__header;
+    font-weight: 700;
 }
 .login {
     animation-name: Expansion;
