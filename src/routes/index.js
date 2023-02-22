@@ -2,13 +2,13 @@ const staffsubmissionRouter = require('./staffsubmission')
 const siteRouter = require('./site')
 const userRouter = require('./user')
 const registerRouter = require('./register')
-const assigmentsRouter = require('./assigments')
+const managementsRouter = require('./managements')
 
 function route(app) {
     
      app.use('/user', userRouter)
 
-     app.use('/assigments', assigmentsRouter)
+     app.use('/managements', managementsRouter)
 
      app.use('/register', registerRouter)
       
