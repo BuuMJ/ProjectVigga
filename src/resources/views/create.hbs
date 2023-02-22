@@ -1,10 +1,15 @@
-<div class="mt-4">
-    <h3>Create Category</h3>
-    <form method="POST" action="/managements/store">
-        <div class="form-group">
-            <label for="name">Name category</label>
-            <input type="text" class="form-control" id="name" name="name">
+<div class="main-category">
+    <h1 class="category-text">Create Category</h1>
+    <form id="form-create-category" method="POST" action="/managements/store">
+        <div class="category-create">
+            <div class="category-create__info">
+                <label for="name">Name Category</label>
+                <input type="text" class="form-control" id="name" name="name">
+            </div>
+        <div class="category-edit__btn">
+                <a class="btn-category-back" href="/managements/category">Back List</a>
+                <button type="submit" class="btn-category-create">Create</button>
+            </div>
         </div>
-        <button type="submit" class="btn btn-primary">Create</button>
     </form>
 </div>

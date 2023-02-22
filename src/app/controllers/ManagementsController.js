@@ -52,7 +52,7 @@ class ManagementsController {
     delete(req, res, next){
         Category.deleteOne({_id: req.params.id}, req.body)
         .then(() => res.redirect("category"))
-        .catch(error => {});
+        .catch(next);
     }
 
 
