@@ -1,4 +1,4 @@
-const communityRouter = require('./community')
+const staffsubmissionRouter = require('./staffsubmission')
 const siteRouter = require('./site')
 const userRouter = require('./user')
 const registerRouter = require('./register')
@@ -12,7 +12,7 @@ function route(app) {
 
      app.use('/register', registerRouter)
       
-     app.use('/community', communityRouter);
+     app.use('/staffsubmission', staffsubmissionRouter);
      
      app.use('/', siteRouter);
      
