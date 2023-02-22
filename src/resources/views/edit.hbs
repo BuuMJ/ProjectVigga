@@ -1,0 +1,10 @@
+<div class="mt-4">
+    <h3>Edit Category</h3>
+    <form method="POST" action="/managements/{{category._id}}?_method=PUT">
+        <div class="form-group">
+            <label for="name">Name category</label>
+            <input type="text" class="form-control" value="{{category.name}}" id="name" name="name">
+        </div>
+        <button type="submit" class="btn btn-primary">Edit</button>
+    </form>
+</div>
