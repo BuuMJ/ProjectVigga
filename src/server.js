@@ -1,6 +1,7 @@
 const path = require("path");
 const express = require("express");
 const morgan = require("morgan");
+const methodOverride = require('method-override');
 const handlebars = require("express-handlebars");
 const app = express();
 const port = 3000;
@@ -17,8 +18,8 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
-//cookie parser
-app.use(cookieParser())
+// method
+app.use(methodOverride('_method'));
 
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -33,6 +34,9 @@ app.use(express.json());
 
 // HTTP logger
 app.use(morgan("combined"));
+
+//use cookie parser
+app.use(cookieParser());
 
 // app.use(session()); // session middleware
 // app.use(require('flash')());

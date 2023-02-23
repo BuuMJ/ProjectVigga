@@ -4,6 +4,6 @@ const userController = require('../app/controllers/UserController');
 const { checkLogin, checkStaff, checkCoordinator, checkManager, checkAdmin } = require('../ulti/authonize')
 
 
-router.get('/' , checkLogin, checkManager, userController.index)
+router.get('/', userController.index)
 
 module.exports = router;

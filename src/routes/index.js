@@ -8,11 +8,11 @@ const { checkLogin, checkStaff, checkCoordinator, checkManager, checkAdmin } = r
 
 function route(app) {
     
-     app.use('/user', checkLogin, userRouter)
+     app.use('/user', checkLogin, checkAdmin, userRouter)
 
      app.use('/managements', checkLogin, checkManager, managementsRouter)
 
-     app.use('/register', checkLogin, registerRouter)
+     app.use('/register', registerRouter)
       
      app.use('/staffsubmission', checkLogin, staffsubmissionRouter);
      

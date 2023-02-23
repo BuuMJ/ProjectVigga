@@ -17,14 +17,14 @@ function checkLogin(req, res, next){
             }else{
                 res.render('login', {
                     title: 'not logged in',
-                    msg: 'Please log in.'
+                    msg: 'Please login.'
                 })
             }
         })
     }catch(err){
         return res.render('login', {
                     title: 'token error',
-                    msg: 'Please log in again.'
+                    msg: 'Please login.'
                })
     }
 }
@@ -74,7 +74,7 @@ function checkAdmin(req, res, next){
     if(role === 'admin'){
         next()
     }else{
-        return res.redirect('home', {
+        return res.render('home', {
             title: 'authorized',
             msg: 'You are not authorized.'
        } )
