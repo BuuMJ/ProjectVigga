@@ -118,8 +118,7 @@
 .Users-show{
     left: 0;
 }
-.drop-down__Managements:hover .Managements-show,
-.drop-down__Users:hover .Users-show{
+.drop-down__Managements:hover .Managements-show{
     display: block;
 }
 .drop-down__Home:hover span,
@@ -152,46 +151,51 @@
 }
 
 // responsive
-// @media screen and (min-width: 319px) and (max-width: 768px) {
-//     .header {
-//         display: none;
-//     }
-//     .header-mini{
-//         display: block;
-//     }
-//     .header-mini .navbar-left {
-//         width: unset;
-//     }
-//     .header-mini .navbar {
-//         background-color: #0480FC; 
-//     }
-//     .navbar-toggler {
-//         background-color: rgba(0, 150, 255,0.5)!important;
-//         padding: unset!important;
-//     }
-//     .offcanvas-header,
-//     .offcanvas-body {
-//         background-color: #0480FC!important;
-//     }
-//     .offcanvas-body .nav-list {
-//         display: flex;
-//         flex-direction: column;
-//         // width: 100%;
-//         justify-content: space-around;
-//         align-items: flex-start;
-//     }
-//     .nav-list > * {
-//         padding: 10px;
-//     }
-//     .show-mini {
-//         z-index: 200;
-//         background-color: #0480FC;
-//     }
-//     .navbar-toggler-icon {
-//         background-image: url('/img/tabmenu.webp')!important;
-//         background-position: center;
-//         background-size: contain;
-//         height: 40px!important;
-//         width: 50px!important;
-//     }
-// }
+@media screen and (min-width: 319px) and (max-width: 768px) {
+    .header {
+        display: none;
+    }
+    .header-mini{
+        display: block;
+    }
+    .header-mini .navbar-left {
+        width: unset;
+    }
+    .header-mini #navbar-mini {
+        background-color: transparent; 
+        border-bottom: 1px solid $primarycolor;
+    }
+    .navbar-toggler {
+        padding: unset!important;
+        border: none !important;
+        height: 100%;
+    }
+    .offcanvas-header{
+        border-bottom: 1px solid $primarycolor;
+    }
+    .offcanvas-header,
+    .offcanvas-body {
+        background-color: #161516!important;
+    }
+    .offcanvas-body .nav-list {
+        display: flex;
+        flex-direction: column;
+        // width: 100%;
+        justify-content: space-around;
+        align-items: flex-start;
+    }
+    .nav-list > * {
+        padding: 10px;
+    }
+    .navbar-toggler-icon {
+        background-image: unset!important;
+        text-align: center;
+    }
+    .navbar-toggler i {
+        font-size: 36px;
+        color: white;
+    }
+    .Managements-show {
+        z-index: 100;
+    }
+}

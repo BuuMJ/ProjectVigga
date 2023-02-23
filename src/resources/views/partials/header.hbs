@@ -41,12 +41,12 @@
     <div class="container-fluid">
       <div class="navbar-left">
         <a href="/"><span class="text__left">Vigga</span></a>
-        <a href="/"><img src="/img/LOGOVGA.png" alt="" /></a>
-        <a href="/"><span class="text__right">Ielts</span></a>
+      <a href="/"><img src="/img/LOGOVGA.png" alt="" /></a>
+      <a href="/"><span class="text__right">University</span></a>
       </div>
       <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar"
         aria-controls="offcanvasDarkNavbar">
-        <span class="navbar-toggler-icon"></span>
+          <i id="navbar-icon" class="bi bi-justify"></i>
       </button>
       <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar"
         aria-labelledby="offcanvasDarkNavbarLabel">
@@ -61,27 +61,22 @@
               <ul class="drop-down__Home">
                 <a href="/"><span>Home</span></a>
               </ul>
-              <ul class="drop-down__Course">
-                <a href="./CoursePage.html"><span>Courses</span></a>
-                <ul class="Courses-show show-mini">
-                  <li><a href="./CoursePage.html">List Course</a></li>
-                  <li><a href="">Create Course</a></li>
-                  <li><a href="">Manager Course</a></li>
-                </ul>
-              </ul>
-              <ul class="drop-down__Community">
-                <a href="/community"><span>Community</span></a>
-              </ul>
-              <ul class="drop-down__Users">
-                <a href="/user"><span>Users</span></a>
-                <ul class="Users-show show-mini">
-                  <li><a href="/user">List User</a></li>
-                  <li><a href="">Create User</a></li>
-                  <li><a href="">Manager User</a></li>
-                </ul>
-              </ul>
+               <ul class="drop-down__Managements">
+          <span class="">Managements</span>
+          <ul class="Managements-show">
+            <li><a href="/managements/category">Category</a></li>
+            <li><a href="/managements/submission">Submission</a></li>
+            <li><a href="/managements/department">Department</a></li>
+        </ul>
+        </ul>
+              <ul class="drop-down__Submission">
+          <a href="/staffsubmission"><span>Staff Submission</span></a>
+        </ul>
+            <ul class="drop-down__Users">
+          <a href="/user"><span>Users Managements</span></a>
+        </ul>
               <ul class="header-mini__login">
-                <a href="/login">Login</a>
+                 <a href="/login"><span>login</span></a>
               </ul>
             </ul>
           </div>
