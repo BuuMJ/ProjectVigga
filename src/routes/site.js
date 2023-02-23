@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-
+const { checkLogin, checkStaff, checkCoordinator, checkManager, checkAdmin } = require('../ulti/authonize')
 const siteController = require('../app/controllers/SiteController');
 
 

@@ -1,4 +1,5 @@
 const bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken')
 const AccountModel = require('../models/Account')
 
 class SiteController {
@@ -22,21 +23,43 @@ class SiteController {
         })
         .then(data=>{
           if(data){
-            return bcrypt.compare(password, data.password, function(err, result) {
-              if(err){console.log(err)}
+            var token = jwt.sign({
+              _id: data._id
+            }, "PW")
+            bcrypt.compare(password, data.password, function(err, result) {
+              if(err){
+                return res.render('login', {
+                  title: 'login failled',
+                  msg: 'Please log in again.'
+                })
+              }
               if(result){
-                return res.redirect("/")
-                // return res.json('dang nhap thanh cong');
+                res.cookie('token', token, { expires: new Date(Date.now() + 900000)});
+                return res.redirect("/");
+                // return res.json({
+                //   loginsuccessMsg: req.flash('dang nhap thanh cong'),
+                // });
               }else{
-                return res.render('login', {msg : 'The user or password is incorrect.'})
-                // return res.json('dang nhap that bai');
+                // return res.json('sai mật khẩu');
+                return res.render('login', {
+                  title: 'login failled',
+                  msg: 'The user or password is incorrect.'
+                })
               }
             });
           }else{
             // return res.json('sai tai khoan');
-            return res.render('login', {msg : 'The user or password is incorrect.'})
+            return res.render('login', {
+              title: 'login failled',
+              msg: 'The user or password is incorrect.'
+            })
           }
         })
+        .catch(err=>{
+          console.log(err);
+          res.status(500).json('loi sever')
+        })
+
       }
 }
 
