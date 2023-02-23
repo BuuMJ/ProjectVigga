@@ -1,28 +1,67 @@
-<div class="main-category">
-        <h1 class="category-text">Department list</h1>
-    <div class="category-application">
-        <div class="category-info">
-            <label for="category-name">Department name</label>
-            <input type="text" name="category" id="category-name">
-        </div>
-        <button id="push" class="category-btn" type="submit">Add New</button>
-        <table class="table-category">
+<div class="main-department">
+    <h1 class="department-text">department list</h1>
+    <div class="department-application">
+
+        <a class="department-btn" href="create">Add New</a>
+        <table class="table-department">
             <thead>
                 <tr>
                     <th>Name</th>
                     <th>Actions</th>
                 </tr>
             </thead>
-            <tbody id="category-list">
+            <tbody id="department-list">
+                {{#each department}}
                 <tr>
-                    <td>Department 01</td>
+                    <td>{{this.name}}</td>
                     <td>
-                        <a class="category-btn__edit" href="#">Edit</a>
-                        <a class="category-btn__remove" href="#">Remove</a>
+                        <a href="/managements/{{this._id}}/edit" class="department-btn__edit">edit</a>
+                        <a href="" data-id="{{this._id}}" class="department-btn__remove" data-id="{{this._id}}"
+                            data-bs-toggle="modal" data-bs-target="#delete-department">Delete</a>
                     </td>
                 </tr>
+                {{/each}}
             </tbody>
-        </table>    
+        </table>
     </div>
 </div>
-<script src="/javascript/category.js"></script>
+
+{{!-- confirm delete --}}
+
+<div id="delete-department" class="modal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Do you wanna Delete this department</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure about it ?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancle</button>
+                <button id="btn-delete-department" type="button" class="btn btn-danger">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{!-- delete hidden form --}}
+<form method="POST" name="delete-department-form"></form>
+
+<script>
+    const deletedepartment = document.getElementById('delete-department')
+    var departmentID;
+    var btnDeletedepartment = document.getElementById('btn-delete-department')
+    var deleteForm = document.forms['delete-department-form'];
+    deletedepartment.addEventListener('show.bs.modal', event => {
+        const button = event.relatedTarget
+        departmentID = button.getAttribute('data-id')
+
+
+        btnDeletedepartment.onclick = function () {
+                deleteForm.action = '/managements/' + departmentID + '?_method=DELETE';
+                deleteForm.submit();
+        }
+    })
+</script>
