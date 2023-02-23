@@ -3,16 +3,18 @@ const siteRouter = require('./site')
 const userRouter = require('./user')
 const registerRouter = require('./register')
 const managementsRouter = require('./managements')
+const { checkLogin, checkStaff, checkCoordinator, checkManager, checkAdmin } = require('../ulti/authonize')
+
 
 function route(app) {
     
-     app.use('/user', userRouter)
+     app.use('/user', checkLogin, checkAdmin, userRouter)
 
-     app.use('/managements', managementsRouter)
+     app.use('/managements', checkLogin, checkManager, managementsRouter)
 
      app.use('/register', registerRouter)
       
-     app.use('/staffsubmission', staffsubmissionRouter);
+     app.use('/staffsubmission', checkLogin, staffsubmissionRouter);
      
      app.use('/', siteRouter);
      

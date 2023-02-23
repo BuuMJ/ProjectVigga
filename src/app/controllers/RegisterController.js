@@ -4,7 +4,7 @@ const AccountModel = require('../models/Account')
 class RegisterController {
 
      // [GET] /register
-     index(req, res) {
+     register(req, res) {
         res.render("Register");
     }
     //[POST] /register
@@ -29,9 +29,9 @@ class RegisterController {
                 if (data) {
                   res.json('Địa chỉ email đã tồn tại');
                 } else {
-                  bcrypt.hash(password, 10, function(err, hash) {
+                   bcrypt.hash(password, 10, function(err, hash) {
                     // Store hash in your password DB.
-                    console.log(hash)
+                    // console.log(hash)
                      AccountModel.create({
                       username: username,
                       password: hash,
