@@ -6,18 +6,20 @@ class SiteController {
   // [GET] /home
   home(req, res) {
     res.render("home", {
-      title: "Homepage",
+      title: "Vigga home",
       user: req.user,
     });
   }
   // [GET] /login
   login(req, res) {
     if (req.user) {
-      res.redirect("/", {
+      res.render("/", {
         title: "Login",
       });
     } else {
-      res.render("login");
+      res.render("login", {
+        title: "Login",
+      });
     }
   }
   // [POST] /login
