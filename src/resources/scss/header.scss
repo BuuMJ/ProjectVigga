@@ -170,6 +170,9 @@
         border: none !important;
         height: 100%;
     }
+    .navbar-toggler:focus {
+        box-shadow: none !important;
+    }
     .offcanvas-header{
         border-bottom: 1px solid $primarycolor;
     }
