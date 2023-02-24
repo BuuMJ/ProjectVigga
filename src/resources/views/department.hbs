@@ -2,7 +2,7 @@
     <h1 class="department-text">department list</h1>
     <div class="department-application">
 
-        <a class="department-btn" href="create">Add New</a>
+        <a class="department-btn" href="createDepartment">Add New</a>
         <table class="table-department">
             <thead>
                 <tr>
@@ -15,8 +15,8 @@
                 <tr>
                     <td>{{this.name}}</td>
                     <td>
-                        <a href="/managements/{{this._id}}/edit" class="department-btn__edit">edit</a>
-                        <a href="" data-id="{{this._id}}" class="department-btn__remove" data-id="{{this._id}}"
+                        <a href="/managements/{{this._id}}/editDepartment" class="department-btn__edit">edit</a>
+                        <a href="" data-id="{{this._id}}" class="department-btn__remove"
                             data-bs-toggle="modal" data-bs-target="#delete-department">Delete</a>
                     </td>
                 </tr>
@@ -60,7 +60,7 @@
 
 
         btnDeletedepartment.onclick = function () {
-                deleteForm.action = '/managements/' + departmentID + '?_method=DELETE';
+                deleteForm.action = '/managements/DD/' + departmentID + '?_method=DELETE';
                 deleteForm.submit();
         }
     })

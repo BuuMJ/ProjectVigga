@@ -2,7 +2,7 @@
     <h1 class="category-text">Category list</h1>
     <div class="category-application">
 
-        <a class="category-btn" href="create">Add New</a>
+        <a class="category-btn" href="createCategory">Add New</a>
         <table class="table-category">
             <thead>
                 <tr>
@@ -15,7 +15,7 @@
                 <tr>
                     <td>{{this.name}}</td>
                     <td>
-                        <a href="/managements/{{this._id}}/edit" class="category-btn__edit">edit</a>
+                        <a href="/managements/{{this._id}}/editCategory" class="category-btn__edit">edit</a>
                         <a href="" data-id="{{this._id}}" class="category-btn__remove" data-id="{{this._id}}"
                             data-bs-toggle="modal" data-bs-target="#delete-category">Delete</a>
                     </td>

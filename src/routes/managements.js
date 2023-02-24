@@ -21,7 +21,13 @@ router.get('/:id/editSubmission', managementsController.editSubmission)
 router.put('/US/:id', managementsController.updateSubmission)
 router.delete('/DS/:id', managementsController.deleteSubmission)
 
+// department
 router.get('/department' , managementsController.department)
+router.get('/createDepartment', managementsController.createDepartment)
+router.post('/storeDepartment', managementsController.storeDepartment)
+router.get('/:id/editDepartment', managementsController.editDepartment)
+router.put('/UD/:id', managementsController.updateDepartment)
+router.delete('/DD/:id', managementsController.deleteDepartment)
 
 
 module.exports = router;

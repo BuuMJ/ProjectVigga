@@ -1,0 +1,23 @@
+<div class="main-category">
+    <h1 class="category-text">Edit Submission</h1>
+    <form id="form-create-category" method="POST" action="/managements/US/{{submission._id}}?_method=PUT">
+        <div class="category-edit">
+            <div class="category-edit__info">
+                <label for="name">New Submission</label>
+                <input type="text" class="form-control" value="{{submission.name}}" id="name" name="name">
+            </div>
+            <div class="category-edit__info">
+                <label for="deadline_1">New deadline_1</label>
+                <input type="date" class="form-control" value="{{submission.deadline_1}}" id="deadline_1" name="deadline_1">
+            </div>
+            <div class="category-edit__info">
+                <label for="deadline_2">New deadline_2</label>
+                <input type="date" class="form-control" value="{{submission.deadline_2}}" id="deadline_2" name="deadline_2">
+            </div>
+            <div class="category-edit__btn">
+                <a class="btn-category-back" href="/managements/submission">Back List</a>
+                <button type="submit" class="btn-category-edit">Edit</button>
+            </div>
+        </div>
+    </form>
+</div>

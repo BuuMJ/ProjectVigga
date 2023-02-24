@@ -2,6 +2,7 @@ const Category = require('../models/Category');
 const { mutipleMongooseToObject } = require('../../util/mongoose');
 const { mongooseToObject } = require('../../util/mongoose');
 const Submission = require('../models/Submission');
+const Department = require('../models/Department');
 
 class ManagementsController {
   // [GET] category
@@ -122,10 +123,52 @@ deleteSubmission(req, res, next){
     .then(() => res.redirect("/managements/submission"))
     .catch(next);
 }
-    // [GET] department
-    department(req, res) {
-        res.render("department", {user: req.user});
-    }
+    // [GET] Department
+    department(req, res, next) {
+      Department.find({})
+          .then(department => {
+              department = department.map(department => department.toObject())
+              res.render("department", {department, user: req.user,});
+          })
+          .catch(next);
+  }
+
+  // [GET] Create Department
+  createDepartment(req, res, next) {
+      res.render("createDepartment", {user: req.user,})
+  }
+
+  // [POST] Create Department
+  storeDepartment(req, res, next) {
+      const department = new Department(req.body);
+      department.save()
+      .then(() => res.redirect("/managements/department"))
+      .catch(error => {});
+  }
+
+  // [GET] Edit Department
+  editDepartment(req, res, next) {
+      Department.findById(req.params.id)
+      .then( department => res.render("editDepartment", {
+        user: req.user,  
+        department: mongooseToObject(department)
+      }))
+      .catch(next);
+  }
+
+  // [PUT] Update Department
+  updateDepartment(req, res, next) {
+      Department.updateOne({_id: req.params.id}, req.body)
+      .then(() => res.redirect("/managements/department"))
+      .catch(error => {});
+  }
+
+  // [DELETE] Delete Department
+  deleteDepartment(req, res, next) {
+      Department.deleteOne({_id: req.params.id}, req.body)
+      .then(() => res.redirect("/managements/Department"))
+      .catch(next);
+  }
 
 }
 
