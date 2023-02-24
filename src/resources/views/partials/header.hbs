@@ -1,5 +1,4 @@
 <div id="toTop"></div>
-
 <div id="header" class="header">
   <div class="header__navbar">
     <div class="navbar-left">
@@ -12,6 +11,8 @@
         <ul class="drop-down__Home">
           <a href="/"><span class="navbar-change">Home</span></a>
         </ul>
+        {{#ifeq user 'staff' }}
+        {{else}}
         <ul class="drop-down__Managements">
           <span class="navbar-change">Managements</span>
           <ul class="Managements-show">
@@ -20,17 +21,26 @@
             <li><a href="/managements/department">Department</a></li>
         </ul>
         </ul>
+        {{/ifeq}}
         <ul class="drop-down__Submission">
           <a href="/staffsubmission"><span class="navbar-change">Staff Submission</span></a>
         </ul>
+        {{#ifeq user 'admin'}}
         <ul class="drop-down__Users">
           <a href="/user"><span class="navbar-change">Users Managements</span></a>
         </ul>
+        {{else}}
+        {{/ifeq}}
       </ul>
     </div>
       <div class="nav-right">
         <div class="login">
-          <a href="/login"><span class="navbar-change">login</span></a>
+          {{#if user}}
+            <a class="show-logout navbar-change" href="">{{getName user}}</a>
+          {{else}}
+            <a><span class="navbar-change">login</span></a>
+          {{/if}}
+           <a class="logout"  >Log Out <i class="bi bi-box-arrow-right"></i></a>
         </div>
       </div>
   </div>
@@ -86,3 +96,11 @@
     </div>
   </nav>
 </div>
+
+<script>
+  document.querySelector('.logout').onclick = function(){
+    document.cookie = 'token =; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+      window.location.href = "/login"
+      console.log('log out')
+  }
+</script>
