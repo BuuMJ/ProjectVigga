@@ -1,8 +1,8 @@
-const Category = require('../models/Category');
-const { mutipleMongooseToObject } = require('../../util/mongoose');
-const { mongooseToObject } = require('../../util/mongoose');
-const Submission = require('../models/Submission');
-const Department = require('../models/Department');
+const Category = require("../models/Category");
+const { mutipleMongooseToObject } = require("../../util/mongoose");
+const { mongooseToObject } = require("../../util/mongoose");
+const Submission = require("../models/Submission");
+const Department = require("../models/Department");
 
 class ManagementsController {
   // [GET] category
@@ -25,6 +25,7 @@ class ManagementsController {
   create(req, res, next) {
     // res.json(req.body);
     res.render("createCategory", {
+      title: "Create Category",
       user: req.user,
     });
   }
@@ -43,6 +44,7 @@ class ManagementsController {
     Category.findById(req.params.id)
       .then((category) =>
         res.render("editCategory", {
+          title: "Edit Category",
           category: mongooseToObject(category),
           user: req.user,
         })
@@ -72,7 +74,6 @@ class ManagementsController {
         res.render("submission", {
           title: "Submission",
           user: req.user,
-
           submission,
         });
       })
@@ -116,59 +117,69 @@ class ManagementsController {
       .catch((error) => {});
   }
 
-// [Delete] Delete Submission
-deleteSubmission(req, res, next){
-    Submission.deleteOne({_id: req.params.id}, req.body)
-    .then(() => res.redirect("/managements/submission"))
-    .catch(next);
-}
-    // [GET] Department
-    department(req, res, next) {
-      Department.find({})
-          .then(department => {
-              department = department.map(department => department.toObject())
-              res.render("department", {department, user: req.user,});
-          })
-          .catch(next);
+  // [Delete] Delete Submission
+  deleteSubmission(req, res, next) {
+    Submission.deleteOne({ _id: req.params.id }, req.body)
+      .then(() => res.redirect("/managements/submission"))
+      .catch(next);
+  }
+  // [GET] Department
+  department(req, res, next) {
+    Department.find({})
+      .then((department) => {
+        department = department.map((department) => department.toObject());
+        res.render("department", {
+          title: "Department",
+          department,
+          user: req.user,
+        });
+      })
+      .catch(next);
   }
 
   // [GET] Create Department
   createDepartment(req, res, next) {
-      res.render("createDepartment", {user: req.user,})
+    res.render("createDepartment", {
+      title: "Create Department",
+      user: req.user,
+    });
   }
 
   // [POST] Create Department
   storeDepartment(req, res, next) {
-      const department = new Department(req.body);
-      department.save()
+    const department = new Department(req.body);
+    department
+      .save()
       .then(() => res.redirect("/managements/department"))
-      .catch(error => {});
+      .catch((error) => {});
   }
 
   // [GET] Edit Department
   editDepartment(req, res, next) {
-      Department.findById(req.params.id)
-      .then( department => res.render("editDepartment", {
-        user: req.user,  
-        department: mongooseToObject(department)
-      }))
+    Department.findById(req.params.id)
+      .then((department) =>
+        res.render("editDepartment", {
+          title: "Edit Department",
+          user: req.user,
+          department: mongooseToObject(department),
+        })
+      )
       .catch(next);
   }
 
   // [PUT] Update Department
   updateDepartment(req, res, next) {
-      Department.updateOne({_id: req.params.id}, req.body)
+    Department.updateOne({ _id: req.params.id }, req.body)
       .then(() => res.redirect("/managements/department"))
-      .catch(error => {});
+      .catch((error) => {});
   }
 
   // [DELETE] Delete Department
   deleteDepartment(req, res, next) {
-      Department.deleteOne({_id: req.params.id}, req.body)
+    Department.deleteOne({ _id: req.params.id }, req.body)
       .then(() => res.redirect("/managements/Department"))
       .catch(next);
   }
-
 }
 
 module.exports = new ManagementsController();
