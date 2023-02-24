@@ -8,7 +8,6 @@ const port = 3000;
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 
-
 const route = require('./routes'); 
 const db = require('./config/db')
 

@@ -3,12 +3,12 @@ const siteRouter = require('./site')
 const userRouter = require('./user')
 const registerRouter = require('./register')
 const managementsRouter = require('./managements')
-const { checkLogin, checkStaff, checkCoordinator, checkManager, checkAdmin } = require('../ulti/authonize')
+const { checkLogin, checkStaff, checkCoordinator, checkManager, checkAdmin } = require('../util/authonize')
 
 
 function route(app) {
     
-     app.use('/user', checkLogin, checkAdmin, userRouter)
+     app.use('/user', userRouter)
 
      app.use('/managements', checkLogin, checkManager, managementsRouter)
 

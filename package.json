@@ -11,7 +11,8 @@
     "form-data": "^4.0.0",
     "jsonwebtoken": "^9.0.0",
     "method-override": "^3.0.0",
-    "mongoose": "^6.9.2"
+    "mongoose": "^6.9.2",
+    "nodemailer": "^6.9.1"
   },
   "name": "projectvigga",
   "description": "��#\u0000 \u0000P\u0000r\u0000o\u0000j\u0000e\u0000c\u0000t\u0000V\u0000i\u0000g\u0000g\u0000a\u0000\r\u0000 \u0000",

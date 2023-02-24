@@ -1,6 +1,6 @@
 const Category = require('../models/Category');
-const { mutipleMongooseToObject } = require('../../ulti/mongoose');
-const { mongooseToObject } = require('../../ulti/mongoose');
+const { mutipleMongooseToObject } = require('../../util/mongoose');
+const { mongooseToObject } = require('../../util/mongoose');
 
 
 class ManagementsController {
@@ -59,11 +59,11 @@ class ManagementsController {
     }
 
 
-    // submission
+    // [GET] submission
     submission(req, res) {
         res.render("submission", {user: req.user});
     }
-    // department
+    // [GET] department
     department(req, res) {
         res.render("department", {user: req.user});
     }

@@ -14,7 +14,7 @@ function checkLogin(req, res, next){
         .then(data=>{
             if(data){
                 req.user = data
-                console.log(req.user)
+                // console.log(req.user)
                 return next()
             }else{
                 res.render('login', {
@@ -44,7 +44,7 @@ function checkStaff(req, res, next){
     }
 }
 
-//check staff
+//check Coordinator
 function checkCoordinator(req, res, next){
     var role = req.user.role
     if(role === 'coordinator' || role === 'manager' || role === 'admin'){
@@ -60,7 +60,6 @@ function checkCoordinator(req, res, next){
 //check manager
 function checkManager(req, res, next){
     var role = req.user.role
-    console.log(role)
     if(role === 'manager' || role === 'admin'){
         next()
     }else{

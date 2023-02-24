@@ -2,7 +2,7 @@
 const express = require('express');
 const router = express.Router();
 const managementsController = require('../app/controllers/ManagementsController');
-const { checkLogin, checkStaff, checkCoordinator, checkManager, checkAdmin } = require('../ulti/authonize')
+const { checkLogin, checkStaff, checkCoordinator, checkManager, checkAdmin } = require('../util/authonize')
 
 // Category
 router.get('/category' , managementsController.category)
