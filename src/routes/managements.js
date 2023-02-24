@@ -6,9 +6,9 @@ const { checkLogin, checkStaff, checkCoordinator, checkManager, checkAdmin } = r
 
 // Category
 router.get('/category' , managementsController.category)
-router.get('/create', managementsController.create)
+router.get('/createCategory', managementsController.create)
 router.post('/store', managementsController.store)
-router.get('/:id/edit', managementsController.edit)
+router.get('/:id/editCategory', managementsController.edit)
 router.put('/:id', managementsController.update)
 router.delete('/:id', managementsController.delete)
 

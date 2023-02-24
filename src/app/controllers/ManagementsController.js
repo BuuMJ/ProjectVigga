@@ -24,8 +24,7 @@ class ManagementsController {
   //[GET] createCategory]
   create(req, res, next) {
     // res.json(req.body);
-    res.render("create", {
-      title: "Create Category",
+    res.render("createCategory", {
       user: req.user,
     });
   }
@@ -43,10 +42,9 @@ class ManagementsController {
   edit(req, res, next) {
     Category.findById(req.params.id)
       .then((category) =>
-        res.render("edit", {
+        res.render("editCategory", {
           category: mongooseToObject(category),
           user: req.user,
-          title: "Edit Category",
         })
       )
       .catch(next);
@@ -59,63 +57,64 @@ class ManagementsController {
       .catch((error) => {});
   }
 
-    //[DELETE] delete category
-    delete(req, res, next){
-        Category.deleteOne({_id: req.params.id}, req.body)
-        .then(() => res.redirect("category"))
-        .catch(next);
-    }
-
+  //[DELETE] delete category
+  delete(req, res, next) {
+    Category.deleteOne({ _id: req.params.id }, req.body)
+      .then(() => res.redirect("category"))
+      .catch(next);
+  }
 
   // [GET] Submission
   submission(req, res, next) {
     Submission.find({})
-        .then(submission => {
-            submission = submission.map(submission => submission.toObject())
-            res.render("submission", {
-              title: 'Submission',
-              user: req.user,
+      .then((submission) => {
+        submission = submission.map((submission) => submission.toObject());
+        res.render("submission", {
+          title: "Submission",
+          user: req.user,
 
-              submission});
-        })
-        .catch(next);
-}
+          submission,
+        });
+      })
+      .catch(next);
+  }
 
-// [GET] Create Submission
-createSubmission(req, res, next) {
+  // [GET] Create Submission
+  createSubmission(req, res, next) {
     res.render("createSubmission", {
-      title: 'Create Submission',
+      title: "Create Submission",
       user: req.user,
-
     });
-}
+  }
 
-// [POST] Create Submission
-storeSubmission(req, res, next) {
+  // [POST] Create Submission
+  storeSubmission(req, res, next) {
     const submission = new Submission(req.body);
-    submission.save()
-    .then(() => res.redirect("/managements/submission"))
-    .catch(error => {});
-}
+    submission
+      .save()
+      .then(() => res.redirect("/managements/submission"))
+      .catch((error) => {});
+  }
 
-// [GET] Edit Submission
-editSubmission(req, res, next){
+  // [GET] Edit Submission
+  editSubmission(req, res, next) {
     Submission.findById(req.params.id)
-    .then( submission => res.render("editSubmission", {
-        submission: mongooseToObject(submission),
-        title: 'Edit Submission',
-        user: req.user,
-        
-    }))
-    .catch(next);
-}
+      .then((submission) =>
+        res.render("editSubmission", {
+          submission: mongooseToObject(submission),
+          title: "Edit Submission",
+          user: req.user,
+        })
+      )
+      .catch(next);
+  }
 
-// [PUT] Update Submission
-updateSubmission(req, res, next){
-    Submission.updateOne({_id: req.params.id}, req.body)
-    .then(() => res.redirect("/managements/submission"))
-    .catch(error => {});
-}
+  // [PUT] Update Submission
+  updateSubmission(req, res, next) {
+    Submission.updateOne({ _id: req.params.id }, req.body)
+      .then(() => res.redirect("/managements/submission"))
+      .catch((error) => {});
+  }
 
 // [Delete] Delete Submission
 deleteSubmission(req, res, next){

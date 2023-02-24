@@ -6,15 +6,12 @@
       <a href="/"><img src="/img/LOGOVGA.png" alt="" /></a>
       <a href="/"><span class="navbar-change text__right">University</span></a>
     </div>
-    <div class="navbar-center">
+        {{#ifeq user 'admin'}}
+                <div class="navbar-center">
       <ul class="nav-list">
         <ul class="drop-down__Home">
           <a href="/"><span class="navbar-change">Home</span></a>
         </ul>
-        {{#ifeq user 'staff'}}
-        {{/ifeq}}
-        {{#ifeq user 'coordinator'}}
-        {{else}}
         <ul class="drop-down__Managements">
           <span class="navbar-change">Managements</span>
           <ul class="Managements-show">
@@ -23,18 +20,45 @@
             <li><a href="/managements/department">Department</a></li>
         </ul>
         </ul>
-        {{/ifeq}}
         <ul class="drop-down__Submission">
           <a href="/staffsubmission"><span class="navbar-change">Staff Submission</span></a>
         </ul>
-        {{#ifeq user 'admin'}}
         <ul class="drop-down__Users">
           <a href="/user"><span class="navbar-change">Users Managements</span></a>
         </ul>
-        {{else}}
-        {{/ifeq}}
       </ul>
     </div>
+    {{else ifeq user 'manager'}}
+                 <div class="navbar-center">
+      <ul class="nav-list">
+        <ul class="drop-down__Home">
+          <a href="/"><span class="navbar-change">Home</span></a>
+        </ul>
+        <ul class="drop-down__Managements">
+          <span class="navbar-change">Managements</span>
+          <ul class="Managements-show">
+            <li><a href="/managements/category">Category</a></li>
+            <li><a href="/managements/submission">Submission</a></li>
+            <li><a href="/managements/department">Department</a></li>
+        </ul>
+        </ul>
+        <ul class="drop-down__Submission">
+          <a href="/staffsubmission"><span class="navbar-change">Staff Submission</span></a>
+        </ul>
+      </ul>
+    </div>
+    {{else}}
+                  <div class="navbar-center">
+      <ul class="nav-list">
+        <ul class="drop-down__Home">
+          <a href="/"><span class="navbar-change">Home</span></a>
+        </ul>
+        <ul class="drop-down__Submission">
+          <a href="/staffsubmission"><span class="navbar-change">Staff Submission</span></a>
+        </ul>
+      </ul>
+    </div>
+        {{/ifeq}}
       <div class="nav-right">
         <div class="login">
           {{#if user}}
@@ -104,5 +128,6 @@
     document.cookie = 'token =; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
       window.location.href = "/login"
       console.log('log out')
+      document.querySelector('.nav-right').style.display = "none";
   }
 </script>
