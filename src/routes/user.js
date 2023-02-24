@@ -5,5 +5,7 @@ const { checkLogin, checkStaff, checkCoordinator, checkManager, checkAdmin } = r
 
 router.post('/comment', userController.comment)
 router.get('/', userController.index)
+router.get('/:id/editUser', userController.editUser)
+
 
 module.exports = router;

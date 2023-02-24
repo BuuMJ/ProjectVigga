@@ -1,4 +1,4 @@
-<div class="add__user vh-100">
+<div class="add__user">
     <form method="post" action="/register/apiregister" class="create__card" >
      <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 text-white">Create Form</h3>
       <div class="form-group">
@@ -30,25 +30,25 @@
       </div>
       <button id="btn-user" type="submit" class="button__user">Add</button>
      </form>  
-        {{#each account}}
-        <div class="card-user">
-           <img src="img.jpg" alt="user" style="width:100%">
-           <h1>{{this.fullname}}</h1>
-            <h2>{{this.username}}</h2>
-           <p class="title">{{this.role}}</p>
-           <p>{{this.email}}</p>
-           <a href="#"><i class="fa fa-dribbble"></i></a>
-           <a href="#"><i class="fa fa-twitter"></i></a>
-           <a href="#"><i class="fa fa-linkedin"></i></a>
-           <a href="#"><i class="fa fa-facebook"></i></a>
-           <p><button>Edit</button></p>
-           <p><button>Remove</button></p>
-</div>  
-        {{/each}}       
-     
+        <div class="boxer-user">
+          {{#each account}}
+          <div class="card-user">
+            <img src="img.jpg" alt="user" style="width:100%">
+            <h1>{{this.fullname}}</h1>
+              <h2>{{this.username}}</h2>
+            <p class="title">{{this.role}}</p>
+            <p>{{this.email}}</p>
+            <a href="#"><i class="fa fa-dribbble"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-linkedin"></i></a>
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="/user/{{this._id}}/editUser" class="category-btn__edit">edit</a>
+            <p><button>Remove</button></p>
+          </div>  
+          {{/each}}       
+        </div>
     </div>
     
-</div>
 
 
 
