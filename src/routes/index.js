@@ -12,11 +12,17 @@ const {
 } = require("../util/authonize");
 
 function route(app) {
-  app.use("/user", checkLogin, checkAdmin, userRouter);
+    
+     app.use('/user',checkLogin,checkAdmin, userRouter)
 
-  app.use("/managements", checkLogin, checkManager, managementsRouter);
+     app.use('/managements', checkLogin, checkManager, managementsRouter)
 
-  app.use("/register", registerRouter);
+     app.use('/register', registerRouter)
+      
+     app.use('/staffsubmission', checkLogin, staffsubmissionRouter);
+     
+     app.use('/', siteRouter);
+     
 
   app.use("/staffsubmission", checkLogin, staffsubmissionRouter);
 

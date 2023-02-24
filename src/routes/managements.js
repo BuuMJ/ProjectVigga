@@ -13,7 +13,13 @@ router.put('/:id', managementsController.update)
 router.delete('/:id', managementsController.delete)
 
 
-router.get('/submission' , managementsController.submission)
+// Submission
+router.get('/submission', checkManager,managementsController.submission)
+router.get('/createSubmission', managementsController.createSubmission)
+router.post('/storeSubmission', managementsController.storeSubmission)
+router.get('/:id/editSubmission', managementsController.editSubmission)
+router.put('/US/:id', managementsController.updateSubmission)
+router.delete('/DS/:id', managementsController.deleteSubmission)
 
 router.get('/department' , managementsController.department)
 

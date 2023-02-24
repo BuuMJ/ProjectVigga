@@ -11,7 +11,9 @@
         <ul class="drop-down__Home">
           <a href="/"><span class="navbar-change">Home</span></a>
         </ul>
-        {{#ifeq user 'staff' }}
+        {{#ifeq user 'staff'}}
+        {{/ifeq}}
+        {{#ifeq user 'coordinator'}}
         {{else}}
         <ul class="drop-down__Managements">
           <span class="navbar-change">Managements</span>
@@ -36,11 +38,11 @@
       <div class="nav-right">
         <div class="login">
           {{#if user}}
-            <a class="show-logout navbar-change" href="">{{getName user}}</a>
+            <a class="show-logout navbar-change" href="">{{getFullname user}}</a>
           {{else}}
             <a><span class="navbar-change">login</span></a>
           {{/if}}
-           <a class="logout"  >Log Out <i class="bi bi-box-arrow-right"></i></a>
+           <a class="logout">Log Out <i class="bi bi-box-arrow-right"></i></a>
         </div>
       </div>
   </div>
