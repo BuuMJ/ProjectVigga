@@ -2,10 +2,15 @@ const path = require("path");
 const nodemailer = require("nodemailer");
 
 class UserController {
+  //[GET] user
   index(req, res) {
-    res.render("user", { user: req.user });
+    res.render("user", {
+      title: "Managements user",
+      user: req.user,
+    });
   }
 
+  //[Post] send mail comments
   async comment(req, res, next) {
     console.log(req.body);
     var transporter = nodemailer.createTransport({

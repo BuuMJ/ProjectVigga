@@ -5,12 +5,17 @@ const AccountModel = require("../models/Account");
 class SiteController {
   // [GET] /home
   home(req, res) {
-    res.render("home", { user: req.user });
+    res.render("home", {
+      title: "Homepage",
+      user: req.user,
+    });
   }
   // [GET] /login
   login(req, res) {
     if (req.user) {
-      res.redirect("/");
+      res.redirect("/", {
+        title: "Login",
+      });
     } else {
       res.render("login");
     }
