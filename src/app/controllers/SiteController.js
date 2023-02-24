@@ -6,23 +6,28 @@ class SiteController {
 
     // [GET] /home
     home(req, res) {
-        res.render("home");
+      // console.log(req.user)
+        res.render("home" , {user: req.user});
     }
      // [GET] /login
     login(req, res) {
+      if(req.user){
+        res.redirect('/')
+      }else{
         res.render("login");
-    }
+      }}
     // [POST] /login
     apilogin(req, res, next){
         var username = req.body.username
         var password = req.body.password
       
-      
+      // console.log('da vao func')
         AccountModel.findOne({
             username: username,
         })
         .then(data=>{
           if(data){
+            // console.log('co ng dung')
             var token = jwt.sign({
               _id: data._id
             }, "PW")
@@ -35,6 +40,14 @@ class SiteController {
               }
               if(result){
                 res.cookie('token', token, { expires: new Date(Date.now() + 900000)});
+                // console.log(token)
+                // data.username = 
+                // console.log(data.token )
+                // return res.render('home', {
+                //   title: 'login failled',
+                //   msg: 'Please log in again.',
+                //   data
+                // })
                 return res.redirect("/");
                 // return res.json({
                 //   loginsuccessMsg: req.flash('dang nhap thanh cong'),
@@ -58,10 +71,9 @@ class SiteController {
         .catch(err=>{
           console.log(err);
           res.status(500).json('loi sever')
-        })
+        })}}
 
-      }
-}
+
 
 
 module.exports = new SiteController;

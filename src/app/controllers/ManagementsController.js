@@ -12,16 +12,18 @@ class ManagementsController {
         Category.find({})
             .then(category => {
                 category = category.map(category => category.toObject())
-                res.render("category", {category});
+                res.render("category", {
+                    category,
+                    user: req.user});
             })
             .catch(next);
     }
 
 
-    //[GET] Category]
+    //[GET] createCategory]
     create(req, res, next){
         // res.json(req.body);
-        res.render("create");
+        res.render("create", {user: req.user});
     }
 
     //[POST] Create Category
@@ -36,7 +38,8 @@ class ManagementsController {
     edit(req, res, next){
         Category.findById(req.params.id)
         .then( category => res.render("edit", {
-            category: mongooseToObject(category)
+            category: mongooseToObject(category),
+            user: req.user
         }))
         .catch(next);
     }
@@ -58,11 +61,11 @@ class ManagementsController {
 
     // submission
     submission(req, res) {
-        res.render("submission");
+        res.render("submission", {user: req.user});
     }
     // department
     department(req, res) {
-        res.render("department");
+        res.render("department", {user: req.user});
     }
 
 }

@@ -4,7 +4,7 @@ class UserController {
 
     
     index(req, res) {
-        res.render("user");
+        res.render("user", {user: req.user});
     }
 
 }

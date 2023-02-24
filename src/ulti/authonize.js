@@ -1,5 +1,6 @@
 const AccountModel = require("../app/models/Account");
-const jwt = require('jsonwebtoken')
+const jwt = require('jsonwebtoken');
+const { ConnectionStates } = require("mongoose");
 
 //check login
 function checkLogin(req, res, next){
@@ -12,7 +13,8 @@ function checkLogin(req, res, next){
         })
         .then(data=>{
             if(data){
-                req.data = data
+                req.user = data
+                console.log(req.user)
                 return next()
             }else{
                 res.render('login', {
@@ -31,7 +33,7 @@ function checkLogin(req, res, next){
 
 //check Staff
 function checkStaff(req, res, next){
-    var role = req.data.role
+    var role = req.user.role
     if( role === 'coordinator' || role === 'staff' || role === 'manager' || role === 'admin'){
         next()
     }else{
@@ -44,7 +46,7 @@ function checkStaff(req, res, next){
 
 //check staff
 function checkCoordinator(req, res, next){
-    var role = req.data.role
+    var role = req.user.role
     if(role === 'coordinator' || role === 'manager' || role === 'admin'){
         next()
     }else{
@@ -57,7 +59,8 @@ function checkCoordinator(req, res, next){
 
 //check manager
 function checkManager(req, res, next){
-    var role = req.data.role
+    var role = req.user.role
+    console.log(role)
     if(role === 'manager' || role === 'admin'){
         next()
     }else{
@@ -70,7 +73,7 @@ function checkManager(req, res, next){
 
 //check admin
 function checkAdmin(req, res, next){
-    var role = req.data.role
+    var role = req.user.role
     if(role === 'admin'){
         next()
     }else{

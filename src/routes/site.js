@@ -7,7 +7,7 @@ const siteController = require('../app/controllers/SiteController');
 
 router.get('/login', siteController.login);
 router.post('/apilogin', siteController.apilogin);
-router.get('/', siteController.home);
+router.get('/', checkLogin, siteController.home);
 
 module.exports = router;
 
