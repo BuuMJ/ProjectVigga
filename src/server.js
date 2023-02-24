@@ -7,6 +7,7 @@ const app = express();
 const port = 3000;
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
+const helpers = require('handlebars-helpers')();
 
 const route = require('./routes'); 
 const db = require('./config/db')
@@ -41,11 +42,18 @@ app.use(cookieParser());
 // app.use(require('flash')());
 
 // Teamplate engine
-app.engine(
-  "hbs",handlebars({
-    extname: ".hbs",
-  })
-);
+// app.engine(
+//   "hbs",handlebars({
+//     extname: ".hbs",
+//     helpers: require("./ulti/helpers").helpers
+//   })
+// );
+
+const hbs = handlebars.create({  
+  helpers:require('./ulti/helpers'),
+  extname: '.hbs'
+})
+app.engine('hbs', hbs.engine);
 app.set("view engine", "hbs");
 app.set("views", path.join(__dirname, "resources/views"));
 

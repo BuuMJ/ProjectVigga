@@ -304,6 +304,20 @@
 
 
 // Responsive 
+@media screen and (max-width: 1440px) {
+    .btn5-hover.btn5{
+      width: 15%;
+    }
+    .celebrate-75y__img {
+      width: 30%;
+    }
+    .celebrate-75y__text{
+      width: 70%;
+    }
+    .celebrate-75y__img img{
+      width: 100%;
+    }
+}
 @media screen and (max-width: 1024px) {
 .intro {
   height: 580px;
@@ -317,7 +331,7 @@
   }
   .celebrate-75y {
     height: 135px;
-    margin-top: 8px;
+    margin: 8px 0 0 0;
     box-shadow: 0 2px 10px rgba(65,48,45,30%);
   }
   .bythenumbers {
@@ -388,12 +402,12 @@
   }
 }
 @media screen and (max-width: 768px) {
+  .btn5-hover.btn5 {
+    width: 25%;
+  }
   .bythenumbers h2 {
     font-size: 60px;
     width: 50%;
-  }
-  .btn5-hover.btn5 {
-    width: 25%;
   }
   .idea-text a {
     width: 25%;
@@ -402,9 +416,6 @@
 @media screen and (max-width: 600px) {
   .intro h2 {
     padding: 12px 44px ;
-  }
-  .bythenumbers h2 {
-    width: 60%;
   }
   .btn5-hover.btn5 {
     width: 30%;
@@ -417,6 +428,9 @@
   }
   .celebrate-75y__img {
     width: 30%;
+  }
+  .bythenumbers h2 {
+    width: 60%;
   }
   .bythenumbers p {
     padding: 0 40px;
