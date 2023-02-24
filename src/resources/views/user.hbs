@@ -33,24 +33,52 @@
         <div class="boxer-user">
           {{#each account}}
           <div class="card-user">
-            <img src="img.jpg" alt="user" style="width:100%">
             <h1>{{this.fullname}}</h1>
               <h2>{{this.username}}</h2>
-            <p class="title">{{this.role}}</p>
+            <h2 class="title">{{this.role}}</h2>
             <p>{{this.email}}</p>
-            <a href="#"><i class="fa fa-dribbble"></i></a>
-            <a href="#"><i class="fa fa-twitter"></i></a>
-            <a href="#"><i class="fa fa-linkedin"></i></a>
-            <a href="#"><i class="fa fa-facebook"></i></a>
             <a href="/user/{{this._id}}/editUser" class="category-btn__edit">edit</a>
             <p><button>Remove</button></p>
           </div>  
           {{/each}}       
         </div>
+        <ul class="listpage">
+        </ul>
     </div>
     
 
 
 
 
-<script src="/javascript/user.js"></script>
+<script>
+  var thisPage = 1;
+  var limit = 5;
+  var list = document.querySelectorAll('.card-user')
+  function loadIteam(){
+    var beginGet = limit * (thisPage - 1);
+    var endGet = limit * thisPage - 1 ; 
+    list.forEach((item,key) => {
+      if(key >= beginGet && key <= endGet){
+        item.style.display = 'block';
+      }else{
+        item.style.display = 'none';
+      }
+    })
+    listPage();
+  }
+   loadIteam() 
+  function listPage(){
+    var count = Math.ceil(list.length / limit);
+    document.querySelector('.listpage').innerHTML = '';
+    for(i = 1; i<= count; i++){
+      var newPage = document.createElement('li');
+      newPage.innerHTML = i;
+      document.querySelector('.listpage').appendChild(newPage);
+      newPage.setAttribute('onclick', "changePage("+ i +")");
+    }
+  }
+  function changePage(i){
+    thisPage = i;
+    loadIteam()
+  }
+</script>

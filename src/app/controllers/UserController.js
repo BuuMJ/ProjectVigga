@@ -2,9 +2,9 @@ const path = require("path");
 const nodemailer = require("nodemailer");
 const Account = require('../models/Account');
 const {userMongooseToObject} = require('../../util/userMongoose');
-
 class UserController {
   //[GET] user
+
   index(req, res, next) {
     Account.find({})
       .then((account) => {
