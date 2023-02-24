@@ -1,6 +1,6 @@
 const Category = require('../models/Category');
-const { mutipleMongooseToObject } = require('../../util/mongoose');
-const { mongooseToObject } = require('../../util/mongoose');
+const { mutipleMongooseToObject } = require('../../ulti/mongoose');
+const { mongooseToObject } = require('../../ulti/mongoose');
 
 
 class ManagementsController {
