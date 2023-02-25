@@ -1,23 +1,23 @@
 <div class="add__user">
-    <form method="post" action="/register/apiregister" class="create__card" >
-     <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 text-white">Create Form</h3>
-      <div class="form-group">
+  <form method="post" action="/register/apiregister" class="create__card">
+    <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 text-white">Create Form</h3>
+    <div class="form-group">
       <label for="inputEmail4">Email</label>
-      <input name="adremail" type="email" class="type_email" id="inputEmail4" placeholder="Email" >
-     </div>
-     <div class="form-group">
+      <input name="adremail" type="email" class="type_email" id="inputEmail4" placeholder="Email">
+    </div>
+    <div class="form-group">
       <label for="inputPassword4">Password</label>
-      <input name="password" type="password" class="type_password" id="inputPassword4" placeholder="Password" >
-      </div>
-      <div class="form-group">
+      <input name="password" type="password" class="type_password" id="inputPassword4" placeholder="Password">
+    </div>
+    <div class="form-group">
       <label for="inputName">User name</label>
-      <input name="username" type="text" class="type_name" id="inputName" placeholder="Hoang12345" >
-     </div>
-     <div class="form-group">
+      <input name="username" type="text" class="type_name" id="inputName" placeholder="Hoang12345">
+    </div>
+    <div class="form-group">
       <label for="inputFullname">Full name</label>
       <input name="fullname" type="text" class="type_fullName" id="inputFullname" placeholder="Le Thanh hoang">
-     </div>
-     <div class="form-group">
+    </div>
+    <div class="form-group">
       <label for="inputState">Role</label>
       <select name="role" id="inputState" class="type__select">
         <option selected>Choose...</option>
@@ -30,65 +30,65 @@
       <select name="department" id="department">
         <option selected>Choose</option>
         {{#each data}}
-          <option value="{{this.name}}">{{this.name}}</option>
+        <option value="{{this.name}}">{{this.name}}</option>
         {{/each}}
       </select>
-      </div>
-      <button id="btn-user" type="submit" class="button__user">Add</button>
-     </form>  
-        <div class="boxer-user">
-          {{#each account}}
-          <div class="card-user">
-            <h1>{{this.fullname}}</h1>
-              <h2>{{this.username}}</h2>
-            <h2 class="title">{{this.role}}</h2>
-            <p>{{this.adremail}}</p>
-            <p>{{this.department}}</p>
-            <a href="/user/{{this._id}}/editUser" class="category-btn__edit">edit</a>
-            <a href="" data-id="{{this._id}}" class="category-btn__remove" data-bs-toggle="modal" data-bs-target="#delete-category">Delete</a>
-          </div>  
-          {{/each}}       
-        </div>
-        <ul class="listpage">
-        </ul>
     </div>
-    
+    <button id="btn-user" type="submit" class="button__user">Add</button>
+  </form>
+  <div class="boxer-user">
+    {{#each account}}
+    <div class="card-user">
+      <h1>{{this.fullname}}</h1>
+      <h2>{{this.username}}</h2>
+      <h2 class="title">{{this.role}}</h2>
+      <p>{{this.email}}</p>
+      <a href="/user/{{this._id}}/editUser" class="category-btn__edit">edit</a>
+      <a href="" data-id="{{this._id}}" class="category-btn__remove" data-bs-toggle="modal"
+        data-bs-target="#delete-category">Delete</a>
+    </div>
+    {{/each}}
+  </div>
+  <ul class="listpage">
+  </ul>
+</div>
+
 {{!-- confirm delete --}}
 
 <div id="delete-category" class="modal" tabindex="-1">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Do you wanna Delete this category</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p>Are you sure about it ?</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancle</button>
-                <button id="btn-delete-category" type="button" class="btn btn-danger">Delete</button>
-            </div>
-        </div>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Do you wanna Delete this category</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure about it ?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancle</button>
+        <button id="btn-delete-category" type="button" class="btn btn-danger">Delete</button>
+      </div>
     </div>
+  </div>
 </div>
 
 {{!-- delete hidden form --}}
 <form method="POST" name="delete-category-form"></form>
 
 <script>
-    const deleteUser = document.getElementById('delete-category')
-    var userID;
-    var btnDeleteUser = document.getElementById('btn-delete-category')
-    var deleteForm = document.forms['delete-category-form'];
-    deleteUser.addEventListener('show.bs.modal', event => {
-        const button = event.relatedTarget
-        userID = button.getAttribute('data-id')
-        btnDeleteUser.onclick = function () {
-                deleteForm.action = '/user/' + userID + '?_method=DELETE';
-                deleteForm.submit();
-        }
-    })
+  const deleteUser = document.getElementById('delete-category')
+  var userID;
+  var btnDeleteUser = document.getElementById('btn-delete-category')
+  var deleteForm = document.forms['delete-category-form'];
+  deleteUser.addEventListener('show.bs.modal', event => {
+    const button = event.relatedTarget
+    userID = button.getAttribute('data-id')
+    btnDeleteUser.onclick = function () {
+      deleteForm.action = '/user/' + userID + '?_method=DELETE';
+      deleteForm.submit();
+    }
+  })
 </script>
 
 {{!---------Page---------------}}
@@ -96,30 +96,30 @@
   var thisPage = 1;
   var limit = 5;
   var list = document.querySelectorAll('.card-user')
-  function loadIteam(){
+  function loadIteam() {
     var beginGet = limit * (thisPage - 1);
-    var endGet = limit * thisPage - 1 ; 
-    list.forEach((item,key) => {
-      if(key >= beginGet && key <= endGet){
+    var endGet = limit * thisPage - 1;
+    list.forEach((item, key) => {
+      if (key >= beginGet && key <= endGet) {
         item.style.display = 'block';
-      }else{
+      } else {
         item.style.display = 'none';
       }
     })
     listPage();
   }
-   loadIteam() 
-  function listPage(){
+  loadIteam()
+  function listPage() {
     var count = Math.ceil(list.length / limit);
     document.querySelector('.listpage').innerHTML = '';
-    for(i = 1; i<= count; i++){
+    for (i = 1; i <= count; i++) {
       var newPage = document.createElement('li');
       newPage.innerHTML = i;
       document.querySelector('.listpage').appendChild(newPage);
-      newPage.setAttribute('onclick', "changePage("+ i +")");
+      newPage.setAttribute('onclick', "changePage(" + i + ")");
     }
   }
-  function changePage(i){
+  function changePage(i) {
     thisPage = i;
     loadIteam()
   }

@@ -20,50 +20,50 @@
     </div>
     <button class="btn-login" type="submit">Login</button>
   </form>
-    <div class="acc-login">
-      <h2>Accounts</h2>
-      <div class="accounts">
-        <input type="text" value="admin@vigga.com" id="send-admin" readonly>
-        <button onclick="clickSendAdmin()">Copy</button> 
-      </div>
-      <div class="accounts">
-        <input type="text" value="manager@vigga.com" id="send-manager" readonly>
-        <button onclick="clickSendManager()">Copy</button> 
-      </div>
-      <div class="accounts">
-        <input type="text" value="coordinator@vigga.com" id="send-coord" readonly>
-        <button onclick="clickSendCoord()">Copy</button> 
-      </div>
-      <div class="accounts">
-        <input type="text" value="staff@vigga.com" id="send-staff" readonly>
-        <button onclick="clickSendStaff()">Copy</button>
-      </div> 
-      <h2>Password</h2>
-      <div class="password">
-        <input type="text" value="123" id="send-pass" readonly>
-        <button onclick="clickSendPass()">Copy</button>
-      </div> 
+  <div class="acc-login">
+    <h2>Accounts</h2>
+    <div class="accounts">
+      <input type="text" value="admin@vigga.com" id="send-admin" readonly>
+      <button onclick="clickSendAdmin()">Copy</button>
     </div>
+    <div class="accounts">
+      <input type="text" value="manager@vigga.com" id="send-manager" readonly>
+      <button onclick="clickSendManager()">Copy</button>
+    </div>
+    <div class="accounts">
+      <input type="text" value="coordinator@vigga.com" id="send-coord" readonly>
+      <button onclick="clickSendCoord()">Copy</button>
+    </div>
+    <div class="accounts">
+      <input type="text" value="staff@vigga.com" id="send-staff" readonly>
+      <button onclick="clickSendStaff()">Copy</button>
+    </div>
+    <h2>Password</h2>
+    <div class="password">
+      <input type="text" value="123" id="send-pass" readonly>
+      <button onclick="clickSendPass()">Copy</button>
+    </div>
+  </div>
 </div>
 <script>
-function clickSendAdmin() {
-  var copyText = document.getElementById("send-admin");
-  document.getElementById('username').value = copyText.value;
-}
-function clickSendManager() {
-  var copyText = document.getElementById("send-manager");
-  document.getElementById('username').value = copyText.value;
-}
-function clickSendCoord() {
-  var copyText = document.getElementById("send-coord");
-  document.getElementById('username').value = copyText.value;
-}
-function clickSendStaff() {
-  var copyText = document.getElementById("send-staff");
-  document.getElementById('username').value = copyText.value;
-}
-function clickSendPass() {
-  var copyText = document.getElementById("send-pass");
-  document.getElementById('password').value = copyText.value;
-}
+  function clickSendAdmin() {
+    var copyText = document.getElementById("send-admin");
+    document.getElementById('username').value = copyText.value;
+  }
+  function clickSendManager() {
+    var copyText = document.getElementById("send-manager");
+    document.getElementById('username').value = copyText.value;
+  }
+  function clickSendCoord() {
+    var copyText = document.getElementById("send-coord");
+    document.getElementById('username').value = copyText.value;
+  }
+  function clickSendStaff() {
+    var copyText = document.getElementById("send-staff");
+    document.getElementById('username').value = copyText.value;
+  }
+  function clickSendPass() {
+    var copyText = document.getElementById("send-pass");
+    document.getElementById('password').value = copyText.value;
+  }
 </script>

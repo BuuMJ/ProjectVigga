@@ -43,18 +43,18 @@
   border: none;
   background-size: 300% 100%;
   border-radius: 50px;
-  moz-transition: all .4s ease-in-out;
-  -o-transition: all .4s ease-in-out;
-  -webkit-transition: all .4s ease-in-out;
-  transition: all .4s ease-in-out;
+  moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
 }
 
 .btn5-hover:hover {
   background-position: 100% 0;
-  moz-transition: all .4s ease-in-out;
-  -o-transition: all .4s ease-in-out;
-  -webkit-transition: all .4s ease-in-out;
-  transition: all .4s ease-in-out;
+  moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
 }
 
 .btn5-hover:focus {
@@ -62,11 +62,13 @@
 }
 
 .btn5-hover.btn5 {
-  background-image: linear-gradient(to right,
-      #e41f1f,
-      #dc1111,
-      #fe0425,
-      #f71313);
+  background-image: linear-gradient(
+    to right,
+    #e41f1f,
+    #dc1111,
+    #fe0425,
+    #f71313
+  );
   box-shadow: 0 4px 15px 0 rgba(234, 65, 65, 0.75);
 }
 .container {
@@ -168,7 +170,7 @@
 }
 
 .param-number {
-  font-family: trumpgothicpro,sans-serif;
+  font-family: trumpgothicpro, sans-serif;
   font-size: 76px;
   font-weight: 700;
   color: $primarycolor;
@@ -201,7 +203,7 @@
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
 }
 .slogan img {
-  width: 350px!important;
+  width: 350px !important;
   height: 200px;
   border-radius: 50%;
   border: 5px solid white;
@@ -232,10 +234,10 @@
   background-image: unset !important;
 }
 .carousel-control-next-icon {
-  background-image: unset!important;
+  background-image: unset !important;
 }
 .carousel-control-prev-icon i,
-.carousel-control-next-icon i{
+.carousel-control-next-icon i {
   font-size: 40px;
   color: $primarycolor;
 }
@@ -302,27 +304,26 @@
   height: 100%;
 }
 
-
-// Responsive 
+// Responsive
 @media screen and (max-width: 1440px) {
-    .btn5-hover.btn5{
-      width: 15%;
-    }
-    .celebrate-75y__img {
-      width: 30%;
-    }
-    .celebrate-75y__text{
-      width: 70%;
-    }
-    .celebrate-75y__img img{
-      width: 100%;
-    }
+  .btn5-hover.btn5 {
+    width: 15%;
+  }
+  .celebrate-75y__img {
+    width: 30%;
+  }
+  .celebrate-75y__text {
+    width: 70%;
+  }
+  .celebrate-75y__img img {
+    width: 100%;
+  }
 }
 @media screen and (max-width: 1024px) {
-.intro {
-  height: 580px;
+  .intro {
+    height: 580px;
   }
-.btn5-hover.btn5 {
+  .btn5-hover.btn5 {
     width: 20%;
   }
   .celebrate {
@@ -332,7 +333,7 @@
   .celebrate-75y {
     height: 135px;
     margin: 8px 0 0 0;
-    box-shadow: 0 2px 10px rgba(65,48,45,30%);
+    box-shadow: 0 2px 10px rgba(65, 48, 45, 30%);
   }
   .bythenumbers {
     margin-bottom: 40px;
@@ -342,7 +343,7 @@
   }
   .params-list {
     justify-content: space-around;
-    flex-wrap: wrap ;
+    flex-wrap: wrap;
   }
   .param {
     width: 50%;
@@ -375,7 +376,6 @@
     width: 100%;
     height: 50%;
     align-items: center;
-
   }
   .idea-text p {
     text-align: center;
@@ -415,7 +415,7 @@
 }
 @media screen and (max-width: 600px) {
   .intro h2 {
-    padding: 12px 44px ;
+    padding: 12px 44px;
   }
   .btn5-hover.btn5 {
     width: 30%;
@@ -440,7 +440,7 @@
   }
 }
 @media screen and (max-width: 414px) {
-  .intro{
+  .intro {
     height: 660px;
   }
   .intro h2 {
@@ -450,17 +450,17 @@
   .intro p {
     padding: 12px 30px 28px 30px;
   }
-  .btn5-hover.btn5{
+  .btn5-hover.btn5 {
     width: 50%;
   }
-  .celebrate-75y__text{
-    padding: 0 20px 0 20px ;
+  .celebrate-75y__text {
+    padding: 0 20px 0 20px;
     width: 65%;
   }
   .celebrate-75y__text span {
     font-size: 11px;
   }
-  .celebrate-75y__text p{
+  .celebrate-75y__text p {
     font-size: 12px;
   }
   .celebrate-75y__img {
@@ -475,7 +475,7 @@
   .bythenumbers p {
     padding: unset;
   }
-  .params-list{
+  .params-list {
     flex-direction: column;
   }
   .param {
@@ -486,16 +486,16 @@
     height: 370px;
   }
   .slogan img {
-    width: 159px!important;
+    width: 159px !important;
     height: 159px;
     margin: unset;
   }
-  .slogan p{
+  .slogan p {
     text-align: center;
     font-size: 16px;
     margin-top: 16px;
   }
-  .slogan-author{
+  .slogan-author {
     justify-content: center;
     align-items: center;
     margin-top: 20px;

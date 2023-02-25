@@ -1,28 +1,28 @@
-@import 'variable';
-@import 'header';
-@import 'home';
-@import 'staffsubmission';
-@import 'managements';
-@import 'user';
-@import 'login';
-@import 'footer';
-@import 'animation';
+@import "variable";
+@import "header";
+@import "home";
+@import "staffsubmission";
+@import "managements";
+@import "user";
+@import "login";
+@import "footer";
+@import "animation";
 
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    transition: .5s;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  transition: 0.5s;
 }
 body {
-    margin: 0;
-    font-family: Helvetica Neue,HelveticaNeueLTPro,Helvetica,Arial,sans-serif;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    color: #666;
-    text-align: left;
-    background-color: #fff;
-    width: 100vw;
-    overflow-x: hidden;
+  margin: 0;
+  font-family: Helvetica Neue, HelveticaNeueLTPro, Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #666;
+  text-align: left;
+  background-color: #fff;
+  width: 100vw;
+  overflow-x: hidden;
 }

@@ -1,101 +1,101 @@
 <div class="main-submission">
-    <h1 class="submission-text">Submission list</h1>
-    <div class="submission-application">
+  <h1 class="submission-text">Submission list</h1>
+  <div class="submission-application">
 
-        <a class="submission-btn" href="createSubmission">Add New</a>
-        <table class="table-submission">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Deadline_1</th>
-                    <th>Deadline_2</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody id="submission-list">
-                {{#each submission}}
-                <tr class="submission-list__main">
-                    <td class="submission-list__text">{{this.name}}</td>
-                    <td class="submission-list__text">{{this.deadline_1}}</td>
-                    <td class="submission-list__text">{{this.deadline_2}}</td>
-                    <td class="actions">
-                        <a href="/managements/{{this._id}}/editSubmission" class="category-btn__edit">edit</a>
-                        <a href="" data-id="{{this._id}}" class="category-btn__remove"
-                            data-bs-toggle="modal" data-bs-target="#delete-submission">Delete</a>
-                    </td>
-                </tr>
-                {{/each}}
-            </tbody>
-        </table>
-        <ul class="listpage"></ul>
-    </div>
+    <a class="submission-btn" href="createSubmission">Add New</a>
+    <table class="table-submission">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Deadline_1</th>
+          <th>Deadline_2</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="submission-list">
+        {{#each submission}}
+        <tr class="submission-list__main">
+          <td class="submission-list__text">{{this.name}}</td>
+          <td class="submission-list__text">{{this.deadline_1}}</td>
+          <td class="submission-list__text">{{this.deadline_2}}</td>
+          <td class="actions">
+            <a href="/managements/{{this._id}}/editSubmission" class="category-btn__edit">edit</a>
+            <a href="" data-id="{{this._id}}" class="category-btn__remove" data-bs-toggle="modal"
+              data-bs-target="#delete-submission">Delete</a>
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+    <ul class="listpage"></ul>
+  </div>
 </div>
 
 {{!-- confirm delete --}}
 
 <div id="delete-submission" class="modal" tabindex="-1">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Do you wanna Delete this Submission</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p>Are you sure about it ?</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancle</button>
-                <button id="btn-delete-submission" type="button" class="btn btn-danger">Delete</button>
-            </div>
-        </div>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Do you wanna Delete this Submission</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure about it ?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancle</button>
+        <button id="btn-delete-submission" type="button" class="btn btn-danger">Delete</button>
+      </div>
     </div>
+  </div>
 </div>
 
 {{!-- delete hidden form --}}
 <form method="POST" name="delete-submission-form"></form>
 
 <script>
-    const deleteSubmission = document.getElementById('delete-submission')
-    var submissionID;
-    var btnDeleteSubmission = document.getElementById('btn-delete-submission')
-    var deleteForm = document.forms['delete-submission-form'];
-    deleteSubmission.addEventListener('show.bs.modal', event => {
-        const button = event.relatedTarget
-        submissionID = button.getAttribute('data-id')
+  const deleteSubmission = document.getElementById('delete-submission')
+  var submissionID;
+  var btnDeleteSubmission = document.getElementById('btn-delete-submission')
+  var deleteForm = document.forms['delete-submission-form'];
+  deleteSubmission.addEventListener('show.bs.modal', event => {
+    const button = event.relatedTarget
+    submissionID = button.getAttribute('data-id')
 
 
-        btnDeleteSubmission.onclick = function () {
-                deleteForm.action = '/managements/DS/' + submissionID + '?_method=DELETE';
-                deleteForm.submit();
-        }
-    })
-      var thisPage = 1;
+    btnDeleteSubmission.onclick = function () {
+      deleteForm.action = '/managements/DS/' + submissionID + '?_method=DELETE';
+      deleteForm.submit();
+    }
+  })
+  var thisPage = 1;
   var limit = 5;
   var list = document.querySelectorAll('.submission-list__main')
-  function loadIteam(){
+  function loadIteam() {
     var beginGet = limit * (thisPage - 1);
-    var endGet = limit * thisPage - 1 ; 
-    list.forEach((item,key) => {
-      if(key >= beginGet && key <= endGet){
+    var endGet = limit * thisPage - 1;
+    list.forEach((item, key) => {
+      if (key >= beginGet && key <= endGet) {
         item.style.display = 'table-row';
-      }else{
+      } else {
         item.style.display = 'none';
       }
     })
     listPage();
   }
-   loadIteam() 
-  function listPage(){
+  loadIteam()
+  function listPage() {
     var count = Math.ceil(list.length / limit);
     document.querySelector('.listpage').innerHTML = '';
-    for(i = 1; i<= count; i++){
+    for (i = 1; i <= count; i++) {
       var newPage = document.createElement('li');
       newPage.innerHTML = i;
       document.querySelector('.listpage').appendChild(newPage);
-      newPage.setAttribute('onclick', "changePage("+ i +")");
+      newPage.setAttribute('onclick', "changePage(" + i + ")");
     }
   }
-  function changePage(i){
+  function changePage(i) {
     thisPage = i;
     loadIteam()
   }

@@ -1,99 +1,88 @@
 <div class="main-category">
-    <h1 class="category-text">Category List</h1>
-    <div class="category-application">
+  <h1 class="category-text">Category List</h1>
+  <div class="category-application">
 
-        <a class="category-btn" href="createCategory">Add New</a>
-        <table class="table-category">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody id="category-list">
-                {{#each category}}
-                <tr class="category-list__main">
-                    <td class="category-list__text">{{this.name}}</td>
-                    <td class="actions">
-                        <a href="/managements/{{this._id}}/editCategory" class="category-btn__edit">edit</a>
-                        <a href="" data-id="{{this._id}}" class="category-btn__remove" data-id="{{this._id}}"
-                            data-bs-toggle="modal" data-bs-target="#delete-category">Delete</a>
-                    </td>
-                </tr>
-                {{/each}}
-            </tbody>
-        </table>
-        <ul class="listpage">
-        </ul>
-    </div>
+    <a class="category-btn" href="createCategory">Add New</a>
+    <table class="table-category">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="category-list">
+        {{#each category}}
+        <tr class="category-list__main">
+          <td class="category-list__text">{{this.name}}</td>
+          <td class="actions">
+            <a href="/managements/{{this._id}}/editCategory" class="category-btn__edit">edit</a>
+            <a href="" data-id="{{this._id}}" class="category-btn__remove" data-id="{{this._id}}" data-bs-toggle="modal"
+              data-bs-target="#delete-category">Delete</a>
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+    <ul class="listpage">
+    </ul>
+  </div>
 </div>
 
-{{!-- confirm delete --}}
+{{! confirm delete }}
 
 <div id="delete-category" class="modal" tabindex="-1">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Do you wanna Delete this category</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p>Are you sure about it ?</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancle</button>
-                <button id="btn-delete-category" type="button" class="btn btn-danger">Delete</button>
-            </div>
-        </div>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Do you wanna Delete this category</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure about it ?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancle</button>
+        <button id="btn-delete-category" type="button" class="btn btn-danger">Delete</button>
+      </div>
     </div>
+  </div>
 </div>
 
-{{!-- delete hidden form --}}
+{{! delete hidden form }}
 <form method="POST" name="delete-category-form"></form>
 
 <script>
-    const deleteCategory = document.getElementById('delete-category')
-    var categoryID;
-    var btnDeleteCategory = document.getElementById('btn-delete-category')
-    var deleteForm = document.forms['delete-category-form'];
-    deleteCategory.addEventListener('show.bs.modal', event => {
-        const button = event.relatedTarget
-        categoryID = button.getAttribute('data-id')
-
-
-        btnDeleteCategory.onclick = function () {
-                deleteForm.action = '/managements/' + categoryID + '?_method=DELETE';
-                deleteForm.submit();
-        }
-    })
-  var thisPage = 1;
-  var limit = 5;
-  var list = document.querySelectorAll('.category-list__main')
-  function loadIteam(){
-    var beginGet = limit * (thisPage - 1);
-    var endGet = limit * thisPage - 1 ; 
-    list.forEach((item,key) => {
-      if(key >= beginGet && key <= endGet){
-        item.style.display = 'table-row';
-      }else{
-        item.style.display = 'none';
-      }
-    })
-    listPage();
-  }
-   loadIteam() 
-  function listPage(){
-    var count = Math.ceil(list.length / limit);
-    document.querySelector('.listpage').innerHTML = '';
-    for(i = 1; i<= count; i++){
-      var newPage = document.createElement('li');
-      newPage.innerHTML = i;
-      document.querySelector('.listpage').appendChild(newPage);
-      newPage.setAttribute('onclick', "changePage("+ i +")");
+  const deleteCategory = document.getElementById('delete-category') var
+    categoryID; var btnDeleteCategory =
+      document.getElementById('btn-delete-category') var deleteForm =
+        document.forms['delete-category-form'];
+  deleteCategory.addEventListener('show.bs.modal', event => {
+    const button =
+      event.relatedTarget categoryID = button.getAttribute('data-id')
+    btnDeleteCategory.onclick = function () {
+      deleteForm.action = '/managements/'
+        + categoryID + '?_method=DELETE'; deleteForm.submit();
     }
-  }
-  function changePage(i){
-    thisPage = i;
-    loadIteam()
-  }
+  }) var thisPage = 1;
+  var limit = 5; var list = document.querySelectorAll('.category-list__main')
+  function loadIteam() {
+    var beginGet = limit * (thisPage - 1); var endGet =
+      limit * thisPage - 1; list.forEach((item, key) => {
+        if (key >= beginGet && key
+          <= endGet) { item.style.display = 'table-row'; } else {
+            item.style.display =
+            'none';
+        }
+      }) listPage();
+  } loadIteam() function listPage() {
+    var count =
+      Math.ceil(list.length / limit); document.querySelector('.listpage').innerHTML
+        = ''; for (i = 1; i <= count; i++) {
+          var newPage = document.createElement('li');
+          newPage.innerHTML = i;
+          document.querySelector('.listpage').appendChild(newPage);
+          newPage.setAttribute('onclick', "changePage(" + i + ")");
+        }
+  } function
+    changePage(i) { thisPage = i; loadIteam() }
 </script>
