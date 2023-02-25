@@ -9,6 +9,7 @@ const Account = new Schema({
   fullname: String,
   adremail: String,
   role: String,
+  department: String,
 }, {
   collection: 'accounts'
 });

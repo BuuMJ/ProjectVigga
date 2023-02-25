@@ -36,6 +36,7 @@ class UserController {
         res.render("editUser", {
           account: userMongooseToObject(account),
           user: req.user,
+          data: data,
         })
       )
       .catch(next);
@@ -45,7 +46,12 @@ class UserController {
   updateUser(req, res, next) {
     const salt = bcrypt.genSaltSync(10);
     const hash = bcrypt.hashSync(req.body.password, salt);
-    Account.updateOne({ _id: req.params.id }, req.body, { hash })
+    Account.updateOne({ _id: req.params.id }, {password: hash,
+    username: req.body.username,
+  adremail: req.body.adremail,
+fullname: req.body.fullname,
+role: req.body.role,
+department: req.body.department})
       .then(() => res.redirect("/user"))
       .catch((error) => {});
   }

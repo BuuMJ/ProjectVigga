@@ -20,11 +20,15 @@
      <div class="form-group">
       <label for="inputState">Role</label>
       <select name="role" value="{{account.role}}" id="inputState" class="type__select">
-        <option selected>Choose...</option>
         <option value="admin">Admin</option>
         <option value="user">User</option>
         <option value="coordinator">Coordinator</option>
         <option value="manager">Manager</option>
+      </select>
+      <select name="department" id="department">
+        {{#each data}}
+          <option value="{{this.name}}">{{this.name}}</option>
+        {{/each}}
       </select>
       
       </div>

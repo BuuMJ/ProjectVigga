@@ -13,6 +13,7 @@ class RegisterController {
     var fullname = req.body.fullname;
     var adremail = req.body.adremail;
     var role = req.body.role;
+    var department = req.body.department;
 
     AccountModel.findOne({
       username: username,
@@ -37,6 +38,7 @@ class RegisterController {
                     fullname: fullname,
                     adremail: adremail,
                     role: role,
+                    department: department,
                   });
                 });
                 return res.redirect("/user");
