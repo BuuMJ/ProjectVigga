@@ -1,7 +1,7 @@
 const staffsubmissionRouter = require("./staffsubmission");
 const siteRouter = require("./site");
 const userRouter = require("./user");
-const staticRouter = require("./static");
+const staticsRouter = require("./statics");
 const registerRouter = require("./register");
 const managementsRouter = require("./managements");
 const {
@@ -19,7 +19,7 @@ function route(app) {
 
   app.use("/register", checkLogin, checkAdmin, registerRouter);
 
-  app.use("/static", checkLogin, checkManager, staticRouter);
+  app.use("/statics", checkLogin, checkManager, staticsRouter);
 
   app.use("/staffsubmission", checkLogin, staffsubmissionRouter);
 

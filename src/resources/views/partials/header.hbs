@@ -20,6 +20,9 @@
             <li><a href="/managements/department">Department</a></li>
           </ul>
         </ul>
+        <ul class="drop-down__Statics">
+          <a href="/statics"><span class="navbar-change">Statics</span></a>
+        </ul>
         <ul class="drop-down__Submission">
           <a href="/staffsubmission"><span class="navbar-change">Staff Submission</span></a>
         </ul>
@@ -41,6 +44,9 @@
             <li><a href="/managements/submission">Submission</a></li>
             <li><a href="/managements/department">Department</a></li>
           </ul>
+        </ul>
+        <ul class="drop-down__Statics">
+          <a href="/statics"><span>Statics</span></a>
         </ul>
         <ul class="drop-down__Submission">
           <a href="/staffsubmission"><span class="navbar-change">Staff Submission</span></a>
@@ -104,7 +110,7 @@
                 <a class="logout-mini">Log Out <i class="bi bi-box-arrow-right"></i></a>
               </ul>
               {{#ifeq user 'admin'}}
-                 <ul class="drop-down__Home">
+              <ul class="drop-down__Home">
                 <a href="/"><span>Home</span></a>
               </ul>
               <ul class="drop-down__Managements">
@@ -114,6 +120,9 @@
                   <li><a href="/managements/submission">Submission</a></li>
                   <li><a href="/managements/department">Department</a></li>
                 </ul>
+              </ul>
+              <ul class="drop-down__Statics">
+                <a href="/statics"><span>Statics</span></a>
               </ul>
               <ul class="drop-down__Submission">
                 <a href="/staffsubmission"><span>Staff Submission</span></a>
@@ -132,6 +141,9 @@
                   <li><a href="/managements/submission">Submission</a></li>
                   <li><a href="/managements/department">Department</a></li>
                 </ul>
+              </ul>
+              <ul class="drop-down__Statics">
+                <a href="/statics"><span>Statics</span></a>
               </ul>
               <ul class="drop-down__Submission">
                 <a href="/staffsubmission"><span>Staff Submission</span></a>
@@ -157,7 +169,7 @@
     document.cookie = 'token =; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
     window.location.href = "/login"
   }
-   document.querySelector('.logout-mini').onclick = function () {
+  document.querySelector('.logout-mini').onclick = function () {
     document.cookie = 'token =; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
     window.location.href = "/login"
   }
