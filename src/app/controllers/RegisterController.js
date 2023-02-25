@@ -39,7 +39,7 @@ class RegisterController {
                     role: role,
                   });
                 });
-                return res.render("login", { msg: "Dang ki thanh cong" });
+                return res.redirect("/user");
               }
             })
             .catch((err) => {

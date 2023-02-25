@@ -1,9 +1,8 @@
 const path = require("path");
 const nodemailer = require("nodemailer");
-const Account = require('../models/Account');
-const {userMongooseToObject} = require('../../util/userMongoose');
-// const bcrypt = require("bcrypt");
-
+const Account = require("../models/Account");
+const { userMongooseToObject } = require("../../util/userMongoose");
+const bcrypt = require("bcrypt");
 
 class UserController {
   //[GET] user
@@ -35,12 +34,14 @@ class UserController {
 
   // [PUT] Edit User
   updateUser(req, res, next) {
-    Account.updateOne({ _id: req.params.id }, req.body)
+    const salt = bcrypt.genSaltSync(10);
+    const hash = bcrypt.hashSync(req.body.password, salt);
+    Account.updateOne({ _id: req.params.id }, req.body, { hash })
       .then(() => res.redirect("/user"))
       .catch((error) => {});
   }
 
-  // [DELETE] Delete User 
+  // [DELETE] Delete User
   deleteUser(req, res, next) {
     Account.deleteOne({ _id: req.params.id }, req.body)
       .then(() => res.redirect("/user"))
