@@ -7,6 +7,7 @@ const {userMongooseToObject} = require('../../util/userMongoose');
 
 class UserController {
   //[GET] user
+
   index(req, res, next) {
     Account.find({})
       .then((account) => {
