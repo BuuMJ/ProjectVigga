@@ -2,8 +2,7 @@
 @import 'header';
 @import 'home';
 @import 'staffsubmission';
-@import 'category';
-@import 'department';
+@import 'managements';
 @import 'user';
 @import 'login';
 @import 'footer';
@@ -24,4 +23,6 @@ body {
     color: #666;
     text-align: left;
     background-color: #fff;
+    width: 100vw;
+    overflow-x: hidden;
 }

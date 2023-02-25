@@ -1,14 +1,14 @@
-<div class="main-category">
-    <h1 class="category-text">Edit Department</h1>
-    <form id="form-create-category" method="POST" action="/managements/UD/{{department._id}}?_method=PUT">
-        <div class="category-edit">
-            <div class="category-edit__info">
+<div class="main-department">
+    <h1 class="department-text">Edit Department</h1>
+    <form id="form-create-department" method="POST" action="/managements/UD/{{department._id}}?_method=PUT">
+        <div class="department-edit">
+            <div class="department-edit__info">
                 <label for="name">New Department</label>
                 <input type="text" class="form-control" value="{{department.name}}" id="name" name="name">
             </div>
-            <div class="category-edit__btn">
-                <a class="btn-category-back" href="/managements/Department">Back List</a>
-                <button type="submit" class="btn-category-edit">Edit</button>
+            <div class="department-edit__btn">
+                <a class="btn-department-back" href="/managements/Department">Back</a>
+                <button type="submit" class="btn-department-edit">Edit</button>
             </div>
         </div>
     </form>

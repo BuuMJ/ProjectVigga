@@ -1,5 +1,5 @@
 <div class="main-department">
-    <h1 class="department-text">department list</h1>
+    <h1 class="department-text">Department List</h1>
     <div class="department-application">
 
         <a class="department-btn" href="createDepartment">Add New</a>
@@ -12,9 +12,9 @@
             </thead>
             <tbody id="department-list">
                 {{#each department}}
-                <tr>
-                    <td>{{this.name}}</td>
-                    <td>
+                <tr class="department-list__main">
+                    <td class="department-list__text">{{this.name}}</td>
+                    <td class="actions">
                         <a href="/managements/{{this._id}}/editDepartment" class="department-btn__edit">edit</a>
                         <a href="" data-id="{{this._id}}" class="department-btn__remove"
                             data-bs-toggle="modal" data-bs-target="#delete-department">Delete</a>
@@ -32,7 +32,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Do you wanna Delete this department</h5>
+                <h5 class="modal-title">Do you wanna Delete this Department</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">

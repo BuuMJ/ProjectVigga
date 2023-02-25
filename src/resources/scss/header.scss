@@ -60,7 +60,7 @@
 }
 
 .navbar-center{
-    width: 60%;
+    width: 70%;
 }
 .nav-list {
     display: flex;
@@ -95,6 +95,7 @@ ul {
     font-size: 16px;
     font-weight: 700;
 }
+.drop-down__Home,
 .drop-down__Managements,
 .drop-down__Submission,
 .drop-down__Users {
@@ -134,7 +135,7 @@ ul {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    width: 20%;
+    width: 10%;
 }
 .login a {
     text-decoration: none;
@@ -158,7 +159,8 @@ ul {
     position: relative;
 }
 
-.logout {
+.logout,
+.logout-mini {
     display: none;
     color: white;
     font-size: 20px;
@@ -170,7 +172,8 @@ ul {
     bottom: -44px;
     right: 51px;
 }
-.logout:hover {
+.logout:hover,
+.logout-mini:hover {
     cursor: pointer;
     text-decoration: underline;
 }
@@ -188,6 +191,7 @@ ul {
     }
     .header-mini{
         display: block;
+        text-transform: uppercase;
     }
     .header-mini .navbar-left {
         width: unset;
@@ -229,7 +233,31 @@ ul {
         font-size: 36px;
         color: white;
     }
-    .Managements-show {
+    .header-mini__login,
+    .drop-down__Home,
+    .drop-down__Managements,
+    .drop-down__Submission,
+    .drop-down__Users {
+    position: relative;
+    cursor: pointer;
+    padding: 10px 10px !important;
+}
+    .Managements-show,
+    .logout-mini {
         z-index: 100;
+    }
+    .header-mini__login:hover .logout-mini {
+        display: block;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+    .logout-mini{
+        text-align: center;
+        top: 17px;
+        left: -9px;
+        height: 40px;
+        width: 120px!important;
+        font-size: 16px;
+        padding: 6px 8px !important;
     }
 }

@@ -1,63 +1,23 @@
-<div class="main-category">
-    <h1 class="category-text">Create Submission</h1>
-    <form id="form-create-category" method="POST" action="/managements/storeSubmission">
-        <div class="category-create">
-            <div class="category-create__info">
+<div class="main-submission">
+    <h1 class="submission-text">Create Submission</h1>
+    <form id="form-create-submission" method="POST" action="/managements/storeSubmission">
+        <div class="submission-create">
+            <div class="submission-create__info">
                 <label for="name">Name Submission</label>
                 <input type="text" class="form-control" id="name" name="name">
             </div>
-            <div class="category-create__info">
+            <div class="submission-create__info">
                 <label for="deadline_1">deadline_1</label>
                 <input type="date" class="form-control" id="deadline_1" name="deadline_1">
             </div>
-            <div class="category-create__info">
+            <div class="submission-create__info">
                 <label for="deadline_2">deadline_2</label>
                 <input type="date" class="form-control" id="deadline_2" name="deadline_2">
             </div>
-        <div class="category-edit__btn">
-                <a class="btn-category-back" href="/managements/submission">Back List</a>
-                <button type="submit" class="btn-category-create">Create</button>
+        <div class="submission-edit__btn">
+                <a class="btn-submission-back" href="/managements/submission">Back</a>
+                <button type="submit" class="btn-submission-create">Create</button>
             </div>
         </div>
     </form>
 </div>
-
-{{!-- confirm delete --}}
-
-<div id="delete-category" class="modal" tabindex="-1">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Do you wanna Delete this category</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p>Are you sure about it ?</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancle</button>
-                <button id="btn-delete-category" type="button" class="btn btn-danger">Delete</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-{{!-- delete hidden form --}}
-<form method="POST" name="delete-category-form"></form>
-
-<script>
-    const deleteSubmission = document.getElementById('delete-category')
-    var submissionID;
-    var btnDeleteCategory = document.getElementById('btn-delete-category')
-    var deleteForm = document.forms['delete-category-form'];
-    deleteSubmission.addEventListener('show.bs.modal', event => {
-        const button = event.relatedTarget
-        submissionID = button.getAttribute('data-id')
-
-
-        btnDeleteCategory.onclick = function () {
-                deleteForm.action = '/managements/DS/' + submissionID + '?_method=DELETE';
-                deleteForm.submit();
-        }
-    })
-</script>

@@ -1,5 +1,5 @@
 <div class="main-category">
-    <h1 class="category-text">Category list</h1>
+    <h1 class="category-text">Category List</h1>
     <div class="category-application">
 
         <a class="category-btn" href="createCategory">Add New</a>
@@ -12,9 +12,9 @@
             </thead>
             <tbody id="category-list">
                 {{#each category}}
-                <tr>
-                    <td>{{this.name}}</td>
-                    <td>
+                <tr class="category-list__main">
+                    <td class="category-list__text">{{this.name}}</td>
+                    <td class="actions">
                         <a href="/managements/{{this._id}}/editCategory" class="category-btn__edit">edit</a>
                         <a href="" data-id="{{this._id}}" class="category-btn__remove" data-id="{{this._id}}"
                             data-bs-toggle="modal" data-bs-target="#delete-category">Delete</a>

@@ -6,8 +6,8 @@
       <a href="/"><img src="/img/LOGOVGA.png" alt="" /></a>
       <a href="/"><span class="navbar-change text__right">University</span></a>
     </div>
-        {{#ifeq user 'admin'}}
-                <div class="navbar-center">
+    {{#ifeq user 'admin'}}
+    <div class="navbar-center">
       <ul class="nav-list">
         <ul class="drop-down__Home">
           <a href="/"><span class="navbar-change">Home</span></a>
@@ -18,7 +18,7 @@
             <li><a href="/managements/category">Category</a></li>
             <li><a href="/managements/submission">Submission</a></li>
             <li><a href="/managements/department">Department</a></li>
-        </ul>
+          </ul>
         </ul>
         <ul class="drop-down__Submission">
           <a href="/staffsubmission"><span class="navbar-change">Staff Submission</span></a>
@@ -29,7 +29,7 @@
       </ul>
     </div>
     {{else ifeq user 'manager'}}
-                 <div class="navbar-center">
+    <div class="navbar-center">
       <ul class="nav-list">
         <ul class="drop-down__Home">
           <a href="/"><span class="navbar-change">Home</span></a>
@@ -40,7 +40,7 @@
             <li><a href="/managements/category">Category</a></li>
             <li><a href="/managements/submission">Submission</a></li>
             <li><a href="/managements/department">Department</a></li>
-        </ul>
+          </ul>
         </ul>
         <ul class="drop-down__Submission">
           <a href="/staffsubmission"><span class="navbar-change">Staff Submission</span></a>
@@ -48,7 +48,7 @@
       </ul>
     </div>
     {{else}}
-                  <div class="navbar-center">
+    <div class="navbar-center">
       <ul class="nav-list">
         <ul class="drop-down__Home">
           <a href="/"><span class="navbar-change">Home</span></a>
@@ -58,17 +58,17 @@
         </ul>
       </ul>
     </div>
-        {{/ifeq}}
-      <div class="nav-right">
-        <div class="login">
-          {{#if user}}
-            <a class="show-logout navbar-change" href="">{{getFullname user}}</a>
-          {{else}}
-            <a><span class="navbar-change">login</span></a>
-          {{/if}}
-           <a class="logout">Log Out <i class="bi bi-box-arrow-right"></i></a>
-        </div>
+    {{/ifeq}}
+    <div class="nav-right">
+      <div class="login">
+        {{#if user}}
+        <a class="show-logout navbar-change" href="">{{getFullname user}}</a>
+        {{else}}
+        <a><span class="navbar-change">Login</span></a>
+        {{/if}}
+        <a class="logout">Log Out <i class="bi bi-box-arrow-right"></i></a>
       </div>
+    </div>
   </div>
 </div>
 
@@ -78,12 +78,12 @@
     <div class="container-fluid">
       <div class="navbar-left">
         <a href="/"><span class="text__left">Vigga</span></a>
-      <a href="/"><img src="/img/LOGOVGA.png" alt="" /></a>
-      <a href="/"><span class="text__right">University</span></a>
+        <a href="/"><img src="/img/LOGOVGA.png" alt="" /></a>
+        <a href="/"><span class="text__right">University</span></a>
       </div>
       <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar"
         aria-controls="offcanvasDarkNavbar">
-          <i id="navbar-icon" class="bi bi-justify"></i>
+        <i id="navbar-icon" class="bi bi-justify"></i>
       </button>
       <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar"
         aria-labelledby="offcanvasDarkNavbarLabel">
@@ -95,26 +95,55 @@
         <div class="offcanvas-body">
           <div class="navbar-center">
             <ul class="nav-list">
+              <ul class="header-mini__login">
+                {{#if user}}
+                <a class="show-logout navbar-change" href="">{{getFullname user}}</a>
+                {{else}}
+                <a><span class="navbar-change">Login</span></a>
+                {{/if}}
+                <a class="logout-mini">Log Out <i class="bi bi-box-arrow-right"></i></a>
+              </ul>
+              {{#ifeq user 'admin'}}
+                 <ul class="drop-down__Home">
+                <a href="/"><span>Home</span></a>
+              </ul>
+              <ul class="drop-down__Managements">
+                <span class="">Managements</span>
+                <ul class="Managements-show">
+                  <li><a href="/managements/category">Category</a></li>
+                  <li><a href="/managements/submission">Submission</a></li>
+                  <li><a href="/managements/department">Department</a></li>
+                </ul>
+              </ul>
+              <ul class="drop-down__Submission">
+                <a href="/staffsubmission"><span>Staff Submission</span></a>
+              </ul>
+              <ul class="drop-down__Users">
+                <a href="/user"><span>Users Managements</span></a>
+              </ul>
+              {{else ifeq user 'manager'}}
               <ul class="drop-down__Home">
                 <a href="/"><span>Home</span></a>
               </ul>
-               <ul class="drop-down__Managements">
-          <span class="">Managements</span>
-          <ul class="Managements-show">
-            <li><a href="/managements/category">Category</a></li>
-            <li><a href="/managements/submission">Submission</a></li>
-            <li><a href="/managements/department">Department</a></li>
-        </ul>
-        </ul>
-              <ul class="drop-down__Submission">
-          <a href="/staffsubmission"><span>Staff Submission</span></a>
-        </ul>
-            <ul class="drop-down__Users">
-          <a href="/user"><span>Users Managements</span></a>
-        </ul>
-              <ul class="header-mini__login">
-                 <a href="/login"><span>login</span></a>
+              <ul class="drop-down__Managements">
+                <span class="">Managements</span>
+                <ul class="Managements-show">
+                  <li><a href="/managements/category">Category</a></li>
+                  <li><a href="/managements/submission">Submission</a></li>
+                  <li><a href="/managements/department">Department</a></li>
+                </ul>
               </ul>
+              <ul class="drop-down__Submission">
+                <a href="/staffsubmission"><span>Staff Submission</span></a>
+              </ul>
+              {{else}}
+              <ul class="drop-down__Home">
+                <a href="/"><span>Home</span></a>
+              </ul>
+              <ul class="drop-down__Submission">
+                <a href="/staffsubmission"><span>Staff Submission</span></a>
+              </ul>
+              {{/ifeq}}
             </ul>
           </div>
         </div>
@@ -124,10 +153,12 @@
 </div>
 
 <script>
-  document.querySelector('.logout').onclick = function(){
+  document.querySelector('.logout').onclick = function () {
     document.cookie = 'token =; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-      window.location.href = "/login"
-      console.log('log out')
-      document.querySelector('.nav-right').style.display = "none";
+    window.location.href = "/login"
+  }
+   document.querySelector('.logout-mini').onclick = function () {
+    document.cookie = 'token =; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    window.location.href = "/login"
   }
 </script>
