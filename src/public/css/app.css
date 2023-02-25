@@ -751,7 +751,8 @@ ul {
 .table-category {
   color: black;
   width: 100%;
-  margin-top: 50px; }
+  margin-top: 50px;
+  text-transform: capitalize; }
 
 .table-submission thead,
 .table-department thead,
@@ -862,7 +863,8 @@ ul {
 .category-create__info input {
   width: 100%;
   height: 44px;
-  border-radius: 10px; }
+  border-radius: 10px;
+  text-transform: capitalize; }
 
 .submission-edit__btn,
 .department-edit__btn,
