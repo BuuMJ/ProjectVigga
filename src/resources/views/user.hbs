@@ -26,7 +26,13 @@
         <option value="coordinator">Coordinator</option>
         <option value="manager">Manager</option>
       </select>
-      
+      <label for="department">department</label>
+      <select name="department" id="department">
+        <option selected>Choose</option>
+        {{#each data}}
+          <option value="{{this.name}}">{{this.name}}</option>
+        {{/each}}
+      </select>
       </div>
       <button id="btn-user" type="submit" class="button__user">Add</button>
      </form>  

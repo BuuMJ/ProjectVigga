@@ -1,6 +1,7 @@
 const AccountModel = require("../app/models/Account");
 const jwt = require("jsonwebtoken");
 const { ConnectionStates } = require("mongoose");
+const Department = require("../app/models/Department")
 
 //check login
 function checkLogin(req, res, next) {
@@ -86,6 +87,19 @@ function checkAdmin(req, res, next) {
     });
   }
 }
+// send data department
+function dataDepartment(req, res, next) {
+  const departments = req.query.departments;
+  // Tìm dữ liệu trong database với Query String
+  Department.find({})
+    .then((department) => {
+      department = department.map((department) => department.toObject());
+      data = department;
+      return next();
+    })
+    .catch(next);
+}
+
 
 module.exports = {
   checkLogin,
@@ -93,4 +107,5 @@ module.exports = {
   checkCoordinator,
   checkManager,
   checkAdmin,
+  dataDepartment,
 };

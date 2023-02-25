@@ -23,6 +23,7 @@
                 {{/each}}
             </tbody>
         </table>
+        <ul class="listpage"></ul>
     </div>
 </div>
 
@@ -64,4 +65,34 @@
                 deleteForm.submit();
         }
     })
+      var thisPage = 1;
+  var limit = 5;
+  var list = document.querySelectorAll('.department-list__main')
+  function loadIteam(){
+    var beginGet = limit * (thisPage - 1);
+    var endGet = limit * thisPage - 1 ; 
+    list.forEach((item,key) => {
+      if(key >= beginGet && key <= endGet){
+        item.style.display = 'table-row';
+      }else{
+        item.style.display = 'none';
+      }
+    })
+    listPage();
+  }
+   loadIteam() 
+  function listPage(){
+    var count = Math.ceil(list.length / limit);
+    document.querySelector('.listpage').innerHTML = '';
+    for(i = 1; i<= count; i++){
+      var newPage = document.createElement('li');
+      newPage.innerHTML = i;
+      document.querySelector('.listpage').appendChild(newPage);
+      newPage.setAttribute('onclick', "changePage("+ i +")");
+    }
+  }
+  function changePage(i){
+    thisPage = i;
+    loadIteam()
+  }
 </script>

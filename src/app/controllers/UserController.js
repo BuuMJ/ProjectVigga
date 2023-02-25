@@ -3,6 +3,14 @@ const nodemailer = require("nodemailer");
 const Account = require("../models/Account");
 const { userMongooseToObject } = require("../../util/userMongoose");
 const bcrypt = require("bcrypt");
+const {
+  checkLogin,
+  checkStaff,
+  checkCoordinator,
+  checkManager,
+  checkAdmin,
+  dataDepartment,
+} = require("../../util/authonize");
 
 class UserController {
   //[GET] user
@@ -15,6 +23,7 @@ class UserController {
           account,
           user: req.user,
           title: "User",
+          data: data,
         });
       })
       .catch(next);

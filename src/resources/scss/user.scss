@@ -79,16 +79,17 @@
     display: inline-block;
     width: 30px;
     height: 30px;
-    background-color: $primarycolor;
-    color: white;
+    background-color: #DCDCDC;
+    color: black;
     text-align: center;
     margin: 0 8px;
     padding: 4px 0;
     cursor: pointer;
   }
   .listpage li:hover {
-    background-image: linear-gradient(45deg, rgba(0,0,0,0.8),rgba(255,255,255,0.2));
+    background-image: linear-gradient(45deg, rgba(0,0,0,0.2),rgba(255,255,255,0.2));
   }
+
 //   .title {
 //     color: grey;
 //     font-size: 18px;

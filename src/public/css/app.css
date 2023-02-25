@@ -94,7 +94,7 @@ ul {
 
 .drop-down__Home,
 .drop-down__Managements,
-.drop-down__Statics,
+.drop-down__Statistics,
 .drop-down__Submission,
 .drop-down__Users {
   position: relative;
@@ -123,7 +123,7 @@ ul {
 
 .drop-down__Home:hover span,
 .drop-down__Managements:hover span,
-.drop-down__Statics:hover,
+.drop-down__Statistics:hover,
 .drop-down__Submission:hover span,
 .drop-down__Users:hover span,
 .Managements-show li:hover a,
@@ -219,7 +219,7 @@ ul {
   .header-mini__login,
   .drop-down__Home,
   .drop-down__Managements,
-  .drop-down__Statics,
+  .drop-down__Statistics,
   .drop-down__Submission,
   .drop-down__Users {
     position: relative;
@@ -1056,15 +1056,15 @@ a.btn-category-back {
   display: inline-block;
   width: 30px;
   height: 30px;
-  background-color: #e10d11;
-  color: white;
+  background-color: #DCDCDC;
+  color: black;
   text-align: center;
   margin: 0 8px;
   padding: 4px 0;
   cursor: pointer; }
 
 .listpage li:hover {
-  background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.8), rgba(255, 255, 255, 0.2)); }
+  background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 0.2)); }
 
 .box-login {
   display: flex;
