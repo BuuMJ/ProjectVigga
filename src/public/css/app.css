@@ -953,6 +953,9 @@ a.btn-department-back {
   transform: scale(1.1);
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0.3), rgba(255, 255, 255, 0.2)); }
 
+.category-create__info input:valid {
+  text-transform: capitalize; }
+
 .add__user {
   display: flex;
   flex-direction: column;
