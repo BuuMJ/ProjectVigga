@@ -43,14 +43,48 @@
             <a href="#"><i class="fa fa-linkedin"></i></a>
             <a href="#"><i class="fa fa-facebook"></i></a>
             <a href="/user/{{this._id}}/editUser" class="category-btn__edit">edit</a>
-            <p><button>Remove</button></p>
+            <a href="" data-id="{{this._id}}" class="category-btn__remove" data-bs-toggle="modal" data-bs-target="#delete-category">Delete</a>
           </div>  
           {{/each}}       
         </div>
     </div>
     
+{{!-- confirm delete --}}
+
+<div id="delete-category" class="modal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Do you wanna Delete this category</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure about it ?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancle</button>
+                <button id="btn-delete-category" type="button" class="btn btn-danger">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{!-- delete hidden form --}}
+<form method="POST" name="delete-category-form"></form>
+
+<script>
+    const deleteUser = document.getElementById('delete-category')
+    var userID;
+    var btnDeleteUser = document.getElementById('btn-delete-category')
+    var deleteForm = document.forms['delete-category-form'];
+    deleteUser.addEventListener('show.bs.modal', event => {
+        const button = event.relatedTarget
+        userID = button.getAttribute('data-id')
 
 
-
-
-<script src="/javascript/user.js"></script>
+        btnDeleteUser.onclick = function () {
+                deleteForm.action = '/user/' + userID + '?_method=DELETE';
+                deleteForm.submit();
+        }
+    })
+</script>

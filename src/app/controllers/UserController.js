@@ -2,6 +2,8 @@ const path = require("path");
 const nodemailer = require("nodemailer");
 const Account = require('../models/Account');
 const {userMongooseToObject} = require('../../util/userMongoose');
+// const bcrypt = require("bcrypt");
+
 
 class UserController {
   //[GET] user
@@ -30,7 +32,19 @@ class UserController {
       .catch(next);
   }
 
-  
+  // [PUT] Edit User
+  updateUser(req, res, next) {
+    Account.updateOne({ _id: req.params.id }, req.body)
+      .then(() => res.redirect("/user"))
+      .catch((error) => {});
+  }
+
+  // [DELETE] Delete User 
+  deleteUser(req, res, next) {
+    Account.deleteOne({ _id: req.params.id }, req.body)
+      .then(() => res.redirect("/user"))
+      .catch(next);
+  }
 
   //[Post] send mail comments
   async comment(req, res, next) {

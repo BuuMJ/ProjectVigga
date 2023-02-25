@@ -6,6 +6,8 @@ const { checkLogin, checkStaff, checkCoordinator, checkManager, checkAdmin } = r
 router.post('/comment', userController.comment)
 router.get('/', userController.index)
 router.get('/:id/editUser', userController.editUser)
+router.put('/:id', userController.updateUser)
+router.delete('/:id', userController.deleteUser)
 
 
 module.exports = router;
