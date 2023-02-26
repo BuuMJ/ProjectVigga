@@ -51,36 +51,42 @@
 <form method="POST" name="delete-department-form"></form>
 
 <script>
-  const deletedepartment = document.getElementById('delete-department') var
-    departmentID; var btnDeletedepartment =
-      document.getElementById('btn-delete-department') var deleteForm =
-        document.forms['delete-department-form'];
-  deletedepartment.addEventListener('show.bs.modal', event => {
-    const button =
-      event.relatedTarget departmentID = button.getAttribute('data-id')
-    btnDeletedepartment.onclick = function () {
-      deleteForm.action =
-      '/managements/DD/' + departmentID + '?_method=DELETE'; deleteForm.submit();
+  const deleteDepartment = document.getElementById('delete-department')
+  var departmentID;
+  var btnDeleteDepartment = document.getElementById('btn-delete-department')
+  var deleteForm = document.forms['delete-department-form'];
+  deleteDepartment.addEventListener('show.bs.modal', event => {
+    const button = event.relatedTarget 
+    departmentID = button.getAttribute('data-id')
+    btnDeleteDepartment.onclick = function () {
+      deleteForm.action = '/managements/DD/' + departmentID + '?_method=DELETE'; deleteForm.submit();
     }
-  }) var thisPage = 1; var limit = 5; var list =
-    document.querySelectorAll('.department-list__main') function loadIteam() {
-      var
-      beginGet = limit * (thisPage - 1); var endGet = limit * thisPage - 1;
-      list.forEach((item, key) => {
-        if (key >= beginGet && key <= endGet) {
-          item.style.display = 'table-row';
-        } else { item.style.display = 'none'; }
+  })
+ var thisPage = 1;
+  var limit = 5; 
+  var list = document.querySelectorAll('.department-list__main')
+  function loadIteam() {
+    var beginGet = limit * (thisPage - 1); var endGet =
+      limit * thisPage - 1; list.forEach((item, key) => {
+        if (key >= beginGet && key <= endGet) { item.style.display = 'table-row'; } 
+          else {
+          item.style.display = 'none';
+        }
       })
-      listPage();
-    } loadIteam() function listPage() {
-      var count =
-        Math.ceil(list.length / limit); document.querySelector('.listpage').innerHTML
-          = ''; for (i = 1; i <= count; i++) {
-            var newPage = document.createElement('li');
-            newPage.innerHTML = i;
-            document.querySelector('.listpage').appendChild(newPage);
-            newPage.setAttribute('onclick', "changePage(" + i + ")");
-          }
-    } function
-    changePage(i) { thisPage = i; loadIteam() }
+    listPage();
+  }
+  loadIteam()
+  function listPage() {
+    var count = Math.ceil(list.length / limit); document.querySelector('.listpage').innerHTML = '';
+    for (i = 1; i <= count; i++) {
+      var newPage = document.createElement('li');
+      newPage.innerHTML = i;
+      document.querySelector('.listpage').appendChild(newPage);
+      newPage.setAttribute('onclick', "changePage(" + i + ")");
+    }
+  }
+  function changePage(i) {
+    thisPage = i;
+    loadIteam()
+  }
 </script>

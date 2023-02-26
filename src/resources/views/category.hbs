@@ -52,37 +52,43 @@
 <form method="POST" name="delete-category-form"></form>
 
 <script>
-  const deleteCategory = document.getElementById('delete-category') var
-    categoryID; var btnDeleteCategory =
-      document.getElementById('btn-delete-category') var deleteForm =
-        document.forms['delete-category-form'];
+  const deleteCategory = document.getElementById('delete-category')
+  var categoryID; 
+  var btnDeleteCategory =document.getElementById('btn-delete-category')
+  var deleteForm = document.forms['delete-category-form'];
   deleteCategory.addEventListener('show.bs.modal', event => {
-    const button =
-      event.relatedTarget categoryID = button.getAttribute('data-id')
+    const button = event.relatedTarget
+    categoryID = button.getAttribute('data-id')
     btnDeleteCategory.onclick = function () {
-      deleteForm.action = '/managements/'
-        + categoryID + '?_method=DELETE'; deleteForm.submit();
+      deleteForm.action = '/managements/'  + categoryID + '?_method=DELETE'; 
+      deleteForm.submit();
     }
-  }) var thisPage = 1;
+  })
+  var thisPage = 1;
   var limit = 5; var list = document.querySelectorAll('.category-list__main')
   function loadIteam() {
     var beginGet = limit * (thisPage - 1); var endGet =
       limit * thisPage - 1; list.forEach((item, key) => {
         if (key >= beginGet && key
           <= endGet) { item.style.display = 'table-row'; } else {
-            item.style.display =
+          item.style.display =
             'none';
         }
-      }) listPage();
-  } loadIteam() function listPage() {
-    var count =
-      Math.ceil(list.length / limit); document.querySelector('.listpage').innerHTML
-        = ''; for (i = 1; i <= count; i++) {
-          var newPage = document.createElement('li');
-          newPage.innerHTML = i;
-          document.querySelector('.listpage').appendChild(newPage);
-          newPage.setAttribute('onclick', "changePage(" + i + ")");
-        }
-  } function
-    changePage(i) { thisPage = i; loadIteam() }
+      })
+    listPage();
+  }
+  loadIteam()
+  function listPage() {
+    var count = Math.ceil(list.length / limit); document.querySelector('.listpage').innerHTML = '';
+    for (i = 1; i <= count; i++) {
+      var newPage = document.createElement('li');
+      newPage.innerHTML = i;
+      document.querySelector('.listpage').appendChild(newPage);
+      newPage.setAttribute('onclick', "changePage(" + i + ")");
+    }
+  }
+  function changePage(i) {
+    thisPage = i;
+    loadIteam()
+  }
 </script>
