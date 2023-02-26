@@ -1,6 +1,6 @@
 <div class="add__user">
   <form method="post" action="/user/{{account._id}}?_method=PUT" class="create__card">
-    <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 text-white">Create Form</h3>
+    <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 text-white">Edit Form</h3>
     <div class="form-group">
       <label for="inputEmail4">Email</label>
       <input name="adremail" type="email" value="{{account.adremail}}" class="type_email" id="inputEmail4" />
@@ -25,6 +25,7 @@
         <option value="coordinator">Coordinator</option>
         <option value="manager">Manager</option>
       </select>
+      <label for="department">Department</label>
       <select name="department" id="department">
         {{#each data}}
         <option value="{{this.name}}">{{this.name}}</option>
