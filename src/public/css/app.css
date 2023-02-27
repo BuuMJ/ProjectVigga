@@ -64,7 +64,7 @@
   justify-content: space-around;
   align-items: center;
   animation-name: MoveInLeft;
-  animation-duration: 0.7s; }
+  animation-duration: 2s; }
 
 .nav-list a,
 .nav-list li {
@@ -131,7 +131,7 @@ ul {
   flex-direction: row;
   justify-content: space-around;
   width: 10%;
-  height: 100%; }
+  height: 84px; }
 
 .login a {
   text-decoration: none;
@@ -155,7 +155,7 @@ ul {
   position: relative;
   width: 100%;
   height: 100%;
-  padding: 15px 0 !important; }
+  padding: 20px 0 !important; }
 
 ul.sign-in {
   height: 100%;
@@ -264,6 +264,8 @@ a.out-user:hover {
     padding: 10px !important;
     font-size: 16px;
     font-weight: 700; }
+  .out-user__mini:hover {
+    text-decoration: underline; }
   .user-info__mini > * {
     width: 100%;
     padding: 8px 10px; }
@@ -835,7 +837,8 @@ a.out-user:hover {
 .submission-btn__edit,
 .department-btn__edit,
 .category-btn__edit {
-  background-color: #fcbb04; }
+  background-color: #fcbb04;
+  border: 1px solid #fcbb04; }
 
 .submission-btn__edit:hover,
 .department-btn__edit:hover,
@@ -846,7 +849,8 @@ a.out-user:hover {
 .submission-btn__remove,
 .department-btn__remove,
 .category-btn__remove {
-  background-color: #b40404; }
+  background-color: #b40404;
+  border: 1px solid #b40404; }
 
 .submission-btn__remove:hover,
 .department-btn__remove:hover,
