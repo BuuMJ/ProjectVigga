@@ -47,15 +47,13 @@
   margin: 0 6px;
   font-weight: 700;
 }
-.navbar-left span.text__left {
+.navbar-left .text__left {
   animation-name: MoveInLeft;
   animation-duration: 2s;
-  animation-delay: 2s;
 }
-.navbar-left span.text__right {
+.navbar-left .text__right {
   animation-name: MoveInRight;
   animation-duration: 2s;
-  animation-delay: 2s;
 }
 
 .navbar-center {
@@ -68,8 +66,6 @@
   align-items: center;
   animation-name: MoveInLeft;
   animation-duration: 0.7s;
-  animation-delay: 0.5s;
-  animation-timing-function: linear;
 }
 .nav-list a,
 .nav-list li {
@@ -137,6 +133,7 @@ ul {
   flex-direction: row;
   justify-content: space-around;
   width: 10%;
+  height: 100%;
 }
 .login a {
   text-decoration: none;
@@ -146,41 +143,61 @@ ul {
 }
 .login {
   width: 100%;
-  padding: 30px 0;
-  animation-name: Expansion;
+  animation-name: MoveInRight;
   animation-duration: 1.5s;
-  animation-delay: 0.5s;
   color: white;
   text-align: center;
+  height: 100%;
 }
 .login:hover {
   cursor: pointer;
 }
-.login .show-logout {
+.login .show-logout,
+.show-logout__mini {
   position: relative;
+  width: 100%;
+  height: 100%; 
+  padding: 15px 0 !important;
 }
-
-.logout,
-.logout-mini {
+ul.sign-in {
+  height: 100%;
+  padding: 27px !important;
+}
+.show-logout__mini i ,
+.show-logout i {
+  font-size: 30px;
+}
+.show-user-info,
+.show-user-info__mini {
   display: none;
   color: white;
-  font-size: 20px;
   position: absolute;
-  text-align: center;
+  text-align: left;
   background-color: rgba(0, 0, 0, 0.9);
-  padding: 8px 26px;
+  padding: 10px 12px!important;
   border-bottom: 2px solid #e10d11;
-  bottom: -44px;
-  right: 10px;
+  bottom: -142px;
+  right: 1px;
+  text-decoration: none;
+  list-style-type: none;
+  font-weight: 700;
+  height: 140px;
+  font-size: 16px;
+
 }
-.logout:hover,
-.logout-mini:hover {
+
+.show-user-info > *,
+.show-user-info__mini > * {
+  margin-bottom: 8px;
+}
+
+a.out-user:hover{
   cursor: pointer;
   text-decoration: underline;
 }
-.login:hover .logout {
-  display: block;
-}
+// .login:hover .logout {
+//   display: block;
+// }
 .header-mini {
   display: none;
 }
@@ -191,15 +208,13 @@ ul {
   .nav-list li,
   .navbar-left span,
   .login span,
-  .login a {
+  .login a,
+  .show-user-info {
     font-size: $fontsize__header-mini;
   }
+
   .nav-list a, .nav-list li{
     width: 170px;
-  }
-  .logout {
-    bottom: -40px;
-    right: -15px;
   }
 }
 @media screen and (min-width: 319px) and (max-width: 768px) {
@@ -232,6 +247,9 @@ ul {
   .offcanvas-body {
     background-color: #161516 !important;
   }
+  .offcanvas-body {
+    padding: unset !important;
+  }
   .offcanvas-body .nav-list {
     display: flex;
     flex-direction: column;
@@ -260,23 +278,35 @@ ul {
     cursor: pointer;
     padding: 10px 10px !important;
   }
-  .Managements-show,
-  .logout-mini {
+  .list-user-info {
+    padding: 0 10px;
+    border-bottom: 1px solid $primarycolor;
+  }
+  .user-info__mini {
+    width: 100%;
+    list-style-type: none;
+    font-size: 16px;
+    font-weight: 700;
+  }
+  .out-user__mini {
+    color: white;
+    text-decoration: none;
+    padding: 10px !important;
+    font-size: 16px;
+    font-weight: 700;
+  }
+  .user-info__mini > * {
+    width: 100%;
+    padding: 8px 10px;
+  }
+
+  .Managements-show  {
     z-index: 100;
   }
   .header-mini__login:hover .logout-mini {
     display: block;
     text-decoration: underline;
     cursor: pointer;
-  }
-  .logout-mini {
-    text-align: center;
-    top: -14px;
-    left: 65px;
-    height: 40px;
-    width: 120px !important;
-    font-size: 16px;
-    padding: 6px 8px !important;
   }
   .Managements-show{
     left: 98% !important;
