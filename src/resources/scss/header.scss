@@ -186,6 +186,22 @@ ul {
 }
 
 // responsive
+@media screen and (min-width: 1024px) and (max-width: 1030px) {
+  .nav-list ul,
+  .nav-list li,
+  .navbar-left span,
+  .login span,
+  .login a {
+    font-size: $fontsize__header-mini;
+  }
+  .nav-list a, .nav-list li{
+    width: 170px;
+  }
+  .logout {
+    bottom: -40px;
+    right: -15px;
+  }
+}
 @media screen and (min-width: 319px) and (max-width: 768px) {
   .header {
     display: none;
@@ -255,11 +271,18 @@ ul {
   }
   .logout-mini {
     text-align: center;
-    top: 17px;
-    left: -9px;
+    top: -14px;
+    left: 65px;
     height: 40px;
     width: 120px !important;
     font-size: 16px;
     padding: 6px 8px !important;
+  }
+  .Managements-show{
+    left: 98% !important;
+    top: 32% !important;
+  }
+  ul.drop-down__Users {
+    width: 220px;
   }
 }

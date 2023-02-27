@@ -118,10 +118,17 @@
       newPage.innerHTML = i;
       document.querySelector('.listpage').appendChild(newPage);
       newPage.setAttribute('onclick', "changePage(" + i + ")");
+      if (i === thisPage) {
+      newPage.classList.add('active');
+    }
     }
   }
   function changePage(i) {
     thisPage = i;
+    document.querySelectorAll('.listpage li').forEach(function(page) {
+    page.classList.remove('active');
+  });
+  document.querySelector('.listpage li:nth-child(' + (thisPage) + ')').classList.add('active');
     loadIteam()
   }
 </script>
