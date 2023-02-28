@@ -3,6 +3,7 @@ const jwt = require("jsonwebtoken");
 const { ConnectionStates } = require("mongoose");
 const Department = require("../app/models/Department");
 const Idea = require("../app/models/Idea");
+const Category = require('../app/models/Category');
 
 //check login
 function checkLogin(req, res, next) {
@@ -102,16 +103,28 @@ function dataDepartment(req, res, next) {
 }
 
 // send data Idea
-// function dataIdea(req, res, next) {
-//   const idea = req.query.idea;
-//   Idea.find(req.params.idea)
-//   .then((idea) =>{
-//     idea = idea.map((idea) => idea.toObject());
-//     idea = idea;
-//     return next();
-//   })
-//   .catch(next);
-// }
+function dataIdea(req, res, next) {
+  const idea = req.query.idea;
+  Idea.find({})
+  .then((idea) =>{
+    idea = idea.map((idea) => idea.toObject());
+    data = idea;
+    return next();
+  })
+  .catch(next);
+}
+
+// send data Category
+  function dataCategory(req, res, next) {
+    const category = req.query.category;
+    Category.find({})
+    .then((category) => {
+      category = category.map((category) => category.toObject());
+      dataC = category;
+      return next()
+    })
+    .catch(next);
+  }
 
 
 module.exports = {
@@ -121,4 +134,6 @@ module.exports = {
   checkManager,
   checkAdmin,
   dataDepartment,
+  dataIdea,
+  dataCategory,
 };

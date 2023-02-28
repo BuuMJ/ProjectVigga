@@ -32,10 +32,11 @@
         </tr>
       </thead>
       <tbody id="staffsubmission-list">
-        {{#each idea}}
+        {{#each data}}
         <tr>
           <td>{{this.Title}}</td>
           <td>{{this.Brief}}</td>
+          <td>0</td>
           <td>
             <span class="like_count">0</span>
             <button id="likeBtn" class="like_btn">Like</button>
@@ -45,7 +46,7 @@
             <button id="dislikeBtn" class="dislike_btn">Dislike</button>
           </td>
           <td class="action-item">
-            <a href="/staffsubmission/idea/detail" class="">Details</a>
+            <a href="/staffsubmission/idea/{{this._id}}" class="">Details</a>
           </td>
         </tr>
         {{/each}}

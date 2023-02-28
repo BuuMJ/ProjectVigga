@@ -7,8 +7,6 @@ const Department = require("../models/Department");
 class ManagementsController {
   // [GET] category
   category(req, res, next) {
-    //res.render("category");
-    // [Read Category]
     Category.find({})
       .then((category) => {
         category = category.map((category) => category.toObject());

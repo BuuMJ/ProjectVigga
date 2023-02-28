@@ -11,7 +11,8 @@ const {
   checkManager,
   checkAdmin,
   dataDepartment,
-  
+  dataIdea,
+  dataCategory,
 } = require("../util/authonize");
 
 function route(app) {
@@ -23,9 +24,7 @@ function route(app) {
 
   app.use("/statistics", checkLogin, checkManager, statisticsRouter);
 
-  app.use("/staffsubmission", checkLogin, staffsubmissionRouter);
-
-  app.use("/staffsubmission", checkLogin,staffsubmissionRouter);
+  app.use("/staffsubmission", checkLogin, dataIdea, dataCategory, staffsubmissionRouter);
 
   app.use("/", siteRouter);
 }
