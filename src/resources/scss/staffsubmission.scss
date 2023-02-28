@@ -1,0 +1,101 @@
+.main-staffsubmission {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background: url("/img/bgcontent.jpg") center / cover no-repeat;
+}
+.staffsubmission-application {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 80%;
+    margin-bottom: 300px;
+}
+.staffsubmission-application > * {
+    margin-bottom: 20px;
+}
+.staffsubmission-text {
+    font-size: 50px;
+    font-weight: 700;
+    margin: 150px 0 50px 0;
+    color: white;
+}
+.staffsubmission-application a {
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 700;
+}
+.staffsubmission-btn {
+    width: 120px;
+    height: 40px;
+    border: none;
+    background-color: $primarycolor;
+    color: white;
+    border-radius: 12px;
+    padding: 6px 20px;
+    margin: 50px 0 0 40px;
+}
+.staffsubmission-btn:hover {
+    transform: scale(1.1);
+}
+.table-staffsubmission {
+    color: black;
+    width: 100%;
+    margin-top: 50px;
+}
+.table-staffsubmission thead {
+    background-color: white ;
+}
+.table-staffsubmission th,
+.table-staffsubmission td {
+    font-size: 20px;
+    font-weight: 100px;
+    padding: 11px 12px;
+}
+.action-list,
+.action-item{
+    text-align: center;
+}
+.table-staffsubmission tbody {
+    background-color: #DCDCDC;
+    height: 40px;
+}
+.staffsubmission-btn__view,
+.staffsubmission-btn__download-zip,
+.staffsubmission-btn__download-excel {
+    text-decoration: none;
+    color: white;
+    padding: 6px 12px;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 4px;
+}
+.staffsubmission-btn__view {
+    background-color: #be1c1c;
+}
+.staffsubmission-btn__view:hover {
+    background-color: rgb(255, 255, 255);
+    color: #be1c1c;
+}
+.staffsubmission-btn__download-zip {
+    background-color: #222668;
+}
+
+.staffsubmission-btn__download-zip:hover {
+    background-color: rgb(255, 255, 255);
+    color: #222668;
+}
+
+.staffsubmission-btn__download-excel {
+    background-color: #178724;
+}
+
+.staffsubmission-btn__download-excel:hover {
+    background-color: rgb(255, 255, 255);
+    color: #178724;
+}
+#form-create-staffsubmission{
+    width: 100%;
+    margin-bottom: 421px;
+}

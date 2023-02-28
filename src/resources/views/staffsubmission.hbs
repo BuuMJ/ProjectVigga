@@ -1,0 +1,32 @@
+
+<div class="main-staffsubmission">
+    <h1 class="staffsubmission-text">Staffsubmission</h1>
+    <div class="staffsubmission-application">
+
+        <table class="table-staffsubmission">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Deadline_1</th>
+                    <th>Deadline_2</th>
+                    <th class="action-list">Actions</th>
+
+                </tr>
+            </thead>
+            <tbody id="staffsubmission-list">
+                {{#each submission}}
+                <tr>
+                    <td>{{this.name}}</td>
+                    <td>{{this.deadline_1}}</td>
+                    <td>{{this.deadline_2}}</td>
+                    <td class="action-item">                         
+                            <a href="/staffsubmission/{{this._id}}" class="staffsubmission-btn__view" >View</a>
+                            <a {{! href="/download/ideas/{{this._id}}{{! .zip"}} class="staffsubmission-btn__download-zip">Export Zip</a>
+                            <a {{! href="/download/ideas/{{this._id}}{{! .xlsx"}} class="staffsubmission-btn__download-excel">Export Excel</a>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>

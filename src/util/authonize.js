@@ -1,7 +1,8 @@
 const AccountModel = require("../app/models/Account");
 const jwt = require("jsonwebtoken");
 const { ConnectionStates } = require("mongoose");
-const Department = require("../app/models/Department")
+const Department = require("../app/models/Department");
+const Idea = require("../app/models/Idea");
 
 //check login
 function checkLogin(req, res, next) {
@@ -99,6 +100,18 @@ function dataDepartment(req, res, next) {
     })
     .catch(next);
 }
+
+// send data Idea
+// function dataIdea(req, res, next) {
+//   const idea = req.query.idea;
+//   Idea.find(req.params.idea)
+//   .then((idea) =>{
+//     idea = idea.map((idea) => idea.toObject());
+//     idea = idea;
+//     return next();
+//   })
+//   .catch(next);
+// }
 
 
 module.exports = {

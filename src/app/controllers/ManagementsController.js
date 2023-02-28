@@ -71,6 +71,7 @@ class ManagementsController {
     Submission.find({})
       .then((submission) => {
         submission = submission.map((submission) => submission.toObject());
+        // submission.date = submission.toLocaleDateString();
         res.render("submission", {
           title: "Submission",
           user: req.user,
@@ -136,6 +137,7 @@ class ManagementsController {
       })
       .catch(next);
   }
+
   // department = (req, res) => {
   //   Department.find({}, (err, department) => {
   //     if (err) return next(err);
@@ -147,6 +149,7 @@ class ManagementsController {
   //     });
   //   });
   // };
+
 
   // [GET] Create Department
   createDepartment(req, res, next) {
