@@ -6,7 +6,7 @@
       <label for="username">
         <i class="bi bi-person-fill"></i>
       </label>
-      <input id="username" type="user" name="username">
+      <input id="username" type="user" name="username" oninput="clearText()">
     </div>
     <div class="login-info">
       <label for="password">
@@ -15,8 +15,8 @@
       <input id="password" type="password" type="password" name="password">
     </div>
     <div class="login-info info__remember">
-      <input id="remember" type="checkbox">
-      <label for="remember">Rememberme</label>
+      <input id="remember" type="checkbox" oninvalid="this.setCustomValidity('Please check if you are member')" required >
+      <label class="role_label" for="remember">Member</label>
     </div>
     <button class="btn-login" type="submit">Login</button>
   </form>
@@ -46,21 +46,28 @@
   </div>
 </div>
 <script>
+  function clearText(){
+    document.querySelector('.role_label').innerHTML = 'Member';
+  }
   function clickSendAdmin() {
     var copyText = document.getElementById("send-admin");
     document.getElementById('username').value = copyText.value;
+    document.querySelector('.role_label').innerHTML = 'Admin';
   }
   function clickSendManager() {
     var copyText = document.getElementById("send-manager");
     document.getElementById('username').value = copyText.value;
+    document.querySelector('.role_label').innerHTML = 'Manager';
   }
   function clickSendCoord() {
     var copyText = document.getElementById("send-coord");
     document.getElementById('username').value = copyText.value;
+    document.querySelector('.role_label').innerHTML = 'Coordinator';
   }
   function clickSendStaff() {
     var copyText = document.getElementById("send-staff");
     document.getElementById('username').value = copyText.value;
+    document.querySelector('.role_label').innerHTML = 'Staff';
   }
   function clickSendPass() {
     var copyText = document.getElementById("send-pass");
