@@ -15,7 +15,7 @@
       <input id="password" type="password" type="password" name="password">
     </div>
     <div class="login-info info__remember">
-      <input id="remember" type="checkbox" oninvalid="this.setCustomValidity('Please check if you are member')" required >
+      <input id="remember" type="checkbox" required="" oninvalid="this.setCustomValidity('Please check if you are member')" oninput="setCustomValidity('')">
       <label class="role_label" for="remember">Member</label>
     </div>
     <button class="btn-login" type="submit">Login</button>
