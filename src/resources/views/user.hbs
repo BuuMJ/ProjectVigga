@@ -11,7 +11,7 @@
     </div>
     <div class="form-group">
       <label for="inputName">User name</label>
-      <input name="username" type="text" class="type_name" id="inputName" placeholder="Hoang12345">
+      <input name="username" type="text" class="type_name" id="inputName" placeholder="abc@vigga.com">
     </div>
     <div class="form-group">
       <label for="inputFullname">Full name</label>
@@ -42,7 +42,7 @@
       <h1>{{this.fullname}}</h1>
       <h2>{{this.username}}</h2>
       <h2 class="title">{{this.role}}</h2>
-      <p>{{this.email}}</p>
+      <p>{{this.adremail}}</p>
       <p>{{this.department}}</p>
       <a href="/user/{{this._id}}/editUser" class="category-btn__edit">edit</a>
       <a href="" data-id="{{this._id}}" class="category-btn__remove" data-bs-toggle="modal"
@@ -118,10 +118,17 @@
       newPage.innerHTML = i;
       document.querySelector('.listpage').appendChild(newPage);
       newPage.setAttribute('onclick', "changePage(" + i + ")");
+      if (i === thisPage) {
+      newPage.classList.add('active');
+    }
     }
   }
   function changePage(i) {
     thisPage = i;
+    document.querySelectorAll('.listpage li').forEach(function(page) {
+    page.classList.remove('active');
+  });
+  document.querySelector('.listpage li:nth-child(' + (thisPage) + ')').classList.add('active');
     loadIteam()
   }
 </script>

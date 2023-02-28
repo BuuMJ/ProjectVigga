@@ -63,30 +63,40 @@
     }
   })
  var thisPage = 1;
-  var limit = 5; 
+  var limit = 5;
   var list = document.querySelectorAll('.department-list__main')
   function loadIteam() {
-    var beginGet = limit * (thisPage - 1); var endGet =
-      limit * thisPage - 1; list.forEach((item, key) => {
-        if (key >= beginGet && key <= endGet) { item.style.display = 'table-row'; } 
-          else {
-          item.style.display = 'none';
-        }
-      })
+    var beginGet = limit * (thisPage - 1);
+    var endGet = limit * thisPage - 1;
+    list.forEach((item, key) => {
+      if (key >= beginGet && key <= endGet) {
+        item.style.display = 'table-row';
+      } else {
+        item.style.display = 'none';
+      }
+    })
     listPage();
   }
   loadIteam()
   function listPage() {
-    var count = Math.ceil(list.length / limit); document.querySelector('.listpage').innerHTML = '';
+    var count = Math.ceil(list.length / limit);
+    document.querySelector('.listpage').innerHTML = '';
     for (i = 1; i <= count; i++) {
       var newPage = document.createElement('li');
       newPage.innerHTML = i;
       document.querySelector('.listpage').appendChild(newPage);
       newPage.setAttribute('onclick', "changePage(" + i + ")");
+      if (i === thisPage) {
+      newPage.classList.add('active');
+    }
     }
   }
   function changePage(i) {
     thisPage = i;
+    document.querySelectorAll('.listpage li').forEach(function(page) {
+    page.classList.remove('active');
+  });
+  document.querySelector('.listpage li:nth-child(' + (thisPage) + ')').classList.add('active');
     loadIteam()
   }
 </script>

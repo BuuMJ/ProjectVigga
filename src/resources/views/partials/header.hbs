@@ -2,9 +2,9 @@
 <div id="header" class="header">
   <div class="header__navbar">
     <div class="navbar-left">
-      <a href="/"><span class="navbar-change text__left">Vigga</span></a>
+      <a href="/" class="text__left"><span class="navbar-change ">Vigga</span></a>
       <a href="/"><img src="/img/LOGOVGA.png" alt="" /></a>
-      <a href="/"><span class="navbar-change text__right">University</span></a>
+      <a href="/" class="text__right"><span class="navbar-change ">University</span></a>
     </div>
     {{#ifeq user 'admin'}}
     <div class="navbar-center">
@@ -68,11 +68,20 @@
     <div class="nav-right">
       <div class="login">
         {{#if user}}
-        <a class="show-logout navbar-change" href="">{{getFullname user}}</a>
+        <ul class="show-logout navbar-change">
+          {{!-- <span class=""> --}}
+            <i class="bi bi-person-circle"></i>
+          {{!-- </span> --}}
+        </ul>
+        <ul class="show-user-info">
+          <li>Name: {{getFullname user}}</li>
+          <li>Email: {{getEmail user}}</li>
+          <li>Role: {{getRole user}}</li>
+          <li><a class="out-user" onclick="logout()">Log Out <i class="bi bi-box-arrow-right"></i></a></li>
+        </ul>
         {{else}}
-        <a><span class="navbar-change">Login</span></a>
+        <ul class="sign-in"><a href="#"><span class="navbar-change">Login</span></a></ul>
         {{/if}}
-        <a class="logout">Log Out <i class="bi bi-box-arrow-right"></i></a>
       </div>
     </div>
   </div>
@@ -99,64 +108,75 @@
             aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
-          <div class="navbar-center">
-            <ul class="nav-list">
-              <ul class="header-mini__login">
-                {{#if user}}
-                <a class="show-logout" href="">{{getFullname user}}</a>
+          <div class="list-user-info">
+             {{#if user}}
+                <ul class="user-info__mini">
+                  <li>Name: {{getFullname user}}</li>
+                  <li>Email: {{getEmail user}}</li>
+                  <li>Role: {{getRole user}}</li>
+                  {{!-- <li><a class="out-user" onclick="logout()">Log Out <i class="bi bi-box-arrow-right"></i></a></li> --}}
+                </ul>
                 {{else}}
                 <a><span class="navbar-change">Login</span></a>
                 {{/if}}
-                <a class="logout-mini">Log Out <i class="bi bi-box-arrow-right"></i></a>
-              </ul>
-              {{#ifeq user 'admin'}}
-              <ul class="drop-down__Home">
-                <a href="/"><span>Home</span></a>
-              </ul>
-              <ul class="drop-down__Managements">
-                <span class="">Managements</span>
-                <ul class="Managements-show">
-                  <li><a href="/managements/category">Category</a></li>
-                  <li><a href="/managements/submission">Submission</a></li>
-                  <li><a href="/managements/department">Department</a></li>
+          </div>
+          <div class="navbar-center">
+            <ul class="nav-list">
+              <ul class="header-mini__login">
+                {{#ifeq user 'admin'}}
+                <ul class="drop-down__Home">
+                  <a href="/"><span>Home</span></a>
                 </ul>
-              </ul>
-              <ul class="drop-down__Statistics">
-                <a href="/statistics"><span>Statistics</span></a>
-              </ul>
-              <ul class="drop-down__Submission">
-                <a href="/staffsubmission"><span>Staff Submission</span></a>
-              </ul>
-              <ul class="drop-down__Users">
-                <a href="/user"><span>Users Managements</span></a>
-              </ul>
-              {{else ifeq user 'manager'}}
-              <ul class="drop-down__Home">
-                <a href="/"><span>Home</span></a>
-              </ul>
-              <ul class="drop-down__Managements">
-                <span class="">Managements</span>
-                <ul class="Managements-show">
-                  <li><a href="/managements/category">Category</a></li>
-                  <li><a href="/managements/submission">Submission</a></li>
-                  <li><a href="/managements/department">Department</a></li>
+                <ul class="drop-down__Managements">
+                  <span class="">Managements</span>
+                  <ul class="Managements-show">
+                    <li><a href="/managements/category">Category</a></li>
+                    <li><a href="/managements/submission">Submission</a></li>
+                    <li><a href="/managements/department">Department</a></li>
+                  </ul>
                 </ul>
+                <ul class="drop-down__Statistics">
+                  <a href="/statistics"><span>Statistics</span></a>
+                </ul>
+                <ul class="drop-down__Submission">
+                  <a href="/staffsubmission"><span>Staff Submission</span></a>
+                </ul>
+                <ul class="drop-down__Users">
+                  <a href="/user"><span>Users Managements</span></a>
+                </ul>
+                {{else ifeq user 'manager'}}
+                <ul class="drop-down__Home">
+                  <a href="/"><span>Home</span></a>
+                </ul>
+                <ul class="drop-down__Managements">
+                  <span class="">Managements</span>
+                  <ul class="Managements-show">
+                    <li><a href="/managements/category">Category</a></li>
+                    <li><a href="/managements/submission">Submission</a></li>
+                    <li><a href="/managements/department">Department</a></li>
+                  </ul>
+                </ul>
+                <ul class="drop-down__Statistics">
+                  <a href="/statistics"><span>Statistics</span></a>
+                </ul>
+                <ul class="drop-down__Submission">
+                  <a href="/staffsubmission"><span>Staff Submission</span></a>
+                </ul>
+                {{else}}
+                <ul class="drop-down__Home">
+                  <a href="/"><span>Home</span></a>
+                </ul>
+                <ul class="drop-down__Submission">
+                  <a href="/staffsubmission"><span>Staff Submission</span></a>
+                </ul>
+                {{/ifeq}}
+                {{#if user}}
+                <ul class="out-user__mini">
+                  <a onclick="logout()">Log Out <i class="bi bi-box-arrow-right"></i></a>
+                </ul>
+                {{else}}
+                {{/if}}
               </ul>
-              <ul class="drop-down__Statistics">
-                <a href="/statistics"><span>Statistics</span></a>
-              </ul>
-              <ul class="drop-down__Submission">
-                <a href="/staffsubmission"><span>Staff Submission</span></a>
-              </ul>
-              {{else}}
-              <ul class="drop-down__Home">
-                <a href="/"><span>Home</span></a>
-              </ul>
-              <ul class="drop-down__Submission">
-                <a href="/staffsubmission"><span>Staff Submission</span></a>
-              </ul>
-              {{/ifeq}}
-            </ul>
           </div>
         </div>
       </div>
@@ -165,12 +185,23 @@
 </div>
 
 <script>
-  document.querySelector('.logout').onclick = function () {
+  function logout() {
     document.cookie = 'token =; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
     window.location.href = "/login"
   }
-  document.querySelector('.logout-mini').onclick = function () {
-    document.cookie = 'token =; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-    window.location.href = "/login"
+  //document.querySelector('.logout-mini').onclick = function () {
+    //document.cookie = 'token =; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    //window.location.href = "/login"
+  //}
+  var dropDownUser = document.querySelector('.login');
+  var showUser = document.querySelector('.show-user-info');
+  var btnLogout = document.querySelector('.logout');
+  dropDownUser.onmouseover = function () {
+    showUser.style.display = 'block';
+    btnLogout.style.display = 'block';
+  }
+  dropDownUser.onmouseout = function () {
+    showUser.style.display = 'none';
+    btnLogout.style.display = 'none';
   }
 </script>
