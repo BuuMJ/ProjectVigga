@@ -8,6 +8,7 @@ const port = 3000;
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const helpers = require("handlebars-helpers")();
+const session = require('express-session');
 
 const route = require("./routes");
 const db = require("./config/db");
@@ -39,6 +40,15 @@ app.use(morgan("combined"));
 
 //use cookie parser
 app.use(cookieParser());
+
+//use express-session
+app.use(
+  session({
+    secret: "your-secret-key",
+    resave: false,
+    saveUninitialized: true,
+  })
+);
 
 // app.use(session()); // session middleware
 // app.use(require('flash')());

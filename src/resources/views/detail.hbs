@@ -1,0 +1,30 @@
+<div class="main-detail">
+    <h1 class="detail-text">Details</h1>
+    <div>
+        <div>Title: </div> <td>{{idea.title}}</td>
+        <div>Brief: </div> <td>{{idea.brief}}</td>
+        <div>Content: </div> <td>{{idea.content}}</td>
+        <div>file </div> <td>{{idea.file}}</td>
+        <div>View: </div> <td>{{idea.view}}</td>
+        <div>Submission: </div> <td>{{idea.submission}}</td>
+        <div>Category: </div> <td>{{idea.category}}</td>
+    </div>
+    <div class="detail-application">
+        <form class="detail_btn" method="POST" action="/staffsubmission/idea/{{idea._id}}/comment" >
+            <div class="comment_btn">
+            <label for="content">Comment</label>
+            <br>
+            <textarea id="content" name="content" rows="4" cols="50"></textarea>
+            </div>
+            <br><br>
+            <button class="sub_btn" type="submit">Comment</button>
+        </form>
+        {{!-- {{#each array}} --}}
+        <div >            
+            <td>{{idea.comment}}:{{idea.contentCM}}</td>
+        </div>
+        {{!-- {{/each}} --}}
+    </div>
+</div>
+
+

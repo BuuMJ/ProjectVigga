@@ -17,9 +17,8 @@
       </tr>
     </tbody>
   </table>
-
   <div class="staffsubmission-application">
-    <a class="idea_btn" href="/staffsubmission/idea/createIdea">Add idea</a>
+    <a class="idea_btn" href="/staffsubmission/idea/createIdea?idSub={{idSubS}}">Add idea</a>
     <table class="table-staffsubmission">
       <thead>
         <tr>
@@ -34,82 +33,34 @@
       <tbody id="staffsubmission-list">
         {{#each data}}
         <tr>
-          <td>{{this.Title}}</td>
-          <td>{{this.Brief}}</td>
-          <td>0</td>
+          <td>{{this.title}}</td>
+          <td>{{this.brief}}</td>
+          <td>{{this.view}}</td>
+
+          
+            <td>
+              <form method="POST" action="/staffsubmission/{{this._id}}/like">
+              <span>{{this.like}}</span>
+              <button  type="submit">Like</button>
+              </form>
+            </td>
+          
+
           <td>
-            <span class="like_count">0</span>
-            <button id="likeBtn" class="like_btn">Like</button>
-          </td>
-          <td>
-            <span class="dislike_count">0</span>
-            <button id="dislikeBtn" class="dislike_btn">Dislike</button>
+            <form method="POST" action="/staffsubmission/{{this._id}}/dislike">
+            <span>{{this.dislike}}</span>
+            <button type="submit" >Dislike</button>
+            </form>
           </td>
           <td class="action-item">
-            <a href="/staffsubmission/idea/{{this._id}}" class="">Details</a>
+            <form method="POST" action="/staffsubmission/idea/{{this._id}}/view">
+            <button href="/staffsubmission/idea/{{this._id}}" type="submit" class="">Details</button>
+            </form>
           </td>
         </tr>
         {{/each}}
       </tbody>
     </table>
+    </from>
   </div>
 </div>
-
-<script>
-// Lấy danh sách các nút like và dislike
-var likeButtons = document.querySelectorAll(".like_btn");
-var dislikeButtons = document.querySelectorAll(".dislike_btn");
-
-// Lặp qua danh sách các nút like và dislike để gắn sự kiện click
-for (var i = 0; i < likeButtons.length; i++) {
-  likeButtons[i].addEventListener("click", toggleLikeDislike);
-}
-
-for (var i = 0; i < dislikeButtons.length; i++) {
-  dislikeButtons[i].addEventListener("click", toggleLikeDislike);
-}
-
-// Hàm xử lý khi người dùng chọn like hoặc dislike
-function toggleLikeDislike() {
-  // Lấy các phần tử liên quan đến nút hiện tại
-  var likeCount = this.parentElement.querySelector(".like_count");
-  var dislikeCount = this.parentElement.querySelector(".dislike_count");
-
-  // Nếu nút đã chọn trước đó là like hoặc dislike
-  if (this.classList.contains("active")) {
-    // Thiết lập số like/dislike về 0 và xóa class active của nút hiện tại
-    if (this.classList.contains("like_btn")) {
-      likeCount.textContent = "0";
-    } else {
-      dislikeCount.textContent = "0";
-    }
-    this.classList.remove("active");
-  } else {
-    // Kiểm tra xem nút hiện tại là like hay dislike
-    if (this.classList.contains("like_btn")) {
-      // Thiết lập số like về 1 và thêm class active vào nút hiện tại
-      likeCount.textContent = "1";
-      dislikeCount.textContent = "0";
-      this.classList.add("active");
-      // Nếu dislike đã được chọn trước đó, hủy chọn dislike và cập nhật lại số dislike
-      var otherDislikeBtn = this.parentElement.querySelector(".dislike_btn");
-      if (otherDislikeBtn.classList.contains("active")) {
-        otherDislikeBtn.classList.remove("active");
-        dislikeCount.textContent = "0";
-      }
-    } else {
-      // Thiết lập số dislike về 1 và thêm class active vào nút hiện tại
-      dislikeCount.textContent = "1";
-      likeCount.textContent = "0";
-      this.classList.add("active");
-      // Nếu like đã được chọn trước đó, hủy chọn like và cập nhật lại số like
-      var otherLikeBtn = this.parentElement.querySelector(".like_btn");
-      if (otherLikeBtn.classList.contains("active")) {
-        otherLikeBtn.classList.remove("active");
-        likeCount.textContent = "0";
-      }
-    }
-  }
-}
-
-</script>

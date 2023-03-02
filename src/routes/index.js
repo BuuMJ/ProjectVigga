@@ -24,7 +24,7 @@ function route(app) {
 
   app.use("/statistics", checkLogin, checkManager, statisticsRouter);
 
-  app.use("/staffsubmission", checkLogin, dataIdea, dataCategory, staffsubmissionRouter);
+  app.use("/staffsubmission", checkLogin, checkAdmin, dataIdea, dataCategory, staffsubmissionRouter);
 
   app.use("/", siteRouter);
 }

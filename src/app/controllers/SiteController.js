@@ -48,7 +48,7 @@ class SiteController {
             }
             if (result) {
               res.cookie("token", token, {
-                expires: new Date(Date.now() + 900000),
+                expires: new Date(Date.now() + 1800000),
               });
               // console.log(token)
               // data.username =
