@@ -1,23 +1,23 @@
-<div class="add__user">
-  <form method="post" action="/user/{{account._id}}?_method=PUT" class="create__card">
+<div class="edit__user">
+  <form method="post" action="/user/{{account._id}}?_method=PUT" class="edit__card">
     <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 text-white">Edit Form</h3>
-    <div class="form-group">
-      <label for="inputEmail4">Email</label>
-      <input name="adremail" type="email" value="{{account.adremail}}" class="type_email" id="inputEmail4" />
-    </div>
-    <div class="form-group">
-      <label for="inputPassword4">Password</label>
-      <input name="password" type="password" value="{{account.password}}" class="type_password" id="inputPassword4" />
-    </div>
-    <div class="form-group">
-      <label for="inputName">User name</label>
-      <input name="username" type="text" value="{{account.username}}" class="type_name" id="inputName" />
-    </div>
-    <div class="form-group">
+    <div class="full__type">
       <label for="inputFullname">Full name</label>
       <input name="fullname" type="text" value="{{account.fullname}}" class="type_fullName" id="inputFullname" />
     </div>
-    <div class="form-group">
+    <div class="full__type">
+      <label for="inputEmail4">Email</label>
+      <input name="adremail" type="email" value="{{account.adremail}}" class="type_email" id="inputEmail4" />
+    </div>
+    <div class="full__type">
+      <label for="inputName">User name</label>
+      <input name="username" type="text" value="{{account.username}}" class="type_name" id="inputName" pattern=".+@vigga.com" required/>
+    </div>
+    <div class="full__type">
+      <label for="inputPassword4">Password</label>
+      <input name="password" type="password" value="{{account.password}}" class="type_password" id="inputPassword4" />
+    </div>
+    <div class="full__type">
       <label for="inputState">Role</label>
       <select name="role" value="{{account.role}}" id="inputState" class="type__select">
         <option value="admin">Admin</option>
@@ -25,13 +25,21 @@
         <option value="coordinator">Coordinator</option>
         <option value="manager">Manager</option>
       </select>
+      </div>
+      <div class="full__type">
       <label for="department">Department</label>
-      <select name="department" id="department">
+      <select name="department" id="department" class="type__select">
         {{#each data}}
         <option value="{{this.name}}">{{this.name}}</option>
         {{/each}}
       </select>
     </div>
+    <div class="edit__checkbox">
+      <input type="checkbox" id="checkbox" name="edit__checkbox" required>
+      <label for="edit__checkbox">I agree to terms</label>
+    </div>
+    <div class="full__type btn-user">
     <button id="btn-user" type="submit" class="button__user">edit</button>
+    </div>
   </form>
 </div>

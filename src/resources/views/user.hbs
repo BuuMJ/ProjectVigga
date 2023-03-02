@@ -1,23 +1,23 @@
 <div class="add__user">
   <form method="post" action="/register/apiregister" class="create__card">
     <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 text-white">Create Form</h3>
-    <div class="form-group">
-      <label for="inputEmail4">Email</label>
-      <input name="adremail" type="email" class="type_email" id="inputEmail4" placeholder="Email">
-    </div>
-    <div class="form-group">
-      <label for="inputPassword4">Password</label>
-      <input name="password" type="password" class="type_password" id="inputPassword4" placeholder="Password">
-    </div>
-    <div class="form-group">
-      <label for="inputName">User name</label>
-      <input name="username" type="text" class="type_name" id="inputName" placeholder="abc@vigga.com">
-    </div>
-    <div class="form-group">
+    <div class="full__type">
       <label for="inputFullname">Full name</label>
       <input name="fullname" type="text" class="type_fullName" id="inputFullname" placeholder="Le Thanh hoang">
     </div>
-    <div class="form-group">
+    <div class="full__type">
+      <label for="inputEmail4">Email</label>
+      <input name="adremail" type="email" class="type_email" id="inputEmail4" placeholder="Email">
+    </div>
+    <div class="full__type">
+      <label for="inputName">User name</label>
+      <input name="username" type="text" class="type_name" id="inputName" placeholder="abc@vigga.com" required="" pattern=".+@vigga.com" oninvalid="this.setCustomValidity('@vigga.com')" oninput="setCustomValidity('')" >
+    </div>
+    <div class="full__type">
+      <label for="inputPassword4">Password</label>
+      <input name="password" type="password" class="type_password" id="inputPassword4" placeholder="Password">
+    </div>
+    <div class="full__type">
       <label for="inputState">Role</label>
       <select name="role" id="inputState" class="type__select">
         <option selected>Choose...</option>
@@ -26,27 +26,38 @@
         <option value="coordinator">Coordinator</option>
         <option value="manager">Manager</option>
       </select>
-      <label for="department">department</label>
-      <select name="department" id="department">
+    </div>
+    <div class="full__type">
+      <label for="department">Department</label>
+      <select name="department" id="department" class="type__select">
         <option selected>Choose</option>
         {{#each data}}
         <option value="{{this.name}}">{{this.name}}</option>
         {{/each}}
       </select>
     </div>
-    <button id="btn-user" type="submit" class="button__user">Add</button>
+    <div class="user__checkbox">
+      <input type="checkbox" id="checkbox" name="user__checkbox" required>
+      <label for="user__checkbox">I agree to terms</label>
+    </div>
+    <div class="full__type btn-user">
+      <button id="btn-user" type="submit" class="button__user">Add</button>
+    </div>
+    
   </form>
   <div class="boxer-user">
     {{#each account}}
     <div class="card-user">
-      <h1>{{this.fullname}}</h1>
-      <h2>{{this.username}}</h2>
-      <h2 class="title">{{this.role}}</h2>
-      <p>{{this.adremail}}</p>
-      <p>{{this.department}}</p>
-      <a href="/user/{{this._id}}/editUser" class="category-btn__edit">edit</a>
-      <a href="" data-id="{{this._id}}" class="category-btn__remove" data-bs-toggle="modal"
-        data-bs-target="#delete-category">Delete</a>
+      <h4 class="card-user__info">Full Name: {{this.fullname}}</h1>
+      <h4 class="card-user__info">Email: {{this.adremail}}</h4>
+      <h4 class="card-user__info">User Name: {{this.username}}</h2>
+      <h4 class="card-user__info">Role: {{this.role}}</h2>
+      <h4 class="card-user__info">Department: {{this.department}}</h4>
+      <div class="btn-user__action">
+        <a href="/user/{{this._id}}/editUser" class="category-btn__edit btn__edit-user">edit</a>
+        <a href="" data-id="{{this._id}}" class="category-btn__remove btn__remove-user" data-bs-toggle="modal"
+          data-bs-target="#delete-category">Delete</a>
+      </div>
     </div>
     {{/each}}
   </div>
@@ -60,7 +71,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Do you wanna Delete this category</h5>
+        <h5 class="modal-title">Do you wanna Delete this User?</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -102,7 +113,7 @@
     var endGet = limit * thisPage - 1;
     list.forEach((item, key) => {
       if (key >= beginGet && key <= endGet) {
-        item.style.display = 'block';
+        item.style.display = 'flex';
       } else {
         item.style.display = 'none';
       }
