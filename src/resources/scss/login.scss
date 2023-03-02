@@ -151,3 +151,47 @@ label {
   );
   opacity: 0.8;
 }
+.show-password{
+  position: relative;
+}
+.icon-password {
+  position: absolute;
+  top:0;
+  right: 26px;
+}
+
+// Responsive
+@media screen and (max-width: 768px) {
+  .login-form {
+    margin-left: 40px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .login-form {
+    margin-left: unset;
+  }
+  .acc-login{
+    display: none;
+  }
+  
+}
+@media screen and (max-width: 375px) {
+  .login-form{
+    width: 350px;
+    height: 380px;
+  }
+  .login-info{
+    margin-left: -15px;
+  }
+  
+}
+@media screen and (max-width: 320px) {
+  .box-login{
+    height: 640px;
+  }
+  .login-form{
+    width: 300px;
+    height: 360px;
+  }
+  
+}

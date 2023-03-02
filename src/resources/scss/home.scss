@@ -9,7 +9,6 @@
   color: black;
   position: relative;
 }
-
 .intro h2 {
   font-size: 50px;
   font-weight: 700;
@@ -317,6 +316,9 @@
   }
   .celebrate-75y__img img {
     width: 100%;
+  }
+  .idea-text a {
+    width: 41%;
   }
 }
 @media screen and (max-width: 1024px) {

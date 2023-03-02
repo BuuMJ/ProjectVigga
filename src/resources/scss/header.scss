@@ -282,6 +282,13 @@ a.out-user:hover{
     padding: 0 10px;
     border-bottom: 1px solid $primarycolor;
   }
+  .list-user-info a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 10px;
+  }
   .user-info__mini {
     width: 100%;
     list-style-type: none;

@@ -8,11 +8,15 @@
       </label>
       <input id="username" type="user" name="username" oninput="clearText()">
     </div>
-    <div class="login-info">
+    <div class="login-info show-password">
       <label for="password">
         <i class="bi bi-lock-fill"></i>
       </label>
       <input id="password" type="password" type="password" name="password">
+      <div class="icon-password" onclick="showPassword()" >
+        <i class="bi bi-eye-fill"></i>
+      </div>
+      
     </div>
     <div class="login-info info__remember">
       <input id="remember" type="checkbox" required="" oninvalid="this.setCustomValidity('Please check if you are member')" oninput="setCustomValidity('')">
@@ -72,5 +76,16 @@
   function clickSendPass() {
     var copyText = document.getElementById("send-pass");
     document.getElementById('password').value = copyText.value;
+  }
+  function showPassword(){
+    var show = document.getElementById('password')
+      if(show.type === 'password'){
+        show.type = 'text'
+        document.querySelector('.icon-password').innerHTML = '<i class="bi bi-eye"></i>';
+      }
+      else{
+        show.type = 'password'
+        document.querySelector('.icon-password').innerHTML = '<i class="bi bi-eye-fill"></i>';
+      }
   }
 </script>
