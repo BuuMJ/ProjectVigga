@@ -1,0 +1,67 @@
+<div class="main-category">
+  <h1 class="category-text">Statistics</h1>
+  <div class="category-application">
+    <table class="table-category">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Ideas</th>
+        </tr>
+      </thead>
+      <tbody id="category-list">
+        {{#each ideaCounts}}
+        <tr class="category-list__main">
+          <td class="category-list__text">{{this._id}}</td>
+          <td class="actions">
+            {{this.count}}
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+    <ul class="listpage">
+    </ul>
+  </div>
+</div>
+
+
+
+<script>
+  var thisPage = 1;
+  var limit = 5;
+  var list = document.querySelectorAll('.category-list__main')
+  function loadIteam() {
+    var beginGet = limit * (thisPage - 1);
+    var endGet = limit * thisPage - 1;
+    list.forEach((item, key) => {
+      if (key >= beginGet && key <= endGet) {
+        item.style.display = 'table-row';
+      } else {
+        item.style.display = 'none';
+      }
+    })
+    listPage();
+  }
+  loadIteam()
+  function listPage() {
+    var count = Math.ceil(list.length / limit);
+    document.querySelector('.listpage').innerHTML = '';
+    for (i = 1; i <= count; i++) {
+      var newPage = document.createElement('li');
+      newPage.innerHTML = i;
+      document.querySelector('.listpage').appendChild(newPage);
+      newPage.setAttribute('onclick', "changePage(" + i + ")");
+      if (i === thisPage) {
+      newPage.classList.add('active');
+    }
+    }
+  }
+  function changePage(i) {
+    thisPage = i;
+    document.querySelectorAll('.listpage li').forEach(function(page) {
+    page.classList.remove('active');
+  });
+  document.querySelector('.listpage li:nth-child(' + (thisPage) + ')').classList.add('active');
+    loadIteam()
+  }
+</script>
