@@ -8,13 +8,13 @@
             </div>
             <div class="submission-edit__info">
                 <label for="deadline_1">New deadline_1</label>
-                <input type="date" class="form-control" value="{{submission.deadline_1}}" id="deadline_1"
-                    name="deadline_1" />
+                <input type="datetime-local" class="form-control" value="{{submission.deadline_1}}" id="deadline_1"
+                   name="deadline_1" required />
             </div>
             <div class="submission-edit__info">
                 <label for="deadline_2">New deadline_2</label>
-                <input type="date" class="form-control" value="{{submission.deadline_2}}" id="deadline_2"
-                    name="deadline_2" />
+                <input type="datetime-local" class="form-control" value="{{submission.deadline_2}}" id="deadline_2"
+                    name="deadline_2" required />
             </div>
             <div class="submission-edit__btn">
                 <a class="btn-submission-back" href="/managements/submission">Back</a>
@@ -23,3 +23,25 @@
         </div>
     </form>
 </div>
+<script>
+var currentDate = new Date();
+var myDateInput1 = document.getElementById("deadline_1");
+var myDateInput2 = document.getElementById("deadline_2");
+myDateInput1.addEventListener('change', function() {
+    var myDate1 = new Date(myDateInput1.value);
+  if (myDate1 <= currentDate) {
+    myDateInput1.setCustomValidity('Deadline 1 >= today');
+  } else {
+    myDateInput1.setCustomValidity('');
+  }
+});
+myDateInput2.addEventListener('change', function() {
+  var myDate1 = new Date(myDateInput1.value);
+  var myDate2 = new Date(myDateInput2.value);
+  if (myDate2 <= myDate1) {
+    myDateInput2.setCustomValidity('Deadline 2 > deadline 1');
+  } else {
+    myDateInput2.setCustomValidity('');
+  }
+});
+</script>
