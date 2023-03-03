@@ -3,7 +3,7 @@ const {staffMongoseToObject} = require('../../util/mongoose');
 const Idea = require('../models/Idea');
 const {dataIdea, dataCategory} = require('../../util/authonize');
 const { sendIdSub } = require('../../util/data');
-const { submission } = require('./ManagementsController');
+const { submission, department } = require('./ManagementsController');
 
 
 
@@ -51,6 +51,7 @@ class StaffsubmissionController {
 
   // [POST] create Idea
   storeIdea(req, res, next) {
+    var department = req.user.department
     console.log('idSubmission:' + req.session.idSub)
     const idea = new Idea({
       title: req.body.title,
@@ -59,6 +60,7 @@ class StaffsubmissionController {
       file: req.body.file,
       category: req.body.category,
       submission: req.session.idSub,
+      department: department,
     });
     idea.save()
     .then (
