@@ -19,11 +19,11 @@
             <br><br>
             <button class="sub_btn" type="submit">Comment</button>
         </form>
-        {{!-- {{#each array}} --}}
-        <div >            
-            <td>{{idea.comment}}:{{idea.contentCM}}</td>
-        </div>
-        {{!-- {{/each}} --}}
+        <ul>            
+        {{#each idea.comment}}
+            <li>{{this.username}}: {{this.contentCM}}</li>
+        {{/each}}
+        </ul>
     </div>
 </div>
 

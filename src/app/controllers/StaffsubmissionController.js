@@ -124,14 +124,19 @@ class StaffsubmissionController {
 
   // [POST] comment idea
   async comment(req, res){
+    console.log(req.user.fullname)
     try {
       const idea = await Idea.findById(req.params.id);
+      const username = req.user;
       idea.comment.push({
-        username: req.body.username,
+        username: username.fullname,
         contentCM: req.body.content
       });
+      var comment = idea.comment
+      console.log(comment.username)
       await idea.save();
       res.render("detail", {idea: staffMongoseToObject(idea),
+        comment,
         user: req.user,
         title: 'Detail',
         data,
