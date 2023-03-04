@@ -1,11 +1,10 @@
-const Submission = require('../models/Submission');
-const {staffMongoseToObject} = require('../../util/mongoose');
-const Idea = require('../models/Idea');
-const {dataIdea, dataCategory} = require('../../util/authonize');
-const { sendIdSub } = require('../../util/data');
-const { submission, department } = require('./ManagementsController');
-
-
+const Submission = require("../models/Submission");
+const { staffMongoseToObject } = require("../../util/mongoose");
+const Idea = require("../models/Idea");
+const { dataIdea, dataCategory } = require("../../util/authonize");
+const { sendIdSub } = require("../../util/data");
+const { submission, department } = require("./ManagementsController");
+const nodemailer = require("nodemailer");
 
 class StaffsubmissionController {
   // [GET] staffsubmission
@@ -26,33 +25,31 @@ class StaffsubmissionController {
   show(req, res, next) {
     const idSub = req.params.id;
     Submission.findById(idSub)
-    .then (
-      submission => {
+      .then((submission) => {
         req.session.idSub = idSub;
-        console.log(req.session.idSub)
-        res.render("idea", {submission: staffMongoseToObject(submission),
+        console.log(req.session.idSub);
+        res.render("idea", {
+          submission: staffMongoseToObject(submission),
           user: req.user,
           data,
-          title: 'Detail submission',
-          idSub: req.session.idSub,     
-          })
-      }     
-    )   
-    .catch(next);
+          title: "Detail submission",
+          idSub: req.session.idSub,
+        });
+      })
+      .catch(next);
   }
 
   // [GET] create Idea
-  createIdea(req, res, next, ) {
-    console.log(req.session.idSub)
-    res.render("createIdea",
-    {user:req.user, dataC, title: 'Create Idea',}
-    );
+  createIdea(req, res, next) {
+    console.log(req.session.idSub);
+    res.render("createIdea", { user: req.user, dataC, title: "Create Idea" });
   }
 
   // [POST] create Idea
   storeIdea(req, res, next) {
-    var department = req.user.department
-    console.log('idSubmission:' + req.session.idSub)
+    var department = req.user.department;
+    var adremail = req.user.adremail
+    console.log("idSubmission:" + req.session.idSub);
     const idea = new Idea({
       title: req.body.title,
       brief: req.body.brief,
@@ -61,26 +58,22 @@ class StaffsubmissionController {
       category: req.body.category,
       submission: req.session.idSub,
       department: department,
+      adremail: adremail,
     });
-    idea.save()
-    .then (
-      res.redirect("/staffsubmission")
-    )
-    .catch(next);
+    idea.save().then(res.redirect("/staffsubmission")).catch(next);
   }
 
   // [POST] Like Idea
   async like(req, res, next) {
     try {
       const idea = await Idea.findById(req.params.id);
-      data,
-      idea.like++;
+      data, idea.like++;
       await idea.save();
       // res.render("idea");
       res.redirect("/staffsubmission");
     } catch (error) {
       res.status(400).json({ message: error.message });
-    };
+    }
   }
 
   // [POST] Dislike Idea
@@ -92,19 +85,20 @@ class StaffsubmissionController {
       res.redirect("/staffsubmission");
     } catch (error) {
       res.status(400).json({ message: error.message });
-    };
+    }
   }
 
   // [GET] detail idea
   detail(req, res, next) {
     Idea.findById(req.params.id)
-    .then (
-      idea => res.render("detail", {idea: staffMongoseToObject(idea),
-      user: req.user,
-      title: 'Detail',
-      })
-    )
-    .catch(next);
+      .then((idea) =>
+        res.render("detail", {
+          idea: staffMongoseToObject(idea),
+          user: req.user,
+          title: "Detail",
+        })
+      )
+      .catch(next);
   }
 
   // [POST] View Idea
@@ -113,39 +107,61 @@ class StaffsubmissionController {
       const idea = await Idea.findById(req.params.id);
       idea.view++;
       await idea.save();
-      res.render("detail", {idea: staffMongoseToObject(idea),
+      res.render("detail", {
+        idea: staffMongoseToObject(idea),
         user: req.user,
-        title: 'Detail',
-        })
+        title: "Detail",
+      });
     } catch (error) {
       res.status(400).json({ message: error.message });
     }
   }
 
   // [POST] comment idea
-  async comment(req, res){
-    console.log(req.user.fullname)
+  async comment(req, res) {
+    console.log(req.user.fullname);
     try {
       const idea = await Idea.findById(req.params.id);
       const username = req.user;
+      console.log(idea.adremail)
+      var transporter = nodemailer.createTransport({
+        service: "gmail",
+        auth: {
+          user: "nxt03091999@gmail.com",
+          pass: "magdbcqxrtndtach",
+        },
+      });
+      var mailOptions = {
+        to: idea.adremail,
+        subject: "You have a new message",
+        // text: req.user.fullname + ' commented on your post',
+        text: req.body.content,
+      };
       idea.comment.push({
         username: username.fullname,
-        contentCM: req.body.content
+        contentCM: req.body.content,
       });
-      var comment = idea.comment
-      console.log(comment.username)
+      const comment = idea.comment;
+      console.log(comment.username);
       await idea.save();
-      res.render("detail", {idea: staffMongoseToObject(idea),
-        comment,
-        user: req.user,
-        title: 'Detail',
-        data,
-        })
+      transporter.sendMail(mailOptions, function (error, info) {
+        if (error) {
+          console.log(error);
+        } else {
+          console.log("Email sent: " + info.response);
+          res.render("detail", {
+            idea: staffMongoseToObject(idea),
+            comment,
+            user: req.user,
+            title: "Detail",
+            data,
+          });
+        }
+      });
     } catch (error) {
       res.status(400).json({ message: error.message });
     }
   }
-
 }
 
 module.exports = new StaffsubmissionController();

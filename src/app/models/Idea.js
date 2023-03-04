@@ -11,7 +11,7 @@ const Idea = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Submission',
   },
-
+  adremail: String,
   department: String,
   title: String,
   brief: String,
