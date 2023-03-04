@@ -16,8 +16,8 @@
         {{#each submission}}
         <tr class="submission-list__main">
           <td class="submission-list__text">{{this.name}}</td>
-          <td class="submission-list__text">{{this.deadline_1}}</td>
-          <td class="submission-list__text">{{this.deadline_2}}</td>
+          <td class="submission-list__text">{{moment this.deadline_1 format ="DD MMMM YYYY" }}</td>
+          <td class="submission-list__text">{{moment this.deadline_2 format ="DD MMMM YYYY" }}</td>
           <td class="actions">
             <a href="/managements/{{this._id}}/editSubmission" class="category-btn__edit">edit</a>
             <a href="" data-id="{{this._id}}" class="category-btn__remove" data-bs-toggle="modal"

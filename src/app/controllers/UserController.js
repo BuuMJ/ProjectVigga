@@ -14,7 +14,6 @@ const {
 
 class UserController {
   //[GET] user
-
   index(req, res, next) {
     Account.find({})
       .then((account) => {

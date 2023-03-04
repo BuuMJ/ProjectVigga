@@ -69,7 +69,7 @@ class ManagementsController {
     Submission.find({})
       .then((submission) => {
         submission = submission.map((submission) => submission.toObject());
-        // submission.date = submission.toLocaleDateString();
+        // submission.date = submission.toDateString();
         res.render("submission", {
           title: "Submission",
           user: req.user,

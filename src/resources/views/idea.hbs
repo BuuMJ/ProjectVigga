@@ -12,8 +12,8 @@
     <tbody id="staffsubmission-list">
       <tr>
         <td>{{submission.name}}</td>
-        <td>{{submission.deadline_1}}</td>
-        <td>{{submission.deadline_2}}</td>
+        <td>{{moment this.deadline_1 format ="DD MMMM YYYY" }}</td>
+        <td>{{moment this.deadline_2 format ="DD MMMM YYYY" }}</td>
       </tr>
     </tbody>
   </table>

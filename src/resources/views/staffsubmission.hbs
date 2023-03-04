@@ -17,8 +17,8 @@
                 {{#each submission}}
                 <tr>
                     <td>{{this.name}}</td>
-                    <td>{{this.deadline_1}}</td>
-                    <td>{{this.deadline_2}}</td>
+                    <td>{{moment this.deadline_1 format ="DD MMMM YYYY" }}</td>
+                    <td>{{moment this.deadline_2 format ="DD MMMM YYYY" }}</td>
                     <td class="action-item">                         
                             <a href="/staffsubmission/{{this._id}}" class="staffsubmission-btn__view" >View</a>
                             <a {{! href="/download/ideas/{{this._id}}{{! .zip"}} class="staffsubmission-btn__download-zip">Export Zip</a>
