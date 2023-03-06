@@ -53,20 +53,6 @@
         </ul>
       </ul>
     </div>
-    {{else ifeq user 'coordinator'}}
-    <div class="navbar-center">
-      <ul class="nav-list">
-        <ul class="drop-down__Home">
-          <a href="/"><span class="navbar-change">Home</span></a>
-        </ul>
-        <ul class="drop-down__Statistics">
-          <a href="/statistics"><span>Statistics</span></a>
-        </ul>
-        <ul class="drop-down__Submission">
-          <a href="/staffsubmission"><span class="navbar-change">Staff Submission</span></a>
-        </ul>
-      </ul>
-    </div>
     {{else}}
     <div class="navbar-center">
       <ul class="nav-list">
@@ -171,16 +157,6 @@
                     <li><a href="/managements/submission">Submission</a></li>
                     <li><a href="/managements/department">Department</a></li>
                   </ul>
-                </ul>
-                <ul class="drop-down__Statistics">
-                  <a href="/statistics"><span>Statistics</span></a>
-                </ul>
-                <ul class="drop-down__Submission">
-                  <a href="/staffsubmission"><span>Staff Submission</span></a>
-                </ul>
-                {{else ifeq user 'coordinator'}}
-                <ul class="drop-down__Home">
-                  <a href="/"><span>Home</span></a>
                 </ul>
                 <ul class="drop-down__Statistics">
                   <a href="/statistics"><span>Statistics</span></a>
