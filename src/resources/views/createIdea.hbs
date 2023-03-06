@@ -1,6 +1,6 @@
 <div class="main-category">
     <h1 class="category-text">Add idea</h1>
-    <form id="form-create-category" method="POST" action="/staffsubmission/idea/storeIdea" enctype="multipart/form-data">
+    <form id="form-create-category" method="POST" action="/staffsubmission/idea/storeIdea">
         <div class="category-create">
             <div class="category-create__info">
                 <label for="title">Title</label>
@@ -14,12 +14,10 @@
                 <label for="content">Content</label>
                 <input type="text" class="form-control" id="content" name="content">
             </div>
-          
             <div class="category-create__info">
                 <label for="file">file</label>
                 <input type="file" id="file" name="file">
             </div>
-          
             <div class="check_info">
                 <input type="checkbox" name="check" id="check"> 
                 <label for="check">not robot</label>
