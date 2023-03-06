@@ -1,13 +1,13 @@
 <div class="main-detail">
-    <h1 class="detail-text">Details</h1>
-    <div>
-        <div>Title: </div> <td>{{idea.title}}</td>
-        <div>Brief: </div> <td>{{idea.brief}}</td>
-        <div>Content: </div> <td>{{idea.content}}</td>
-        <div>file </div> <td>{{idea.file}}</td>
-        <div>View: </div> <td>{{idea.view}}</td>
-        <div>Submission: </div> <td>{{idea.submission}}</td>
-        <div>Category: </div> <td>{{idea.category}}</td>
+    <h1 class="detail-text">Details</h1>    
+    <div class="detail-show">
+        <div>Title: <td>{{idea.title}}</td> </div>
+        <div>Brief: <td>{{idea.brief}}</td> </div>
+        <div>Content:  <td>{{idea.content}}</td></div> 
+        <div>file:  <td>{{idea.file}}</td></div> 
+        <div>View:  <td>{{idea.view}}</td></div> 
+        <div>Submission: <td>{{idea.submission}}</td></div> 
+        <div>Category: <td>{{idea.category}}</td></div> 
     </div>
     <div class="detail-application">
         <form class="detail_btn" method="POST" action="/staffsubmission/idea/{{idea._id}}/comment" >
@@ -26,5 +26,7 @@
         </ul>
     </div>
 </div>
+
+        
 
 
