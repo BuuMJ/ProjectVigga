@@ -23,7 +23,7 @@ function route(app) {
 
   app.use("/register", checkLogin, checkAdmin, registerRouter);
 
-  app.use("/statistics",checkLogin, statisticsRouter);
+  app.use("/statistics",checkLogin, checkCoordinator, statisticsRouter);
 
   app.use("/staffsubmission", checkLogin, dataIdea, dataCategory, staffsubmissionRouter);
 
