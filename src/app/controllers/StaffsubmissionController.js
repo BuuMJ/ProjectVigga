@@ -4,7 +4,10 @@ const Idea = require("../models/Idea");
 const { dataIdea, dataCategory } = require("../../util/authonize");
 const { sendIdSub } = require("../../util/data");
 const { submission, department } = require("./ManagementsController");
-const nodemailer = require("nodemailer");
+const multer = require("multer");
+const upload = multer({ dest: "uploads/" });
+const fs = require("fs");
+const path = require("path");
 
 class StaffsubmissionController {
   // [GET] staffsubmission
@@ -41,26 +44,46 @@ class StaffsubmissionController {
 
   // [GET] create Idea
   createIdea(req, res, next) {
-    console.log(req.session.idSub);
+    // console.log(req.session.idSub)
     res.render("createIdea", { user: req.user, dataC, title: "Create Idea" });
   }
 
   // [POST] create Idea
   storeIdea(req, res, next) {
     var department = req.user.department;
-    var adremail = req.user.adremail
-    console.log("idSubmission:" + req.session.idSub);
+    // console.log('idSubmission:' + req.session.idSub)
+
     const idea = new Idea({
       title: req.body.title,
       brief: req.body.brief,
       content: req.body.content,
-      file: req.body.file,
       category: req.body.category,
       submission: req.session.idSub,
       department: department,
-      adremail: adremail,
     });
-    idea.save().then(res.redirect("/staffsubmission")).catch(next);
+
+    if (req.file) {
+      // Kiểm tra xem có file được tải lên không
+      fs.readFile(req.file.path, (err, data) => {
+        if (err) {
+          console.error(err);
+        } else {
+          idea
+            .save()
+            .then(() => {
+              res.redirect("/staffsubmission");
+            })
+            .catch(next);
+        }
+      });
+    } else {
+      idea
+        .save()
+        .then(() => {
+          res.redirect("/staffsubmission");
+        })
+        .catch(next);
+    }
   }
 
   // [POST] Like Idea
@@ -119,44 +142,18 @@ class StaffsubmissionController {
 
   // [POST] comment idea
   async comment(req, res) {
-    console.log(req.user.fullname);
     try {
       const idea = await Idea.findById(req.params.id);
-      const username = req.user;
-      console.log(idea.adremail)
-      var transporter = nodemailer.createTransport({
-        service: "gmail",
-        auth: {
-          user: "nxt03091999@gmail.com",
-          pass: "magdbcqxrtndtach",
-        },
-      });
-      var mailOptions = {
-        to: idea.adremail,
-        subject: "You have a new message",
-        // text: req.user.fullname + ' commented on your post',
-        text: req.body.content,
-      };
       idea.comment.push({
-        username: username.fullname,
+        username: req.body.username,
         contentCM: req.body.content,
       });
-      const comment = idea.comment;
-      console.log(comment.username);
       await idea.save();
-      transporter.sendMail(mailOptions, function (error, info) {
-        if (error) {
-          console.log(error);
-        } else {
-          console.log("Email sent: " + info.response);
-          res.render("detail", {
-            idea: staffMongoseToObject(idea),
-            comment,
-            user: req.user,
-            title: "Detail",
-            data,
-          });
-        }
+      res.render("detail", {
+        idea: staffMongoseToObject(idea),
+        user: req.user,
+        title: "Detail",
+        data,
       });
     } catch (error) {
       res.status(400).json({ message: error.message });

@@ -2,14 +2,18 @@ const express = require('express');
 const router = express.Router();
 const { checkLogin, checkStaff, checkCoordinator, checkManager, checkAdmin, dataIdea } = require('../util/authonize')
 const staffsubmissionController = require('../app/controllers/StaffsubmissionController');
+const { dataStatistics, upload} = require('../util/data');
+const multer = require('multer')
+
+
 
 // communityController.index
 router.get('/:id', staffsubmissionController.show)
 router.post('/:id/like', dataIdea, staffsubmissionController.like)
 router.post('/:id/dislike', dataIdea, staffsubmissionController.dislike)
 
-router.get('/idea/createIdea',staffsubmissionController.createIdea)
-router.post('/idea/storeIdea',staffsubmissionController.storeIdea)
+router.get('/idea/createIdea', staffsubmissionController.createIdea)
+router.post('/idea/storeIdea', upload.single('file'), staffsubmissionController.storeIdea)
 
 router.get('/idea/:id', staffsubmissionController.detail)
 router.post('/idea/:id/view', dataIdea,staffsubmissionController.view)
