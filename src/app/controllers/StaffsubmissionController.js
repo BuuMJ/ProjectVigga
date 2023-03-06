@@ -1,10 +1,11 @@
 const Submission = require("../models/Submission");
 const { staffMongoseToObject } = require("../../util/mongoose");
 const Idea = require("../models/Idea");
-const { dataIdea, dataCategory } = require("../../util/authonize");
-const { sendIdSub } = require("../../util/data");
-const { submission, department } = require("./ManagementsController");
 const nodemailer = require("nodemailer");
+const multer = require("multer");
+const upload = multer({ dest: "uploads/" });
+const fs = require("fs");
+const path = require("path");
 
 class StaffsubmissionController {
   // [GET] staffsubmission
@@ -20,13 +21,12 @@ class StaffsubmissionController {
       })
       .catch(next);
   }
-
   // [GET] Show detail Submission
   show(req, res, next) {
     const idSub = req.params.id;
     Submission.findById(idSub)
       .then((submission) => {
-        req.session.idSub = idSub;
+        req.session.idSub = submission;
         console.log(req.session.idSub);
         res.render("idea", {
           submission: staffMongoseToObject(submission),
@@ -42,25 +42,54 @@ class StaffsubmissionController {
   // [GET] create Idea
   createIdea(req, res, next) {
     console.log(req.session.idSub);
-    res.render("createIdea", { user: req.user, dataC, title: "Create Idea" });
+    res.render("createIdea", {
+      user: req.user,
+      dataC,
+      idSub: req.session.idSub,
+      title: "Create Idea",
+    });
   }
 
   // [POST] create Idea
   storeIdea(req, res, next) {
     var department = req.user.department;
-    var adremail = req.user.adremail
-    console.log("idSubmission:" + req.session.idSub);
+    var adremail = req.user.adremail;
+    var submission = req.session.idSub;
+
+    console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa: " + submission.name);
     const idea = new Idea({
       title: req.body.title,
       brief: req.body.brief,
       content: req.body.content,
       file: req.body.file,
       category: req.body.category,
-      submission: req.session.idSub,
+      submission: submission.name,
       department: department,
       adremail: adremail,
     });
-    idea.save().then(res.redirect("/staffsubmission")).catch(next);
+    //uploads file
+    if (req.file) {
+      // Kiểm tra xem có file được tải lên không
+      fs.readFile(req.file.path, (err, data) => {
+        if (err) {
+          console.error(err);
+        } else {
+          idea
+            .save()
+            .then(() => {
+              res.redirect("/staffsubmission");
+            })
+            .catch(next);
+        }
+      });
+    } else {
+      idea
+        .save()
+        .then(() => {
+          res.redirect("/staffsubmission");
+        })
+        .catch(next);
+    }
   }
 
   // [POST] Like Idea
@@ -75,7 +104,6 @@ class StaffsubmissionController {
       res.status(400).json({ message: error.message });
     }
   }
-
   // [POST] Dislike Idea
   async dislike(req, res, next) {
     try {
@@ -87,7 +115,6 @@ class StaffsubmissionController {
       res.status(400).json({ message: error.message });
     }
   }
-
   // [GET] detail idea
   detail(req, res, next) {
     Idea.findById(req.params.id)
@@ -100,7 +127,6 @@ class StaffsubmissionController {
       )
       .catch(next);
   }
-
   // [POST] View Idea
   async view(req, res) {
     try {
@@ -123,7 +149,7 @@ class StaffsubmissionController {
     try {
       const idea = await Idea.findById(req.params.id);
       const username = req.user;
-      console.log(idea.adremail)
+      console.log(idea.adremail);
       var transporter = nodemailer.createTransport({
         service: "gmail",
         auth: {
