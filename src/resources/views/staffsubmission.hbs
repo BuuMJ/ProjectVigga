@@ -1,3 +1,4 @@
+
 <div class="main-staffsubmission">
     <h1 class="staffsubmission-text">Staffsubmission</h1>
     <div class="staffsubmission-application">
@@ -20,8 +21,8 @@
                     <td>{{this.deadline_2}}</td>
                     <td class="action-item">                         
                             <a href="/staffsubmission/{{this._id}}" class="staffsubmission-btn__view" >View</a>
-                            <a href="/download/ideas/{{this._id}}.zip" class="staffsubmission-btn__download-zip" download>File.Zip</a>
-                            <a href="/download/ideas/{{this._id}}.xlsx" class="staffsubmission-btn__download-excel" download>File.Excel</a>
+                            <a {{! href="/download/ideas/{{this._id}}{{! .zip"}} class="staffsubmission-btn__download-zip">Export Zip</a>
+                            <a {{! href="/download/ideas/{{this._id}}{{! .xlsx"}} class="staffsubmission-btn__download-excel">Export Excel</a>
                     </td>
                 </tr>
                 {{/each}}
