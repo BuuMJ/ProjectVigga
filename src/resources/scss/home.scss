@@ -2,21 +2,22 @@
   position: fixed;
   background-color: black;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   z-index: 100;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  transition: 0 !important;
 }
 .loading img {
-  transform: translateX(-2%);
+  transform: translateX(-3%);
   animation-name: Expansion;
   animation-duration: 1s;
   animation-iteration-count: infinite;
 }
 .loading-distance {
-  height: 10px;
+  height: 16px;
   border-radius: 10px;
   width: 20%;
   border: 2px solid white;
@@ -352,6 +353,13 @@
   }
 }
 @media screen and (max-width: 1024px) {
+  .loading{
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .loading img {
+    margin-top: 180px;
+  }
   .intro {
     height: 580px;
   }
@@ -434,6 +442,12 @@
   }
 }
 @media screen and (max-width: 768px) {
+  .loading{
+    z-index: 2000;
+  }
+  .loading-distance{
+    width: 40%;
+  }
   .btn5-hover.btn5 {
     width: 25%;
   }
@@ -472,6 +486,12 @@
   }
 }
 @media screen and (max-width: 414px) {
+  .loading img {
+    width: 200px;
+  }
+  .loading-distance{
+    width: 44%;
+  }
   .intro {
     height: 660px;
   }
@@ -549,6 +569,13 @@
   }
 }
 @media screen and (max-width: 320px) {
+  .loading img {
+    width: 160px;
+    margin-top: 140px;
+  }
+  .loading-distance{
+    width: 44%;
+  }
   .intro h2 {
     font-size: 30px;
     padding: 0 12px;
