@@ -4,7 +4,7 @@
         <div class="category-create">
             <div class="category-create__info">
                 <label for="name">Name Category</label>
-                <input type="text" class="form-control" id="name" name="name" />
+                <input type="text" class="form-control" id="name" name="name" required="" oninvalid="this.setCustomValidity('Please Enter New Category')" oninput="setCustomValidity('')" />
             </div>
             <div class="category-edit__btn">
                 <a class="btn-category-back" href="/managements/category">Back</a>

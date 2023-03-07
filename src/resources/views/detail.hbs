@@ -18,11 +18,19 @@
             <br><br>
             <button class="sub_btn" type="submit">Comment</button>
         </form>
+<<<<<<< HEAD
         {{!-- {{#each array}} --}}
         <div >            
             <td>{{idea.comment}}</td>
         </div>
         {{!-- {{/each}} --}}
+=======
+        <ul>            
+        {{#each idea.comment}}
+            <li>{{this.username}}: {{this.contentCM}}</li>
+        {{/each}}
+        </ul>
+>>>>>>> a3da9f0d847b2118db5c8eff578347beeb7e6759
     </div>
 </div>
 

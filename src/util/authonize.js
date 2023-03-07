@@ -104,7 +104,6 @@ function dataDepartment(req, res, next) {
 
 // send data Idea
 function dataIdea(req, res, next) {
-  const idea = req.query.idea;
   Idea.find({})
   .then((idea) =>{
     idea = idea.map((idea) => idea.toObject());

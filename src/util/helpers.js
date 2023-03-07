@@ -11,6 +11,9 @@ module.exports = {
   getEmail: function (user) {
     return user.adremail;
   },
+  getDepartment: function(user){
+    return user.department;
+  },
   ifeq: function (user, y, options) {
     // console.log(user)
     var currentRole = user == undefined ? "" : user.role;

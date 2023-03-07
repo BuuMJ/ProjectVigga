@@ -4,20 +4,42 @@
         <div class="submission-create">
             <div class="submission-create__info">
                 <label for="name">Name Submission</label>
-                <input type="text" class="form-control" id="name" name="name" />
+                <input type="text" class="form-control" id="name" name="name" required=""  />
             </div>
             <div class="submission-create__info">
                 <label for="deadline_1">deadline_1</label>
-                <input type="date" class="form-control" id="deadline_1" name="deadline_1" />
+                <input type="datetime-local" class="form-control" id="deadline_1" name="deadline_1" required />
             </div>
             <div class="submission-create__info">
                 <label for="deadline_2">deadline_2</label>
-                <input type="date" class="form-control" id="deadline_2" name="deadline_2" />
+                <input type="datetime-local" class="form-control" id="deadline_2" name="deadline_2" required />
             </div>
             <div class="submission-edit__btn">
                 <a class="btn-submission-back" href="/managements/submission">Back</a>
-                <button type="submit" class="btn-submission-create">Create</button>
+                <button type="submit" class="btn-submission-create" >Create</button>
             </div>
         </div>
     </form>
 </div>
+<script>
+var currentDate = new Date();
+var myDateInput1 = document.getElementById("deadline_1");
+var myDateInput2 = document.getElementById("deadline_2");
+myDateInput1.addEventListener('change', function() {
+    var myDate1 = new Date(myDateInput1.value);
+  if (myDate1 <= currentDate) {
+    myDateInput1.setCustomValidity('Deadline 1 >= today');
+  } else {
+    myDateInput1.setCustomValidity('');
+  }
+});
+myDateInput2.addEventListener('change', function() {
+  var myDate1 = new Date(myDateInput1.value);
+  var myDate2 = new Date(myDateInput2.value);
+  if (myDate2 <= myDate1) {
+    myDateInput2.setCustomValidity('Deadline 2 > deadline 1');
+  } else {
+    myDateInput2.setCustomValidity('');
+  }
+});
+</script>
