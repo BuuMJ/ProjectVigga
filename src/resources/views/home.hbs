@@ -1,3 +1,9 @@
+<div class="loading">
+  <img src="/img/LOGOVGA.png" alt="">
+  <div class="loading-distance">
+    <div class="distance-go"></div>
+  </div>
+</div>
 <div class="intro ">
   <h2>work together to build Vigga</h2>
   <p>
@@ -108,15 +114,22 @@
     </button>
   </div>
   <div class="content-idea">
-    <div class="idea-text">
+    <div class="home-idea__text">
       <h2>WE LOVE NEW IDEAS.</h2>
       <h3>Let's Talk.</h3>
       <p>Let's talk and see if you can help Our Team get good ideas together to develop a good working and learning
         environment at Vigga University</p>
       <a href="/staffsubmission">Put Your Ideas Here</a>
     </div>
-    <div class="idea-img">
+    <div class="home-idea__img">
       <img src="/img/ideas.jpeg" alt="">
     </div>
   </div>
 </div>
+<script>
+  window.addEventListener('load', offLoading)
+  var offLoading = setTimeout(stopLoading, 3000);
+  function stopLoading() {
+    document.querySelector('.loading').style.display = 'none'
+  }
+</script>
