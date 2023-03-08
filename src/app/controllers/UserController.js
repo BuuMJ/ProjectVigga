@@ -45,12 +45,17 @@ class UserController {
   updateUser(req, res, next) {
     const salt = bcrypt.genSaltSync(10);
     const hash = bcrypt.hashSync(req.body.password, salt);
-    Account.updateOne({ _id: req.params.id }, {password: hash,
-    username: req.body.username,
-  adremail: req.body.adremail,
-fullname: req.body.fullname,
-role: req.body.role,
-department: req.body.department})
+    Account.updateOne(
+      { _id: req.params.id },
+      {
+        password: hash,
+        username: req.body.username,
+        adremail: req.body.adremail,
+        fullname: req.body.fullname,
+        role: req.body.role,
+        department: req.body.department,
+      }
+    )
       .then(() => res.redirect("/user"))
       .catch((error) => {});
   }

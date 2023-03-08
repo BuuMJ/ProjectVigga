@@ -1,17 +1,17 @@
-<div class="main-category">
-  <h1 class="category-text">Statistics</h1>
-  <div class="category-application">
-    <table class="table-category">
+<div class="main-statistics">
+  <h1 class="statistics-text">Statistics</h1>
+  <div class="statistics-application">
+    <table class="table-statistics">
       <thead>
         <tr>
           <th>Name</th>
           <th>Ideas</th>
         </tr>
       </thead>
-      <tbody id="category-list">
+      <tbody id="statistics-list">
         {{#each ideaCounts}}
-        <tr class="category-list__main">
-          <td class="category-list__text">{{this._id}}</td>
+        <tr class="statistics-list__main">
+          <td class="statistics-list__text">{{this._id}}</td>
           <td class="actions">
             {{this.count}}
           </td>
@@ -29,7 +29,7 @@
 <script>
   var thisPage = 1;
   var limit = 5;
-  var list = document.querySelectorAll('.category-list__main')
+  var list = document.querySelectorAll('.statistics-list__main')
   function loadIteam() {
     var beginGet = limit * (thisPage - 1);
     var endGet = limit * thisPage - 1;

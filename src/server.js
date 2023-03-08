@@ -8,7 +8,7 @@ const port = 3000;
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const helpers = require("handlebars-helpers")();
-const session = require('express-session');
+const session = require("express-session");
 
 const route = require("./routes");
 const db = require("./config/db");

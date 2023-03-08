@@ -1,7 +1,7 @@
-<div class="main-staffsubmission">
-  <h1 class="staffsubmission-text">List of Ideas</h1>
+<div class="main-idea">
+  <h1 class="idea-text">List of Ideas</h1>
 
-  <table class="table-staffsubmission">
+  <table class="table-idea">
     <thead>
       <tr>
         <th>Name Submission</th>
@@ -9,7 +9,7 @@
         <th>Dealine 2</th>
       </tr>
     </thead>
-    <tbody id="staffsubmission-list">
+    <tbody id="idea-list">
       <tr>
         <td>{{submission.name}}</td>
         <td>{{moment this.deadline_1 format ="DD MMMM YYYY" }}</td>
@@ -17,20 +17,20 @@
       </tr>
     </tbody>
   </table>
-  <div class="staffsubmission-application">
+  <div class="idea-application">
     <a class="idea_btn" href="/staffsubmission/idea/createIdea?idSub={{idSubS}}">Add idea</a>
-    <table class="table-staffsubmission">
+    <table class="table-idea">
       <thead>
         <tr>
           <th>Title</th>
           <th>Brief</th>
           <th>Views</th>
-          <th>like</th>
-          <th>dislike</th>
-          <th class="action-list">Actions</th>
+          <th >like</th>
+          <th >dislike</th>
+          <th></th>
         </tr>
       </thead>
-      <tbody id="staffsubmission-list">
+      <tbody id="idea-list">
         {{#each data}}
         <tr>
           <td>{{this.title}}</td>
@@ -41,7 +41,7 @@
             <td>
               <form method="POST" action="/staffsubmission/{{this._id}}/like">
               <span>{{this.like}}</span>
-              <button  type="submit">Like</button>
+              <button class="like_btn" type="submit">Like</button>
               </form>
             </td>
           
@@ -49,14 +49,15 @@
           <td>
             <form method="POST" action="/staffsubmission/{{this._id}}/dislike">
             <span>{{this.dislike}}</span>
-            <button type="submit" >Dislike</button>
+            <button class="dislike_btn" type="submit" >Dislike</button>
             </form>
           </td>
-          <td class="action-item">
+          <td class="idea-action__item">
             <form method="POST" action="/staffsubmission/idea/{{this._id}}/view">
-            <button href="/staffsubmission/idea/{{this._id}}" type="submit" class="">Details</button>
+            <button href="/staffsubmission/idea/{{this._id}}" type="submit" class="detail-link">Details</button>
             </form>
           </td>
+          
         </tr>
         {{/each}}
       </tbody>
@@ -64,3 +65,35 @@
     </from>
   </div>
 </div>
+
+<script>
+let likeStatus = ""; // Khởi tạo biến lưu trữ trạng thái của nút "like/dislike"
+
+let numLikes = 0; // Khởi tạo số lượt thích
+let numDislikes = 0; // Khởi tạo số lượt không thích
+
+function like() {
+  if (likeStatus === "like") { // Nếu người dùng muốn bỏ lượt thích
+    numLikes--;
+    likeStatus = "";
+  } else { // Nếu người dùng chọn lượt thích
+    numLikes++;
+    likeStatus = "like";
+  }
+}
+
+function dislike() {
+  if (likeStatus === "like") { // Nếu người dùng muốn đổi từ lượt thích sang lượt không thích
+    numLikes--;
+    numDislikes++;
+    likeStatus = "dislike";
+  } else if (likeStatus === "dislike") { // Nếu người dùng muốn bỏ lượt không thích
+    numDislikes--;
+    likeStatus = "";
+  } else { // Nếu người dùng chọn lượt không thích
+    numDislikes++;
+    likeStatus = "dislike";
+  }
+}
+
+</script>

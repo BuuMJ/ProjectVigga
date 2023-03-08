@@ -4,7 +4,7 @@ const userRouter = require("./user");
 const statisticsRouter = require("./statistics");
 const registerRouter = require("./register");
 const managementsRouter = require("./managements");
-const { dataStatistics} = require('../util/data');
+const { dataStatistics } = require("../util/data");
 const {
   checkLogin,
   checkStaff,
@@ -23,9 +23,15 @@ function route(app) {
 
   app.use("/register", checkLogin, checkAdmin, registerRouter);
 
-  app.use("/statistics",checkLogin, statisticsRouter);
+  app.use("/statistics", checkLogin, checkCoordinator, statisticsRouter);
 
-  app.use("/staffsubmission", checkLogin, dataIdea, dataCategory, staffsubmissionRouter);
+  app.use(
+    "/staffsubmission",
+    checkLogin,
+    dataIdea,
+    dataCategory,
+    staffsubmissionRouter
+  );
 
   app.use("/", siteRouter);
 }

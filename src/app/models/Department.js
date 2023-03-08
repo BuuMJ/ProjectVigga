@@ -1,9 +1,9 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
 const Department = new Schema({
-    name: String,
-})
+  name: String,
+});
 
-module.exports = mongoose.model('Department', Department);
+module.exports = mongoose.model("Department", Department);

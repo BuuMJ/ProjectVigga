@@ -127,7 +127,7 @@ class ManagementsController {
     Department.find({})
       .then((department) => {
         department = department.map((department) => department.toObject());
-        res.render("department" , {
+        res.render("department", {
           title: "Department",
           department: department,
           user: req.user,
@@ -135,19 +135,6 @@ class ManagementsController {
       })
       .catch(next);
   }
-
-  // department = (req, res) => {
-  //   Department.find({}, (err, department) => {
-  //     if (err) return next(err);
-  //     console.log(department);
-  //     res.render("department", {
-  //       title: "Department",
-  //       department: department,
-  //       user: req.user,
-  //     });
-  //   });
-  // };
-
 
   // [GET] Create Department
   createDepartment(req, res, next) {

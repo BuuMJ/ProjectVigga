@@ -1,6 +1,7 @@
 .main-submission,
 .main-department,
-.main-category {
+.main-category,
+.main-statistics {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -10,7 +11,8 @@
 
 .submission-application,
 .department-application,
-.category-application {
+.category-application,
+.statistics-application {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -19,12 +21,14 @@
 }
 .submission-application > *,
 .department-application > *,
-.category-application > * {
+.category-application > *,
+.statistics-application > * {
   margin-bottom: 20px;
 }
 .submission-text,
 .department-text,
-.category-text {
+.category-text,
+.statistics-text {
   font-size: 50px;
   font-weight: 700;
   margin: 150px 0 50px 0;
@@ -56,7 +60,8 @@
 }
 .table-submission,
 .table-department,
-.table-category {
+.table-category,
+.table-statistics {
   color: black;
   width: 100%;
   margin-top: 50px;
@@ -64,7 +69,8 @@
 }
 .table-submission thead,
 .table-department thead,
-.table-category thead {
+.table-category thead,
+.table-statistics thead {
   background-color: white;
 }
 .table-submission th,
@@ -72,20 +78,24 @@
 .table-department th,
 .table-department td,
 .table-category th,
-.table-category td {
+.table-category td,
+.table-statistics th,
+.table-statistics td {
   font-size: 18px;
   font-weight: 600;
   padding: 12px 12px;
 }
 .table-submission tbody,
 .table-department tbody,
-.table-category tbody {
+.table-category tbody,
+.table-statistics tbody {
   background-color: #dcdcdc;
   height: 40px;
 }
 .submission-list__main,
 .department-list__main,
-.category-list__main {
+.category-list__main,
+.statistics-list__main {
   border-top: 1px solid #bcbcbc;
 }
 .submission-btn__edit,
