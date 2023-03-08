@@ -27,6 +27,7 @@
   width: 20%;
   text-align: center;
 }
+
 .navbar-left a {
   text-decoration: none;
   color: unset;
@@ -55,7 +56,6 @@
   animation-name: MoveInRight;
   animation-duration: 2s;
 }
-
 .navbar-center {
   width: 70%;
 }
@@ -81,7 +81,6 @@ ul {
 }
 .nav-list ul {
   color: $whitecolor;
-  cursor: pointer;
   font-size: $fontsize__header;
   font-weight: 700;
 }
@@ -96,8 +95,10 @@ ul {
 .drop-down__Submission,
 .drop-down__Users {
   position: relative;
-  cursor: pointer;
   padding: 30px 0 !important;
+}
+.drop-down__Managements{
+  cursor: pointer;
 }
 .Managements-show,
 .Users-show {
@@ -119,14 +120,15 @@ ul {
 .drop-down__Managements:hover .Managements-show {
   display: block;
 }
-.drop-down__Home:hover span,
+.drop-down__Home span:hover,
 .drop-down__Managements:hover span,
-.drop-down__Statistics:hover,
-.drop-down__Submission:hover span,
-.drop-down__Users:hover span,
+.drop-down__Statistics span:hover,
+.drop-down__Submission span:hover,
+.drop-down__Users span:hover,
 .Managements-show li:hover a,
 .Users-show li:hover a {
   text-decoration: underline;
+  cursor: pointer;
 }
 .nav-right {
   display: flex;
@@ -274,7 +276,6 @@ a.out-user:hover{
   .drop-down__Submission,
   .drop-down__Users {
     position: relative;
-    cursor: pointer;
     padding: 10px 10px !important;
   }
   .list-user-info {
