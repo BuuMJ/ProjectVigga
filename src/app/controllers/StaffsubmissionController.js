@@ -66,7 +66,7 @@ class StaffsubmissionController {
       title: req.body.title,
       brief: req.body.brief,
       content: req.body.content,
-      file: req.file.filename,
+      file: req.body.file,
       category: req.body.category,
       submission: submission.name,
       department: department,
@@ -218,7 +218,7 @@ class StaffsubmissionController {
       const submission = await Submission.findById(idSub);
       const submissionN = submission.name;
       const ideaData = await Idea.find({ submission: submissionN });
-      console.log(ideaData + "aaaaaaaaa");
+      // console.log(ideaData + "aaaaaaaaa");
       ideaData.forEach((idea) => {
         worksheet.addRow(idea);
       });
