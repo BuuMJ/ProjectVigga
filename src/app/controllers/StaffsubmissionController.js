@@ -196,6 +196,7 @@ class StaffsubmissionController {
 
   // [GET] export Excel file idea
   async exportIdea(req, res, next) {
+    var idSub = req.params.id;
     try {
       let workbook = new excelJs.Workbook();
       const worksheet = workbook.addWorksheet("idea");
@@ -203,6 +204,7 @@ class StaffsubmissionController {
         { header: "ID", key: "id", width: 30 },
         { header: "Adremail", key: "adremail", width: 30 },
         { header: "Department", key: "department", width: 25 },
+        { header: "Submission", key: "submission", width: 20 },
         { header: "Title", key: "title" },
         { header: "Brief", key: "brief" },
         { header: "Content", key: "content" },
@@ -213,10 +215,18 @@ class StaffsubmissionController {
         { header: "View", key: "view" },
       ];
 
-      const ideaData = await Idea.find({});
+      const submission = await Submission.findById(idSub);
+      const submissionN = submission.name;
+      const ideaData = await Idea.find({ submission: submissionN });
+      console.log(ideaData + "aaaaaaaaa");
       ideaData.forEach((idea) => {
         worksheet.addRow(idea);
       });
+
+      // const ideaData = await Idea.find({});
+      // ideaData.forEach((idea) => {
+      //   worksheet.addRow(idea);
+      // });
 
       worksheet.getRow(1).eachCell((cell) => {
         cell.font = { bold: true };
