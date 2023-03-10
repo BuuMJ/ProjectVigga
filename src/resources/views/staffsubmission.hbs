@@ -14,10 +14,10 @@
             </thead>
             <tbody id="staffsubmission-list">
                 {{#each submission}}
-                <tr>
+                <tr class="show-submission__list">
                     <td>{{this.name}}</td>
-                    <td>{{moment this.deadline_1 format ="DD MMM YYYY HH:mm:ss a" }}</td>
-                    <td>{{moment this.deadline_2 format ="DD MMM YYYY HH:mm:ss a" }}</td>
+                    <td class="time-deadline1">{{moment this.deadline_1 format ="DD MMM YYYY HH:mm:ss a" }}</td>
+                    <td class="time-deadline2">{{moment this.deadline_2 format ="DD MMM YYYY HH:mm:ss a" }}</td>
                     <td class="action-item">                         
                             <a href="/staffsubmission/{{this._id}}" class="staffsubmission-btn__view" >View</a>
                             <a href="/staffsubmission/{{this._id}}/exportZip.zip" class="staffsubmission-btn__download-zip" download>File.Zip</a>
@@ -29,3 +29,24 @@
         </table>
     </div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+<script>
+var checkDeadline1 = document.querySelectorAll('.time-deadline1');
+var checkDeadline2 = document.querySelectorAll('.time-deadline2');
+var changeBackground = document.querySelectorAll('.show-submission__list');
+var currentDate = moment();
+for (var i = 0; i < checkDeadline1.length; i++) {
+  var deadline1 = moment(checkDeadline1[i].textContent, "DD MMM YYYY HH:mm:ss");
+  if (deadline1.isBefore(currentDate)) {
+    changeBackground[i].classList.add('warning');
+  }
+}
+
+for (var i = 0; i < checkDeadline2.length; i++) {
+  var deadline2 = moment(checkDeadline2[i].textContent, "DD MMM YYYY HH:mm:ss");
+  if (deadline2.isBefore(currentDate)) {
+    changeBackground[i].classList.add('danger');
+  }
+}
+
+</script>

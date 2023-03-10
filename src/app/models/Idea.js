@@ -15,6 +15,8 @@ const Idea = new mongoose.Schema(
     brief: String,
     content: String,
     file: String,
+    deadline_1: Date,
+    deadline_2: Date,
     category: String,
     like: { type: Number, default: 0 },
     dislike: { type: Number, default: 0 },

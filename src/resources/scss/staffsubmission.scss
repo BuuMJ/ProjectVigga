@@ -369,7 +369,6 @@ a.btn-create-idea-back {
     justify-content: center;
     width: 80%;
     margin-bottom: 50px;
-    margin-top: -20px;
 }
 .idea-text {
     font-size: 50px;
@@ -503,3 +502,12 @@ button.like_btn {
 .dislike_btn{
     border: none;
 }  
+.warning{
+    background-color: #FCBB04;
+}
+.danger {
+    background-color: #9C0404;
+}
+.none{
+    display: none;
+}

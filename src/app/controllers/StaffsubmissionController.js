@@ -67,6 +67,8 @@ class StaffsubmissionController {
       brief: req.body.brief,
       content: req.body.content,
       file: req.body.file,
+      deadline_1: submission.deadline_1,
+      deadline_2: submission.deadline_2,
       category: req.body.category,
       submission: submission.name,
       department: department,

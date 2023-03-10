@@ -12,8 +12,8 @@
     <tbody id="idea-list">
       <tr>
         <td>{{submission.name}}</td>
-        <td>{{moment this.deadline_1 format ="DD MMM YYYY HH:mm:ss" }}</td>
-        <td>{{moment this.deadline_2 format ="DD MMM YYYY HH:mm:ss" }}</td>
+        <td class="time-deadline1">{{moment submission.deadline_1 format ="DD MMM YYYY HH:mm:ss" }}</td>
+        <td class="time-deadline2">{{moment submission.deadline_2 format ="DD MMM YYYY HH:mm:ss" }}</td>
       </tr>
     </tbody>
   </table>
@@ -65,8 +65,24 @@
     </from>
   </div>
 </div>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 <script>
+var checkDeadline1 = document.querySelectorAll('.time-deadline1');
+var noneLike = document.querySelectorAll('.like_btn');
+var noneDislike = document.querySelectorAll('.dislike_btn');
+var noneBtnAdd = document.querySelector('.idea_btn')
+var currentDate = moment();
+for (let i = 0; i < checkDeadline1.length; i++) {
+  var deadline1 = moment(checkDeadline1[i].textContent, "DD MMM YYYY HH:mm:ss");
+  if (deadline1.isBefore(currentDate)) {
+    for(let j = 0; j < noneLike.length; j++)
+    noneLike[j].classList.add('none');
+    for(let k = 0; k < noneLike.length; k++)
+    noneDislike[k].classList.add('none')
+    noneBtnAdd.classList.add('none')
+  }
+}
+
 let likeStatus = ""; // Khởi tạo biến lưu trữ trạng thái của nút "like/dislike"
 
 let numLikes = 0; // Khởi tạo số lượt thích

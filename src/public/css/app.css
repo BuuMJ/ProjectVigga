@@ -1141,8 +1141,7 @@ a.btn-create-idea-back {
   flex-direction: column;
   justify-content: center;
   width: 80%;
-  margin-bottom: 50px;
-  margin-top: -20px; }
+  margin-bottom: 50px; }
 
 .idea-text {
   font-size: 50px;
@@ -1269,6 +1268,15 @@ button.like_btn {
 .like_btn,
 .dislike_btn {
   border: none; }
+
+.warning {
+  background-color: #FCBB04; }
+
+.danger {
+  background-color: #9C0404; }
+
+.none {
+  display: none; }
 
 .main-submission,
 .main-department,
