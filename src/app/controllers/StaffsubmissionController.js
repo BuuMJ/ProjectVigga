@@ -29,6 +29,7 @@ class StaffsubmissionController {
     Submission.findById(idSub)
       .then((submission) => {
         var submissionName = submission.name;
+
         Idea.find({ submission: submissionName }).then((ideas) => {
           req.session.idSub = submission;
           res.render("idea", {
@@ -66,7 +67,7 @@ class StaffsubmissionController {
       title: req.body.title,
       brief: req.body.brief,
       content: req.body.content,
-      file: req.body.file,
+      file: req.file.filename,
       category: req.body.category,
       submission: submission.name,
       department: department,
@@ -249,15 +250,44 @@ class StaffsubmissionController {
 
   // [GET] export Zip file idea
   async exportZip(req, res, next) {
+    var idSub = req.params.id;
     var zip = new Admzip();
-    zip.addLocalFolder("uploads/");
-    zip.writeZip("zip/files.zip");
-    const dataZ = zip.toBuffer();
-    res.set("Content-Type", "application/octet-stream");
-    res.set("Content-Disposition", "attachment;filename-" + "idea.zip");
-    res.set("Content-Length", dataZ.length);
-    res.send(dataZ);
+    Submission.findById(idSub)
+      .then((submission) => {
+        var submissionName = submission.name;
+        Idea.find({ submission: submissionName }).then((ideas) => {
+          req.session.idSub = submission;
+          zip.addLocalFolder("uploads/" + req.session.idSub.name);
+          zip.writeZip("zip/files.zip");
+          const dataZ = zip.toBuffer();
+          res.set("Content-Type", "application/octet-stream");
+          res.set("Content-Disposition", "attachment;filename-" + "Idea.zip");
+          res.set("Content-Length", dataZ.length);
+          res.send(dataZ);
+        });
+        // .catch(res.render("staffsubmission"));
+      })
+      .catch(next);
   }
+
+  // zip.addLocalFolder("uploads/" + req.session.idSub.name);
+  // zip.writeZip("zip/files.zip");
+  // const dataZ = zip.toBuffer();
+  // res.set("Content-Type", "application/octet-stream");
+  // res.set("Content-Disposition", "attachment;filename-" + "Idea.zip");
+  // res.set("Content-Length", dataZ.length);
+  // res.send(dataZ);
+
+  // async exportZip(req, res, next) {
+  //   var zip = new Admzip();
+  //   zip.addLocalFolder("uploads/");
+  //   zip.writeZip("zip/files.zip");
+  //   const dataZ = zip.toBuffer();
+  //   res.set("Content-Type", "application/octet-stream");
+  //   res.set("Content-Disposition", "attachment;filename-" + "idea.zip");
+  //   res.set("Content-Length", dataZ.length);
+  //   res.send(dataZ);
+  // }
 }
 
 module.exports = new StaffsubmissionController();
