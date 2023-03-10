@@ -23,6 +23,7 @@ app.use(bodyParser.json());
 app.use(methodOverride("_method"));
 
 app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static("uploads"))
 
 //connect DB
 db.connect();
