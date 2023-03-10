@@ -27,7 +27,6 @@ router.post(
 router.get("/:id/exportIdea", staffsubmissionController.exportIdea);
 router.get("/:id/exportZip.zip", staffsubmissionController.exportZip);
 
-router.get("/idea/:id", staffsubmissionController.detail);
 router.post("/idea/:id/view", dataIdea, staffsubmissionController.view);
 router.post("/idea/:id/comment", dataIdea, staffsubmissionController.comment);
 router.get("/", staffsubmissionController.index);

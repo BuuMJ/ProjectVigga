@@ -49,7 +49,10 @@ class StaffsubmissionController {
   // [GET] create Idea
   createIdea(req, res, next) {
     // console.log(req.session.idSub);
+    var submission = req.session.idSub
+    console.log(submission.deadline_1)
     res.render("createIdea", {
+      submission: submission,
       user: req.user,
       dataC,
       idSub: req.session.idSub,
@@ -62,7 +65,7 @@ class StaffsubmissionController {
     var department = req.user.department;
     var adremail = req.user.adremail;
     var submission = req.session.idSub;
-    // console.log(submission.name)
+    console.log(submission.name)
     const idea = new Idea({
       title: req.body.title,
       brief: req.body.brief,
@@ -122,18 +125,6 @@ class StaffsubmissionController {
     } catch (error) {
       res.status(400).json({ message: error.message });
     }
-  }
-  // [GET] detail idea
-  detail(req, res, next) {
-    Idea.findById(req.params.id)
-      .then((idea) =>
-        res.render("detail", {
-          idea: staffMongoseToObject(idea),
-          user: req.user,
-          title: "Detail",
-        })
-      )
-      .catch(next);
   }
   // [POST] View Idea
   async view(req, res) {

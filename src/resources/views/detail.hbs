@@ -8,8 +8,8 @@
         <div>View:  <td>{{idea.view}}</td></div> 
         <div>Submission: <td>{{idea.submission}}</td></div> 
         <div>Category: <td>{{idea.category}}</td></div> 
-        <div>Deadline 1: {{moment idea.deadline_1 format ="DD MMM YYYY HH:mm:ss"}}</div>
-        <div class="time-deadline2">Deadline 2: {{moment idea.deadline_2 format ="DD MMM YYYY HH:mm:ss"}} </div>
+        <div>Deadline 1: {{moment submission.deadline_1 format ="DD MMM YYYY HH:mm:ss"}}</div>
+        <div class="time-deadline2">Deadline 2: {{moment submission.deadline_2 format ="DD MMM YYYY HH:mm:ss"}} </div>
     </div>
     <div class="detail-application">
         <form class="detail_btn" method="POST" action="/staffsubmission/idea/{{idea._id}}/comment" >
@@ -30,12 +30,12 @@
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 <script>
-    var checkDeadline1 = document.querySelectorAll('.time-deadline2');
+    var checkDeadline2 = document.querySelectorAll('.time-deadline2');
 var noneCmt = document.querySelectorAll('.detail_btn');
 var currentDate = moment();
 for (let i = 0; i < checkDeadline1.length; i++) {
-  var deadline1 = moment(checkDeadline1[i].textContent, "DD MMM YYYY HH:mm:ss");
-  if (deadline1.isBefore(currentDate)) {
+  var deadline2 = moment(checkDeadline2[i].textContent, "DD MMM YYYY HH:mm:ss");
+  if (deadline2.isBefore(currentDate)) {
     for(let j = 0; j < noneCmt.length; j++)
     noneCmt[j].classList.add('none');
   }
