@@ -53,7 +53,7 @@
             </form>
           </td>
           <td class="idea-action__item">
-            <form method="POST" action="/staffsubmission/idea/{{this._id}}/view">
+            <form id="change-form" method="POST" action="/staffsubmission/idea/{{this._id}}/view" data-idea-id="{{this._id}}">
             <button href="/staffsubmission/idea/{{this._id}}" type="submit" class="detail-link">Details</button>
             </form>
           </td>
@@ -68,20 +68,34 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 <script>
 var checkDeadline1 = document.querySelectorAll('.time-deadline1');
-var noneLike = document.querySelectorAll('.like_btn');
-var noneDislike = document.querySelectorAll('.dislike_btn');
-var noneBtnAdd = document.querySelector('.idea_btn')
+var noneBtnAdd = document.querySelector('.idea_btn');
 var currentDate = moment();
+var changeAction = document.getElementById('change-form')
 for (let i = 0; i < checkDeadline1.length; i++) {
   var deadline1 = moment(checkDeadline1[i].textContent, "DD MMM YYYY HH:mm:ss");
   if (deadline1.isBefore(currentDate)) {
-    for(let j = 0; j < noneLike.length; j++)
-    noneLike[j].classList.add('none');
-    for(let k = 0; k < noneLike.length; k++)
-    noneDislike[k].classList.add('none')
-    noneBtnAdd.classList.add('none')
+    noneBtnAdd.classList.add('none');
   }
 }
+
+var checkDeadline2 = document.querySelectorAll('.time-deadline2');
+var noneLike = document.querySelectorAll('.like_btn');
+var noneDislike = document.querySelectorAll('.dislike_btn');
+for (let i = 0; i < checkDeadline2.length; i++){
+  var deadline2 = moment(checkDeadline2[i].textContent, "DD MMM YYYY HH:mm:ss");
+  if (deadline2.isBefore(currentDate)){
+    for(let j = 0; j < noneLike.length; j++) {
+      noneLike[j].classList.add('none');
+      var changeForm = document.getElementById('change-form');
+      var ideaId = changeForm.dataset.ideaId;
+      changeForm.action = `/staffsubmission/idea/${ideaId}/overtime`;
+    }
+    for(let k = 0; k < noneDislike.length; k++) {
+      noneDislike[k].classList.add('none');
+    }
+  }
+}
+
 
 let likeStatus = ""; // Khởi tạo biến lưu trữ trạng thái của nút "like/dislike"
 

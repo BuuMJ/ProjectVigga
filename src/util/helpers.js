@@ -1,3 +1,4 @@
+
 module.exports = {
   getName: function (user) {
     return user.username;

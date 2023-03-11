@@ -18,28 +18,29 @@
             <br>
             <textarea id="content" name="content" rows="4" cols="50"></textarea>
             </div>
-            <br><br>
+            <br>
             <button class="sub_btn" type="submit">Comment</button>
+            <div class="check-annoymous">
+                <input type="checkbox" name="check-annoymous" id="annoymous">
+                <label for="annoymous">Comment With Annoymous</label>
+            </div>
+            
         </form>
         <ul>            
         {{#each idea.comment}}
-            <li>{{this.username}}: {{this.contentCM}}</li>
+            <li><span class="author-cmt">{{this.username}}:</span> {{this.contentCM}}</li>
         {{/each}}
         </ul>
     </div>
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-<script>
-    var checkDeadline2 = document.querySelectorAll('.time-deadline2');
-var noneCmt = document.querySelectorAll('.detail_btn');
-var currentDate = moment();
-for (let i = 0; i < checkDeadline1.length; i++) {
-  var deadline2 = moment(checkDeadline2[i].textContent, "DD MMM YYYY HH:mm:ss");
-  if (deadline2.isBefore(currentDate)) {
-    for(let j = 0; j < noneCmt.length; j++)
-    noneCmt[j].classList.add('none');
-  }
-}
-
-</script>
-
+{{!-- <script>
+    function checkUser(){
+        var checkBox = document.getElementById('annoymous');
+        var checkUser = document.getElementsByClassName('author-cmt');
+        if(checkBox.checked == true){
+            checkUser.innerHTML = 'Annoymous'
+        }else{
+            console.log('đây nè')
+        }
+    }
+</script> --}}

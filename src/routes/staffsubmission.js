@@ -28,6 +28,7 @@ router.get("/:id/exportIdea", staffsubmissionController.exportIdea);
 router.get("/:id/exportZip.zip", staffsubmissionController.exportZip);
 
 router.post("/idea/:id/view", dataIdea, staffsubmissionController.view);
+router.post("/idea/:id/overtime", dataIdea, staffsubmissionController.overtime);
 router.post("/idea/:id/comment", dataIdea, staffsubmissionController.comment);
 router.get("/", staffsubmissionController.index);
 module.exports = router;

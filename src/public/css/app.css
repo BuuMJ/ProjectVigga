@@ -1278,6 +1278,17 @@ button.like_btn {
 .none {
   display: none; }
 
+.check-annoymous {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 10px;
+  color: #b8c2c4;
+  margin-top: 12px; }
+
+input#annoymous {
+  margin-right: 4px; }
+
 .main-submission,
 .main-department,
 .main-category,

@@ -129,10 +129,34 @@ class StaffsubmissionController {
   // [POST] View Idea
   async view(req, res) {
     try {
+      const submission = req.session.idSub
+      // console.log(submission.deadline_1+ 'asdasfghjksdfghgdfghgdfggsdfgf')
       const idea = await Idea.findById(req.params.id);
       idea.view++;
       await idea.save();
+      console.log(submission.deadline_2)
       res.render("detail", {
+        submission: submission,
+        idea: staffMongoseToObject(idea),
+        user: req.user,
+        title: "Detail",
+      });
+    } catch (error) {
+      res.status(400).json({ message: error.message });
+    }
+  }
+
+  // [POST] View Idea
+  async overtime(req, res) {
+    try {
+      const submission = req.session.idSub
+      // console.log(submission.deadline_1+ 'asdasfghjksdfghgdfghgdfggsdfgf')
+      const idea = await Idea.findById(req.params.id);
+      idea.view++;
+      await idea.save();
+      console.log(submission.deadline_2)
+      res.render("overtime", {
+        submission: submission,
         idea: staffMongoseToObject(idea),
         user: req.user,
         title: "Detail",
@@ -163,6 +187,7 @@ class StaffsubmissionController {
         text: req.body.content,
       };
       idea.comment.push({
+        annoymous: req.body.annoymous,
         username: username.fullname,
         contentCM: req.body.content,
       });
