@@ -8,6 +8,7 @@ const fs = require("fs");
 const path = require("path");
 const excelJs = require("exceljs");
 const Admzip = require("adm-zip");
+const Action = require("../models/action")
 
 class StaffsubmissionController {
   // [GET] staffsubmission
@@ -104,30 +105,111 @@ class StaffsubmissionController {
   }
 
   // [POST] Like Idea
-  async like(req, res, next) {
-    var submission = req.session.idSub;
-    
+  async like(req, res) {
     try {
+      const submission = req.session.idSub;
       const idea = await Idea.findById(req.params.id);
-      data, idea.like++;
+      // Kiểm tra xem tài khoản đã like ý tưởng này chưa
+      const checkLike = await Action.findOne({
+        ideaId: req.params.id,
+        accountId: req.user._id,
+        action: "like",
+      });
+      if (checkLike) {
+        // Nếu tài khoản đã like ý tưởng này rồi, không cho phép like lại nữa
+        await Action.findByIdAndRemove(checkLike._id);
+        idea.like--;
+        await idea.save();
+        res.redirect("/staffsubmission/" + submission._id);
+        return;
+      }
+      const checkDislike = await Action.findOne({
+        ideaId: req.params.id,
+        accountId: req.user._id,
+        action: "dislike",
+      });
+      if (checkDislike) {
+        await Action.findByIdAndRemove(checkDislike._id);
+        const action = new Action({
+          ideaId: req.params.id,
+          accountId: req.user._id,
+          action: "like",
+        });
+        await action.save();
+        idea.dislike--;
+        idea.like++;
+        await idea.save();
+        res.redirect("/staffsubmission/" + submission._id);
+        return;
+      }
+      // Thêm hành động like vào collection Action
+      const action = new Action({
+        ideaId: req.params.id,
+        accountId: req.user._id,
+        action: "like",
+      });
+      await action.save();
+
+      // Cập nhật số lượt like của ý tưởng
+      idea.like++;
       await idea.save();
-      // res.render("idea");
+
       res.redirect("/staffsubmission/" + submission._id);
     } catch (error) {
-      res.status(400).json({ message: error.message });
+      res.status(500).json({ message: error.message });
     }
   }
+
   // [POST] Dislike Idea
-  async dislike(req, res, next) {
-    var submission = req.session.idSub;
-    
+  async dislike(req, res) {
     try {
       const idea = await Idea.findById(req.params.id);
+      const submission = req.session.idSub;
+      // Kiểm tra xem tài khoản đã dislike ý tưởng này chưa
+      const ckeckDislike = await Action.findOne({
+        ideaId: req.params.id,
+        accountId: req.user._id,
+        action: "dislike",
+      });
+      if (ckeckDislike) {
+        // Nếu tài khoản đã dislike ý tưởng này rồi, không cho phép dislike lại nữa
+        await Action.findByIdAndRemove(ckeckDislike._id);
+        idea.dislike--;
+        await idea.save();
+        res.redirect("/staffsubmission/" + submission._id);
+        return;
+      }
+      const checkLike = await Action.findOne({
+        ideaId: req.params.id,
+        accountId: req.user._id,
+        action: "like",
+      });
+      if (checkLike) {
+        await Action.findByIdAndRemove(checkLike._id);
+        const action = new Action({
+          ideaId: req.params.id,
+          accountId: req.user._id,
+          action: "dislike",
+        });
+        await action.save();
+        idea.dislike++;
+        idea.like--;
+        await idea.save();
+        res.redirect("/staffsubmission/" + submission._id);
+        return;
+      }
+      const action = new Action({
+        ideaId: req.params.id,
+        accountId: req.user._id,
+        action: "dislike",
+      });
+      await action.save();
+      // Cập nhật số lượt dislike của ý tưởng
       idea.dislike++;
       await idea.save();
       res.redirect("/staffsubmission/" + submission._id);
     } catch (error) {
-      res.status(400).json({ message: error.message });
+      res.status(500).json({ message: error.message });
     }
   }
   // [POST] View Idea
