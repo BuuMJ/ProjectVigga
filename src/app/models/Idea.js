@@ -23,7 +23,10 @@ const Idea = new mongoose.Schema(
     view: { type: Number, default: 0 },
     comment: [
       {
-        annoymous: String,
+        isannoymous: {
+          type: Boolean,
+          default: false,
+        },
         username: String,
         contentCM: String,
         createdAt: {

@@ -187,11 +187,12 @@ class StaffsubmissionController {
         text: req.body.content,
       };
       idea.comment.push({
-        annoymous: req.body.annoymous,
+        isannoymous: req.body.annoymous,
         username: username.fullname,
         contentCM: req.body.content,
       });
       const comment = idea.comment;
+      // console.log(comment.isannoymous)
       // console.log(comment.username);
       await idea.save();
       transporter.sendMail(mailOptions, function (error, info) {
