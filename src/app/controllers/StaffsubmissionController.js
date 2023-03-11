@@ -88,7 +88,7 @@ class StaffsubmissionController {
           idea
             .save()
             .then(() => {
-              res.redirect("/staffsubmission");
+              res.redirect("/staffsubmission/" + submission._id);
             })
             .catch(next);
         }
@@ -105,23 +105,27 @@ class StaffsubmissionController {
 
   // [POST] Like Idea
   async like(req, res, next) {
+    var submission = req.session.idSub;
+    
     try {
       const idea = await Idea.findById(req.params.id);
       data, idea.like++;
       await idea.save();
       // res.render("idea");
-      res.redirect("/staffsubmission");
+      res.redirect("/staffsubmission/" + submission._id);
     } catch (error) {
       res.status(400).json({ message: error.message });
     }
   }
   // [POST] Dislike Idea
   async dislike(req, res, next) {
+    var submission = req.session.idSub;
+    
     try {
       const idea = await Idea.findById(req.params.id);
       idea.dislike++;
       await idea.save();
-      res.redirect("/staffsubmission");
+      res.redirect("/staffsubmission/" + submission._id);
     } catch (error) {
       res.status(400).json({ message: error.message });
     }
