@@ -18,6 +18,7 @@
   justify-content: center;
   width: 80%;
   margin-bottom: 300px;
+  position: relative;
 }
 .submission-application > *,
 .department-application > *,
@@ -246,7 +247,13 @@ a.btn-category-back {
     rgba(255, 255, 255, 0.2)
   );
 }
-
+.alert-managements{
+  position: absolute;
+  top: 45%;
+  left: 42%;
+  background-color: #FC0404 !important;
+  border-radius: 10px;
+}
 // reponsive
 @media screen and (max-width: 768px) {
   .submission-create,

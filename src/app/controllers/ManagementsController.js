@@ -3,6 +3,7 @@ const { mutipleMongooseToObject } = require("../../util/mongoose");
 const { mongooseToObject } = require("../../util/mongoose");
 const Submission = require("../models/Submission");
 const Department = require("../models/Department");
+const querystring = require('querystring');
 
 class ManagementsController {
   // [GET] category
@@ -30,11 +31,20 @@ class ManagementsController {
 
   //[POST] Create Category
   store(req, res, next) {
-    const category = new Category(req.body);
-    category
-      .save()
-      .then(() => res.redirect("category"))
-      .catch((error) => {});
+    var name = req.body.name;
+    Category.findOne({ name: name }).then((data) => {
+      if (data) {
+        const message = "Category already exists!";
+        const url = "/managements/category?" + querystring.stringify({ message: message });
+        res.redirect(url);
+      } else {
+        const category = new Category(req.body);
+        category
+          .save()
+          .then(() => res.redirect("category"))
+          .catch((error) => {});
+      }
+    });
   }
 
   //[GET] Edit category
@@ -52,9 +62,18 @@ class ManagementsController {
 
   //[PUT] Update category
   update(req, res, next) {
-    Category.updateOne({ _id: req.params.id }, req.body)
-      .then(() => res.redirect("category"))
-      .catch((error) => {});
+    var name = req.body.name;
+    Category.findOne({ name: name }).then((data) => {
+      if (data) {
+        const message = "Category already exists!";
+        const url = "/managements/category?" + querystring.stringify({ message: message });
+        res.redirect(url);
+      } else {
+        Category.updateOne({ _id: req.params.id }, req.body)
+          .then(() => res.redirect("category"))
+          .catch((error) => {});
+      }
+    });
   }
 
   //[DELETE] delete category
@@ -89,11 +108,22 @@ class ManagementsController {
 
   // [POST] Create Submission
   storeSubmission(req, res, next) {
-    const submission = new Submission(req.body);
-    submission
-      .save()
-      .then(() => res.redirect("/managements/submission"))
-      .catch((error) => {});
+    var name = req.body.name;
+    Submission.findOne({ name: name }).then((data) => {
+      if (data) {
+        const message = "Submission already exists!";
+        const url =
+          "/managements/submission?" +
+          querystring.stringify({ message: message });
+        res.redirect(url);
+      } else {
+        const submission = new Submission(req.body);
+        submission
+          .save()
+          .then(() => res.redirect("/managements/submission"))
+          .catch((error) => {});
+      }
+    });
   }
 
   // [GET] Edit Submission
@@ -111,9 +141,20 @@ class ManagementsController {
 
   // [PUT] Update Submission
   updateSubmission(req, res, next) {
-    Submission.updateOne({ _id: req.params.id }, req.body)
-      .then(() => res.redirect("/managements/submission"))
-      .catch((error) => {});
+    var name = req.body.name;
+    Submission.findOne({ name: name }).then((data) => {
+      if (data) {
+        const message = "Submission already exists!";
+        const url =
+          "/managements/submission?" +
+          querystring.stringify({ message: message });
+        res.redirect(url);
+      } else {
+        Submission.updateOne({ _id: req.params.id }, req.body)
+          .then(() => res.redirect("/managements/submission"))
+          .catch((error) => {});
+      }
+    });
   }
 
   // [Delete] Delete Submission
@@ -146,11 +187,22 @@ class ManagementsController {
 
   // [POST] Create Department
   storeDepartment(req, res, next) {
-    const department = new Department(req.body);
-    department
-      .save()
-      .then(() => res.redirect("/managements/department"))
-      .catch((error) => {});
+    var name = req.body.name;
+    Department.findOne({ name: name }).then((data) => {
+      if (data) {
+        const message = "Department already exists!";
+        const url =
+          "/managements/department?" +
+          querystring.stringify({ message: message });
+        res.redirect(url);
+      } else {
+        const department = new Department(req.body);
+        department
+          .save()
+          .then(() => res.redirect("/managements/department"))
+          .catch((error) => {});
+      }
+    });
   }
 
   // [GET] Edit Department
@@ -168,9 +220,20 @@ class ManagementsController {
 
   // [PUT] Update Department
   updateDepartment(req, res, next) {
-    Department.updateOne({ _id: req.params.id }, req.body)
-      .then(() => res.redirect("/managements/department"))
-      .catch((error) => {});
+    var name = req.body.name;
+    Department.findOne({ name: name }).then((data) => {
+      if (data) {
+        const message = "Department already exists!";
+        const url =
+          "/managements/department?" +
+          querystring.stringify({ message: message });
+        res.redirect(url);
+      } else {
+        Department.updateOne({ _id: req.params.id }, req.body)
+          .then(() => res.redirect("/managements/department"))
+          .catch((error) => {});
+      }
+    });
   }
 
   // [DELETE] Delete Department

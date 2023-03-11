@@ -1307,7 +1307,8 @@ input#annoymous {
   flex-direction: column;
   justify-content: center;
   width: 80%;
-  margin-bottom: 300px; }
+  margin-bottom: 300px;
+  position: relative; }
 
 .submission-application > *,
 .department-application > *,
@@ -1530,6 +1531,13 @@ a.btn-category-back {
   color: black;
   transform: scale(1.1);
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0.3), rgba(255, 255, 255, 0.2)); }
+
+.alert-managements {
+  position: absolute;
+  top: 45%;
+  left: 42%;
+  background-color: #FC0404 !important;
+  border-radius: 10px; }
 
 @media screen and (max-width: 768px) {
   .submission-create,
@@ -1846,7 +1854,8 @@ input:valid {
 .alert {
   position: absolute;
   top: 18%;
-  left: 42%; }
+  left: 42%;
+  background-color: 246, 3, 3, 61%; }
 
 @media screen and (max-width: 1024px) {
   .card-user__info {

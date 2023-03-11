@@ -103,7 +103,7 @@
     const message = urlParams.get('message');
     if (message) {
         const alertDiv = document.createElement('div');
-        alertDiv.classList.add('login-error', 'alert');
+        alertDiv.classList.add('login-error', 'alert-managements');
         alertDiv.innerHTML = message;
         document.body.appendChild(alertDiv);
     }
