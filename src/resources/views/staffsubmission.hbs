@@ -27,6 +27,8 @@
                 {{/each}}
             </tbody>
         </table>
+        <ul class="listpage">
+    </ul>
     </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
@@ -48,5 +50,41 @@ for (var i = 0; i < checkDeadline2.length; i++) {
     changeBackground[i].classList.add('danger');
   }
 }
-
+ var thisPage = 1;
+  var limit = 5;
+  var list = document.querySelectorAll('.show-submission__list')
+  function loadIteam() {
+    var beginGet = limit * (thisPage - 1);
+    var endGet = limit * thisPage - 1;
+    list.forEach((item, key) => {
+      if (key >= beginGet && key <= endGet) {
+        item.style.display = 'table-row';
+      } else {
+        item.style.display = 'none';
+      }
+    })
+    listPage();
+  }
+  loadIteam()
+  function listPage() {
+    var count = Math.ceil(list.length / limit);
+    document.querySelector('.listpage').innerHTML = '';
+    for (i = 1; i <= count; i++) {
+      var newPage = document.createElement('li');
+      newPage.innerHTML = i;
+      document.querySelector('.listpage').appendChild(newPage);
+      newPage.setAttribute('onclick', "changePage(" + i + ")");
+      if (i === thisPage) {
+      newPage.classList.add('active');
+    }
+    }
+  }
+  function changePage(i) {
+    thisPage = i;
+    document.querySelectorAll('.listpage li').forEach(function(page) {
+    page.classList.remove('active');
+  });
+  document.querySelector('.listpage li:nth-child(' + (thisPage) + ')').classList.add('active');
+    loadIteam()
+  }
 </script>

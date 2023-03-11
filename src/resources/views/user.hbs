@@ -102,7 +102,16 @@
     }
   })
 </script>
-
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const message = urlParams.get('message');
+    if (message) {
+        const alertDiv = document.createElement('div');
+        alertDiv.classList.add('login-error', 'alert');
+        alertDiv.innerHTML = message;
+        document.body.appendChild(alertDiv);
+    }
+</script>
 {{!---------Page---------------}}
 <script>
   var thisPage = 1;

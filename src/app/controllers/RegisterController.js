@@ -1,6 +1,6 @@
 const bcrypt = require("bcrypt");
 const AccountModel = require("../models/Account");
-
+const querystring = require('querystring')
 class RegisterController {
   // [GET] /register
   register(req, res) {
@@ -20,14 +20,18 @@ class RegisterController {
     })
       .then((data) => {
         if (data) {
-          res.json("Tài khoản đã tồn tại");
+          const message = "Account already exists!";
+const url = '/user?' + querystring.stringify({message: message});
+res.redirect(url);
         } else {
           AccountModel.findOne({
             adremail: adremail,
           })
             .then((data) => {
               if (data) {
-                res.json("Địa chỉ email đã tồn tại");
+                const message = "Account already exists!";
+const url = '/user?' + querystring.stringify({message: message});
+res.redirect(url);
               } else {
                 bcrypt.hash(password, 10, function (err, hash) {
                   // Store hash in your password DB.

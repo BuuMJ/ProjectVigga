@@ -1603,6 +1603,9 @@ a.btn-category-back {
 .edit__user {
   height: 100vh; }
 
+.add__user {
+  position: relative; }
+
 .create__card,
 .edit__card {
   display: flex;
@@ -1839,6 +1842,11 @@ input:valid {
   width: 100%;
   align-items: center;
   justify-content: center; }
+
+.alert {
+  position: absolute;
+  top: 18%;
+  left: 42%; }
 
 @media screen and (max-width: 1024px) {
   .card-user__info {
