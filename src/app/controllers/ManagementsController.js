@@ -150,7 +150,10 @@ class ManagementsController {
           querystring.stringify({ message: message });
         res.redirect(url);
       } else {
-        Submission.updateOne({ _id: req.params.id }, req.body)
+        Submission.updateOne({
+          deadline_1: req.body.deadline_1,
+          deadline_2: req.body.deadline_2,
+         })
           .then(() => res.redirect("/managements/submission"))
           .catch((error) => {});
       }
