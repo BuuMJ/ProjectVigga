@@ -9,6 +9,7 @@ const path = require("path");
 const excelJs = require("exceljs");
 const Admzip = require("adm-zip");
 const Action = require("../models/action")
+const AccountModel = require("../models/Account")
 
 class StaffsubmissionController {
   // [GET] staffsubmission
@@ -62,48 +63,87 @@ class StaffsubmissionController {
   }
 
   // [POST] create Idea
-  storeIdea(req, res, next) {
-    var department = req.user.department;
-    var adremail = req.user.adremail;
-    var submission = req.session.idSub;
-    console.log(submission.name)
-    const idea = new Idea({
-      title: req.body.title,
-      brief: req.body.brief,
-      content: req.body.content,
-      file: req.file.filename,
-      deadline_1: submission.deadline_1,
-      deadline_2: submission.deadline_2,
-      category: req.body.category,
-      submission: submission.name,
-      department: department,
-      adremail: adremail,
-    });
-    //uploads file
-    if (req.file) {
-      // Kiểm tra xem có file được tải lên không
-      fs.readFile(req.file.path, (err, data) => {
-        if (err) {
-          console.error(err);
+  async storeIdea(req, res, next) {
+    try {
+      const departmentUser = req.user.department;
+      const email = await AccountModel.findOne({
+        role: "coordinator",
+        department: departmentUser,
+      });
+      var transporter = nodemailer.createTransport({
+        service: "gmail",
+        auth: {
+          user: "nxt03091999@gmail.com",
+          pass: "magdbcqxrtndtach",
+        },
+      });
+      var mailOptions = {
+        to: email.adremail,
+        subject: "You have a new message",
+        // text: req.user.fullname + ' commented on your post',
+        text: 'Your department has a new idea post',
+      };
+      transporter.sendMail(mailOptions, function (error, info) {
+        if (error) {
+          console.log(error);
         } else {
-          idea
-            .save()
-            .then(() => {
-              res.redirect("/staffsubmission/" + submission._id);
-            })
-            .catch(next);
+          var department = req.user.department;
+          var adremail = req.user.adremail;
+          var submission = req.session.idSub;
+
+          //uploads file
+          if (req.file) {
+            // Kiểm tra xem có file được tải lên không
+            fs.readFile(req.file.path, (err, data) => {
+              if (err) {
+                console.error(err);
+              } else {
+                const idea = new Idea({
+                  title: req.body.title,
+                  brief: req.body.brief,
+                  content: req.body.content,
+                  file: req.file.filename,
+                  deadline_1: submission.deadline_1,
+                  deadline_2: submission.deadline_2,
+                  category: req.body.category,
+                  submission: submission.name,
+                  department: department,
+                  adremail: adremail,
+                });
+                idea
+                  .save()
+                  .then(() => {
+                    res.redirect("/staffsubmission/" + submission._id);
+                  })
+                  .catch(next);
+              }
+            });
+          } else {
+            console.log("chua toi dayyyyyyyyyyyyyyyyyyyy");
+            const idea = new Idea({
+              title: req.body.title,
+              brief: req.body.brief,
+              content: req.body.content,
+              deadline_1: submission.deadline_1,
+              deadline_2: submission.deadline_2,
+              category: req.body.category,
+              submission: submission.name,
+              department: department,
+              adremail: adremail,
+            });
+            idea
+              .save()
+              .then(() => {
+                res.redirect("/staffsubmission/" + submission._id);
+              })
+              .catch(next);
+          }
         }
       });
-    } else {
-      idea
-        .save()
-        .then(() => {
-          res.redirect("/staffsubmission");
-        })
-        .catch(next);
+    } catch (error) {
+      res.status(400).json({ message: error.message });
     }
   }
-
   // [POST] Like Idea
   async like(req, res) {
     try {

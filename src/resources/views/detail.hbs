@@ -22,14 +22,14 @@
             <button class="sub_btn" type="submit">Comment</button>
             <div class="check-annoymous">
                 <input type="checkbox" name="annoymous" value="true" id="annoymous">
-                <label for="annoymous">Comment With Annoymous</label>
+                <label for="annoymous">Comment With Anonymous</label>
             </div>
             
         </form>
         <ul>            
         {{#each idea.comment}}
         {{#if this.isannoymous}}
-            <li><span class="author-cmt">Annoymous:</span> {{this.contentCM}}</li>
+            <li><span class="author-cmt">Anonymous:</span> {{this.contentCM}}</li>
         {{else}}
             <li><span class="author-cmt">{{this.username}}</span> {{this.contentCM}}</li>
         {{/if}}
