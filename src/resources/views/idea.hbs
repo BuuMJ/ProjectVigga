@@ -53,7 +53,7 @@
             </form>
           </td>
           <td class="idea-action__item">
-            <form id="change-form" method="POST" action="/staffsubmission/idea/{{this._id}}/view" data-idea-id="{{this._id}}">
+            <form class="change-form" method="POST" action="/staffsubmission/idea/{{this._id}}/view" data-idea-id="{{this._id}}">
             <button href="/staffsubmission/idea/{{this._id}}" type="submit" class="detail-link">Details</button>
             </form>
           </td>
@@ -83,21 +83,23 @@ for (let i = 0; i < checkDeadline1.length; i++) {
 var checkDeadline2 = document.querySelectorAll('.time-deadline2');
 var noneLike = document.querySelectorAll('.like_btn');
 var noneDislike = document.querySelectorAll('.dislike_btn');
+var changeForm = document.getElementsByClassName('change-form');
 for (let i = 0; i < checkDeadline2.length; i++){
   var deadline2 = moment(checkDeadline2[i].textContent, "DD MMM YYYY HH:mm:ss");
   if (deadline2.isBefore(currentDate)){
     for(let j = 0; j < noneLike.length; j++) {
       noneLike[j].classList.add('none');
-      var changeForm = document.getElementById('change-form');
-      var ideaId = changeForm.dataset.ideaId;
-      changeForm.action = `/staffsubmission/idea/${ideaId}/overtime`;
     }
     for(let k = 0; k < noneDislike.length; k++) {
       noneDislike[k].classList.add('none');
     }
+    for(let t = 0; t < changeForm.length; t++){
+      var ideaId = changeForm[t].getAttribute('data-idea-id');
+      changeForm[t].action = `/staffsubmission/idea/${ideaId}/overtime`;
+    }
   }
 }
-
+//pagination function
 var thisPage = 1;
   var limit = 5;
   var list = document.querySelectorAll('.show-idea__list')
