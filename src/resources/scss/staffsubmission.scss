@@ -37,15 +37,23 @@
   .table-staffsubmission th,
   .table-staffsubmission td {
     font-size: 20px;
-    font-weight: 100px;
     padding: 18px 20px;
   
   }
+//   .staff__show,
+//   .idea__show{
+//     border: 1px solid rgb(0, 0, 0) ;
+//   }
+    .show-submission__list,
+    .submission-show_list{
+        border-bottom: 1px solid #bcbcbc;
+    }
     .action-item {
       display: flex;
       flex-direction: row;
       justify-content: center;
       align-items: center;
+      white-space: nowrap;
     }
     
   
@@ -124,19 +132,24 @@
     font-size: 16px;
 }
 
-.comment_btn textarea {
+.comment_btn textarea{
     display: block;
     width: 100%;
     height: 80px;
     padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
+    border: 1px solid #fff;
+    border-radius: 10px;
     font-size: 16px;
     resize: none;
     background-color: transparent;
-    color: #ffffff;
+    color: #000000;
+    background-color: #fff;
 }
-
+// .comment_btn input{
+//     height: 39px;
+//     width: 999px;
+//     margin-right: -4px;
+// }
 
 .sub_btn {
     display: inline-block;
@@ -148,15 +161,42 @@
     border: none;
     border-radius: 3px;
 }
+.sub_btn{
+    margin-bottom: 15px;
+}
 
 .sub_btn:hover {
     background-color: #8e3e3e;
 }
+.remove-detail{
+    height: 45px;
+}
+.back-detail{
+    border: none;
+    outline: none;
+    width: 100px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: $primarycolor;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    padding-bottom: 2px;
+}
+a.back-detail{
+    text-decoration: none;
+    padding: 5px 24px;
+}
+.back-detail:hover{
+    color: black;
+    transform: scale(1.1);
+    background-image: linear-gradient(to right, rgba(0,0,0,0.3), rgba(255,255,255,0.2));
+}
 
 #comment-section {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     padding: 20px;
     border-radius: 5px;
     margin-top: 20px;
@@ -176,10 +216,12 @@
   margin: 12px 0 0 0 ;
 }
 .detail-show {
-    color: #ffffff;
+    background-color: #fff;
+    color: #000000;
     border: 1px solid #ccc;
     padding: 10px;
     margin-bottom: 20px;
+    border-radius: 10px;
 }
 
 .detail-show div {
@@ -189,19 +231,49 @@
 .detail-show div td {
     padding-left: 10px;
 }
-.show-comment{
+// .show-comment{
+//     border: 1px solid #ccc;
+//     background-color: none;
+//     padding: 10px;
+//     margin-bottom: 10px;
+//     color: #ffffff;
+// }
+// .show-comment{
+//     font-weight: bold;
+// }
+// .show-comment{
+//     margin-top: 5px;
+// }
+  .show-comment {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  .comment-content{
+    white-space: pre-wrap;
+  }
+  
+  .comment-container {
     border: 1px solid #ccc;
-    background-color: none;
+    background-color: #fff;
     padding: 10px;
     margin-bottom: 10px;
-    color: #ffffff;
-}
-.show-comment{
-    font-weight: bold;
-}
-.show-comment{
-    margin-top: 5px;
-}
+    color: #000;
+    border-radius: 10px;
+    display: inline-block;
+    max-width: 104%;
+    word-wrap: break-word;
+    word-break: break-all;
+    display: table;
+  }
+  .comment-container li {
+    list-style-type: none;
+  }
+  .time-detail{
+    // margin-left: 344px;
+    // float: right;
+    font-size: 10px;
+  }
 .main-create-idea {
     display: flex;
     flex-direction: column;
@@ -209,27 +281,27 @@
     align-items: center;
     background: url("/img/bgcontent.jpg") center / cover no-repeat;
 }
-.create-idea-application {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 80%;
-    margin-bottom: 300px;
-}
-.create-idea-application > * {
-    margin-bottom: 20px;
-}
+// .create-idea-application {
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     width: 80%;
+//     margin-bottom: 300px;
+// }
+// .create-idea-application > * {
+//     margin-bottom: 20px;
+// }
 .create-idea-text {
     font-size: 50px;
     font-weight: 700;
     margin: 150px 0 50px 0;
     color: white;
 }
-.create-idea-application a {
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: 700;
-}
+// .create-idea-application a {
+//     text-decoration: none;
+//     font-size: 18px;
+//     font-weight: 700;
+// }
 .create-idea-btn {
     width: 120px;
     height: 40px;
@@ -256,34 +328,34 @@
     font-size: 18px;
     font-weight: 600;
     padding: 12px 12px;
+    
 }
 .table-create-idea tbody {
     background-color: #DCDCDC;
     height: 40px;
 }
-.create-idea-btn__edit,
-.create-idea-btn__remove {
-    text-decoration: none;
-    color: white;
-    padding: 6px 12px;
-    font-size: 16px;
-    font-weight: 500;
-    border-radius: 4px;
-}
-.create-idea-btn__edit {
-    background-color: #FCBB04;
-}
-.create-idea-btn__edit:hover {
-    background-color: white;
-    color: #FCBB04;
-}
-.create-idea-btn__remove {
-    background-color: #B40404;
-}
-.create-idea-btn__remove:hover {
-    background-color: white;
-    color:#B40404 ;
-}
+// .create-idea-btn__edit{
+//     text-decoration: none;
+//     color: white;
+//     padding: 6px 12px;
+//     font-size: 16px;
+//     font-weight: 500;
+//     border-radius: 4px;
+// }
+// .create-idea-btn__edit {
+//     background-color: #FCBB04;
+// }
+// .create-idea-btn__edit:hover {
+//     background-color: white;
+//     color: #FCBB04;
+// }
+// .create-idea-btn__remove {
+//     background-color: #B40404;
+// }
+// .create-idea-btn__remove:hover {
+//     background-color: white;
+//     color:#B40404 ;
+// }
 #form-create-idea{
     width: 100%;
     margin-bottom: 421px;
@@ -314,21 +386,34 @@
 .create-idea__info input,
 .create-idea__info select {
     width: 100%;
-    height: 44px;
+    height: 37px;
     border-radius: 10px;
 }
 .create-idea-edit__btn {
     display: flex;
     flex-direction: row;
     width: 100%;
-    margin: 70px 0 0 100px;
+    margin: 50px 0 0 100px;
 }
 .create-idea-edit__btn > * {
     margin-right: 12px;
 }
 
+
+.checkbox_idea{
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    margin-left: 234px;
+}
+input#check {
+    margin-right: 4px;
+}
+.check_info{
+    margin-left: 234px;
+}
+
 .btn-create-idea-create,
-.btn-create-idea-edit,
 .btn-create-idea-back {
     border: none;
     outline: none;
@@ -343,19 +428,16 @@
 }
 a.btn-create-idea-back {
     text-decoration: none;
-    padding: 4px 8px;
+    padding: 5px 24px;
 }
 .btn-create-idea-create:hover,
-.btn-create-idea-edit:hover,
 .btn-create-idea-back:hover {
     color: black;
     transform: scale(1.1);
     background-image: linear-gradient(to right, rgba(0,0,0,0.3), rgba(255,255,255,0.2));
 }
 
-.check_info{
-    padding-left: 18%;
-}
+
 .main-idea {
     display: flex;
     flex-direction: column;
@@ -369,19 +451,17 @@ a.btn-create-idea-back {
     justify-content: center;
     width: 80%;
     margin-bottom: 50px;
+    margin-top: -20px;
 }
 .idea-text {
     font-size: 50px;
     font-weight: 700;
     margin-top: 150px;
-    margin-left: 500px;
     color: rgb(248, 248, 248);
-    margin-right: 100px;
 }
 .idea-application a {
     text-decoration: none;
-    font-size: 18px;
-    font-weight: 700px;
+    font-size: 19px;
 }
 .idea_btn {
     width: 120px;
@@ -397,24 +477,54 @@ a.btn-create-idea-back {
 .idea_btn:hover {
     transform: scale(1.1);
 }
+.idea_back_btn {
+    width: 120px;
+    height: 40px;
+    border: none;
+    background-color: $primarycolor;
+    color: white;
+    border-radius: 12px;
+    padding: 6px 36px;
+    // margin-top: 50px;
+    // margin-bottom: 20px;
+    margin-left: 152px;
+    margin-top: 97px;
+    margin-bottom: -91px;
+}
+.idea_back_btn:hover {
+    transform: scale(1.1);
+}
+.show-idea__list,
+.idea-show-list{
+    border: 1px solid #bcbcbc;
+}
+// .table-deadline{
+//     display: inline-block;
+//     margin-left: 710px;
+// }
+
+.table-deadline,
 .table-idea {
     color: black;
-    width: 100%;
     margin-bottom: 20px;
 }
+.table-deadline thead,
 .table-idea thead {
     background-color: white ;
     text-align:left;
 }
+.table-deadline th,
+.table-deadline td,
 .table-idea th,
 .table-idea td {
     font-size: 18px;
-    font-weight: 600px;
     padding: 12px 12px;
 }
+.table-deadline tbody,
 .table-idea tbody {
     background-color: #DCDCDC;
     height: 40px;
+    position: relative;
 }
 
 .detail-link,
@@ -434,12 +544,12 @@ a.btn-create-idea-back {
 //     position: absolute;
 // }
 button.dislike_btn {
-    right: 228px;
+    right: 51px;
     z-index: 10px;
     position: absolute;
 }
 button.like_btn {
-    right: 307px;
+    right: 133px;
     z-index: 10px;
     position: absolute;
 }
@@ -447,8 +557,7 @@ button.like_btn {
     margin-top: 8px;
 }
 .idea-action__item{
-    width: 310px;
-    text-align: end;
+    width: 300px;
     padding: 14px 12px;
 }
 .view_count {
@@ -502,6 +611,9 @@ button.like_btn {
 .dislike_btn{
     border: none;
 }  
+.brief_idea{
+    width:25%;
+}
 .warning{
     background-color: #FCBB04;
 }
@@ -521,4 +633,416 @@ button.like_btn {
 }
 input#annoymous{
     margin-right: 4px;
+}
+
+.table-deadline td,
+.table-idea th,
+.table-idea td {
+font-size: 18px;
+    padding: 12px 12px;
+}
+.idea-list__show {
+    border-bottom: 1px solid #bcbcbc;
+}
+.table-deadline tbody,
+.table-idea tbody {
+    background-color: #DCDCDC;
+    height: 40px;
+    position: relative;
+}
+
+.detail-link,
+.like_btn,
+.dislike_btn {
+    border: none;
+    text-decoration: none;
+    color: white;
+    padding: 6px 12px;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 4px;
+    width: 73px;
+}
+// .like_btn,
+// .dislike_btn{
+//     position: absolute;
+// }
+button.dislike_btn {
+    right: 51px;
+    z-index: 10px;
+    position: absolute;
+}
+button.like_btn {
+    right: 133px;
+    z-index: 10px;
+    position: absolute;
+}
+.detail-link{
+    margin-top: 8px;
+}
+.idea-action__item{
+    width: 300px;
+    padding: 14px 12px;
+}
+.view_count {
+    pointer-events: none;
+    border: none;
+    padding: 0px;
+    background-color: transparent;
+    width: 30px;
+}
+.like_count {
+    pointer-events: none;
+    border: none;
+    padding: 0px;
+    background-color: transparent;
+    width: 10px;
+}
+.dislike_count {
+    pointer-events: none;
+    border: none;
+    padding: 0px;
+    background-color: transparent;
+    width: 30px;
+}
+
+.detail-link {
+    background-color: #FCBB04;
+}
+.detail-link:hover {
+    background-color: white;
+    color: #FCBB04;
+}
+.like_btn {
+    background-color: #04b41b;
+}
+.like_btn:hover {
+    background-color: white;
+    color:#0ab404 ;
+}
+.dislike_btn {
+    background-color: #B40404;
+}
+.dislike_btn:hover {
+    background-color: white;
+    color:#B40404 ;
+}
+#form-create-idea{
+    width: 100%;
+    margin-bottom: 421px;
+}
+.like_btn,
+.dislike_btn{
+    border: none;
+}  
+.brief_idea{
+    width:25%;
+}
+
+@media  screen and (max-width: 1024px) {
+    .main-staffsubmission,
+    .main-detail{
+        height: 1366px;
+    }
+    .main-idea {
+        height: 100vh;
+    }
+    
+    button.dislike_btn {
+        right: 42px;
+        position: absolute;
+    }
+    button.like_btn {
+        right: 125px;
+        position: absolute;
+    }
+    .idea-text{
+        margin-left: 100px;
+    }
+    .checkbox_idea {
+        margin-left: 150px;
+    }
+       .check_info{
+        margin-left: 150px;
+    }
+    .detail-link {
+        margin-left: 8px;
+    }
+    .sub_btn {
+        margin-left: 355px;
+    }
+}
+@media  screen and (max-width: 768px) {
+    .main-staffsubmission,
+    .main-detail{
+        height: unset;
+    }
+    .main-idea {
+        height: 100vh;
+    }
+    .staffsubmission-application {
+        display: flex;
+        width: 90%;
+        margin-left: -20px;
+    }
+    .table-idea {
+        width: 149%;
+    }
+    .idea-application {
+        width: 60%;
+        margin-left: -245px;
+    }
+    .table-staffsubmission td {
+        font-size: 20px; 
+        padding: 11px 9px;
+    }
+    .action-item {
+        font-size: 10px;
+        flex-direction: column;
+        text-align: center;
+    }
+     .staffsubmission-btn__view {
+        width:91%;
+    }
+    .staffsubmission-btn__download-zip {
+        
+        width: 91%;
+    }
+    button.like_btn{
+        right: 54px;
+        margin-top: -50px;
+        position: absolute;
+    }
+    button.dislike_btn{
+        right: 54px;
+        margin-top: -8px;
+        position: absolute;
+    }
+    .idea-text{
+        margin: 150px 0 40px 0;
+    }
+    .checkbox_idea{
+        margin-left: 120px;
+    }
+    .check_info{
+        margin-left: 120px;
+    }
+    .detail-link{
+        margin-top: 76px;
+        margin-left: 161px;
+    }
+    .sub_btn {
+        margin-left: 250px;
+    }
+}
+@media screen and (min-width: 1920px) {
+   .main-idea {
+    height: 100vh;
+   }
+   .main-staffsubmission {
+    height: 100vh;
+   }
+   .checkbox_idea {
+    margin-left: 290px;
+   }
+   .check_info{
+    margin-left: 290px;
+}
+}
+@media screen and (max-width: 600px) {
+    
+    .main-idea {
+    height: 100%;
+}
+    button.like_btn{
+    margin-top: -38px;
+    right: 12px;
+    position: absolute;
+}
+button.dislike_btn {
+    margin-top: 0px;
+    right: 12px;
+    position: absolute;
+}
+.detail-link {
+    margin-top: 85px;
+    margin-left: 133px;
+}
+// .table-idea td{
+//     padding: 50px 10px 10px 10px;
+// }
+.staffsubmission-application {
+    margin-left: -155px;
+    width: 70%;
+}
+.checkbox_idea{
+    margin-left: 100px;
+}
+.idea-application{
+    width: 63%;
+    margin-right: -45px;
+}
+
+.table-deadline {
+    width: 80%;
+}
+.table-idea{
+    width: 100%;
+}
+.sub_btn {
+    margin-left: 185px;
+}
+}
+@media screen and (max-width: 415px) {
+    .staffsubmission-application {
+        overflow-y: scroll;
+        margin-left: 38px;
+        width: 100%;
+    }
+    .idea-application {
+        overflow-y: scroll;
+        width: 95%;
+        margin-left: -13px;
+    }
+    button.like_btn,
+    button.dislike_btn{
+        right: 12px;
+        position: absolute;
+    }
+    button.detail-link{
+        // margin-left: 106px;
+        margin-left: 90px;
+    }
+    
+    .staffsubmission-text {
+        font-size: 40px;
+    }
+    .idea-application {
+        margin-right: 3px;
+    }
+    .create-idea__info {
+        margin-left: 35px;
+        width: 80%;
+    }
+    .create-idea__info label {
+        margin-left: -15px;
+        width: 37px;
+    }
+    .create-idea__info input {
+        margin-left: 65px;
+    }
+    .create-idea__info select {
+        margin-left: 47px;
+    }
+    .form-control[type=file] {
+        width: 80%;
+    }
+    .form-control[type=content]  {
+        width: 90%;
+        margin-left: -25px;
+    }
+    input#brief {
+        margin-left: 65px;
+    }
+    input#content {
+        margin-left: 60px;
+    }
+    input#title {
+        margin-left: 68px;
+    }
+    select#category {
+        margin-left: 60px;
+    }
+    .checkbox_idea {
+        margin-left: 120px;
+    }
+    .check_info{
+        margin-left: 120px;
+    }
+    .detail-show {
+        width: 90%;
+    }
+    .comment_btn {
+        margin-right: 20px;
+    }
+    .sub_btn {
+        margin-left: 102px;
+    }
+    .comment-container {
+        margin-left: 40px;
+    }
+    .table-idea{
+        margin-left: 10px;
+    }
+}
+@media screen and (max-width: 376px) {
+    .create-idea-edit__btn  {
+        margin-left: 30px;
+        margin-top: 30px;
+    }
+    .table-staffsubmission th{
+        font-size: 15px;
+    }
+    .table-staffsubmission td{
+        font-size: 14px;
+    }
+    button.detail-link{
+        margin-left: 35px;
+        // margin-left: 52px;
+    }
+    .sub_btn {
+        margin-left: 90px;
+    }
+}
+@media screen and (max-width: 321px) {
+    .create-idea-text {
+        margin-top: 79px;
+        font-size: 30px;
+        width: 348px;
+        margin-left: 214px;
+    }
+    .create-idea-text h1 {
+        margin-left: 50px;
+    }
+    .idea-text{
+        font-size: 33px;
+    }
+    .table-idea th{
+        font-size: 15px;
+    }
+    .table-idea td {
+        font-size: 14px;
+    }
+    button.like_btn{
+        // top: 65px;
+        right: 14px;
+        margin-top: -55px;
+    }
+    button.dislike_btn{
+        // top: 52px;
+        right: 14px;
+        margin-top: -10px;
+
+    }
+    button.detail-link{
+        margin-left: 25px;
+    }
+    .staffsubmission-text{
+        font-size: 34px;
+    }
+    .table-staffsubmission th{
+        font-size: 15px;
+    }
+    .table-staffsubmission td{
+        font-size: 14px;
+    }
+    .sub_btn {
+        margin-left: 65px;
+    }
+    .comment-container{
+        margin-left: 27px;
+    }
+    .check_info label{
+        font-size: 14px;
+    }
 }

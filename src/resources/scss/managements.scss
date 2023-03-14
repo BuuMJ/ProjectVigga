@@ -177,7 +177,8 @@
 .category-create__info label,
 .category-edit__info label {
   text-align: center;
-  width: 20%;
+  width: 22%;
+  margin-left: 2px;
 }
 .submission-create__info input,
 .submission-edit__info input,
@@ -189,6 +190,7 @@
   height: 44px;
   border-radius: 10px;
   text-transform: capitalize;
+  margin-left: 8px;
 }
 .submission-edit__btn,
 .department-edit__btn,

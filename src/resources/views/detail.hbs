@@ -1,13 +1,13 @@
 <div class="main-detail">
     <h1 class="detail-text">Details</h1>    
     <div class="detail-show">
-        <div>Title: <td>{{idea.title}}</td> </div>
-        <div>Brief: <td>{{idea.brief}}</td> </div>
-        <div>Content:  <td>{{idea.content}}</td></div> 
-        <div>file:  <td><a href="/{{submission.name}}/{{idea.file}}">{{idea.file}}</a></td></div> 
-        <div>View:  <td>{{idea.view}}</td></div> 
-        <div>Submission: <td>{{idea.submission}}</td></div> 
-        <div>Category: <td>{{idea.category}}</td></div> 
+        <div>Title: {{idea.title}} </div>
+        <div>Brief: {{idea.brief}} </div>
+        <div>Content:  {{idea.content}}</div> 
+        <div>file:  <a href="/{{idea.submission}}/{{idea.file}}">{{idea.file}}</a></div> 
+        <div>View:  {{idea.view}}</div> 
+        <div>Submission: {{idea.submission}}</div> 
+        <div>Category: {{idea.category}}</div> 
         <div>Deadline 1: {{moment submission.deadline_1 format ="DD MMM YYYY HH:mm:ss"}}</div>
         <div class="time-deadline2">Deadline 2: {{moment submission.deadline_2 format ="DD MMM YYYY HH:mm:ss"}} </div>
     </div>
@@ -18,22 +18,33 @@
             <br>
             <textarea id="content" name="content" rows="4" cols="50"></textarea>
             </div>
-            <br>
-            <button class="sub_btn" type="submit">Comment</button>
             <div class="check-annoymous">
                 <input type="checkbox" name="annoymous" value="true" id="annoymous">
-                <label for="annoymous">Comment With Anonymous</label>
+                <label for="annoymous">Comment With Annoymous</label>
             </div>
+            <br>
+            <button class="sub_btn" type="submit">Comment</button>
+            {{!-- <div class="check-annoymous">
+                <input type="checkbox" name="annoymous" value="true" id="annoymous">
+                <label for="annoymous">Comment With Annoymous</label>
+            </div> --}}
             
         </form>
         <ul>            
         {{#each idea.comment}}
         {{#if this.isannoymous}}
-            <li><span class="author-cmt">Anonymous:</span> {{this.contentCM}}</li>
+          <div class="comment-container">
+            <li><strong class="author-cmt">Annoymous:</strong> <span class="comment-content">{{this.contentCM}}</span> <br> <br> <span class="time-detail">{{moment this.createdAt format ="DD MMMM YYYY (HH:mm)" }}</span></li>
+          </div>
         {{else}}
-            <li><span class="author-cmt">{{this.username}}</span> {{this.contentCM}}</li>
+          <div class="comment-container">
+            <li><strong class="author-cmt">{{this.username}}:</strong> <span class="comment-content">{{this.contentCM}}</span> <br> <span class="time-detail">{{moment this.createdAt format ="DD MMMM YYYY (HH:mm)" }}</span></li>
+          </div>
         {{/if}}
         {{/each}}
         </ul>
+    </div>
+    <div class="remove-detail">
+        <a class="back-detail" href="/staffsubmission">Back</a>
     </div>
 </div>

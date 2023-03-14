@@ -1,21 +1,30 @@
 <div class="main-detail">
     <h1 class="detail-text">Details</h1>    
     <div class="detail-show">
-        <div>Title: <td>{{idea.title}}</td> </div>
-        <div>Brief: <td>{{idea.brief}}</td> </div>
-        <div>Content:  <td>{{idea.content}}</td></div> 
-        <div>file:  <td><a href="/{{idea.file}}">{{idea.file}}</a></td></div> 
-        <div>View:  <td>{{idea.view}}</td></div> 
-        <div>Submission: <td>{{idea.submission}}</td></div> 
-        <div>Category: <td>{{idea.category}}</td></div> 
+        <div>Title: {{idea.title}} </div>
+        <div>Brief: {{idea.brief}} </div>
+        <div>Content:  {{idea.content}}</div> 
+        <div>file:  <a href="/{{submission.name}}/{{idea.file}}">{{idea.file}}</a></div> 
+        <div>View:  {{idea.view}}</div> 
+        <div>Submission: {{idea.submission}}</div> 
+        <div>Category: {{idea.category}}</div> 
         <div>Deadline 1: {{moment submission.deadline_1 format ="DD MMM YYYY HH:mm:ss"}}</div>
         <div class="time-deadline2">Deadline 2: {{moment submission.deadline_2 format ="DD MMM YYYY HH:mm:ss"}} </div>
     </div>
-    <div class="detail-application">
+    {{!-- <div class="detail-application">
         <ul>            
         {{#each idea.comment}}
-            <li>{{this.username}}: {{this.contentCM}}</li>
+           <div class="comment-container">
+            <li><strong class="author-cmt">{{this.username}}:</strong> <span class="comment-content">{{this.contentCM}}</span> <br> <span class="time-detail">{{moment this.createdAt format ="DD MMMM YYYY (HH:mm)" }}</span></li>
+          </div>
         {{/each}}
         </ul>
-    </div>
+    </div> --}}
+           <ul>            
+        {{#each idea.comment}}
+           <div class="comment-container">
+            <li><strong class="author-cmt">{{this.username}}:</strong> <span class="comment-content">{{this.contentCM}}</span> <br> <span class="time-detail">{{moment this.createdAt format ="DD MMMM YYYY (HH:mm)" }}</span></li>
+          </div>
+        {{/each}}
+        </ul>
 </div>

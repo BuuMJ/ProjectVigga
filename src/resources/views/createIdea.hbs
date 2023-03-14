@@ -4,36 +4,36 @@
         <div class="create-idea">
             <div class="create-idea__info">
                 <label for="title">Title</label>
-                <input type="text" class="form-control" id="title" name="title">
+                <input type="text" class="form-control" id="title" name="title" required="" oninvalid="this.setCustomValidity('Please Enter Tilte')" oninput="setCustomValidity('')">
             </div>
             <div class="create-idea__info">
                 <label for="brief">Brief</label>
-                <input type="text" class="form-control" id="brief" name="brief">
+                <input type="text" class="form-control" id="brief" name="brief" required="" oninvalid="this.setCustomValidity('Please Enter Brief')" oninput="setCustomValidity('')">
             </div>
             <div class="create-idea__info">
                 <label for="content">Content</label>
-                <input type="text" class="form-control" id="content" name="content">
+                <input type="text" class="form-control" id="content" name="content" required="" oninvalid="this.setCustomValidity('Please Enter New Content')" oninput="setCustomValidity('')">
             </div>
             <div class="create-idea__info">
-                <label for="file">file</label>
+                <label for="file">File</label>
                 <input type="file" class="form-control" id="file" name="file">
             </div>
             <div class="create-idea__info">
                 <label for="category">Category</label>
-                <select name="category" id="category">
-                <option selected>Choose</option>
+                <select name="category" id="category" required="" oninvalid="this.setCustomValidity('Please Choose Category')" oninput="setCustomValidity('')">
+                <option value="">Choose</option>
                 {{#each dataC}}
                 <option value="{{this.name}}">{{this.name}}</option>
                 {{/each}}
                 </select>
             </div>
             <div class="check_info">
-                <input type="checkbox" name="check" id="check"> 
-                <label for="check">not robot</label>
+                <input type="checkbox" name="check" id="check" required="" oninvalid="this.setCustomValidity('Please Check Here If You Agree')" oninput="setCustomValidity('')"> 
+                <label for="check">I agree with this terms</label>
             </div>
 
             <div class="create-idea-edit__btn">
-                <a class="btn-create-idea-back" href="/staffsubmission/{{submission._id}}">Back</a>
+                <button class="btn-create-idea-back" href="/staffsubmission/{{submission._id}}">Back</button>
                 <button type="submit" class="btn-create-idea-create">Create</button>
             </div>
         </div>
