@@ -1,4 +1,1 @@
-{
-    "name": "projectvigga"
-  }
-  
+{ "rewrites": [{ "source": "/(.*)", "destination": "/" }] } 
