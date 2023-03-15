@@ -772,6 +772,7 @@ button.like_btn {
         margin-left: 355px;
     }
 }
+
 @media  screen and (max-width: 900px) {
     .main-staffsubmission,
     .main-detail{
@@ -833,6 +834,27 @@ button.like_btn {
     }
     .sub_btn {
         margin-left: 250px;
+    }
+}
+
+@media screen and (max-width: 721px) {
+    button.dislike_btn {
+        right: 45px;
+        position: absolute;
+    }
+    button.like_btn {
+        right: 45px;
+        position: absolute;
+    }
+}
+@media screen and (max-width: 702px) {
+    button.dislike_btn {
+        right: 30px;
+        position: absolute;
+    }
+    button.like_btn {
+        right: 30px;
+        position: absolute;
     }
 }
 @media screen and (min-width: 1920px) {

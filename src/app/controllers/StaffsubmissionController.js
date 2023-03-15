@@ -8,8 +8,8 @@ const fs = require("fs");
 const path = require("path");
 const excelJs = require("exceljs");
 const Admzip = require("adm-zip");
-const Action = require("../models/action")
-const AccountModel = require("../models/Account")
+const Action = require("../models/action");
+const AccountModel = require("../models/Account");
 
 class StaffsubmissionController {
   // [GET] staffsubmission
@@ -17,6 +17,7 @@ class StaffsubmissionController {
     Submission.find({})
       .then((submission) => {
         submission = submission.map((submission) => submission.toObject());
+        console.log(submission);
         res.render("staffsubmission", {
           submission,
           user: req.user,
@@ -51,8 +52,8 @@ class StaffsubmissionController {
   // [GET] create Idea
   createIdea(req, res, next) {
     // console.log(req.session.idSub);
-    var submission = req.session.idSub
-    console.log(submission.deadline_1)
+    var submission = req.session.idSub;
+    console.log(submission.deadline_1);
     res.render("createIdea", {
       submission: submission,
       user: req.user,
@@ -81,7 +82,7 @@ class StaffsubmissionController {
         to: email.adremail,
         subject: "You have a new message",
         // text: req.user.fullname + ' commented on your post',
-        text: 'Your department has a new idea post',
+        text: "Your department has a new idea post",
       };
       transporter.sendMail(mailOptions, function (error, info) {
         if (error) {
@@ -255,12 +256,12 @@ class StaffsubmissionController {
   // [POST] View Idea
   async view(req, res) {
     try {
-      const submission = req.session.idSub
+      const submission = req.session.idSub;
       // console.log(submission.deadline_1+ 'asdasfghjksdfghgdfghgdfggsdfgf')
       const idea = await Idea.findById(req.params.id);
       idea.view++;
       await idea.save();
-      console.log(submission.deadline_2)
+      console.log(submission.deadline_2);
       res.render("detail", {
         submission: submission,
         idea: staffMongoseToObject(idea),
@@ -275,12 +276,12 @@ class StaffsubmissionController {
   // [POST] View Idea
   async overtime(req, res) {
     try {
-      const submission = req.session.idSub
+      const submission = req.session.idSub;
       // console.log(submission.deadline_1+ 'asdasfghjksdfghgdfghgdfggsdfgf')
       const idea = await Idea.findById(req.params.id);
       idea.view++;
       await idea.save();
-      console.log(submission.deadline_2)
+      console.log(submission.deadline_2);
       res.render("overtime", {
         submission: submission,
         idea: staffMongoseToObject(idea),

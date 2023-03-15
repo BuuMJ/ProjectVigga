@@ -272,6 +272,11 @@ input:valid {
   left: 42%;
   background-color: (246,3,3,61%);
 }
+@media screen and (max-width: 1023px) {
+  .edit__user{
+    height: unset;
+  }
+}
 //reponsive//
 @media screen and (max-width: 1024px){
  .card-user__info {

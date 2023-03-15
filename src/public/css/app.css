@@ -1495,6 +1495,22 @@ button.like_btn {
   .sub_btn {
     margin-left: 250px; } }
 
+@media screen and (max-width: 721px) {
+  button.dislike_btn {
+    right: 45px;
+    position: absolute; }
+  button.like_btn {
+    right: 45px;
+    position: absolute; } }
+
+@media screen and (max-width: 702px) {
+  button.dislike_btn {
+    right: 30px;
+    position: absolute; }
+  button.like_btn {
+    right: 30px;
+    position: absolute; } }
+
 @media screen and (min-width: 1920px) {
   .main-idea {
     height: 100vh; }
@@ -2208,6 +2224,10 @@ input:valid {
   top: 18%;
   left: 42%;
   background-color: 246, 3, 3, 61%; }
+
+@media screen and (max-width: 1023px) {
+  .edit__user {
+    height: unset; } }
 
 @media screen and (max-width: 1024px) {
   .card-user__info {
