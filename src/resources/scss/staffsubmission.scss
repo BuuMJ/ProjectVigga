@@ -772,13 +772,13 @@ button.like_btn {
         margin-left: 355px;
     }
 }
-@media  screen and (max-width: 768px) {
+@media  screen and (max-width: 814px) {
     .main-staffsubmission,
     .main-detail{
         height: unset;
     }
     .main-idea {
-        height: 100vh;
+        height: 100%;
     }
     .staffsubmission-application {
         display: flex;

@@ -294,7 +294,10 @@ justify-content: flex-start;
 }
 
 }
-@media screen and (max-width: 768px){
+@media screen and (max-width: 814px){
+  .edit__user{
+    height: 100%;
+  }
   .card-user__info {
     font-size: 20px;
     

@@ -206,7 +206,7 @@ a.out-user:hover {
   .nav-list a, .nav-list li {
     width: 170px; } }
 
-@media screen and (min-width: 319px) and (max-width: 768px) {
+@media screen and (min-width: 319px) and (max-width: 814px) {
   .header {
     display: none; }
   .header-mini {
@@ -673,7 +673,7 @@ a.out-user:hover {
     text-align: center;
     padding: 8px 0; } }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 814px) {
   .loading {
     z-index: 2000; }
   .loading-distance {
@@ -1449,12 +1449,12 @@ button.like_btn {
   .sub_btn {
     margin-left: 355px; } }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 814px) {
   .main-staffsubmission,
   .main-detail {
     height: unset; }
   .main-idea {
-    height: 100vh; }
+    height: 100%; }
   .staffsubmission-application {
     display: flex;
     width: 90%;
@@ -1891,7 +1891,7 @@ a.btn-category-back {
   background-color: #FC0404 !important;
   border-radius: 10px; }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 814px) {
   .submission-create,
   .submission-edit,
   .department-create,
@@ -2222,7 +2222,9 @@ input:valid {
   .edit__card {
     margin-top: 15%; } }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 814px) {
+  .edit__user {
+    height: 100%; }
   .card-user__info {
     font-size: 20px; }
   .card-user {
