@@ -24,9 +24,9 @@
   "name": "projectvigga",
   "description": "��#\u0000 \u0000P\u0000r\u0000o\u0000j\u0000e\u0000c\u0000t\u0000V\u0000i\u0000g\u0000g\u0000a\u0000\r\u0000 \u0000",
   "version": "1.0.0",
-  "main": "src/server.js",
+  "main": "src/index.js",
   "scripts": {
-    "start": "nodemon --inspect src/server.js",
+    "start": "nodemon --inspect src/index.js",
     "watch": "node-sass --watch src/resources/scss/app.scss src/public/css/app.css",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
