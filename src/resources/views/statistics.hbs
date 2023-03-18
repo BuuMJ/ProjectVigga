@@ -21,12 +21,25 @@
     </table>
     <ul class="listpage">
     </ul>
+     <div class="chart">
+      {{#each ideaCounts}}
+      <div class="chart-info">
+        <div class="chart-y" data-idea-id="{{this.count}}"></div>
+        <span>{{this._id}}</span>
+      </div>
+      {{/each}}
+    </div>
   </div>
 </div>
 
 
 
 <script>
+ var chartY = document.getElementsByClassName('chart-y');
+for (let i = 0; i < chartY.length; i++) {
+  var ideaId = chartY[i].dataset.ideaId;
+  chartY[i].style.height = ideaId * 15 + 'px';
+}
   var thisPage = 1;
   var limit = 5;
   var list = document.querySelectorAll('.statistics-list__main')
@@ -64,4 +77,5 @@
   document.querySelector('.listpage li:nth-child(' + (thisPage) + ')').classList.add('active');
     loadIteam()
   }
+  
 </script>

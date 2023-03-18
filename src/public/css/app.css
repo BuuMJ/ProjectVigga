@@ -1907,6 +1907,31 @@ a.btn-category-back {
   background-color: #FC0404 !important;
   border-radius: 10px; }
 
+.chart {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+  width: 70%;
+  height: 500px;
+  border-left: 4px solid white;
+  border-bottom: 4px solid white; }
+
+.chart-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 16px; }
+
+.chart-info span {
+  transform: translateY(40px);
+  color: white; }
+
+.chart-y {
+  width: 40px;
+  background-color: white;
+  transform: translateY(24px); }
+
 @media screen and (max-width: 900px) {
   .submission-create,
   .submission-edit,
