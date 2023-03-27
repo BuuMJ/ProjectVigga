@@ -21,14 +21,9 @@
     </table>
     <ul class="listpage">
     </ul>
-     <div class="chart">
-      {{#each ideaCounts}}
-      <div class="chart-info">
-        <div class="chart-y" data-idea-id="{{this.count}}"></div>
-        <span>{{this._id}}</span>
-      </div>
-      {{/each}}
-    </div>
+     <div class="chart-Statistic">
+  <canvas id="myChart"></canvas>
+</div>
   </div>
 </div>
 
@@ -78,4 +73,44 @@ for (let i = 0; i < chartY.length; i++) {
     loadIteam()
   }
   
+</script>
+<script>
+  var data = {
+    labels: [],
+    datasets: [{
+      data: [],
+      backgroundColor: []
+    }]
+  };
+
+  var rows = document.querySelectorAll("#statistics-list tr.statistics-list__main");
+  rows.forEach(function(row) {
+    data.labels.push(row.querySelector(".statistics-list__text").textContent);
+    data.datasets[0].data.push(parseFloat(row.querySelector(".actions").textContent));
+    data.datasets[0].backgroundColor.push(getRandomColor());
+  });
+
+  var ctx = document.getElementById("myChart").getContext("2d");
+  var myChart = new Chart(ctx, {
+    type: 'pie',
+    data: data,
+    options: {
+      legend: {
+        position: 'bottom',
+        labels: {
+          fontColor: 'white',
+          fontSize: 26
+        }
+      },
+    }
+  });
+
+  function getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
 </script>
