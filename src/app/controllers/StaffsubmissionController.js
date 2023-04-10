@@ -104,7 +104,7 @@ class StaffsubmissionController {
               } else {
                 const idea = new Idea({
                   title: req.body.title,
-                  fullname: req.body.fullname,
+                  fullname: req.user.fullname,
                   brief: req.body.brief,
                   content: req.body.content,
                   file: req.file.filename,
@@ -112,7 +112,6 @@ class StaffsubmissionController {
                   deadline_2: submission.deadline_2,
                   category: req.body.category,
                   submission: submission.name,
-                  ideasubmission: submission._id,
                   department: department,
                   adremail: adremail,
                 });
@@ -131,13 +130,12 @@ class StaffsubmissionController {
               brief: req.body.brief,
               content: req.body.content,
               deadline_1: submission.deadline_1,
-                  fullname: req.body.fullname,
+                  fullname: req.user.fullname,
                   deadline_2: submission.deadline_2,
               category: req.body.category,
               submission: submission.name,
               department: department,
               adremail: adremail,
-              ideasubmission: submission._id,
 
             });
             idea

@@ -912,7 +912,7 @@ a.out-user:hover {
 
 .comment_btn textarea {
   width: 100%;
-  height: 80px;
+  height: 30px;
   padding: 10px;
   border-radius: 10px;
   font-size: 16px;
@@ -921,6 +921,10 @@ a.out-user:hover {
   background-color: #f0f2f5;
   border: none;
   outline: none; }
+
+.comment_btn textarea:focus,
+.comment_btn textarea:valid {
+  height: 80px; }
 
 .comment_btn .sub_btn {
   position: absolute;
@@ -995,27 +999,25 @@ a.back-detail {
   border: 1px solid #ccc;
   padding: 10px;
   margin-bottom: 20px;
-  border-radius: 10px; }
+  border-radius: 10px;
+  width: 60%; }
 
-.detail-show div {
-  margin-bottom: 10px; }
+.detail-show-all {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around; }
 
 .detail-show-primary {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
-  margin-bottom: unset !important;
   height: 30px; }
 
 .left-detail-primary {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  margin-bottom: unset !important; }
-
-.left-detail-primary > * {
-  margin-bottom: unset !important; }
+  justify-content: space-around; }
 
 .left-detail-primary #days-remaining {
   font-size: 12px;
@@ -1031,16 +1033,13 @@ a.back-detail {
   font-size: 14px; }
 
 .detail-show-primary > * {
-  margin-bottom: unset !important;
   font-weight: 500; }
 
 .secondary-detail {
   display: flex;
-  flex-direction: row;
-  margin-bottom: unset !important; }
+  flex-direction: row; }
 
 .secondary-detail > * {
-  margin-bottom: unset !important;
   font-weight: 500; }
 
 .secondary-detail .center-secondary-detail {
@@ -1054,7 +1053,9 @@ a.back-detail {
   letter-spacing: 1.5px;
   padding: 2px 6px; }
 
-.secondary-detail .role-detail {
+.secondary-detail .role-detail,
+.submission-detail,
+.category-detail {
   font-size: 12px;
   color: #e10d11;
   background-color: rgba(225, 13, 17, 0.2);
@@ -1063,16 +1064,19 @@ a.back-detail {
   border-radius: 4px;
   margin-right: 6px; }
 
-.secondary-detail .category-detail {
-  font-size: 12px;
-  color: #b9c2c4;
-  letter-spacing: 1.5px;
-  padding: 2px 6px; }
+.submission-detail {
+  display: inline-block;
+  color: #1cacf4;
+  background-color: rgba(28, 172, 244, 0.2); }
 
-.detail-show .submission-detail {
-  font-size: 16px;
-  font-weight: 500;
-  color: #b9c2c4; }
+.category-detail-info {
+  margin-bottom: 20px; }
+
+.category-detail {
+  display: inline-block;
+  color: #bc04fc;
+  background-color: rgba(188, 4, 252, 0.2);
+  flex: 0 1 auto; }
 
 .detail-show div td {
   padding-left: 10px; }
@@ -1089,26 +1093,24 @@ a.back-detail {
 .comment-content {
   white-space: pre-wrap; }
 
-ul.main__info-comment {
-  display: flex;
-  flex-direction: row; }
-
 .comment-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center; }
+
+.comment-container li {
+  display: inline-block;
+  list-style-type: none;
   border: none;
   background-color: #f0f2f5;
   padding: 4px 10px 0 10px;
   margin-bottom: 10px;
   color: #000;
   border-radius: 10px;
-  display: inline-block;
-  max-width: 104%;
+  min-height: 40px;
+  max-width: 80%;
   word-wrap: break-word;
-  word-break: break-all;
-  display: table; }
-
-.comment-container li {
-  list-style-type: none;
-  position: relative; }
+  word-break: break-all; }
 
 button.delete-comment {
   display: block;
@@ -1129,7 +1131,7 @@ button.delete-comment i {
 button.delete-comment:hover {
   background-color: #3c3b3b; }
 
-.comment-container:hover + button.delete-comment i {
+.comment-container li:hover + button.delete-comment i {
   display: block; }
 
 button.delete-comment:hover i {
@@ -1138,9 +1140,7 @@ button.delete-comment:hover i {
 .time-detail {
   font-size: 10px;
   color: #b8c2c4;
-  font-weight: 500;
-  position: absolute;
-  top: 42%; }
+  font-weight: 500; }
 
 .main-create-idea {
   display: flex;
@@ -1441,7 +1441,8 @@ button.like_btn {
   align-items: center;
   font-size: 10px;
   color: #b8c2c4;
-  margin-top: 12px; }
+  margin-top: 12px;
+  margin-bottom: 16px; }
 
 input#annoymous {
   margin-right: 4px; }

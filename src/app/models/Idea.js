@@ -9,6 +9,7 @@ const Schema = mongoose.Schema;
 const Idea = new mongoose.Schema(
   {
     submission: String,
+    fullname: String,
     adremail: String,
     department: String,
     title: String,

@@ -1,27 +1,32 @@
 <div class="main-detail">
     <h1 class="detail-text">Details</h1>    
     <div class="detail-show">
-      <div class="detail-show-primary">
-        <div class="fullname-detail">{{idea.fullname}}</div>
-        <div class="left-detail-primary">
-          <div id="days-remaining"></div>
-          <div class="view-detail">{{idea.view}} <i class="bi bi-eye"></i></div> 
+      <div class="detail-show-all">
+        <div class="detail-show-primary">
+          <div class="fullname-detail">{{idea.fullname}}</div>
+          <div class="left-detail-primary">
+            <div id="days-remaining"></div>
+            <div class="view-detail">{{idea.view}} <i class="bi bi-eye"></i></div> 
+          </div>
         </div>
-      </div>
-        <div class="secondary-detail">
-          <div class="role-detail">{{idea.department}}</div>
-          <div class="center-secondary-detail">-</div>
-          <div class="category-detail">Category: {{idea.category}}</div> 
-          <div class="center-secondary-detail">-</div>
-          <div class="time-post-detail">{{idea.createdAt}}</div>
+          <div class="secondary-detail">
+            <div class="role-detail">{{idea.department}}</div>
+            <div class="center-secondary-detail">-</div>
+            <div class="time-post-detail">{{moment idea.createdAt format ="DD MMMM YYYY (HH:mm)" }}</div>
+          </div>
+          <div class="submission-detail-info">
+            <div class="submission-detail">Submission: {{idea.submission}}</div> 
+          </div>
+          <div class="category-detail-info">
+            <div class="category-detail">Category: {{idea.category}}</div> 
+          </div>
+          <div>Title: {{idea.title}} </div>
+          <div>Brief: {{idea.brief}} </div>
+          <div>Content:  {{idea.content}}</div> 
+          <div>file:  <a href="/{{idea.submission}}/{{idea.file}}">{{idea.file}}</a></div> 
+          <div class="time-deadline1">Deadline 1: {{moment submission.deadline_1 format ="DD MMM YYYY HH:mm:ss"}}</div>
+          <div class="time-deadline2">Deadline 2: {{moment submission.deadline_2 format ="DD MMM YYYY HH:mm:ss"}} </div>
         </div>
-        <div class="submission-detail">Submission: {{idea.submission}}</div> 
-        <div>Title: {{idea.title}} </div>
-        <div>Brief: {{idea.brief}} </div>
-        <div>Content:  {{idea.content}}</div> 
-        <div>file:  <a href="/{{idea.submission}}/{{idea.file}}">{{idea.file}}</a></div> 
-        <div class="time-deadline1">Deadline 1: {{moment submission.deadline_1 format ="DD MMM YYYY HH:mm:ss"}}</div>
-        <div class="time-deadline2">Deadline 2: {{moment submission.deadline_2 format ="DD MMM YYYY HH:mm:ss"}} </div>
          <div class="detail-application">
         <form class="detail_btn" method="POST" action="/staffsubmission/idea/{{idea._id}}/comment">
   <div class="comment_btn">
@@ -35,26 +40,19 @@
     <label for="annoymous">Comment With Anonymous</label>
   </div>
 </form>
-<ul class="main__info-comment">
-  
-</ul>
-        <ul class="main__info-comment">    
-          {{!-- <h1>{{ididea}}</h1>         --}}
-          {{!-- <h1>{{getIdIdea ididea}}</h1>         --}}
-
+        <ul>            
         {{#each idea.comment}}
-        {{#if this.isannoymous}}      
-
-         <form class="comment-container" method="POST" action="/staffsubmission/idea/{{this.ididea}}/view/{{this._id}}?_method=DELETE">
-            <li><strong class="author-cmt">Anonymous:</strong> <span class="comment-content">{{this.contentCM}}</span> <br> <br> <span class="time-detail">{{moment this.createdAt format ="DD MMMM YYYY (HH:mm)" }}</span></li>
+        {{#if this.isannoymous}}
+          <form class="comment-container" method="POST" action="/staffsubmission/idea/{{this.ididea}}/view/{{this._id}}?_method=DELETE">
+            <li>
+              <strong class="author-cmt">Anonymous:</strong> <span class="comment-content">{{this.contentCM}}</span> <br> <br> <span class="time-detail">{{moment this.createdAt format ="DD MMMM YYYY (HH:mm)" }}</span>
+            </li>
           <button class="delete-comment" type="submit"><i class="bi bi-trash-fill"></i></button>
           </form>
         {{else}}
-          {{!-- <h1>{{this.ididea    }}</h1>         --}}
-
           <form class="comment-container" method="POST" action="/staffsubmission/idea/{{this.ididea}}/view/{{this._id}}?_method=DELETE">
             <li><strong class="author-cmt">{{this.username}}:</strong> <span class="comment-content">{{this.contentCM}}</span> <br> <span class="time-detail">{{moment this.createdAt format ="DD MMMM YYYY (HH:mm)" }}</span></li>
-          <button class="delete-comment" type="submit"><i class="bi bi-trash-fill"></i></button>
+            <button class="delete-comment" type="submit"><i class="bi bi-trash-fill"></i></button>
           </form>
         {{/if}}
         {{/each}}
