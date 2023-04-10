@@ -19,7 +19,7 @@
   flex-direction: column;
   justify-content: space-evenly;
   align-items: baseline;
-  width: 400px;
+  width: 350px;
   
   background-color: transparent;
   background-image: linear-gradient(
@@ -59,7 +59,7 @@ input:valid {
 .edit__card label,
 .create__card label {
   align-items: center;
-  width: 25%;
+  width: 35%;
   justify-content: revert;
   margin-top: 10%;
   display: flex;
@@ -68,7 +68,7 @@ input:valid {
 .create__card input {
   border-radius: 10px;
   border: 4px solid #e10d11;
-  width: 70%;
+  width: 60%;
   padding: 4px;
 }
 .button__user {
@@ -82,7 +82,7 @@ input:valid {
   padding: 8px 0;
 }
 .type__select {
-  width: 70%;
+  width: 60%;
   border-radius: 10px;
   border: 4px solid #e10d11;
   height: 35px;
@@ -138,7 +138,7 @@ input:valid {
   align-items: flex-start;
   flex-wrap: wrap;
   height: 350px;
-  width: 30%;
+  width: 28%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   background-color: transparent;
   background-image: linear-gradient(
@@ -168,7 +168,7 @@ input:valid {
   align-items: center;
 }
 .btn__edit-user{
-  width: 73.43px;
+  width: 13%;
   margin-right: 8px;
 }
 .listpage {
@@ -284,7 +284,7 @@ input:valid {
 
  }
  .btn__edit-user {
-  font-size: 15px;
+  width: 20%;
  }
  .btn__remove-user{
   font-size: 15px;
@@ -316,14 +316,17 @@ justify-content: flex-start;
   .card-user {
     height: 400px;
   }
+  .create__card {
+    width: 80%;
+  }
   
 }
-@media screen and (max-width: 414px){
+@media screen and (max-width: 415px){
   .create__card {
-    width: 90%;
+    width: 85%;
   }
   .create__card input {
-    width: 60%;
+    width: 65%;
     font-size: 15px;
   }
   .create__card label {
@@ -331,7 +334,7 @@ justify-content: flex-start;
     font-size: 15px;
   }
   .type__select {
-    width: 60%;
+    width: 65%;
     font-size: 15px;
   }
   .user__checkbox {
@@ -350,7 +353,6 @@ justify-content: flex-start;
   }
   .card-user {
     width: 90%;
-    margin: 20px 0 ;
   }
   .card-user__info {
     font-size: 16px;
@@ -364,28 +366,15 @@ justify-content: flex-start;
   }
   .edit__card input {
     width: 60%;
-    margin-left: 10%;
   }
   .edit__card select {
     width: 60%;
-    margin-left: 10%;
   }
   input#checkbox {
     margin-left: unset;
     width: 10%;
   }
 
-}
-@media screen and (max-width: 320px){
-  .create__card select {
-    margin-left: 8px;
-  }
-  .create__card input {
-    margin-left: 8px;
-  }
-  .card-user {
-    width: 95%;
-  }
 }
 @media  screen and (max-width: 375px) {
   .edit__user {
@@ -400,6 +389,10 @@ justify-content: flex-start;
       width: 60%;
       margin-left: 10%;
     }
+
+    .card-user {
+      width: 90%;
+    }
 }
 @media  screen and (max-width: 320px){
   .edit__user {
@@ -407,7 +400,8 @@ justify-content: flex-start;
   }
   .edit__card {
     margin-top: 25%;
-    width: 90%;
+    width: 80%;
+    font-size: 15px;
   }
   .edit__card input {
     width: 70%;
@@ -423,5 +417,21 @@ justify-content: flex-start;
   }
   input#checkbox {
     margin-right: unset ;
+  }
+ .create__card select,
+ .create__card input {
+  width: 50%;
+ }
+ .create__card label {
+  width: 43%;
+ }
+  .card-user {
+    width: 95%;
+  }
+  .btn__edit-user {
+    width: 25%;
+  }
+  .btn__remove-user {
+    width: 35%;
   }
 }

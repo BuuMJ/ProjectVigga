@@ -48,6 +48,6 @@
     "helper-moment": "^0.2.0",
     "morgan": "^1.10.0",
     "node-sass": "^8.0.0",
-    "nodemon": "^2.0.21"
+    "nodemon": "^2.0.22"
   }
 }

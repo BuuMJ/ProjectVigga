@@ -2084,16 +2084,7 @@ a.btn-category-back {
 
 .chart-Statistic #myChart {
   margin: 30px auto;
-  height: 500px !important;
-  width: 500px !important; }
-
-#mychart {
-  font-size: 30px; }
-
-.chart-Statistic .chart-legend {
-  position: absolute;
-  left: 0;
-  bottom: 0; }
+  height: 500px !important; }
 
 @media screen and (max-width: 900px) {
   .submission-create,
@@ -2176,7 +2167,7 @@ a.btn-category-back {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: baseline;
-  width: 400px;
+  width: 350px;
   background-color: transparent;
   background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.8), rgba(255, 255, 255, 0.2));
   border: 4px solid #e10d11;
@@ -2211,7 +2202,7 @@ input:valid {
 .edit__card label,
 .create__card label {
   align-items: center;
-  width: 25%;
+  width: 35%;
   justify-content: revert;
   margin-top: 10%;
   display: flex; }
@@ -2220,7 +2211,7 @@ input:valid {
 .create__card input {
   border-radius: 10px;
   border: 4px solid #e10d11;
-  width: 70%;
+  width: 60%;
   padding: 4px; }
 
 .button__user {
@@ -2234,7 +2225,7 @@ input:valid {
   padding: 8px 0; }
 
 .type__select {
-  width: 70%;
+  width: 60%;
   border-radius: 10px;
   border: 4px solid #e10d11;
   height: 35px; }
@@ -2287,7 +2278,7 @@ input:valid {
   align-items: flex-start;
   flex-wrap: wrap;
   height: 350px;
-  width: 30%;
+  width: 28%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   background-color: transparent;
   background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.8), rgba(255, 255, 255, 0.2));
@@ -2313,7 +2304,7 @@ input:valid {
   align-items: center; }
 
 .btn__edit-user {
-  width: 73.43px;
+  width: 13%;
   margin-right: 8px; }
 
 .listpage {
@@ -2421,7 +2412,7 @@ input:valid {
   .card-user__info {
     font-size: 15px; }
   .btn__edit-user {
-    font-size: 15px; }
+    width: 20%; }
   .btn__remove-user {
     font-size: 15px;
     width: 25%; }
@@ -2441,19 +2432,21 @@ input:valid {
 
 @media screen and (max-width: 600px) {
   .card-user {
-    height: 400px; } }
-
-@media screen and (max-width: 414px) {
+    height: 400px; }
   .create__card {
-    width: 90%; }
+    width: 80%; } }
+
+@media screen and (max-width: 415px) {
+  .create__card {
+    width: 85%; }
   .create__card input {
-    width: 60%;
+    width: 65%;
     font-size: 15px; }
   .create__card label {
     width: 30%;
     font-size: 15px; }
   .type__select {
-    width: 60%;
+    width: 65%;
     font-size: 15px; }
   .user__checkbox {
     width: 60%; }
@@ -2466,8 +2459,7 @@ input:valid {
     padding: 4px 0;
     font-size: 18px; }
   .card-user {
-    width: 90%;
-    margin: 20px 0; }
+    width: 90%; }
   .card-user__info {
     font-size: 16px; }
   .edit__user {
@@ -2476,22 +2468,12 @@ input:valid {
     width: 80%;
     margin-top: 20%; }
   .edit__card input {
-    width: 60%;
-    margin-left: 10%; }
+    width: 60%; }
   .edit__card select {
-    width: 60%;
-    margin-left: 10%; }
+    width: 60%; }
   input#checkbox {
     margin-left: unset;
     width: 10%; } }
-
-@media screen and (max-width: 320px) {
-  .create__card select {
-    margin-left: 8px; }
-  .create__card input {
-    margin-left: 8px; }
-  .card-user {
-    width: 95%; } }
 
 @media screen and (max-width: 375px) {
   .edit__user {
@@ -2501,14 +2483,17 @@ input:valid {
     width: 90%; }
   .edit__card input {
     width: 60%;
-    margin-left: 10%; } }
+    margin-left: 10%; }
+  .card-user {
+    width: 90%; } }
 
 @media screen and (max-width: 320px) {
   .edit__user {
     justify-content: flex-start; }
   .edit__card {
     margin-top: 25%;
-    width: 90%; }
+    width: 80%;
+    font-size: 15px; }
   .edit__card input {
     width: 70%;
     margin-right: 10%; }
@@ -2518,7 +2503,18 @@ input:valid {
     width: 70%;
     margin-right: 10%; }
   input#checkbox {
-    margin-right: unset; } }
+    margin-right: unset; }
+  .create__card select,
+  .create__card input {
+    width: 50%; }
+  .create__card label {
+    width: 43%; }
+  .card-user {
+    width: 95%; }
+  .btn__edit-user {
+    width: 25%; }
+  .btn__remove-user {
+    width: 35%; } }
 
 .box-login {
   display: flex;
@@ -2533,7 +2529,7 @@ input:valid {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  width: 400px;
+  width: 350px;
   height: 400px;
   background-color: transparent;
   background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.8), rgba(255, 255, 255, 0.2));
@@ -2552,8 +2548,7 @@ input:valid {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  margin-left: -38px; }
+  width: 100%; }
 
 .login-info i {
   width: 20%;
@@ -2673,13 +2668,18 @@ label {
 
 @media screen and (max-width: 768px) {
   .login-form {
-    margin-left: 40px; } }
+    width: 70%; } }
 
 @media screen and (max-width: 600px) {
   .login-form {
-    margin-left: unset; }
+    width: 70%;
+    margin-right: 15px; }
   .acc-login {
     display: none; } }
+
+@media screen and (max-width: 415px) {
+  .login-form {
+    width: 80%; } }
 
 @media screen and (max-width: 375px) {
   .login-form {
@@ -2692,7 +2692,7 @@ label {
   .box-login {
     height: 640px; }
   .login-form {
-    width: 300px;
+    width: 80%;
     height: 360px; } }
 
 .footer {
