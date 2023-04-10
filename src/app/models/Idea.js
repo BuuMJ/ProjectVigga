@@ -27,6 +27,7 @@ const Idea = new mongoose.Schema(
           type: Boolean,
           default: false,
         },
+        ididea: String,
         username: String,
         contentCM: String,
         createdAt: {

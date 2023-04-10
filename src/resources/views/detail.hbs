@@ -38,25 +38,31 @@
 <ul class="main__info-comment">
   
 </ul>
-        <ul class="main__info-comment">            
+        <ul class="main__info-comment">    
+          {{!-- <h1>{{ididea}}</h1>         --}}
+          {{!-- <h1>{{getIdIdea ididea}}</h1>         --}}
+
         {{#each idea.comment}}
-        {{#if this.isannoymous}}
-         <form class="comment-container">
+        {{#if this.isannoymous}}      
+
+         <form class="comment-container" method="POST" action="/staffsubmission/idea/{{this.ididea}}/view/{{this._id}}?_method=DELETE">
             <li><strong class="author-cmt">Anonymous:</strong> <span class="comment-content">{{this.contentCM}}</span> <br> <br> <span class="time-detail">{{moment this.createdAt format ="DD MMMM YYYY (HH:mm)" }}</span></li>
-          </form>
           <button class="delete-comment" type="submit"><i class="bi bi-trash-fill"></i></button>
+          </form>
         {{else}}
-          <form class="comment-container">
+          {{!-- <h1>{{this.ididea    }}</h1>         --}}
+
+          <form class="comment-container" method="POST" action="/staffsubmission/idea/{{this.ididea}}/view/{{this._id}}?_method=DELETE">
             <li><strong class="author-cmt">{{this.username}}:</strong> <span class="comment-content">{{this.contentCM}}</span> <br> <span class="time-detail">{{moment this.createdAt format ="DD MMMM YYYY (HH:mm)" }}</span></li>
-          </form>
           <button class="delete-comment" type="submit"><i class="bi bi-trash-fill"></i></button>
+          </form>
         {{/if}}
         {{/each}}
         </ul>
     </div>
     </div>
     <div class="remove-detail">
-        <a class="back-detail" href="/staffsubmission/{{this._id}}">Back</a>
+        <a class="back-detail" href="/staffsubmission/{{idea._id}}">Back</a>
     </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>

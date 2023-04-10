@@ -15,6 +15,13 @@ module.exports = {
   getDepartment: function (user) {
     return user.department;
   },
+  getIdIdea: function (ididea) {
+    if(ididea){
+      return ididea;
+    }else{
+      return 'aaaaâ';
+    }
+  },
   ifeq: function (user, y, options) {
     // console.log(user)
     var currentRole = user == undefined ? "" : user.role;

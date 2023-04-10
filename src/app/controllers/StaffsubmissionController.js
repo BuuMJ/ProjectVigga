@@ -1,5 +1,5 @@
 const Submission = require("../models/Submission");
-const { staffMongoseToObject } = require("../../util/mongoose");
+const { staffMongoseToObject, mutipleMongooseToObject } = require("../../util/mongoose");
 const Idea = require("../models/Idea");
 const nodemailer = require("nodemailer");
 const multer = require("multer");
@@ -54,6 +54,8 @@ class StaffsubmissionController {
     // console.log(req.session.idSub);
     var submission = req.session.idSub;
     console.log(submission.deadline_1);
+    console.log(submission._id + 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
+
     res.render("createIdea", {
       submission: submission,
       user: req.user,
@@ -66,6 +68,7 @@ class StaffsubmissionController {
   // [POST] create Idea
   async storeIdea(req, res, next) {
     try {
+      console.log(req.session.idSub + 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
       const departmentUser = req.user.department;
       const email = await AccountModel.findOne({
         role: "coordinator",
@@ -101,6 +104,7 @@ class StaffsubmissionController {
               } else {
                 const idea = new Idea({
                   title: req.body.title,
+                  fullname: req.body.fullname,
                   brief: req.body.brief,
                   content: req.body.content,
                   file: req.file.filename,
@@ -108,6 +112,7 @@ class StaffsubmissionController {
                   deadline_2: submission.deadline_2,
                   category: req.body.category,
                   submission: submission.name,
+                  ideasubmission: submission._id,
                   department: department,
                   adremail: adremail,
                 });
@@ -126,11 +131,14 @@ class StaffsubmissionController {
               brief: req.body.brief,
               content: req.body.content,
               deadline_1: submission.deadline_1,
-              deadline_2: submission.deadline_2,
+                  fullname: req.body.fullname,
+                  deadline_2: submission.deadline_2,
               category: req.body.category,
               submission: submission.name,
               department: department,
               adremail: adremail,
+              ideasubmission: submission._id,
+
             });
             idea
               .save()
@@ -177,7 +185,7 @@ class StaffsubmissionController {
           action: "like",
         });
         await action.save();
-        idea.dislike--;
+         idea.dislike--;
         idea.like++;
         await idea.save();
         res.redirect("/staffsubmission/" + submission._id);
@@ -186,7 +194,7 @@ class StaffsubmissionController {
       // Thêm hành động like vào collection Action
       const action = new Action({
         ideaId: req.params.id,
-        accountId: req.user._id,
+         accountId: req.user._id,
         action: "like",
       });
       await action.save();
@@ -261,9 +269,11 @@ class StaffsubmissionController {
       const idea = await Idea.findById(req.params.id);
       idea.view++;
       await idea.save();
-      console.log(submission.deadline_2);
+      const comment = idea.comment
+      console.log(mutipleMongooseToObject(comment) + 'aaaaaaaaaaaaaaaaaaaaaaaaa');
       res.render("detail", {
         submission: submission,
+        ididea: idea.username,
         idea: staffMongoseToObject(idea),
         user: req.user,
         title: "Detail",
@@ -299,7 +309,8 @@ class StaffsubmissionController {
     try {
       const idea = await Idea.findById(req.params.id);
       const username = req.user;
-      // console.log(idea.adremail);
+      const submission = req.session.idSub;
+    //  console.log(submission._id + 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa b va  c nua');
       var transporter = nodemailer.createTransport({
         service: "gmail",
         auth: {
@@ -314,6 +325,7 @@ class StaffsubmissionController {
         text: req.body.content,
       };
       idea.comment.push({
+        ididea: idea._id,
         isannoymous: req.body.annoymous,
         username: username.fullname,
         contentCM: req.body.content,
@@ -336,6 +348,45 @@ class StaffsubmissionController {
           });
         }
       });
+    } catch (error) {
+      res.status(400).json({ message: error.message });
+    }
+  }
+
+  // async deleteComment(req, res) {
+  //   try {
+  //     const idea = await Idea.findById(req.params.id);
+  //     const commentId = req.params.commentid;
+  //     const cmt = idea.comment;
+  //     const cmtIndex = cmt.findIndex(comment => comment._id.toString() === commentId);
+
+  //     console.log(commentId + 'day là comment sau kkhi tìm kiếm')
+  //     console.log(cmt)
+  //     console.log(cmtIndex)
+        
+  //     if (cmtIndex === -1) {
+  //       return res.status(404).json({ message: "Comment not found" });
+  //     }
+  //     cmt.splice(cmtIndex, 1);
+  //     await idea.save();
+  //     res.status(200).json({ message: "Comment deleted successfully" });
+  //   } catch (error) {
+  //     res.status(500).json({ message: error.message });
+  //   }
+  // }
+
+  // [POST] delete comment
+  async deleteComment(req, res) {
+    try {
+      const idea = await Idea.findById(req.params.id);
+      const commentId = req.params.commentid;
+      const comment = idea.comment.id(commentId);
+      if (req.user._id.toString() !== comment.username.toString() && req.user.role !== "admin") {
+        return res.status(401).json({ message: "Bạn không có quyền xoá comment này" });
+      }
+      comment.remove();
+      await idea.save();
+      res.redirect('/staffsubmission');
     } catch (error) {
       res.status(400).json({ message: error.message });
     }
