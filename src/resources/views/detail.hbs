@@ -20,19 +20,20 @@
           <div class="category-detail-info">
             <div class="category-detail">Category: {{idea.category}}</div> 
           </div>
-          <div>Title: {{idea.title}} </div>
-          <div>Brief: {{idea.brief}} </div>
-          <div>Content:  {{idea.content}}</div> 
-          <div>file:  <a href="/{{idea.submission}}/{{idea.file}}">{{idea.file}}</a></div> 
-          <div class="time-deadline1">Deadline 1: {{moment submission.deadline_1 format ="DD MMM YYYY HH:mm:ss"}}</div>
-          <div class="time-deadline2">Deadline 2: {{moment submission.deadline_2 format ="DD MMM YYYY HH:mm:ss"}} </div>
+          <div class="body-detail">
+            <div class="title-detail">{{idea.title}}</div>
+            <div>{{idea.content}}</div> 
+            <div class="container__file-detail"><a class="file-detail" href="/{{idea.submission}}/{{idea.file}}">{{idea.file}}</a></div> 
+            <div class="time-deadline1">Deadline 1: {{moment submission.deadline_1 format ="DD MMM YYYY HH:mm:ss"}}</div>
+            <div class="time-deadline2">Deadline 2: {{moment submission.deadline_2 format ="DD MMM YYYY HH:mm:ss"}} </div>
+         </div>
         </div>
          <div class="detail-application">
         <form class="detail_btn" method="POST" action="/staffsubmission/idea/{{idea._id}}/comment">
   <div class="comment_btn">
     <label for="content">Comment</label>
     <br>
-    <textarea id="content" name="content" rows="4" cols="50" required></textarea>
+    <textarea id="content" name="content" placeholder="{{idea.fullname}}, can you give me good ideas?" required></textarea>
     <button class="sub_btn" type="submit"><i alt="Comment" class="bi bi-send"></i></button>
   </div>
   <div class="check-annoymous">
@@ -45,13 +46,15 @@
         {{#if this.isannoymous}}
           <form class="comment-container" method="POST" action="/staffsubmission/idea/{{this.ididea}}/view/{{this._id}}?_method=DELETE">
             <li>
-              <strong class="author-cmt">Anonymous:</strong> <span class="comment-content">{{this.contentCM}}</span> <br> <br> <span class="time-detail">{{moment this.createdAt format ="DD MMMM YYYY (HH:mm)" }}</span>
+              <strong class="author-cmt">Anonymous:</strong> <span class="comment-content">{{this.contentCM}}</span> <br> <span class="time-detail"><i class="bi bi-incognito"></i> • {{moment this.createdAt format ="DD MMMM YYYY (HH:mm)" }}</span>
             </li>
           <button class="delete-comment" type="submit"><i class="bi bi-trash-fill"></i></button>
           </form>
         {{else}}
           <form class="comment-container" method="POST" action="/staffsubmission/idea/{{this.ididea}}/view/{{this._id}}?_method=DELETE">
-            <li><strong class="author-cmt">{{this.username}}:</strong> <span class="comment-content">{{this.contentCM}}</span> <br> <span class="time-detail">{{moment this.createdAt format ="DD MMMM YYYY (HH:mm)" }}</span></li>
+            <li>
+              <strong class="author-cmt">{{this.username}}:</strong> <span class="comment-content">{{this.contentCM}}</span> <br> <span class="time-detail"><i class="bi bi-globe"></i> • {{moment this.createdAt format ="DD MMMM YYYY (HH:mm)" }}</span>
+            </li>
             <button class="delete-comment" type="submit"><i class="bi bi-trash-fill"></i></button>
           </form>
         {{/if}}

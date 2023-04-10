@@ -1,7 +1,6 @@
 <div class="main-staffsubmission">
     <h1 class="staffsubmission-text">Staffsubmission</h1>
     <div class="staffsubmission-application">
-
         <table class="table-staffsubmission">
             <thead>
                 <tr class="submission-show_list">
@@ -9,7 +8,6 @@
                     <th>Deadline_1</th>
                     <th>Deadline_2</th>
                     <th class="action-list">Actions</th>
-
                 </tr>
             </thead>
             <tbody id="staffsubmission-list">
@@ -18,11 +16,23 @@
                     <td>{{this.name}}</td>
                     <td class="time-deadline1">{{moment this.deadline_1 format ="DD MMM YYYY HH:mm:ss " }}</td>
                     <td class="time-deadline2">{{moment this.deadline_2 format ="DD MMM YYYY HH:mm:ss " }}</td>
+                    {{#ifeq user 'admin'}}
                     <td class="action-item">                         
                             <a href="/staffsubmission/{{this._id}}" class="staffsubmission-btn__view" >View</a>
                             <a href="/staffsubmission/{{this._id}}/exportZip.zip" class="staffsubmission-btn__download-zip" download>Export Zip</a>
                             <a href="/staffsubmission/{{this._id}}/exportIdea" class="staffsubmission-btn__download-excel" download>Export Excel</a>
                     </td>
+                    {{else ifeq user 'manager'}}
+                    <td class="action-item">                         
+                            <a href="/staffsubmission/{{this._id}}" class="staffsubmission-btn__view" >View</a>
+                            <a href="/staffsubmission/{{this._id}}/exportZip.zip" class="staffsubmission-btn__download-zip" download>Export Zip</a>
+                            <a href="/staffsubmission/{{this._id}}/exportIdea" class="staffsubmission-btn__download-excel" download>Export Excel</a>
+                    </td>
+                    {{else}}
+                    <td class="action-item">                         
+                            <a href="/staffsubmission/{{this._id}}" class="staffsubmission-btn__view" >View</a>
+                    </td>
+                    {{/ifeq}}
                 </tr>
                 {{/each}}
             </tbody>

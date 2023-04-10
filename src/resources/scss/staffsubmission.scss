@@ -135,7 +135,7 @@
   
   .comment_btn textarea {
     width: 100%;
-    height: 30px;
+    height: 44px;
     padding: 10px;
     border-radius: 10px;
     font-size: 16px;
@@ -144,6 +144,7 @@
     background-color: #f0f2f5;
     border: none;
     outline: none;
+    padding: 10px 60px 10px 20px;
   }
   .comment_btn textarea:focus,
   .comment_btn textarea:valid{
@@ -170,7 +171,9 @@
     .comment_btn .sub_btn:hover{
       color: $primarycolor;
     }
-
+    .comment_btn textarea:valid ~ .sub_btn {
+        opacity: 1;
+  }
 .remove-detail{
     height: 45px;
     margin-bottom: 50px;
@@ -226,7 +229,7 @@ a.back-detail{
     padding: 10px;
     margin-bottom: 20px;
     border-radius: 10px;
-    width: 60%;
+    width: 50%;
 }
 
 .detail-show-all{
@@ -241,14 +244,22 @@ a.back-detail{
     width: 100%;
     height: 30px;
 }
+.detail-show-primary .fullname-detail{
+    letter-spacing: 1.5px;
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: capitalize;
+}
 .left-detail-primary{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
 }
 .left-detail-primary #days-remaining{
-    font-size: 12px;
-    color: #b9c2c4;
+    font-size: 14px;
+    font-weight: 500;
+    color: #6a6565;
+    letter-spacing: 1.5px;
 }
 .left-detail-primary .view-detail{
     font-size: 16px;
@@ -306,6 +317,25 @@ a.back-detail{
     flex: 0 1 auto;
 
 }
+.body-detail{
+    padding: 12px 0;
+    border-top: 1px solid #cecece;
+}
+.body-detail > * {
+    padding: 12px 20px 12px 0;
+}
+.body-detail .title-detail{
+    text-align: center;
+    font-size: 30px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+}
+.body-detail .container__file-detail{
+    padding-top: unset !important;
+}
+.body-detail .file-detail{
+    font-weight: 600;
+}
 .detail-show div td {
     padding-left: 10px;
 }
@@ -333,6 +363,7 @@ a.back-detail{
   }
   .comment-content{
     white-space: pre-wrap;
+    text-transform: capitalize;
   }
 //     .main__info-comment{
 //     display: flex;
@@ -386,8 +417,13 @@ a.back-detail{
     // margin-left: 344px;
     // float: right;
     font-size: 10px;
-    color: #b8c2c4;
-    font-weight: 500;
+    color: #5d5d5d;
+    font-weight: 600;
+  }
+
+  .author-cmt{
+    text-transform: capitalize;
+    letter-spacing: 1.3px;
   }
 .main-create-idea {
     display: flex;
@@ -498,12 +534,24 @@ a.back-detail{
     text-align: center;
     width: 20%;
 }
+.create-idea .textarea-content{
+    height: 80px;
+}
 .create-idea__info input,
-.create-idea__info select {
+.create-idea__info select,
+.create-idea__info textarea {
     width: 100%;
     height: 37px;
     border-radius: 10px;
     padding: 6px 12px;
+    resize: none;
+}
+.create-idea__info textarea{
+    transition: .3s;
+}
+.create-idea__info textarea:valid,
+.create-idea__info textarea:focus{
+    height: 80px;
 }
 
 .create-idea-edit__btn {
@@ -751,9 +799,12 @@ button.like_btn {
 }
 input#annoymous{
     margin-right: 4px;
+    cursor: pointer;
 }
 .check-annoymous label{
     color: black;
+    font-weight: 600;
+    cursor: pointer;
 }
 
 .table-deadline td,
