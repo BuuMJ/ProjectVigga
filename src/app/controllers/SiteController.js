@@ -5,7 +5,7 @@ const AccountModel = require("../models/Account");
 class SiteController {
   // [GET] /home
   home(req, res) {
-    res.render("home", {
+    res.render("detail", {
       title: "Vigga home",
       user: req.user,
     });
