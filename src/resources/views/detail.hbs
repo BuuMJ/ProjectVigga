@@ -4,7 +4,7 @@
         <div class="detail-show-primary">
           <div class="fullname-detail">{{idea.fullname}}</div>
           <div class="left-detail-primary">
-            <div id="days-remaining"></div>
+            <div id="days-remaining" data-deadlinef="{{moment submission.deadline_1 format ='YYYY-MM-DD HH:mm:ss'}}" data-deadlines="{{moment submission.deadline_2 format ='YYYY-MM-DD HH:mm:ss'}}"></div>
             <div class="view-detail">{{idea.view}} <i class="bi bi-eye"></i></div> 
           </div>
         </div>
@@ -24,17 +24,20 @@
           <div class="body-detail">
             <div class="title-detail">{{idea.title}}</div>
             <div class="content-detail">{{idea.content}}</div> 
+            {{#if idea.file}}
             <div class="container__file-detail">
               <span>File:</span> <a class="file-detail" href="/{{idea.submission}}/{{idea.file}}">{{idea.file}}</a>
             </div> 
-            <div class="time-deadline1">Deadline 1: {{moment submission.deadline_1 format ="DD MMM YYYY HH:mm:ss"}}</div>
-            <div class="time-deadline2">Deadline 2: {{moment submission.deadline_2 format ="DD MMM YYYY HH:mm:ss"}} </div>
+            {{else}}
+            {{/if}}
+            <div class="time-deadline1" >Deadline 1: </div>
+            <div class="time-deadline2">Deadline 2:  </div>
          </div>
         </div>
          <div class="detail-application">
         <form id="form" class="detail_btn" method="POST" action="/staffsubmission/idea/{{idea._id}}/comment">
   <div class="comment_btn">
-    <label for="content">Comment</label>
+    <label class="label-cmt" for="content">Comment</label>
     <br>
     <div class="comment-textarea">
       <textarea id="content" name="content" placeholder="{{getFullname user}}, can you give me good ideas?" required></textarea>
@@ -74,11 +77,16 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 
 <script>
-  var deadline1 = moment(document.querySelector(".time-deadline1").textContent, "DD MMM YYYY HH:mm:ss");
-  var deadline2 = moment(document.querySelector(".time-deadline2").textContent, "DD MMM YYYY HH:mm:ss");
+  var deadline1 = moment(document.getElementById('days-remaining').getAttribute('data-deadlinef'), 'YYYY-MM-DD HH:mm:ss');
+  var deadline2 = moment(document.getElementById('days-remaining').getAttribute('data-deadlines'), 'YYYY-MM-DD HH:mm:ss');
   var daysRemaining = deadline2.diff(deadline1, 'days');
-  document.getElementById('days-remaining').innerHTML = 'Days Remaining: ' + daysRemaining +' days';
-  var commentForm = document.getElementById('form'); // Chọn form bằng querySelector hoặc chọn bằng cách khác
+  if(daysRemaining > 0){
+    document.getElementById('days-remaining').innerHTML = 'Days Remaining: ' + daysRemaining + ' days';
+  }
+  else{
+    document.getElementById('days-remaining').innerHTML = 'Days Remaining: ' + 'about to expire';
+  }
+  var commentForm = document.getElementById('form'); 
   var commentContent = document.getElementById('content');
   commentContent.addEventListener('keypress', function (e) {
     if (e.key === 'Enter') {

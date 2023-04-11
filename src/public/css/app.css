@@ -821,7 +821,7 @@ a.out-user:hover {
 .staffsubmission-text {
   font-size: 50px;
   font-weight: 700;
-  margin: 150px 0 50px 0;
+  margin: 150px 0 0 0;
   color: white; }
 
 .staffsubmission-application a {
@@ -920,6 +920,9 @@ a.out-user:hover {
   position: relative; }
 
 .comment-textarea {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 80px; }
 
 .comment_btn textarea {
@@ -957,10 +960,15 @@ a.out-user:hover {
   cursor: pointer; }
 
 .comment_btn .sub_btn:hover {
-  color: #e10d11; }
+  color: #e10d11;
+  cursor: pointer; }
 
 .comment_btn textarea:valid ~ .sub_btn {
-  opacity: 1; }
+  opacity: 1;
+  cursor: pointer; }
+
+.comment_btn textarea:hover {
+  cursor: pointer; }
 
 .remove-detail {
   height: 45px;
@@ -1743,7 +1751,7 @@ span.overtime__days-remaining {
     margin-left: 133px; }
   .staffsubmission-application {
     margin-left: -155px;
-    width: 70%; }
+    width: 100%; }
   .checkbox_idea {
     margin-left: 100px; }
   .idea-application {
@@ -1758,11 +1766,9 @@ span.overtime__days-remaining {
 
 @media screen and (max-width: 415px) {
   .staffsubmission-application {
-    overflow-y: scroll;
     margin-left: 38px;
     width: 100%; }
   .idea-application {
-    overflow-y: scroll;
     width: 95%;
     margin-left: -13px; }
   button.like_btn,

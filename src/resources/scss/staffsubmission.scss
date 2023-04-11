@@ -19,7 +19,7 @@
   .staffsubmission-text {
     font-size: 50px;
     font-weight: 700;
-    margin: 150px 0 50px 0;
+    margin: 150px 0 0 0;
     color: white;
   }
   .staffsubmission-application a {
@@ -130,6 +130,9 @@
     position: relative;
   }
   .comment-textarea{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 80px;
   }
   .comment_btn textarea {
@@ -169,9 +172,14 @@
     }
     .comment_btn .sub_btn:hover{
       color: $primarycolor;
+      cursor: pointer;
     }
     .comment_btn textarea:valid ~ .sub_btn {
         opacity: 1;
+        cursor: pointer;
+  }
+  .comment_btn textarea:hover{
+    cursor: pointer;
   }
 .remove-detail{
     height: 45px;
@@ -1088,7 +1096,7 @@ button.dislike_btn {
 // }
 .staffsubmission-application {
     margin-left: -155px;
-    width: 70%;
+    width: 100%;
 }
 .checkbox_idea{
     margin-left: 100px;
@@ -1110,12 +1118,10 @@ button.dislike_btn {
 }
 @media screen and (max-width: 415px) {
     .staffsubmission-application {
-        overflow-y: scroll;
         margin-left: 38px;
         width: 100%;
     }
     .idea-application {
-        overflow-y: scroll;
         width: 95%;
         margin-left: -13px;
     }

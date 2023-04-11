@@ -1,6 +1,6 @@
 <div class="main-staffsubmission">
     <h1 class="staffsubmission-text">Staffsubmission</h1>
-    <div class="staffsubmission-application">
+    <div class="staffsubmission-application" >
         <table class="table-staffsubmission">
             <thead>
                 <tr class="submission-show_list">
@@ -18,7 +18,7 @@
                     <td>{{this.name}}</td>
                     <td class="time-deadline1">{{moment this.deadline_1 format ="DD MMM YYYY (HH:mm:ss) " }}</td>
                     <td class="time-deadline2">{{moment this.deadline_2 format ="DD MMM YYYY (HH:mm:ss) " }}</td>
-                    <td class="status-deadline">Ongoing <i class="bi bi-reception-4"></i></td>
+                    <td class="status-deadline">Ongoing</td>
                     <td class="action-item">                         
                             <a href="/staffsubmission/{{this._id}}" class="staffsubmission-btn__view" >View</a>
                             <a href="/staffsubmission/{{this._id}}/exportZip.zip" class="staffsubmission-btn__download-zip" download>Export Zip</a>
@@ -32,7 +32,7 @@
                     <td>{{this.name}}</td>
                     <td class="time-deadline1">{{moment this.deadline_1 format ="DD MMM YYYY (HH:mm:ss) " }}</td>
                     <td class="time-deadline2">{{moment this.deadline_2 format ="DD MMM YYYY (HH:mm:ss) " }}</td>
-                    <td class="status-deadline">Ongoing <i class="bi bi-reception-4"></i></td>
+                    <td class="status-deadline">Ongoing</td>
                     <td class="action-item">                         
                             <a href="/staffsubmission/{{this._id}}" class="staffsubmission-btn__view" >View</a>
                             <a href="/staffsubmission/{{this._id}}/exportZip.zip" class="staffsubmission-btn__download-zip" download>Export Zip</a>
@@ -46,7 +46,7 @@
                     <td>{{this.name}}</td>
                     <td class="time-deadline1">{{moment this.deadline_1 format ="DD MMM YYYY (HH:mm:ss) " }}</td>
                     <td class="time-deadline2">{{moment this.deadline_2 format ="DD MMM YYYY (HH:mm:ss) " }}</td>
-                    <td class="status-deadline">Ongoing <i class="bi bi-reception-4"></i></td>
+                    <td class="status-deadline">Ongoing</td>
                     <td class="action-item">                         
                             <a href="/staffsubmission/{{this._id}}" class="staffsubmission-btn__view" >View</a>
                     </td>
@@ -68,7 +68,7 @@ var currentDate = moment();
 for (var i = 0; i < checkDeadline1.length; i++) {
   var deadline1 = moment(checkDeadline1[i].textContent, "DD MMM YYYY HH:mm:ss");
   if (deadline1.isBefore(currentDate)) {
-    addStatus[i].innerHTML = 'Deadline 1 Passed <i class="bi bi-reception-2"></i>'
+    addStatus[i].innerHTML = 'Deadline 1 Passed '
     addStatus[i].classList.add('warning');
   }
 }
@@ -76,7 +76,7 @@ for (var i = 0; i < checkDeadline1.length; i++) {
 for (var i = 0; i < checkDeadline2.length; i++) {
   var deadline2 = moment(checkDeadline2[i].textContent, "DD MMM YYYY HH:mm:ss");
   if (deadline2.isBefore(currentDate)) {
-    addStatus[i].innerHTML = 'Ended <i class="bi bi-reception-0"></i>'
+    addStatus[i].innerHTML = 'Ended'
     addStatus[i].classList.add('danger');
   }
 }
