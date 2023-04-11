@@ -325,7 +325,8 @@ class StaffsubmissionController {
       idea.comment.push({
         ididea: idea._id,
         isannoymous: req.body.annoymous,
-        username: username.fullname,
+        fullname: username.fullname,
+        username: username.username,
         contentCM: req.body.content,
       });
       const comment = idea.comment;
@@ -379,7 +380,7 @@ class StaffsubmissionController {
       const idea = await Idea.findById(req.params.id);
       const commentId = req.params.commentid;
       const comment = idea.comment.id(commentId);
-      if (req.user._id.toString() !== comment.username.toString() && req.user.role !== "admin") {
+      if (req.user.username.toString() !== comment.username.toString() && req.user.role !== "admin") {
         return res.status(401).json({ message: "Bạn không có quyền xoá comment này" });
       }
       comment.remove();
