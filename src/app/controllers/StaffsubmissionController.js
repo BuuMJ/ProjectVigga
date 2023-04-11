@@ -338,13 +338,14 @@ class StaffsubmissionController {
           console.log(error);
         } else {
           console.log("Email sent: " + info.response);
-          res.render("detail", {
-            idea: staffMongoseToObject(idea),
-            comment,
-            user: req.user,
-            title: "Detail",
-            data,
-          });
+          // res.render("detail", {
+          //   idea: staffMongoseToObject(idea),
+          //   comment,
+          //   user: req.user,
+          //   title: "Detail",
+          //   data,
+          // });
+          res.redirect('/staffsubmission/idea/' + idea._id + '/view');
         }
       });
     } catch (error) {
@@ -385,9 +386,10 @@ class StaffsubmissionController {
       }
       comment.remove();
       await idea.save();
-      res.redirect('/staffsubmission');
+      res.redirect('/staffsubmission/idea/' + idea._id + '/view');
     } catch (error) {
       res.status(400).json({ message: error.message });
+      // res.redirect('back');
     }
   }
 

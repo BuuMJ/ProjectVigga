@@ -35,7 +35,7 @@
          </div>
         </div>
          <div class="detail-application">
-        <form id="form" class="detail_btn" method="POST" action="/staffsubmission/idea/{{idea._id}}/comment">
+        <form id="form" class="detail_btn" method="POST" action="/staffsubmission/idea/{{idea._id}}/comment" autocomplete="off">
   <div class="comment_btn">
     <label class="label-cmt" for="content">Comment</label>
     <br>
@@ -52,16 +52,16 @@
         <ul>            
         {{#each idea.comment}}
         {{#if this.isannoymous}}
-          <form class="comment-container" method="POST" action="/staffsubmission/idea/{{this.ididea}}/view/{{this._id}}?_method=DELETE">
+          <form class="comment-container" method="POST" action="/staffsubmission/idea/{{this.ididea}}/view/{{this._id}}?_method=DELETE" autocomplete="off">
             <li>
               <strong class="author-cmt">Anonymous:</strong> <span class="comment-content">{{this.contentCM}}</span> <br> <span class="time-detail"><i class="bi bi-incognito"></i> • {{moment this.createdAt format ="DD MMMM YYYY (HH:mm)" }}</span>
             </li>
           <button class="delete-comment" type="submit"><i class="bi bi-trash-fill"></i></button>
           </form>
         {{else}}
-          <form class="comment-container" method="POST" action="/staffsubmission/idea/{{this.ididea}}/view/{{this._id}}?_method=DELETE">
+          <form class="comment-container" method="POST" action="/staffsubmission/idea/{{this.ididea}}/view/{{this._id}}?_method=DELETE" autocomplete="off">
             <li>
-              <strong class="author-cmt">{{this.username}}:</strong> <span class="comment-content">{{this.contentCM}}</span> <br> <span class="time-detail"><i class="bi bi-globe"></i> • {{moment this.createdAt format ="DD MMMM YYYY (HH:mm)" }}</span>
+              <strong class="author-cmt">{{this.fullname}}:</strong> <span class="comment-content">{{this.contentCM}}</span> <br> <span class="time-detail"><i class="bi bi-globe"></i> • {{moment this.createdAt format ="DD MMMM YYYY (HH:mm)" }}</span>
             </li>
             <button class="delete-comment" type="button"><i class="bi bi-trash-fill"></i></button>
           </form>
@@ -86,13 +86,15 @@
   else{
     document.getElementById('days-remaining').innerHTML = 'Days Remaining: ' + 'about to expire';
   }
-  var commentForm = document.getElementById('form'); 
-  var commentContent = document.getElementById('content');
-  commentContent.addEventListener('keypress', function (e) {
-    if (e.key === 'Enter') {
-      commentForm.submit();
-    }
-  });
+var commentForm = document.getElementById('form'); 
+var commentContent = document.getElementById('content');
+commentContent.addEventListener('keypress', function (e) {
+  if (e.key === 'Enter') {
+    e.preventDefault(); 
+    commentForm.submit();
+  }
+});
+
   var deleteCMT = document.querySelectorAll('.delete-comment');
 var formDeleteCMT = document.querySelectorAll('.comment-container');
 
