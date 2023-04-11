@@ -30,6 +30,7 @@ const Idea = new mongoose.Schema(
         },
         ididea: String,
         username: String,
+        fullname: String,
         contentCM: String,
         createdAt: {
           type: Date,

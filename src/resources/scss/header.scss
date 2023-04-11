@@ -59,6 +59,10 @@
 .navbar-center {
   width: 70%;
 }
+.navbar-center .welcome span{
+  font-size: 30px;
+  letter-spacing: 10px;
+}
 .nav-list {
   display: flex;
   flex-direction: row;
@@ -164,6 +168,13 @@ ul {
 ul.sign-in {
   height: 100%;
   padding: 27px !important;
+}
+ul.login-not-user{
+  padding: unset !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .show-logout__mini i ,
 .show-logout i {

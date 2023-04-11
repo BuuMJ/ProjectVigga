@@ -1,30 +1,57 @@
-<div class="main-detail">
-    <h1 class="detail-text">Details</h1>    
+<div class="main-detail">   
     <div class="detail-show">
-        <div>Title: {{idea.title}} </div>
-        <div>Brief: {{idea.brief}} </div>
-        <div>Content:  {{idea.content}}</div> 
-        <div>file:  <a href="/{{submission.name}}/{{idea.file}}">{{idea.file}}</a></div> 
-        <div>View:  {{idea.view}}</div> 
-        <div>Submission: {{idea.submission}}</div> 
-        <div>Category: {{idea.category}}</div> 
-        <div>Deadline 1: {{moment submission.deadline_1 format ="DD MMM YYYY HH:mm:ss"}}</div>
-        <div class="time-deadline2">Deadline 2: {{moment submission.deadline_2 format ="DD MMM YYYY HH:mm:ss"}} </div>
-    </div>
-    {{!-- <div class="detail-application">
+      <div class="detail-show-all">
+        <div class="detail-show-primary">
+          <div class="fullname-detail">{{idea.fullname}}</div>
+          <div class="left-detail-primary">
+            <div id="days-remaining"><span class="overtime__days-remaining">Ended</span></div>
+            <div class="view-detail">{{idea.view}} <i class="bi bi-eye"></i></div> 
+          </div>
+        </div>
+          <div class="secondary-detail">
+            <div class="role-detail">{{idea.department}}</div>
+            <div class="center-secondary-detail">-</div>
+            <div class="time-post-detail">{{moment idea.createdAt format ="DD MMMM YYYY (HH:mm)" }}</div>
+          </div>
+          <div class="submission-detail-info">
+            <div class="submission-detail">Submission: {{idea.submission}}</div> 
+          </div>
+          <div class="category-detail-info">
+            <div class="category-detail">Category: {{idea.category}}</div> 
+          </div>
+          <div class="body-detail">
+            <div class="title-detail">{{idea.title}}</div>
+            <div class="content-detail">{{idea.content}}</div> 
+            <div class="container__file-detail">
+              <span>File:</span> <a class="file-detail" href="/{{idea.submission}}/{{idea.file}}">{{idea.file}}</a>
+            </div> 
+            <div class="time-deadline1">Deadline 1: {{moment submission.deadline_1 format ="DD MMM YYYY HH:mm:ss"}}</div>
+            <div class="time-deadline2">Deadline 2: {{moment submission.deadline_2 format ="DD MMM YYYY HH:mm:ss"}} </div>
+         </div>
+        </div>
+         <div class="detail-application">
         <ul>            
         {{#each idea.comment}}
-           <div class="comment-container">
-            <li><strong class="author-cmt">{{this.username}}:</strong> <span class="comment-content">{{this.contentCM}}</span> <br> <span class="time-detail">{{moment this.createdAt format ="DD MMMM YYYY (HH:mm)" }}</span></li>
-          </div>
+        {{#if this.isannoymous}}
+          <form class="comment-container" method="POST" action="/staffsubmission/idea/{{this.ididea}}/view/{{this._id}}?_method=DELETE">
+            <li>
+              <strong class="author-cmt">Anonymous:</strong> <span class="comment-content">{{this.contentCM}}</span> <br> <span class="time-detail"><i class="bi bi-incognito"></i> • {{moment this.createdAt format ="DD MMMM YYYY (HH:mm)" }}</span>
+            </li>
+          <button class="delete-comment" type="submit"><i class="bi bi-trash-fill"></i></button>
+          </form>
+        {{else}}
+          <form class="comment-container" method="POST" action="/staffsubmission/idea/{{this.ididea}}/view/{{this._id}}?_method=DELETE">
+            <li>
+              <strong class="author-cmt">{{this.username}}:</strong> <span class="comment-content">{{this.contentCM}}</span> <br> <span class="time-detail"><i class="bi bi-globe"></i> • {{moment this.createdAt format ="DD MMMM YYYY (HH:mm)" }}</span>
+            </li>
+            <button class="delete-comment" type="button"><i class="bi bi-trash-fill"></i></button>
+          </form>
+        {{/if}}
         {{/each}}
         </ul>
-    </div> --}}
-           <ul>            
-        {{#each idea.comment}}
-           <div class="comment-container">
-            <li><strong class="author-cmt">{{this.username}}:</strong> <span class="comment-content">{{this.contentCM}}</span> <br> <span class="time-detail">{{moment this.createdAt format ="DD MMMM YYYY (HH:mm)" }}</span></li>
-          </div>
-        {{/each}}
-        </ul>
+    </div>
+    </div>
+    <div class="remove-detail">
+        <a class="back-detail" href="/staffsubmission/{{idea._id}}">Back</a>
+    </div>
 </div>

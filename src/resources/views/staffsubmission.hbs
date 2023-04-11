@@ -7,34 +7,52 @@
                     <th>Name</th>
                     <th>Deadline_1</th>
                     <th>Deadline_2</th>
+                    <th>Status</th>
                     <th class="action-list">Actions</th>
                 </tr>
             </thead>
             <tbody id="staffsubmission-list">
+              {{#ifeq user 'admin'}}
                 {{#each submission}}
                 <tr class="show-submission__list">
                     <td>{{this.name}}</td>
-                    <td class="time-deadline1">{{moment this.deadline_1 format ="DD MMM YYYY HH:mm:ss " }}</td>
-                    <td class="time-deadline2">{{moment this.deadline_2 format ="DD MMM YYYY HH:mm:ss " }}</td>
-                    {{#ifeq user 'admin'}}
+                    <td class="time-deadline1">{{moment this.deadline_1 format ="DD MMM YYYY (HH:mm:ss) " }}</td>
+                    <td class="time-deadline2">{{moment this.deadline_2 format ="DD MMM YYYY (HH:mm:ss) " }}</td>
+                    <td class="status-deadline">Ongoing <i class="bi bi-reception-4"></i></td>
                     <td class="action-item">                         
                             <a href="/staffsubmission/{{this._id}}" class="staffsubmission-btn__view" >View</a>
                             <a href="/staffsubmission/{{this._id}}/exportZip.zip" class="staffsubmission-btn__download-zip" download>Export Zip</a>
                             <a href="/staffsubmission/{{this._id}}/exportIdea" class="staffsubmission-btn__download-excel" download>Export Excel</a>
                     </td>
-                    {{else ifeq user 'manager'}}
-                    <td class="action-item">                         
-                            <a href="/staffsubmission/{{this._id}}" class="staffsubmission-btn__view" >View</a>
-                            <a href="/staffsubmission/{{this._id}}/exportZip.zip" class="staffsubmission-btn__download-zip" download>Export Zip</a>
-                            <a href="/staffsubmission/{{this._id}}/exportIdea" class="staffsubmission-btn__download-excel" download>Export Excel</a>
-                    </td>
-                    {{else}}
-                    <td class="action-item">                         
-                            <a href="/staffsubmission/{{this._id}}" class="staffsubmission-btn__view" >View</a>
-                    </td>
-                    {{/ifeq}}
                 </tr>
                 {{/each}}
+                {{else ifeq user 'manager'}}
+                {{#each submission}}
+                <tr class="show-submission__list">
+                    <td>{{this.name}}</td>
+                    <td class="time-deadline1">{{moment this.deadline_1 format ="DD MMM YYYY (HH:mm:ss) " }}</td>
+                    <td class="time-deadline2">{{moment this.deadline_2 format ="DD MMM YYYY (HH:mm:ss) " }}</td>
+                    <td class="status-deadline">Ongoing <i class="bi bi-reception-4"></i></td>
+                    <td class="action-item">                         
+                            <a href="/staffsubmission/{{this._id}}" class="staffsubmission-btn__view" >View</a>
+                            <a href="/staffsubmission/{{this._id}}/exportZip.zip" class="staffsubmission-btn__download-zip" download>Export Zip</a>
+                            <a href="/staffsubmission/{{this._id}}/exportIdea" class="staffsubmission-btn__download-excel" download>Export Excel</a>
+                    </td>
+                </tr>
+                {{/each}}
+                {{else}}
+                {{#each submission}}
+                <tr class="show-submission__list">
+                    <td>{{this.name}}</td>
+                    <td class="time-deadline1">{{moment this.deadline_1 format ="DD MMM YYYY (HH:mm:ss) " }}</td>
+                    <td class="time-deadline2">{{moment this.deadline_2 format ="DD MMM YYYY (HH:mm:ss) " }}</td>
+                    <td class="status-deadline">Ongoing <i class="bi bi-reception-4"></i></td>
+                    <td class="action-item">                         
+                            <a href="/staffsubmission/{{this._id}}" class="staffsubmission-btn__view" >View</a>
+                    </td>
+                </tr>
+                {{/each}}
+                {{/ifeq}}
             </tbody>
         </table>
         <ul class="listpage">
@@ -45,19 +63,21 @@
 <script>
 var checkDeadline1 = document.querySelectorAll('.time-deadline1');
 var checkDeadline2 = document.querySelectorAll('.time-deadline2');
-var changeBackground = document.querySelectorAll('.show-submission__list');
+var addStatus = document.querySelectorAll('.status-deadline');
 var currentDate = moment();
 for (var i = 0; i < checkDeadline1.length; i++) {
   var deadline1 = moment(checkDeadline1[i].textContent, "DD MMM YYYY HH:mm:ss");
   if (deadline1.isBefore(currentDate)) {
-    changeBackground[i].classList.add('warning');
+    addStatus[i].innerHTML = 'Deadline 1 Passed <i class="bi bi-reception-2"></i>'
+    addStatus[i].classList.add('warning');
   }
 }
 
 for (var i = 0; i < checkDeadline2.length; i++) {
   var deadline2 = moment(checkDeadline2[i].textContent, "DD MMM YYYY HH:mm:ss");
   if (deadline2.isBefore(currentDate)) {
-    changeBackground[i].classList.add('danger');
+    addStatus[i].innerHTML = 'Ended <i class="bi bi-reception-0"></i>'
+    addStatus[i].classList.add('danger');
   }
 }
  var thisPage = 1;
