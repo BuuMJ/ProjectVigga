@@ -1,5 +1,4 @@
-<div class="main-detail">
-    <h1 class="detail-text">Details</h1>    
+<div class="main-detail">   
     <div class="detail-show">
       <div class="detail-show-all">
         <div class="detail-show-primary">
@@ -10,7 +9,9 @@
           </div>
         </div>
           <div class="secondary-detail">
-            <div class="role-detail">{{idea.department}}</div>
+            <div class="role-detail-info">
+              <div class="role-detail">{{idea.department}}</div>
+            </div>
             <div class="center-secondary-detail">-</div>
             <div class="time-post-detail">{{moment idea.createdAt format ="DD MMMM YYYY (HH:mm)" }}</div>
           </div>
@@ -22,19 +23,23 @@
           </div>
           <div class="body-detail">
             <div class="title-detail">{{idea.title}}</div>
-            <div>{{idea.content}}</div> 
-            <div class="container__file-detail"><a class="file-detail" href="/{{idea.submission}}/{{idea.file}}">{{idea.file}}</a></div> 
+            <div class="content-detail">{{idea.content}}</div> 
+            <div class="container__file-detail">
+              <span>File:</span> <a class="file-detail" href="/{{idea.submission}}/{{idea.file}}">{{idea.file}}</a>
+            </div> 
             <div class="time-deadline1">Deadline 1: {{moment submission.deadline_1 format ="DD MMM YYYY HH:mm:ss"}}</div>
             <div class="time-deadline2">Deadline 2: {{moment submission.deadline_2 format ="DD MMM YYYY HH:mm:ss"}} </div>
          </div>
         </div>
          <div class="detail-application">
-        <form class="detail_btn" method="POST" action="/staffsubmission/idea/{{idea._id}}/comment">
+        <form id="form" class="detail_btn" method="POST" action="/staffsubmission/idea/{{idea._id}}/comment">
   <div class="comment_btn">
     <label for="content">Comment</label>
     <br>
-    <textarea id="content" name="content" placeholder="{{idea.fullname}}, can you give me good ideas?" required></textarea>
-    <button class="sub_btn" type="submit"><i alt="Comment" class="bi bi-send"></i></button>
+    <div class="comment-textarea">
+      <textarea id="content" name="content" placeholder="{{getFullname user}}, can you give me good ideas?" required></textarea>
+      <button class="sub_btn" type="submit"><i alt="Comment" class="bi bi-send"></i></button>
+    </div>
   </div>
   <div class="check-annoymous">
     <input type="checkbox" name="annoymous" value="true" id="annoymous">
@@ -55,7 +60,7 @@
             <li>
               <strong class="author-cmt">{{this.username}}:</strong> <span class="comment-content">{{this.contentCM}}</span> <br> <span class="time-detail"><i class="bi bi-globe"></i> • {{moment this.createdAt format ="DD MMMM YYYY (HH:mm)" }}</span>
             </li>
-            <button class="delete-comment" type="submit"><i class="bi bi-trash-fill"></i></button>
+            <button class="delete-comment" type="button"><i class="bi bi-trash-fill"></i></button>
           </form>
         {{/if}}
         {{/each}}
@@ -73,5 +78,25 @@
   var deadline2 = moment(document.querySelector(".time-deadline2").textContent, "DD MMM YYYY HH:mm:ss");
   var daysRemaining = deadline2.diff(deadline1, 'days');
   document.getElementById('days-remaining').innerHTML = 'Days Remaining: ' + daysRemaining +' days';
- 
+  var commentForm = document.getElementById('form'); // Chọn form bằng querySelector hoặc chọn bằng cách khác
+  var commentContent = document.getElementById('content');
+  commentContent.addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+      commentForm.submit();
+    }
+  });
+  var deleteCMT = document.querySelectorAll('.delete-comment');
+var formDeleteCMT = document.querySelectorAll('.comment-container');
+
+for(let i = 0; i < formDeleteCMT.length; i++ ){
+  deleteCMT[i].addEventListener('click', function(event) {
+    event.preventDefault();
+    if (confirm('Do you want to delete this comment?')) {
+      formDeleteCMT[i].submit();
+    } else {
+      return false;
+    }
+  });
+}
+
 </script>

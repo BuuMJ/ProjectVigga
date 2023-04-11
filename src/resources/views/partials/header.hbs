@@ -1,4 +1,5 @@
 <div id="toTop"></div>
+{{#if user}}
 <div id="header" class="header">
   <div class="header__navbar">
     <div class="navbar-left">
@@ -101,7 +102,29 @@
     </div>
   </div>
 </div>
-
+{{else}}
+<div id="header" class="header">
+  <div class="header__navbar">
+    <div class="navbar-left">
+      <a href="/" class="text__left"><span class="navbar-change ">Vigga</span></a>
+      <a href="/"><img src="/img/LOGOVGA.png" alt="" /></a>
+      <a href="/" class="text__right"><span class="navbar-change ">University</span></a>
+    </div>
+    <div class="navbar-center">
+      <ul class="nav-list">
+        <ul class="welcome">
+          <span class="navbar-change">Welcome Vigga University</span>
+        </ul>
+      </ul>
+    </div>
+    <div class="nav-right">
+      <div class="login">
+         <ul class="sign-in login-not-user"><a href="/login"><span class="navbar-change">Login</span></a></ul>
+      </div>
+      </div>
+    </div>
+  </div>
+{{/if}}
 {{!-- header responsive --}}
 <div class="header-mini">
   <nav id="navbar-mini" class="navbar navbar-dark fixed-top">

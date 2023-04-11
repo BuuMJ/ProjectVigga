@@ -7,6 +7,7 @@
         <th>Name Submission</th>
         <th>Dealine 1</th>
         <th>Dealine 2</th>
+        <th>Status</th>
       </tr>
     </thead>
     <tbody id="idea-list">
@@ -14,6 +15,7 @@
         <td>{{submission.name}}</td>
         <td class="time-deadline1">{{moment submission.deadline_1 format ="DD MMM YYYY HH:mm:ss" }}</td>
         <td class="time-deadline2">{{moment submission.deadline_2 format ="DD MMM YYYY HH:mm:ss" }}</td>
+        <td class="status-deadline">Ongoing</td>
       </tr>
     </tbody>
   </table>
@@ -24,7 +26,6 @@
       <thead>
         <tr class="idea-show-list">
           <th>Title</th>
-          <th>Brief</th>
           <th>Views</th>
           <th >Like</th>
           <th >Dislike</th>
@@ -35,7 +36,6 @@
         {{#each data}}
         <tr class="show-idea__list">
           <td>{{this.title}}</td>
-          <td>{{this.brief}}</td>
           <td>{{this.view}}</td>
 
           
@@ -71,6 +71,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 <script>
 var checkDeadline1 = document.querySelectorAll('.time-deadline1');
+var checkDeadline2 = document.querySelectorAll('.time-deadline2');
+var addStatus = document.querySelectorAll('.status-deadline');
 var noneBtnAdd = document.querySelector('.idea_btn');
 var currentDate = moment();
 var changeAction = document.getElementById('change-form')
@@ -78,6 +80,15 @@ for (let i = 0; i < checkDeadline1.length; i++) {
   var deadline1 = moment(checkDeadline1[i].textContent, "DD MMM YYYY HH:mm:ss");
   if (deadline1.isBefore(currentDate)) {
     noneBtnAdd.classList.add('none');
+    addStatus[i].innerHTML = 'Deadline 1 Passed <i class="bi bi-reception-2"></i>'
+    addStatus[i].classList.add('warning');
+  }
+}
+for (var i = 0; i < checkDeadline2.length; i++) {
+  var deadline2 = moment(checkDeadline2[i].textContent, "DD MMM YYYY HH:mm:ss");
+  if (deadline2.isBefore(currentDate)) {
+    addStatus[i].innerHTML = 'Ended <i class="bi bi-reception-0"></i>'
+    addStatus[i].classList.add('danger');
   }
 }
 
