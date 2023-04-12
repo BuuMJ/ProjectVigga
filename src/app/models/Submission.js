@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 
 const Submission = new Schema({
   name: String,
+  department: String,
   deadline_1: Date,
   deadline_2: Date,
 });

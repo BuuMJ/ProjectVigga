@@ -805,7 +805,7 @@ a.out-user:hover {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  background-color: #f9f9fa; }
+  background-color: #f6f8fa; }
 
 .background-mainstaffsubmission {
   display: flex;
@@ -845,10 +845,26 @@ a.out-user:hover {
   color: black;
   width: 95%; }
 
+.table-wrapper {
+  width: 95%;
+  position: relative; }
+
 .table-staffsubmission {
   cursor: pointer;
   background-color: #d4d2d2;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5); }
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+  width: 100%; }
+
+.department-submission {
+  position: absolute;
+  top: 0;
+  left: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-bottom-right-radius: 5px;
+  background-color: rgba(248, 4, 4, 0.2);
+  color: #e10d11; }
 
 .table-staffsubmission:hover {
   box-shadow: 4px 4px 18px rgba(0, 0, 0, 0.6); }

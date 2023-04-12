@@ -16,6 +16,7 @@
         </table>
               {{#ifeq user 'admin'}}
                 {{#each submission}}
+                <div class="table-wrapper">
                 <table class="table-staffsubmission" >
             <tbody id="staffsubmission-list">
                 <tr class="show-submission__list">
@@ -29,8 +30,10 @@
                             <a href="/staffsubmission/{{this._id}}/exportIdea" class="staffsubmission-btn__download-excel" download>Export Excel</a>
                     </td>
                 </tr>
+                <span class="department-submission">{{this.department}}</span>
                 </tbody>
                 </table>
+                </div>
                 {{/each}}
                 {{else ifeq user 'manager'}}
                 {{#each submission}}
@@ -100,13 +103,13 @@ for (var i = 0; i < checkDeadline2.length; i++) {
 }
  var thisPage = 1;
   var limit = 5;
-  var list = document.querySelectorAll('.table-staffsubmission')
+  var list = document.querySelectorAll('.table-wrapper')
   function loadIteam() {
     var beginGet = limit * (thisPage - 1);
     var endGet = limit * thisPage - 1;
     list.forEach((item, key) => {
       if (key >= beginGet && key <= endGet) {
-        item.style.display = 'table';
+        item.style.display = 'block';
       } else {
         item.style.display = 'none';
       }
