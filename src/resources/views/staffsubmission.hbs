@@ -1,5 +1,7 @@
 <div class="main-staffsubmission">
+  <div class="background-mainstaffsubmission">
     <h1 class="staffsubmission-text">Staffsubmission</h1>
+  </div>
     <div class="staffsubmission-application" >
         <table class="table-staffsubmission__primary">
             <thead>
@@ -14,7 +16,7 @@
         </table>
               {{#ifeq user 'admin'}}
                 {{#each submission}}
-                <table class="table-staffsubmission">
+                <table class="table-staffsubmission" >
             <tbody id="staffsubmission-list">
                 <tr class="show-submission__list">
                     <td class="name-submission">{{this.name}}</td>
@@ -83,7 +85,7 @@ for (var i = 0; i < checkDeadline1.length; i++) {
     addStatus[i].innerHTML = 'Deadline 1 Passed <i class="bi bi-flag-fill"></i>'
     addStatus[i].classList.add('warning');
     const changeBorder = document.querySelectorAll('.show-submission__list')
-    changeBorder[i].style.cssText = 'border-left: 4px solid rgb(252, 187, 4);'
+    changeBorder[i].style.cssText = 'border-left: 4px solid #FCFC04;'
   }
 }
 
@@ -93,7 +95,7 @@ for (var i = 0; i < checkDeadline2.length; i++) {
     addStatus[i].innerHTML = 'Ended <i class="bi bi-flag-fill"></i>'
     addStatus[i].classList.add('danger');
     const changeBorder = document.querySelectorAll('.show-submission__list')
-    changeBorder[i].style.cssText = 'border-left: 4px solid rgb(156, 4, 4);'
+    changeBorder[i].style.cssText = 'border-left: 4px solid #F80404;'
   }
 }
  var thisPage = 1;

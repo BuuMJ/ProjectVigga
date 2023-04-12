@@ -805,7 +805,17 @@ a.out-user:hover {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  background: url("/img/bgcontent.jpg") center/cover no-repeat; }
+  background-color: #f9f9fa; }
+
+.background-mainstaffsubmission {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 500px;
+  background: linear-gradient(to top, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.3)), url("/img/bgmainstaffsubmission.jpeg") center/cover no-repeat;
+  margin-bottom: 50px; }
 
 .staffsubmission-application {
   display: flex;
@@ -813,7 +823,7 @@ a.out-user:hover {
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin-bottom: 200px; }
+  margin-bottom: 50px; }
 
 .staffsubmission-application > * {
   margin-bottom: 20px; }
@@ -821,8 +831,9 @@ a.out-user:hover {
 .staffsubmission-text {
   font-size: 50px;
   font-weight: 700;
-  margin: 150px 0 50px 0;
-  color: white; }
+  color: white;
+  letter-spacing: 1.2px;
+  text-transform: uppercase; }
 
 .staffsubmission-application a {
   text-decoration: none;
@@ -834,18 +845,30 @@ a.out-user:hover {
   color: black;
   width: 95%; }
 
+.table-staffsubmission {
+  cursor: pointer;
+  background-color: #d4d2d2;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5); }
+
+.table-staffsubmission:hover {
+  box-shadow: 4px 4px 18px rgba(0, 0, 0, 0.6); }
+
 .table-staffsubmission__primary {
   color: white;
   font-size: 20px;
-  font-weight: 600; }
-
-.table-staffsubmission thead {
-  background-color: #DCDCDC; }
+  font-weight: 600;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+  margin-bottom: 50px; }
 
 .table-staffsubmission th,
 .table-staffsubmission td {
   font-size: 20px;
   padding: 18px 20px; }
+
+.submission-show_list {
+  color: black;
+  border-left: 4px solid rgba(0, 0, 0, 0.8);
+  background-color: white; }
 
 .show-submission__list {
   border-left: 4px solid #49BC3D; }
@@ -859,7 +882,8 @@ a.out-user:hover {
 .submission-show_list .time-deadline2-title,
 .submission-show_list .status-title {
   width: 15%;
-  text-align: center; }
+  text-align: center;
+  padding: 18px 20px; }
 
 .action-item,
 .submission-show_list .action-list {
@@ -1523,12 +1547,12 @@ button.like_btn {
   background-color: rgba(73, 188, 61, 0.2); }
 
 .warning {
-  color: #fcbb04;
-  background-color: rgba(252, 187, 4, 0.2); }
+  color: #E9B609;
+  background-color: rgba(252, 252, 4, 0.2); }
 
 .danger {
-  color: #9c0404;
-  background-color: rgba(156, 4, 4, 0.2); }
+  color: #F80404;
+  background-color: rgba(248, 4, 4, 0.2); }
 
 .none {
   display: none; }
