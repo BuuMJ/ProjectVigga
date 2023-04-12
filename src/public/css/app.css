@@ -821,7 +821,7 @@ a.out-user:hover {
 .staffsubmission-text {
   font-size: 50px;
   font-weight: 700;
-  margin: 150px 0 0 0;
+  margin: 150px 0 50px 0;
   color: white; }
 
 .staffsubmission-application a {
@@ -829,10 +829,15 @@ a.out-user:hover {
   font-size: 18px;
   font-weight: 700; }
 
-.table-staffsubmission {
+.table-staffsubmission,
+.table-staffsubmission__primary {
   color: black;
-  width: 95%;
-  margin-top: 20px; }
+  width: 95%; }
+
+.table-staffsubmission__primary {
+  color: white;
+  font-size: 20px;
+  font-weight: 600; }
 
 .table-staffsubmission thead {
   background-color: #DCDCDC; }
@@ -842,16 +847,24 @@ a.out-user:hover {
   font-size: 20px;
   padding: 18px 20px; }
 
-.show-submission__list,
-.submission-show_list {
-  border-bottom: 1px solid #bcbcbc; }
+.show-submission__list {
+  border-left: 4px solid #49BC3D; }
 
-.action-item {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  white-space: nowrap; }
+.show-submission__list .name-submission,
+.show-submission__list .time-deadline1,
+.show-submission__list .time-deadline2,
+.show-submission__list .status-deadline,
+.submission-show_list .name-title,
+.submission-show_list .time-deadline1-title,
+.submission-show_list .time-deadline2-title,
+.submission-show_list .status-title {
+  width: 15%;
+  text-align: center; }
+
+.action-item,
+.submission-show_list .action-list {
+  text-align: center;
+  width: 30%; }
 
 .table-staffsubmission tbody {
   background-color: white;

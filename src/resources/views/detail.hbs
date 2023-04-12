@@ -78,14 +78,24 @@
 
 <script>
   var deadline1 = moment(document.getElementById('days-remaining').getAttribute('data-deadlinef'), 'YYYY-MM-DD HH:mm:ss');
-  var deadline2 = moment(document.getElementById('days-remaining').getAttribute('data-deadlines'), 'YYYY-MM-DD HH:mm:ss');
-  var daysRemaining = deadline2.diff(deadline1, 'days');
-  if(daysRemaining > 0){
-    document.getElementById('days-remaining').innerHTML = 'Days Remaining: ' + daysRemaining + ' days';
+var deadline2 = moment(document.getElementById('days-remaining').getAttribute('data-deadlines'), 'YYYY-MM-DD HH:mm:ss');
+var daysRemaining = deadline2.diff(deadline1, 'days');
+
+if(daysRemaining > 0){
+  document.getElementById('days-remaining').innerHTML = 'Days Remaining: ' + daysRemaining + ' days';
+}
+else{
+  var duration = moment.duration(deadline2.diff(deadline1));
+  var hoursRemaining = duration.hours();
+  var minutesRemaining = duration.minutes();
+  if(hoursRemaining > 0){
+    document.getElementById('days-remaining').innerHTML = 'Time Remaining: ' + hoursRemaining + ' Hours';
   }
   else{
-    document.getElementById('days-remaining').innerHTML = 'Days Remaining: ' + 'about to expire';
+    document.getElementById('days-remaining').innerHTML = 'Time Remaining: ' + minutesRemaining + ' minutes';
   }
+}
+
 var commentForm = document.getElementById('form'); 
 var commentContent = document.getElementById('content');
 commentContent.addEventListener('keypress', function (e) {
