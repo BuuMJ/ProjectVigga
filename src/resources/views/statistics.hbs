@@ -1,6 +1,20 @@
 <div class="main-statistics">
-  <h1 class="statistics-text">Statistics</h1>
+  <div class="header-statistics">
+    <h1 class="statistics-text">Statistics</h1>
+  </div>
   <div class="statistics-application">
+    <div class="total-chart">
+        <div class="total-idea">
+          <span class="idea-title">Ideas</span>
+          <span class="idea-count">{{count}}</span>
+        </div>
+        <div class="chart-Statistic">
+      <canvas id="myChart"></canvas>
+    </div>
+</div>
+<div class="table-chart">
+  <ul class="listpage">
+    </ul>
     <table class="table-statistics">
       <thead>
         <tr>
@@ -19,10 +33,6 @@
         {{/each}}
       </tbody>
     </table>
-    <ul class="listpage">
-    </ul>
-     <div class="chart-Statistic">
-  <canvas id="myChart"></canvas>
 </div>
   </div>
 </div>
@@ -98,7 +108,7 @@ for (let i = 0; i < chartY.length; i++) {
       legend: {
         position: 'bottom',
         labels: {
-          fontColor: 'white',
+          fontColor: 'black',
           fontSize: 15
         }
       },

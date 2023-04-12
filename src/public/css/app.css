@@ -925,6 +925,12 @@ a.out-user:hover {
   border-radius: 4px;
   margin-right: 10px; }
 
+.action-item__user .staffsubmission-btn__view {
+  padding: 16px 34px;
+  margin-right: unset;
+  letter-spacing: 1.3px;
+  font-size: 20px; }
+
 .staffsubmission-btn__view {
   background-color: #be1c1c;
   border: 1px solid #be1c1c; }
@@ -1981,6 +1987,21 @@ span.overtime__days-remaining {
   align-items: center;
   background: url("/img/bgcontent.jpg") center/cover no-repeat; }
 
+.main-statistics {
+  background-color: #1f2328;
+  background: unset;
+  mix-blend-mode: multiply; }
+
+.header-statistics {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 500px;
+  background: linear-gradient(to top, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.3)), url("/img/bgstatistics.jpeg") center/cover no-repeat;
+  margin-bottom: 50px; }
+
 .submission-application,
 .department-application,
 .category-application,
@@ -1992,11 +2013,75 @@ span.overtime__days-remaining {
   margin-bottom: 300px;
   position: relative; }
 
+.statistics-application {
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 50px; }
+
 .submission-application > *,
 .department-application > *,
-.category-application > *,
-.statistics-application > * {
+.category-application > * {
   margin-bottom: 20px; }
+
+.total-chart {
+  width: 48%; }
+
+.total-chart > * {
+  margin-bottom: 20px; }
+
+.table-chart {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 48%; }
+
+.table-chart > * {
+  margin-bottom: 20px; }
+
+.table-chart ul.listpage {
+  height: 120px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: unset; }
+
+.table-chart ul.listpage li {
+  margin-bottom: unset; }
+
+.statistics-application .total-idea {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 120px;
+  border-radius: 10px;
+  overflow: hidden; }
+
+.total-idea .idea-title {
+  width: 80%;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 1.4px;
+  color: black;
+  background-color: #e10d11;
+  text-align: center;
+  padding: 40px 0;
+  height: 100%; }
+
+.total-idea .idea-count {
+  width: 20%;
+  font-size: 24px;
+  font-weight: 600;
+  color: black;
+  background-color: #e23e41;
+  text-align: center;
+  padding: 40px 0;
+  height: 100%; }
 
 .submission-text,
 .department-text,
@@ -2006,6 +2091,14 @@ span.overtime__days-remaining {
   font-weight: 700;
   margin: 150px 0 50px 0;
   color: white; }
+
+.statistics-text {
+  font-size: 50px;
+  font-weight: 700;
+  color: white;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  margin: unset; }
 
 .submission-application a,
 .department-application a,
@@ -2040,11 +2133,21 @@ span.overtime__days-remaining {
   margin-top: 50px;
   text-transform: capitalize; }
 
+.table-statistics {
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  overflow: hidden;
+  height: 500px;
+  margin-top: unset; }
+
 .table-submission thead,
 .table-department thead,
 .table-category thead,
 .table-statistics thead {
   background-color: white; }
+
+.table-statistics thead {
+  height: 15%; }
 
 .table-submission th,
 .table-submission td,
@@ -2064,6 +2167,13 @@ span.overtime__days-remaining {
 .table-statistics tbody {
   background-color: #dcdcdc;
   height: 40px; }
+
+.table-statistics tbody {
+  height: 85%;
+  background-color: white; }
+
+.statistics-list__main {
+  height: 17%; }
 
 .submission-list__main,
 .department-list__main,
@@ -2224,11 +2334,16 @@ a.btn-category-back {
   border-radius: 10px; }
 
 .chart-Statistic {
-  position: relative; }
+  position: relative;
+  border: 1px solid #dcdcdc;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+  width: 100%; }
 
 .chart-Statistic #myChart {
-  margin: 30px auto;
-  height: 500px !important; }
+  margin: 0 auto;
+  height: 500px !important;
+  padding: 12px 0; }
 
 @media screen and (max-width: 900px) {
   .submission-create,
@@ -2270,6 +2385,23 @@ a.btn-category-back {
     text-align: center;
     margin-top: 6px;
     width: 100%; } }
+
+@media screen and (max-width: 768px) {
+  .statistics-application {
+    width: 100%; }
+  .total-chart {
+    width: 48%; }
+  .table-chart {
+    width: 48%; } }
+
+@media screen and (max-width: 600px) {
+  .statistics-application {
+    flex-direction: column; }
+  .total-chart {
+    width: 90%; }
+  .table-chart {
+    flex-direction: column-reverse;
+    width: 90%; } }
 
 @media screen and (max-width: 414px) {
   .submission-application {

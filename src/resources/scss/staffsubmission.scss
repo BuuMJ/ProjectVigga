@@ -110,6 +110,7 @@
       text-align: center;
       width: 30%;
     }
+
     .show-submission__list .name-submission{
         padding-top: 28px;
     }
@@ -130,6 +131,12 @@
     border-radius: 4px;
     margin-right: 10px;
     
+  }
+  .action-item__user .staffsubmission-btn__view{
+    padding: 16px 34px;
+    margin-right: unset;
+    letter-spacing: 1.3px;
+    font-size: 20px;
   }
   .staffsubmission-btn__view {
     background-color: #be1c1c;
