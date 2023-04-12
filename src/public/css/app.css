@@ -906,6 +906,9 @@ a.out-user:hover {
   text-align: center;
   width: 30%; }
 
+.show-submission__list .name-submission {
+  padding-top: 28px; }
+
 .table-staffsubmission tbody {
   background-color: white;
   height: 40px; }

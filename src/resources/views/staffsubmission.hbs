@@ -37,7 +37,8 @@
                 {{/each}}
                 {{else ifeq user 'manager'}}
                 {{#each submission}}
-                <table class="table-staffsubmission">
+                <div class="table-wrapper">
+                <table class="table-staffsubmission" >
             <tbody id="staffsubmission-list">
                 <tr class="show-submission__list">
                     <td class="name-submission">{{this.name}}</td>
@@ -50,12 +51,15 @@
                             <a href="/staffsubmission/{{this._id}}/exportIdea" class="staffsubmission-btn__download-excel" download>Export Excel</a>
                     </td>
                 </tr>
+                <span class="department-submission">{{this.department}}</span>
                 </tbody>
                 </table>
+                </div>
                 {{/each}}
                 {{else}}
                 {{#each submission}}
-                <table class="table-staffsubmission">
+                <div class="table-wrapper">
+                <table class="table-staffsubmission" >
             <tbody id="staffsubmission-list">
                 <tr class="show-submission__list">
                     <td class="name-submission">{{this.name}}</td>
@@ -68,8 +72,10 @@
                             <a href="/staffsubmission/{{this._id}}/exportIdea" class="staffsubmission-btn__download-excel" download>Export Excel</a>
                     </td>
                 </tr>
+                <span class="department-submission">{{this.department}}</span>
                 </tbody>
                 </table>
+                </div>
                 {{/each}}
                 {{/ifeq}}
         <ul class="listpage">
