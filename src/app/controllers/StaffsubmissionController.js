@@ -17,7 +17,7 @@ class StaffsubmissionController {
     Submission.find({})
       .then((submission) => {
         submission = submission.map((submission) => submission.toObject());
-        console.log(submission);
+        // console.log(submission);
         res.render("staffsubmission", {
           submission,
           user: req.user,
@@ -53,8 +53,8 @@ class StaffsubmissionController {
   createIdea(req, res, next) {
     // console.log(req.session.idSub);
     var submission = req.session.idSub;
-    console.log(submission.deadline_1);
-    console.log(submission._id + 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
+    // console.log(submission.deadline_1);
+    // console.log(submission._id + 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
 
     res.render("createIdea", {
       submission: submission,
@@ -70,7 +70,7 @@ class StaffsubmissionController {
     try {
       // const adremail = req.user.adremail;
 
-      console.log(req.session.idSub + 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
+      // console.log(req.session.idSub + 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
       const departmentUser = req.user.department;
       const email = await AccountModel.findOne({
         role: "coordinator",
@@ -126,7 +126,7 @@ class StaffsubmissionController {
               }
             });
           } else {
-            console.log("chua toi dayyyyyyyyyyyyyyyyyyyy");
+            // console.log("chua toi dayyyyyyyyyyyyyyyyyyyy");
             const idea = new Idea({
               title: req.body.title,
               brief: req.body.brief,
@@ -271,7 +271,7 @@ class StaffsubmissionController {
       idea.view++;
       await idea.save();
       const comment = idea.comment
-      console.log(mutipleMongooseToObject(comment) + 'aaaaaaaaaaaaaaaaaaaaaaaaa');
+      // console.log(mutipleMongooseToObject(comment) + 'aaaaaaaaaaaaaaaaaaaaaaaaa');
       res.render("detail", {
         submission: submission,
         ididea: idea.username,
@@ -292,7 +292,7 @@ class StaffsubmissionController {
       const idea = await Idea.findById(req.params.id);
       idea.view++;
       await idea.save();
-      console.log(submission.deadline_2);
+      // console.log(submission.deadline_2);
       res.render("overtime", {
         submission: submission,
         idea: staffMongoseToObject(idea),

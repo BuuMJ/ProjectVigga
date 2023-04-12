@@ -2345,6 +2345,14 @@ a.btn-category-back {
   height: 500px !important;
   padding: 12px 0; }
 
+@media screen and (max-width: 1024px) {
+  .statistics-application {
+    width: 100%; }
+  .total-chart {
+    width: 48%; }
+  .table-chart {
+    width: 48%; } }
+
 @media screen and (max-width: 900px) {
   .submission-create,
   .submission-edit,

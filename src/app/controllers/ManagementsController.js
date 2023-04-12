@@ -118,7 +118,7 @@ class ManagementsController {
         res.redirect(url);
       } else {
         req.body.department = req.user.department;
-        console.log(req.body.department + 'tat ca la o cho nayyyyyyyyyyyyyyyyyyyyyyyyyyyyy')
+        // console.log(req.body.department + 'tat ca la o cho nayyyyyyyyyyyyyyyyyyyyyyyyyyyyy')
         const submission = new Submission(req.body);
         submission
           .save()
