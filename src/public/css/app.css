@@ -899,7 +899,8 @@ a.out-user:hover {
 .submission-show_list .status-title {
   width: 15%;
   text-align: center;
-  padding: 18px 20px; }
+  padding: 18px 20px;
+  text-transform: capitalize; }
 
 .action-item,
 .submission-show_list .action-list {

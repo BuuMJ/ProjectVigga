@@ -79,20 +79,20 @@
 <script>
   var deadline1 = moment(document.getElementById('days-remaining').getAttribute('data-deadlinef'), 'YYYY-MM-DD HH:mm:ss');
 var deadline2 = moment(document.getElementById('days-remaining').getAttribute('data-deadlines'), 'YYYY-MM-DD HH:mm:ss');
-var daysRemaining = deadline2.diff(deadline1, 'days');
-
+var now = moment();
+var daysRemaining = deadline2.diff(now, 'days');
 if(daysRemaining > 0){
   document.getElementById('days-remaining').innerHTML = 'Days Remaining: ' + daysRemaining + ' days';
 }
 else{
-  var duration = moment.duration(deadline2.diff(deadline1));
+  var duration = moment.duration(deadline2.diff(now));
   var hoursRemaining = duration.hours();
   var minutesRemaining = duration.minutes();
   if(hoursRemaining > 0){
     if(hoursRemaining < 10) {
       hoursRemaining = hoursRemaining.toString().padStart(2, '0');
     }
-    document.getElementById('days-remaining').innerHTML = 'Time Remaining: ' + hoursRemaining + ' Hours';
+    document.getElementById('days-remaining').innerHTML = 'Time Remaining: ' + hoursRemaining + ':' + minutesRemaining + ' Hours';
   }
   else{
     document.getElementById('days-remaining').innerHTML = 'Time Remaining: ' + minutesRemaining + ' minutes';

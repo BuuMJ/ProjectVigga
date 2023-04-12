@@ -68,6 +68,8 @@ class StaffsubmissionController {
   // [POST] create Idea
   async storeIdea(req, res, next) {
     try {
+      // const adremail = req.user.adremail;
+
       console.log(req.session.idSub + 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
       const departmentUser = req.user.department;
       const email = await AccountModel.findOne({
@@ -148,6 +150,7 @@ class StaffsubmissionController {
         }
       });
     } catch (error) {
+      console.log(error)
       res.status(400).json({ message: error.message });
     }
   }

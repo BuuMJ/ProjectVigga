@@ -8,8 +8,21 @@
             </div>
             <div class="department-edit__btn">
                 <a class="btn-department-back" href="/managements/Department">Back</a>
-                <button type="submit" class="btn-department-create">Create</button>
+                <button class="btn-department-create">Create</button>
             </div>
         </div>
     </form>
 </div>
+<script>
+var formCreateDepartment = document.getElementById('form-create-department');
+var submitDepartment = document.querySelector('.btn-department-create');
+
+submitDepartment.addEventListener('click', function(event) {
+  event.preventDefault();
+  if (confirm('you have to create more QA coordinator for this department, do you agree?')) {
+    formCreateDepartment.submit();
+  } else {
+    return false;
+  }
+});
+</script>
