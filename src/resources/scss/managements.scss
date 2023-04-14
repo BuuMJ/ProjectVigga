@@ -69,17 +69,13 @@
   flex-direction: column;
   justify-content: center;
   width: 80%;
-  margin-bottom: 300px;
-  position: relative;
-}
-.category-application{
   margin-bottom: 50px;
+  position: relative;
 }
 .statistics-application{
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  margin-bottom: 50px;
 }
 .submission-application > *,
 .department-application > *,
@@ -469,7 +465,7 @@ a.btn-category-back {
   .main-category,
   .main-department,
   .main-statistics,
-  .main-department{
+  .main-submission{
   min-height: 1370px;
 
   }

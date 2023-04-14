@@ -2048,17 +2048,13 @@ span.overtime__days-remaining {
   flex-direction: column;
   justify-content: center;
   width: 80%;
-  margin-bottom: 300px;
+  margin-bottom: 50px;
   position: relative; }
-
-.category-application {
-  margin-bottom: 50px; }
 
 .statistics-application {
   flex-direction: row;
   justify-content: space-around;
-  align-items: center;
-  margin-bottom: 50px; }
+  align-items: center; }
 
 .submission-application > *,
 .department-application > *,
@@ -2440,7 +2436,7 @@ a.btn-category-back {
   .main-category,
   .main-department,
   .main-statistics,
-  .main-department {
+  .main-submission {
     min-height: 1370px; }
   .statistics-application {
     width: 100%; }
