@@ -97,6 +97,7 @@ class ManagementsController {
           user: req.user,
           submission,
           count,
+          counts: count,
         });
       })
       .catch(next);

@@ -330,10 +330,20 @@ a.out-user:hover{
     cursor: pointer;
   }
   .Managements-show{
-    left: 98% !important;
+    left: 75% !important;
     top: 32% !important;
   }
   ul.drop-down__Users {
     width: 220px;
+  }
+}
+@media screen and (min-width: 310px) and (max-width: 320px) {
+  .Managements-show{
+    left: 72% !important;
+    top: 32% !important;
+  }
+  .nav-list li{
+    font-size: 14px;
+    width: 150px;
   }
 }
