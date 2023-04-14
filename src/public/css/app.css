@@ -1985,12 +1985,25 @@ span.overtime__days-remaining {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  background: url("/img/bgcontent.jpg") center/cover no-repeat; }
+  background: url("/img/bgcontent.jpg") center/cover no-repeat;
+  min-height: 1370px; }
+
+.main-category {
+  background: unset;
+  background-color: white; }
 
 .main-statistics {
   background-color: #1f2328;
-  background: unset;
-  mix-blend-mode: multiply; }
+  background: unset; }
+
+.header-category {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 500px;
+  background: linear-gradient(to top, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.3)), url("/img/bgcategory.jpeg") center/cover no-repeat; }
 
 .header-statistics {
   display: flex;
@@ -2012,6 +2025,9 @@ span.overtime__days-remaining {
   width: 80%;
   margin-bottom: 300px;
   position: relative; }
+
+.category-application {
+  margin-bottom: 50px; }
 
 .statistics-application {
   flex-direction: row;
@@ -2051,6 +2067,10 @@ span.overtime__days-remaining {
 
 .table-chart ul.listpage li {
   margin-bottom: unset; }
+
+.category-application ul.listpage {
+  width: 95%;
+  text-align: center; }
 
 .statistics-application .total-idea {
   width: 100%;
@@ -2092,7 +2112,8 @@ span.overtime__days-remaining {
   margin: 150px 0 50px 0;
   color: white; }
 
-.statistics-text {
+.statistics-text,
+.category-text {
   font-size: 50px;
   font-weight: 700;
   color: white;
@@ -2133,6 +2154,12 @@ span.overtime__days-remaining {
   margin-top: 50px;
   text-transform: capitalize; }
 
+.table-category {
+  box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 70px; }
+
 .table-statistics {
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
   border-radius: 10px;
@@ -2145,6 +2172,10 @@ span.overtime__days-remaining {
 .table-category thead,
 .table-statistics thead {
   background-color: white; }
+
+.table-category thead {
+  background-color: #010302;
+  color: white; }
 
 .table-statistics thead {
   height: 15%; }
@@ -2168,6 +2199,10 @@ span.overtime__days-remaining {
   background-color: #dcdcdc;
   height: 40px; }
 
+.table-category tbody {
+  background-color: #edeff3;
+  color: black; }
+
 .table-statistics tbody {
   height: 85%;
   background-color: white; }
@@ -2180,6 +2215,9 @@ span.overtime__days-remaining {
 .category-list__main,
 .statistics-list__main {
   border-top: 1px solid #bcbcbc; }
+
+.category-list__main:nth-child(even) {
+  background-color: #dddddd; }
 
 .submission-btn__edit,
 .submission-btn__remove,
