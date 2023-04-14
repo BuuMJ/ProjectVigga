@@ -2220,7 +2220,8 @@ span.overtime__days-remaining {
   padding: 4px 10px;
   text-align: center;
   clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 93% 75%, 94% 100%, 73% 75%, 0% 75%);
-  margin-bottom: unset; }
+  margin-bottom: unset;
+  border-radius: 5px; }
 
 .table-statistics {
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
@@ -2327,7 +2328,7 @@ span.overtime__days-remaining {
 #form-create-department,
 #form-create-category {
   width: 100%;
-  margin-bottom: 421px; }
+  margin: 50px 0; }
 
 .submission-create,
 .submission-edit,
@@ -2364,7 +2365,8 @@ span.overtime__days-remaining {
 .category-edit__info label {
   text-align: center;
   width: 22%;
-  margin-left: 2px; }
+  margin-left: 2px;
+  color: black; }
 
 .submission-create__info input,
 .submission-edit__info input,
@@ -2390,6 +2392,12 @@ span.overtime__days-remaining {
 .department-edit__btn > *,
 .category-edit__btn > * {
   margin-right: 12px; }
+
+#form-create-submission .submission-edit__btn,
+#form-create-category .category-edit__btn,
+#form-create-department .department-edit__btn {
+  align-items: center;
+  justify-content: center; }
 
 .btn-submission-create,
 .btn-submission-edit,
