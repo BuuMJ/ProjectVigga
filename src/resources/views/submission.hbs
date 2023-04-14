@@ -30,8 +30,32 @@
       </tbody>
     </table>
     <span title="Total Count Submission" class="show__count-submission">{{count}}</span>
-    </div>
     <ul class="listpage"></ul>
+    </div>
+    {{!-- responsive table --}}
+<div class="table-responsive">
+  {{#each submission}}
+  <div class="table-responsive-wrapper">
+  <div class="title-table">
+    <span class="name-title">Name</span>
+    <span class="deadline-title">Deadline_1</span>
+    <span class="deadline-title">Deadline_2</span>
+    <span class="actions-title">Actions</span>
+  </div>
+    <div class="main-table">
+      <span title="{{this.name}}" class="name-main">{{this.name}}</span>
+      <span title="{{moment this.deadline_1 format ="DD MMM YYYY HH:mm:ss a" }}" class="deadline-main">{{moment this.deadline_1 format ="DD MMM YYYY HH:mm:ss a" }}</span>
+      <span title="{{moment this.deadline_2 format ="DD MMM YYYY HH:mm:ss a" }}" class="deadline-main">{{moment this.deadline_2 format ="DD MMM YYYY HH:mm:ss a" }}</span>
+      <div class="actions-main">
+        <a href="/managements/{{this._id}}/editSubmission" class="category-btn__edit">edit</a>
+              <a href="" data-id="{{this._id}}" class="category-btn__remove" data-bs-toggle="modal"
+                data-bs-target="#delete-submission">Delete</a>
+      </div>
+    </div>
+    </div>
+  {{/each}}
+    <ul class="listpageRP"></ul>
+</div>
   </div>
 </div>
 
@@ -118,4 +142,57 @@
         alertDiv.innerHTML = message;
         document.body.appendChild(alertDiv);
     }
+    let mainTables = document.querySelectorAll('.main-table');
+if (mainTables.length % 2 !== 0) {
+  // Nếu số lượng phần tử là số lẻ, bỏ qua phần tử cuối cùng
+  mainTables = Array.from(mainTables).slice(0, mainTables.length - 1);
+}
+for (let i = 0; i < mainTables.length; i++) {
+  if (i % 2 === 1) {
+    mainTables[i].classList.add('change-background');
+  }
+}
+ var thisPageRP = 1;
+var limitRP = 5;
+var listRP = document.querySelectorAll('.table-responsive-wrapper');
+
+function loadIteamRP() {
+  var beginGetRP = limitRP * (thisPageRP - 1);
+  var endGetRP = limitRP * thisPageRP - 1;
+
+  listRP.forEach((item, key) => {
+    if (key >= beginGetRP && key <= endGetRP) {
+      item.style.display = 'flex';
+    } else {
+      item.style.display = 'none';
+    }
+  });
+
+  listPageRP();
+}
+loadIteamRP();
+function listPageRP() {
+  var countRP = Math.ceil(listRP.length / limitRP);
+  document.querySelector('.listpageRP').innerHTML = '';
+  for (i = 1; i <= countRP; i++) {
+    var newPageRP = document.createElement('li');
+    newPageRP.innerHTML = i;
+    document.querySelector('.listpageRP').appendChild(newPageRP);
+    newPageRP.setAttribute('onclick', "changePageRP(" + i + ")");
+
+    if (i === thisPageRP) {
+      newPageRP.classList.add('active');
+    }
+  }
+}
+function changePageRP(i) {
+  thisPageRP = i;
+  document.querySelectorAll('.listpageRP li').forEach(function(page) {
+    page.classList.remove('active');
+  });
+
+  document.querySelector('.listpageRP li:nth-child(' + (thisPageRP) + ')').classList.add('active');
+  loadIteamRP();
+}
+
 </script>
