@@ -2202,8 +2202,7 @@ span.overtime__days-remaining {
   padding: 4px 10px;
   text-align: center;
   clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 93% 75%, 94% 100%, 73% 75%, 0% 75%);
-  margin-bottom: unset;
-  z-index: 20; }
+  margin-bottom: unset; }
 
 .table-statistics {
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
