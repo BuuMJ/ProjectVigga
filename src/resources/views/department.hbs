@@ -1,8 +1,10 @@
 <div class="main-department">
+  <div class="header-department">
   <h1 class="department-text">Department List</h1>
+  </div>
   <div class="department-application">
-
     <a class="department-btn" href="createDepartment">Add New</a>
+    <div class="table-wrapper__department">
     <table class="table-department">
       <thead>
         <tr>
@@ -23,6 +25,8 @@
         {{/each}}
       </tbody>
     </table>
+    <span title="Total Count Department" class="show__count-department">{{count}}</span>
+    </div>
     <ul class="listpage"></ul>
   </div>
 </div>

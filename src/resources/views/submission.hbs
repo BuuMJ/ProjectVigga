@@ -1,8 +1,10 @@
 <div class="main-submission">
+  <div class="header-submission">
   <h1 class="submission-text">Submission list</h1>
+  </div>
   <div class="submission-application">
-
     <a class="submission-btn" href="createSubmission">Add New</a>
+    <div class="table-wrapper__submission">
     <table class="table-submission">
       <thead>
         <tr>
@@ -27,6 +29,8 @@
         {{/each}}
       </tbody>
     </table>
+    <span title="Total Count Submission" class="show__count-submission">{{count}}</span>
+    </div>
     <ul class="listpage"></ul>
   </div>
 </div>

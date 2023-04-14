@@ -3,8 +3,8 @@
   <h1 class="category-text">Category List</h1>
   </div>
   <div class="category-application">
-
     <a class="category-btn" href="createCategory">Add New</a>
+    <div class="table-wrapper__category">
     <table class="table-category">
       <thead>
         <tr>
@@ -25,6 +25,8 @@
         {{/each}}
       </tbody>
     </table>
+    <span title="Total Count Category" class="show__count-category">{{count}}</span>
+    </div>
     <ul class="listpage">
     </ul>
   </div>

@@ -1,13 +1,19 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const AccountModel = require("../models/Account");
+const Departments = require("../models/Department")
+const Idea = require("../models/Idea")
 
 class SiteController {
   // [GET] /home
-  home(req, res) {
+  async home(req, res) {
+    const departments = await Departments.countDocuments({});
+    const ideas = await Idea.countDocuments({});
     res.render("home", {
       title: "Vigga home",
       user: req.user,
+      departments,
+      ideas,
     });
   }
   // [GET] /login

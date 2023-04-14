@@ -7,12 +7,14 @@ const querystring = require('querystring');
 
 class ManagementsController {
   // [GET] category
-  category(req, res, next) {
+  async category(req, res, next) {
+    const count = await Category.countDocuments({});
     Category.find({})
       .then((category) => {
         category = category.map((category) => category.toObject());
         res.render("category", {
           category,
+          count,
           user: req.user,
           title: "Category",
         });
@@ -84,7 +86,8 @@ class ManagementsController {
   }
 
   // [GET] Submission
-  submission(req, res, next) {
+  async submission(req, res, next) {
+    const count = await Submission.countDocuments({});
     Submission.find({})
       .then((submission) => {
         submission = submission.map((submission) => submission.toObject());
@@ -93,6 +96,7 @@ class ManagementsController {
           title: "Submission",
           user: req.user,
           submission,
+          count,
         });
       })
       .catch(next);
@@ -169,7 +173,8 @@ class ManagementsController {
       .catch(next);
   }
   // [GET] Department
-  department(req, res, next) {
+  async department(req, res, next) {
+    const count = await Department.countDocuments({});
     Department.find({})
       .then((department) => {
         department = department.map((department) => department.toObject());
@@ -177,6 +182,7 @@ class ManagementsController {
           title: "Department",
           department: department,
           user: req.user,
+          count,
         });
       })
       .catch(next);
