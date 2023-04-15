@@ -2757,7 +2757,8 @@ a.btn-category-back {
   border-radius: 50%;
   border: 1px solid #e10d11;
   padding: 4px;
-  cursor: pointer; }
+  cursor: pointer;
+  box-shadow: 4px 4px 10px rgba(225, 13, 17, 0.5); }
 
 .edit__card .full__type .parent-change,
 .create__card .full__type .parent-change {
@@ -2804,7 +2805,10 @@ a.btn-category-back {
 .full__type select {
   width: 70%;
   height: 50px;
-  padding: 4px 12px; }
+  padding: 4px 12px;
+  border: 1px solid black;
+  border-radius: 5px;
+  outline: none; }
 
 .edit__card .full__type input,
 .edit__card .full__type select {
@@ -2820,7 +2824,8 @@ a.btn-category-back {
   font-weight: 500;
   color: white;
   border: 1px solid #e10d11;
-  padding: 4px 12px; }
+  padding: 4px 12px;
+  border-radius: 5px; }
 
 .edit__card .full__type button#btn-user {
   border-radius: 10px;
@@ -2851,7 +2856,9 @@ a.btn-category-back {
   width: 40%;
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
   margin: 12px 0;
-  position: relative; }
+  position: relative;
+  border-radius: 5px;
+  overflow: hidden; }
 
 h4.department-position {
   position: absolute;
