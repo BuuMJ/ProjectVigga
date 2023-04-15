@@ -39,7 +39,7 @@
 .create__card,
 .edit__card{
   position: absolute;
-  top: 28%;
+  top: 30%;
   left: 0;
   right: 0;
   margin: 0 auto;
@@ -238,6 +238,7 @@ h4.department-position{
   justify-content: center;
   align-items: center;
   width: 100%;
+  padding: 4px 0 8px 0;
 }
 .btn-user__action > * {
   margin: 4px;
@@ -293,179 +294,101 @@ h4.department-position{
 //   left: 42%;
 //   background-color: (246,3,3,61%);
 // }
-@media screen and (max-width: 1023px) {
-  .edit__user{
-    height: unset;
-  }
-}
-//reponsive//
-@media screen and (max-width: 1024px){
- .card-user__info {
-  font-size: 15px;
-
- }
- .btn__edit-user {
-  width: 20%;
- }
- .btn__remove-user{
-  font-size: 15px;
-  width: 25%;
- }
- .edit__user {
-justify-content: flex-start; 
-
-}
-.edit__card {
-  margin-top: 15%;
-}
-
-}
-@media screen and (max-width: 814px){
-  .edit__user{
-    height: 100vh;
-  }
-  .card-user__info {
-    font-size: 20px;
-    
-  }
-  .card-user {
-    width: 60%;
-    height: 380px;
-  }
-}
-@media screen and (max-width: 602px) {
-  .card-user {
-    height: 400px;
-  }
+@media screen and (max-width: 1920px) {
   .create__card {
-    width: 80%;
+    top: 15%;
   }
 }
-@media screen and (max-width: 415px){
-  
-.add__user {
-  width: 96%;
+@media screen and (max-width: 1024px) {
+  .card-user img {
+    margin-top: 35px;
+  }
 }
-  .create__card {
-    width: 85%;
-  }
-  .create__card input {
-    width: 65%;
-    font-size: 15px;
-  }
-  .create__card label {
-    width: 30%;
-    font-size: 15px;
-  }
-  .type__select {
-    width: 65%;
-    font-size: 15px;
-  }
-  .user__checkbox {
-    width: 60%;
-  }
-  .user__checkbox label {
-    width: 80%;
-  }
-  .user__checkbox input {
-    width: 20%;
-  }
-  .button__user{
-    width: 22%;
-    padding: 4px 0;
-    font-size: 18px;
-  }
-  .card-user {
+@media screen and (max-width: 600px) {
+  .create__card,
+  .edit__card {
     width: 90%;
   }
   .card-user__info {
-    font-size: 16px;
-    }
-  .edit__user {
+    word-wrap: break-word;
+  }
+  .boxer-user {
     justify-content: center;
     align-items: center;
-    width: 95%;
-    }
-  .edit__card {
-    width: 80%;
-    margin-top: 20%;
+    flex-direction: column;
   }
-  .edit__card input {
-    width: 60%;
+  .card-user {
+    width: 70%;
+    height: 70%;
   }
-  .edit__card select {
-    width: 60%;
+  .card-user img {
+    margin-top: 40px;
   }
-
 }
-@media  screen and (max-width: 375px) {
-  .edit__user {
-    justify-content: flex-start;
+@media screen and (max-width: 415px) {
+  .full__type label,
+  .full__type input,
+  .full__type select {
+    width: 45%;
   }
-  
-    .edit__card {
-      margin-top: 25%;
-      width: 90%;
-    }
-    .edit__card input {
-      width: 60%;
-      margin-left: 10%;
-    }
-
-    .card-user {
-      width: 90%;
-    }
-}
-@media  screen and (max-width: 320px){
-  .edit__user {
-    justify-content: center;
-    height: 120vh;
+  .user__checkbox label,
+  .edit__checkbox label {
+    width: 100%;
   }
-  .edit__card {
-    margin-top: 25%;
-    width: 80%;
+  .user__checkbox input,
+  .edit__checkbox input {
+    width: 30%;
+  }
+  .card-user__info {
     font-size: 15px;
   }
-  .edit__card input {
-    width: 70%;
-    margin-right: 10%;
-    
+  .header-user h1 {
+    font-size: 30px;
   }
-  .full__type {
+  .edit__card {
+    overflow: scroll;
+  }
+  .boxer-user {
+    overflow: scroll;
+  }
+  .card-user {
+    height: 55%;
+  } 
+  .card-user img {
+    margin-top: 35px;
+  }
+}
+@media screen and (max-width: 376px) {
+  .user__checkbox label,
+  .edit__checkbox label {
+    width: 85%;
+  }
+  .user__checkbox input,
+  .edit__checkbox input {
+    width: 15%;
+  }
+  .card-user {
+    width: 80%;
+  }
+  .boxer-user {
     width: 100%;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
   }
-  .edit__card label {
-    width: 70%;
-    display: flex;
-    padding: 5px;
-    font-size: 15px;
+  .user__checkbox,
+  .edit__checkbox {
+    width: 100%;
   }
-  .edit__card select {
-    width: 70%;
-    margin-right: 10%;
+  .header-user h1 {
+    font-size: 23px;
   }
-  input#checkbox {
-    width: 10%;
-  }
- .create__card select,
- .create__card input {
-  width: 50%;
- }
- .user__checkbox {
-  width: 100%;
- }
- .create__card label {
-  width: 47%;
- }
-  .card-user {
-    width: 95%;
-  }
-  .btn__edit-user {
-    width: 25%;
-  }
-  .btn__remove-user {
-    width: 35%;
-  }
+}
+@media screen and (max-width: 320px) {
+    .card-user {
+      height: 55%;
+    } 
+    .card-user img {
+      margin-top: 35px;
+    }
 }

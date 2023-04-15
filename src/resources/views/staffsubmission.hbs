@@ -3,6 +3,7 @@
     <h1 class="staffsubmission-text">Staffsubmission</h1>
   </div>
     <div class="staffsubmission-application" >
+      {{#ifeq user 'admin'}}
         <table class="table-staffsubmission__primary">
             <thead>
                 <tr class="submission-show_list">
@@ -14,6 +15,31 @@
                 </tr>
             </thead>
         </table>
+        {{else ifeq user 'manager'}}
+        <table class="table-staffsubmission__primary">
+            <thead>
+                <tr class="submission-show_list">
+                    <th class="name-title">Name</th>
+                    <th class="time-deadline1-title">Deadline_1 <i class="bi bi-alarm-fill"></i></th>
+                    <th class="time-deadline2-title">Deadline_2 <i class="bi bi-alarm-fill"></i></th>
+                    <th class="status-title">Status <i class="bi bi-flag-fill"></i></th>
+                    <th class="action-list">Actions <i class="bi bi-cloud-arrow-down-fill"></i></th>
+                </tr>
+            </thead>
+        </table>
+        {{else}}
+        <table class="table-staffsubmission__primary">
+            <thead>
+                <tr class="submission-show_list submission-show_list-user">
+                    <th class="name-title name-title_user">Name</th>
+                    <th class="time-deadline1-title">Deadline_1 <i class="bi bi-alarm-fill"></i></th>
+                    <th class="time-deadline2-title">Deadline_2 <i class="bi bi-alarm-fill"></i></th>
+                    <th class="status-title">Status <i class="bi bi-flag-fill"></i></th>
+                    <th class="action-list action-title_user">Actions <i class="bi bi-cloud-arrow-down-fill"></i></th>
+                </tr>
+            </thead>
+        </table>
+        {{/ifeq}}
               {{#ifeq user 'admin'}}
                 {{#each submission}}
                 <div class="table-wrapper">
@@ -52,12 +78,12 @@
                 {{#each submission}}
                 <div class="table-wrapper">
                 <div class="show-submission__list">
-                    <span class="name-submission">{{this.name}}</span>
-                    <span class="time-deadline1">{{moment this.deadline_1 format ="DD MMM YYYY HH:mm:ss" }}</span>
-                    <span class="time-deadline2">{{moment this.deadline_2 format ="DD MMM YYYY HH:mm:ss" }}</span>
+                    <span class="name-submission name-submission_user">{{this.name}}</span>
+                    <span id="time-deadline1_user" class="time-deadline1">{{moment this.deadline_1 format ="DD MMM YYYY HH:mm:ss" }}</span>
+                    <span id="time-deadline2_user" class="time-deadline2">{{moment this.deadline_2 format ="DD MMM YYYY HH:mm:ss" }}</span>
                     <span class="status-deadline">Ongoing <i class="bi bi-flag-fill"></i></span>
-                    <div class="action-item">                         
-                            <a href="/staffsubmission/{{this._id}}" class="staffsubmission-btn__view" >View</a>
+                    <div class="action-item action-item_user">                         
+                            <a href="/staffsubmission/{{this._id}}" class="staffsubmission-btn__view-user" >View</a>
                     </div>
                 </div>
                 <span class="department-submission">{{this.department}}</span>

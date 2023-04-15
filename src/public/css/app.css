@@ -934,10 +934,18 @@ a.out-user:hover {
   padding: 18px 20px;
   text-transform: capitalize; }
 
+.show-submission__list .name-submission_user,
+.submission-show_list .name-title_user {
+  width: 40% !important; }
+
 .action-item,
 .submission-show_list .action-list {
   text-align: center;
   width: 40%; }
+
+.action-item_user,
+.action-list_user {
+  width: 15% !important; }
 
 .action-item {
   display: flex;
@@ -954,7 +962,8 @@ a.out-user:hover {
 
 .staffsubmission-btn__view,
 .staffsubmission-btn__download-zip,
-.staffsubmission-btn__download-excel {
+.staffsubmission-btn__download-excel,
+.staffsubmission-btn__view-user {
   text-decoration: none;
   color: white;
   padding: 6px 12px;
@@ -962,17 +971,19 @@ a.out-user:hover {
   font-weight: 600;
   border-radius: 4px; }
 
-.action-item__user .staffsubmission-btn__view {
+.staffsubmission-btn__view-user {
   padding: 16px 34px;
   margin-right: unset;
   letter-spacing: 1.3px;
   font-size: 20px; }
 
-.staffsubmission-btn__view {
+.staffsubmission-btn__view,
+.staffsubmission-btn__view-user {
   background-color: #be1c1c;
   border: 1px solid #be1c1c; }
 
-.staffsubmission-btn__view:hover {
+.staffsubmission-btn__view:hover,
+.staffsubmission-btn__view-user:hover {
   background-color: white;
   color: #be1c1c; }
 
@@ -1777,11 +1788,6 @@ span.overtime__days-remaining {
   .staffsubmission-application {
     display: flex;
     width: 100%; }
-  .table-idea {
-    width: 149%; }
-  .idea-application {
-    width: 60%;
-    margin-left: -245px; }
   .table-staffsubmission td {
     font-size: 20px;
     padding: 11px 9px; }
@@ -1790,6 +1796,8 @@ span.overtime__days-remaining {
   .action-item > * {
     padding: 4px 0;
     width: 44%; }
+  .action-item_user > * {
+    width: 80%; }
   .staffsubmission-btn__download-excel {
     width: 50%; }
   button.like_btn {
@@ -1810,7 +1818,10 @@ span.overtime__days-remaining {
     margin-top: 76px;
     margin-left: 161px; }
   .sub_btn {
-    margin-left: 250px; } }
+    margin-left: 250px; }
+  .submission-show_list-user > * {
+    font-size: 16px !important;
+    font-weight: 600; } }
 
 @media screen and (max-width: 721px) {
   button.dislike_btn {
@@ -1856,9 +1867,6 @@ span.overtime__days-remaining {
     width: 100%; }
   .checkbox_idea {
     margin-left: 100px; }
-  .idea-application {
-    width: 63%;
-    margin-right: -45px; }
   .table-deadline {
     width: 80%; }
   .table-idea {
@@ -1880,7 +1888,7 @@ span.overtime__days-remaining {
     width: 100%; }
   .idea-application {
     width: 95%;
-    margin-left: -13px; }
+    overflow-x: auto; }
   button.like_btn,
   button.dislike_btn {
     right: 12px;
@@ -1889,8 +1897,6 @@ span.overtime__days-remaining {
     margin-left: 90px; }
   .staffsubmission-text {
     font-size: 40px; }
-  .idea-application {
-    margin-right: 3px; }
   .create-idea__info {
     margin-left: 35px;
     width: 80%; }
@@ -1926,8 +1932,6 @@ span.overtime__days-remaining {
     margin-left: 102px; }
   .comment-container {
     margin-left: 40px; }
-  .table-idea {
-    margin-left: 10px; }
   .detail-show-primary {
     flex-direction: column;
     height: 42px; }
@@ -1971,7 +1975,16 @@ span.overtime__days-remaining {
     font-size: 10px; }
   .action-item > * {
     font-size: 14px !important;
-    width: 70%; } }
+    width: 70%; }
+  .submission-show_list-user > * {
+    font-size: 14px !important;
+    font-weight: 500; }
+  .name-submission_user,
+  .name-title_user {
+    width: 30% !important; }
+  .action-title_user,
+  .action-item_user {
+    width: 25% impr !important; } }
 
 @media screen and (max-width: 376px) {
   .create-idea-edit__btn {
@@ -1984,7 +1997,15 @@ span.overtime__days-remaining {
   button.detail-link {
     margin-left: 35px; }
   .sub_btn {
-    margin-left: 90px; } }
+    margin-left: 90px; }
+  .main-idea {
+    overflow-x: auto; }
+  .table-deadline th, .table-deadline td, .table-idea th, .table-idea td {
+    font-size: 14px; }
+  .table-deadline td, .table-idea th, .table-idea td {
+    font-size: 15px; }
+  .staffsubmission-text {
+    font-size: 34px; } }
 
 @media screen and (max-width: 321px) {
   .create-idea-text {
@@ -2031,7 +2052,9 @@ span.overtime__days-remaining {
     padding-right: 0; }
   .author-cmt {
     font-size: 14px;
-    letter-spacing: 1.1px; } }
+    letter-spacing: 1.1px; }
+  .staffsubmission-text {
+    font-size: 30px; } }
 
 .main-submission,
 .main-department,
@@ -2664,7 +2687,9 @@ a.btn-category-back {
   .submission-btn {
     margin: 50px 0 30px 0; }
   .submission-count-text {
-    display: block; } }
+    display: block; }
+  .department-text {
+    text-align: center; } }
 
 @media screen and (max-width: 375px) {
   .department-text,
@@ -2725,7 +2750,7 @@ a.btn-category-back {
 .create__card,
 .edit__card {
   position: absolute;
-  top: 28%;
+  top: 30%;
   left: 0;
   right: 0;
   margin: 0 auto;
@@ -2922,7 +2947,8 @@ h4.department-position {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  width: 100%; }
+  width: 100%;
+  padding: 4px 0 8px 0; }
 
 .btn-user__action > * {
   margin: 4px; }
@@ -2972,128 +2998,79 @@ h4.department-position {
   align-items: center;
   justify-content: center; }
 
-@media screen and (max-width: 1023px) {
-  .edit__user {
-    height: unset; } }
+@media screen and (max-width: 1920px) {
+  .create__card {
+    top: 15%; } }
 
 @media screen and (max-width: 1024px) {
-  .card-user__info {
-    font-size: 15px; }
-  .btn__edit-user {
-    width: 20%; }
-  .btn__remove-user {
-    font-size: 15px;
-    width: 25%; }
-  .edit__user {
-    justify-content: flex-start; }
+  .card-user img {
+    margin-top: 35px; } }
+
+@media screen and (max-width: 600px) {
+  .create__card,
   .edit__card {
-    margin-top: 15%; } }
-
-@media screen and (max-width: 814px) {
-  .edit__user {
-    height: 100vh; }
-  .card-user__info {
-    font-size: 20px; }
-  .card-user {
-    width: 60%;
-    height: 380px; } }
-
-@media screen and (max-width: 602px) {
-  .card-user {
-    height: 400px; }
-  .create__card {
-    width: 80%; } }
-
-@media screen and (max-width: 415px) {
-  .add__user {
-    width: 96%; }
-  .create__card {
-    width: 85%; }
-  .create__card input {
-    width: 65%;
-    font-size: 15px; }
-  .create__card label {
-    width: 30%;
-    font-size: 15px; }
-  .type__select {
-    width: 65%;
-    font-size: 15px; }
-  .user__checkbox {
-    width: 60%; }
-  .user__checkbox label {
-    width: 80%; }
-  .user__checkbox input {
-    width: 20%; }
-  .button__user {
-    width: 22%;
-    padding: 4px 0;
-    font-size: 18px; }
-  .card-user {
     width: 90%; }
   .card-user__info {
-    font-size: 16px; }
-  .edit__user {
+    word-wrap: break-word; }
+  .boxer-user {
     justify-content: center;
     align-items: center;
-    width: 95%; }
-  .edit__card {
-    width: 80%;
-    margin-top: 20%; }
-  .edit__card input {
-    width: 60%; }
-  .edit__card select {
-    width: 60%; } }
-
-@media screen and (max-width: 375px) {
-  .edit__user {
-    justify-content: flex-start; }
-  .edit__card {
-    margin-top: 25%;
-    width: 90%; }
-  .edit__card input {
-    width: 60%;
-    margin-left: 10%; }
+    flex-direction: column; }
   .card-user {
-    width: 90%; } }
-
-@media screen and (max-width: 320px) {
-  .edit__user {
-    justify-content: center;
-    height: 120vh; }
-  .edit__card {
-    margin-top: 25%;
-    width: 80%;
-    font-size: 15px; }
-  .edit__card input {
     width: 70%;
-    margin-right: 10%; }
-  .full__type {
+    height: 70%; }
+  .card-user img {
+    margin-top: 40px; } }
+
+@media screen and (max-width: 415px) {
+  .full__type label,
+  .full__type input,
+  .full__type select {
+    width: 45%; }
+  .user__checkbox label,
+  .edit__checkbox label {
+    width: 100%; }
+  .user__checkbox input,
+  .edit__checkbox input {
+    width: 30%; }
+  .card-user__info {
+    font-size: 15px; }
+  .header-user h1 {
+    font-size: 30px; }
+  .edit__card {
+    overflow: scroll; }
+  .boxer-user {
+    overflow: scroll; }
+  .card-user {
+    height: 55%; }
+  .card-user img {
+    margin-top: 35px; } }
+
+@media screen and (max-width: 376px) {
+  .user__checkbox label,
+  .edit__checkbox label {
+    width: 85%; }
+  .user__checkbox input,
+  .edit__checkbox input {
+    width: 15%; }
+  .card-user {
+    width: 80%; }
+  .boxer-user {
     width: 100%;
     justify-content: center;
-    align-items: center; }
-  .edit__card label {
-    width: 70%;
-    display: flex;
-    padding: 5px;
-    font-size: 15px; }
-  .edit__card select {
-    width: 70%;
-    margin-right: 10%; }
-  input#checkbox {
-    width: 10%; }
-  .create__card select,
-  .create__card input {
-    width: 50%; }
-  .user__checkbox {
+    align-items: center;
+    flex-direction: column; }
+  .user__checkbox,
+  .edit__checkbox {
     width: 100%; }
-  .create__card label {
-    width: 47%; }
+  .header-user h1 {
+    font-size: 23px; } }
+
+@media screen and (max-width: 320px) {
   .card-user {
-    width: 95%; }
-  .btn__edit-user {
-    width: 25%; }
-  .btn__remove-user {
-    width: 35%; } }
+    height: 55%; }
+  .card-user img {
+    margin-top: 35px; } }
 
 .box-login {
   display: flex;

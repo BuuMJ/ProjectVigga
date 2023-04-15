@@ -112,10 +112,18 @@
         padding: 18px 20px;
         text-transform: capitalize;
     }
+    .show-submission__list .name-submission_user,
+    .submission-show_list .name-title_user{
+        width: 40% !important;
+    }
     .action-item,
     .submission-show_list .action-list {
       text-align: center;
       width: 40%;
+    }
+    .action-item_user,
+    .action-list_user{
+        width: 15% !important;
     }
 .action-item{
     display: flex;
@@ -134,7 +142,8 @@
   }
   .staffsubmission-btn__view,
   .staffsubmission-btn__download-zip,
-  .staffsubmission-btn__download-excel {
+  .staffsubmission-btn__download-excel,
+  .staffsubmission-btn__view-user {
     text-decoration: none;
     color: white;
     padding: 6px 12px;
@@ -143,17 +152,19 @@
     border-radius: 4px;
     
   }
-  .action-item__user .staffsubmission-btn__view{
+  .staffsubmission-btn__view-user{
     padding: 16px 34px;
     margin-right: unset;
     letter-spacing: 1.3px;
     font-size: 20px;
   }
-  .staffsubmission-btn__view {
+  .staffsubmission-btn__view,
+  .staffsubmission-btn__view-user {
     background-color: #be1c1c;
     border: 1px solid #be1c1c;
   }
-  .staffsubmission-btn__view:hover {
+  .staffsubmission-btn__view:hover,
+  .staffsubmission-btn__view-user:hover {
     background-color: rgb(255, 255, 255);
     color: #be1c1c;
   }
@@ -1065,13 +1076,6 @@ span.overtime__days-remaining{
         display: flex;
         width: 100%;
     }
-    .table-idea {
-        width: 149%;
-    }
-    .idea-application {
-        width: 60%;
-        margin-left: -245px;
-    }
     .table-staffsubmission td {
         font-size: 20px; 
         padding: 11px 9px;
@@ -1082,6 +1086,9 @@ span.overtime__days-remaining{
     .action-item > * {
         padding: 4px 0;
         width: 44%;
+    }
+    .action-item_user > * {
+        width: 80%;
     }
     .staffsubmission-btn__download-excel{
         width: 50%;
@@ -1111,6 +1118,10 @@ span.overtime__days-remaining{
     }
     .sub_btn {
         margin-left: 250px;
+    }
+    .submission-show_list-user > *{
+        font-size: 16px !important;
+        font-weight: 600;
     }
 }
 
@@ -1177,10 +1188,6 @@ button.dislike_btn {
 .checkbox_idea{
     margin-left: 100px;
 }
-.idea-application{
-    width: 63%;
-    margin-right: -45px;
-}
 
 .table-deadline {
     width: 80%;
@@ -1207,9 +1214,9 @@ button.dislike_btn {
     .staffsubmission-application {
         width: 100%;
     }
-    .idea-application {
+    .idea-application{
         width: 95%;
-        margin-left: -13px;
+        overflow-x:auto;
     }
     button.like_btn,
     button.dislike_btn{
@@ -1223,9 +1230,6 @@ button.dislike_btn {
     
     .staffsubmission-text {
         font-size: 40px;
-    }
-    .idea-application {
-        margin-right: 3px;
     }
     .create-idea__info {
         margin-left: 35px;
@@ -1277,9 +1281,6 @@ button.dislike_btn {
     }
     .comment-container {
         margin-left: 40px;
-    }
-    .table-idea{
-        margin-left: 10px;
     }
     .detail-show-primary {
         flex-direction: column;
@@ -1347,6 +1348,18 @@ button.dislike_btn {
         font-size: 14px !important;
         width: 70%;
     }
+    .submission-show_list-user > *{
+        font-size: 14px !important;
+        font-weight: 500;
+    }
+    .name-submission_user,
+    .name-title_user{
+        width: 30% !important;
+    }
+    .action-title_user,
+    .action-item_user{
+        width: 25% impr !important;
+    }
 }
 @media screen and (max-width: 376px) {
     .create-idea-edit__btn  {
@@ -1366,7 +1379,18 @@ button.dislike_btn {
     .sub_btn {
         margin-left: 90px;
     }
-    
+    .main-idea{
+        overflow-x: auto;
+    }
+    .table-deadline th, .table-deadline td, .table-idea th, .table-idea td{
+        font-size: 14px;
+    }
+    .table-deadline td, .table-idea th, .table-idea td {
+        font-size: 15px;
+    }
+    .staffsubmission-text{
+        font-size: 34px;
+    }
 }
 @media screen and (max-width: 321px) {
     .create-idea-text {
@@ -1434,5 +1458,8 @@ button.dislike_btn {
     .author-cmt{
         font-size: 14px;
         letter-spacing: 1.1px;
+    }
+    .staffsubmission-text{
+        font-size: 30px;
     }
 }
