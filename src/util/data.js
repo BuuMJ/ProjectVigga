@@ -24,13 +24,22 @@ function dataStatistics(req, res, next) {
 var storage = multer.diskStorage({
   // Thư mục lưu trữ file
   destination: function (req, file, cb) {
-    // Lấy tên submission từ session
-    var submissionName = req.session.idSub.name;
+    const name = req.session.idSub
+    if(name){
+      // Lấy tên submission từ session
+      var submissionName = req.session.idSub.name;
     // Tạo đường dẫn đầy đủ cho thư mục lưu trữ của submission đó
     var path = "uploads/" + submissionName + "/";
     // Tạo thư mục nếu chưa tồn tại
     fs.mkdirSync(path, { recursive: true });
     cb(null, path);
+    }else{
+      // Tạo đường dẫn đầy đủ cho thư mục lưu trữ của submission đó
+    var path = "uploads/avatar/";
+    // Tạo thư mục nếu chưa tồn tại
+    fs.mkdirSync(path, { recursive: true });
+    cb(null, path);
+    }
   },
   // Đặt tên file
   filename: function (req, file, cb) {

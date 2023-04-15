@@ -10,6 +10,7 @@ const Account = new Schema(
     adremail: String,
     role: String,
     department: String,
+    avatar: String,
   },
   {
     collection: "accounts",

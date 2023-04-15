@@ -1,6 +1,7 @@
 <div class="add__user">
-  <form method="post" action="/register/apiregister" class="create__card">
-    <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 text-white">Create Form</h3>
+  <div class="header-user"></div>
+  <form method="post" action="/register/apiregister" enctype="multipart/form-data" class="create__card">
+    <h3 class="title-create__user">New User</h3>
     <div class="full__type">
       <label for="inputFullname">Full name</label>
       <input name="fullname" type="text" class="type_fullName" id="inputFullname" placeholder="Le Thanh hoang">
@@ -38,21 +39,21 @@
     </div>
     <div class="user__checkbox">
       <input type="checkbox" id="checkbox" name="user__checkbox" required>
-      <label for="user__checkbox">I agree to terms</label>
+      <label for="checkbox">I agree to terms</label>
     </div>
     <div class="full__type btn-user">
-      <button id="btn-user" type="submit" class="button__user">Add</button>
+      <button id="btn-user" type="submit" class="button__user">Add New User</button>
     </div>
     
   </form>
   <div class="boxer-user">
     {{#each account}}
     <div class="card-user">
-      <h4 class="card-user__info">Full Name: {{this.fullname}}</h1>
-      <h4 class="card-user__info">Email: {{this.adremail}}</h4>
-      <h4 class="card-user__info">User Name: {{this.username}}</h2>
-      <h4 class="card-user__info">Role: {{this.role}}</h2>
-      <h4 class="card-user__info">Department: {{this.department}}</h4>
+      <img src="{{getAvatar this}}" alt="">
+      <h4 class="card-user__info">{{this.fullname}}</h1>
+      <h4 class="card-user__info">{{this.adremail}}</h4>
+      <h4 class="card-user__info">{{this.role}}</h2>
+      <h4 class="card-user__info department-position">{{this.department}}</h4>
       <div class="btn-user__action">
         <a href="/user/{{this._id}}/editUser" class="category-btn__edit btn__edit-user">edit</a>
         <a href="" data-id="{{this._id}}" class="category-btn__remove btn__remove-user" data-bs-toggle="modal"
@@ -101,6 +102,26 @@
       deleteForm.submit();
     }
   })
+  const hover = document.querySelector('.parent-change');
+  const showChange = document.querySelector('.child-change');
+  hover.addEventListener('mouseover',() =>{
+    showChange.style.cssText = 'display: flex;';
+  });
+  showChange.addEventListener('mouseout', ()=>{
+    showChange.style.cssText = 'display: none';
+  });
+  var file = document.querySelector('#changeavatar');
+    var img = document.querySelector('.avatar_user-show');
+    file.addEventListener('change', () => {
+        const chooseFile = file.files[0];
+        if (chooseFile) {
+            const reader = new FileReader();
+            reader.addEventListener('load', () => {
+                img.setAttribute('src', reader.result);
+            });
+            reader.readAsDataURL(chooseFile);
+        }
+    });
 </script>
 <script>
     const urlParams = new URLSearchParams(window.location.search);

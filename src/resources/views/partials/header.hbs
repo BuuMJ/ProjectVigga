@@ -85,7 +85,7 @@
         {{#if user}}
         <ul class="show-logout navbar-change">
           {{!-- <span class=""> --}}
-            <i class="bi bi-person-circle"></i>
+            <img src="{{getAvatar account}}" alt="">
           {{!-- </span> --}}
         </ul>
         <ul class="show-user-info">
@@ -149,10 +149,15 @@
           <div class="list-user-info">
              {{#if user}}
                 <ul class="user-info__mini">
-                  <li>Name: {{getFullname user}}</li>
-                  <li>Email: {{getEmail user}}</li>
-                  <li>Role: {{getRole user}}</li>
-                  <li>Department: {{getDepartment user}}</li>
+                  <div class="avatar-user__header">
+                    <img src="{{getAvatar account}}" alt="">
+                  </div>
+                  <div class="avatar-user__header-left">
+                    <li>Name: {{getFullname user}}</li>
+                    <li>Email: {{getEmail user}}</li>
+                    <li>Role: {{getRole user}}</li>
+                    <li>Department: {{getDepartment user}}</li>
+                  </div>
                   {{!-- <li><a class="out-user" onclick="logout()">Log Out <i class="bi bi-box-arrow-right"></i></a></li> --}}
                 </ul>
                 {{else}}

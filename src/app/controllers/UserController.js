@@ -1,7 +1,11 @@
 const path = require("path");
 const nodemailer = require("nodemailer");
 const Account = require("../models/Account");
+const AccountModel = require("../models/Account");
 const { userMongooseToObject } = require("../../util/userMongoose");
+const multer = require("multer");
+const upload = multer({ dest: "uploads/" });
+const fs = require("fs");
 const bcrypt = require("bcrypt");
 const {
   checkLogin,
@@ -11,6 +15,7 @@ const {
   checkAdmin,
   dataDepartment,
 } = require("../../util/authonize");
+const { error } = require("console");
 
 class UserController {
   //[GET] user
@@ -42,22 +47,89 @@ class UserController {
   }
 
   // [PUT] Edit User
-  updateUser(req, res, next) {
-    const salt = bcrypt.genSaltSync(10);
-    const hash = bcrypt.hashSync(req.body.password, salt);
-    Account.updateOne(
-      { _id: req.params.id },
-      {
-        password: hash,
-        username: req.body.username,
-        adremail: req.body.adremail,
-        fullname: req.body.fullname,
-        role: req.body.role,
-        department: req.body.department,
+  async updateUser(req, res, next) {
+    try {
+      const password = req.body.password;
+      const id = req.params.id;
+      //uploads file
+      if (req.file) {
+        console.log("đã có file");
+        // Kiểm tra xem có file được tải lên không
+        const data = await fs.promises.readFile(req.file.path); // sửa chỗ này
+        if (data) {
+          console.log("đã tới đây và có file");
+          if (password) {
+            console.log("đã tới đây có file và có password");
+            const hash = await bcrypt.hash(password, 10);
+            const updateUser = await AccountModel.findByIdAndUpdate(
+              id,
+              {
+                password: hash,
+                username: req.body.username,
+                adremail: req.body.adremail,
+                fullname: req.body.fullname,
+                role: req.body.role,
+                department: req.body.department,
+                avatar: req.file.filename,
+              },
+              { new: true }
+            );
+            res.redirect("/user");
+          } else {
+            console.log("đã tới đây có file nhưng không có password");
+            const updatedUser = await AccountModel.findByIdAndUpdate(
+              id,
+              {
+                username: req.body.username,
+                adremail: req.body.adremail,
+                fullname: req.body.fullname,
+                role: req.body.role,
+                department: req.body.department,
+                avatar: req.file.filename,
+              },
+              { new: true }
+            );
+            res.redirect("/user");
+          }
+        }
+      } else {
+        console.log("không có file");
+        if (password) {
+          console.log("đã tới đây không có file nhưng có password");
+          const hash = await bcrypt.hash(password, 10);
+          const updateUser = await AccountModel.findByIdAndUpdate(
+            id,
+            {
+              password: hash,
+              username: req.body.username,
+              adremail: req.body.adremail,
+              fullname: req.body.fullname,
+              role: req.body.role,
+              department: req.body.department,
+            },
+            { new: true }
+          );
+          res.redirect("/user");
+        } else {
+          console.log("đã tới đây khônng có file và không có password");
+
+          const updatedUser = await AccountModel.findByIdAndUpdate(
+            id,
+            {
+              username: req.body.username,
+              adremail: req.body.adremail,
+              fullname: req.body.fullname,
+              role: req.body.role,
+              department: req.body.department,
+            },
+            { new: true }
+          );
+          res.redirect("/user");
+        }
       }
-    )
-      .then(() => res.redirect("/user"))
-      .catch((error) => {});
+    } catch {
+      console.log(error);
+    }
   }
 
   // [DELETE] Delete User

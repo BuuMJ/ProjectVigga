@@ -1,6 +1,15 @@
 <div class="edit__user">
-  <form method="post" action="/user/{{account._id}}?_method=PUT" class="edit__card">
-    <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 text-white">Edit Form</h3>
+  <div class="header-user">
+    <h1>edit information</h1>
+  </div>
+  <form method="post" action="/user/{{account._id}}?_method=PUT" enctype="multipart/form-data" class="edit__card">
+    <h3 class="title-create__user">Edit User</h3>
+    <div class="full__type change-avatar">
+      <label class="parent-change" for="changeavatar"><img class="avatar_user-show" src="{{getAvatar account}}" alt=""></label>
+      <input type="file" id="changeavatar" name="avatar" hidden>
+      <label class="child-change" for="changeavatar">change</label>
+      <label class="user__change-avatar" for="changeavatar">Change Avatar User</label>
+    </div>
     <div class="full__type">
       <label for="inputFullname">Full name</label>
       <input name="fullname" type="text" value="{{account.fullname}}" class="type_fullName" id="inputFullname" />
@@ -15,7 +24,7 @@
     </div>
     <div class="full__type">
       <label for="inputPassword4">Password</label>
-      <input name="password" type="password" value="{{account.password}}" class="type_password" id="inputPassword4" />
+      <input name="password" type="password"  class="type_password" id="inputPassword4" />
     </div>
     <div class="full__type">
       <label for="inputState">Role</label>
@@ -36,10 +45,32 @@
     </div>
     <div class="edit__checkbox">
       <input type="checkbox" id="checkbox" name="edit__checkbox" required>
-      <label for="edit__checkbox">I agree to terms</label>
+      <label for="checkbox">I agree to terms</label>
     </div>
     <div class="full__type btn-user">
     <button id="btn-user" type="submit" class="button__user">edit</button>
     </div>
   </form>
 </div>
+<script>
+  var file = document.querySelector('#changeavatar');
+    var img = document.querySelector('.avatar_user-show');
+    file.addEventListener('change', () => {
+        const chooseFile = file.files[0];
+        if (chooseFile) {
+            const reader = new FileReader();
+            reader.addEventListener('load', () => {
+                img.setAttribute('src', reader.result);
+            });
+            reader.readAsDataURL(chooseFile);
+        }
+    });
+  const hover = document.querySelector('.parent-change');
+  const showChange = document.querySelector('.child-change');
+  hover.addEventListener('mouseover',() =>{
+    showChange.style.cssText = 'display: flex;';
+  });
+  showChange.addEventListener('mouseout', ()=>{
+    showChange.style.cssText = 'display: none';
+  });
+</script>

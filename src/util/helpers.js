@@ -22,6 +22,13 @@ module.exports = {
       return 'aaaaâ';
     }
   },
+  getAvatar: function (account) {
+    if (account && account.avatar) {
+      return `/avatar/${account.avatar}`;
+    } else {
+      return "/img/profileimg.jpeg";
+    }
+  },
   ifeq: function (user, y, options) {
     // console.log(user)
     var currentRole = user == undefined ? "" : user.role;
