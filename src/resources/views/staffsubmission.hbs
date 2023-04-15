@@ -17,62 +17,50 @@
               {{#ifeq user 'admin'}}
                 {{#each submission}}
                 <div class="table-wrapper">
-                <table class="table-staffsubmission" >
-            <tbody id="staffsubmission-list">
-                <tr class="show-submission__list">
-                    <td class="name-submission">{{this.name}}</td>
-                    <td class="time-deadline1">{{moment this.deadline_1 format ="DD MMM YYYY HH:mm:ss" }}</td>
-                    <td class="time-deadline2">{{moment this.deadline_2 format ="DD MMM YYYY HH:mm:ss" }}</td>
-                    <td class="status-deadline">Ongoing <i class="bi bi-flag-fill"></i></td>
-                    <td class="action-item">                         
+                <div class="show-submission__list">
+                    <span class="name-submission">{{this.name}}</span>
+                    <span class="time-deadline1">{{moment this.deadline_1 format ="DD MMM YYYY HH:mm:ss" }}</span>
+                    <span class="time-deadline2">{{moment this.deadline_2 format ="DD MMM YYYY HH:mm:ss" }}</span>
+                    <span class="status-deadline">Ongoing <i class="bi bi-flag-fill"></i></span>
+                    <div class="action-item">                         
                             <a href="/staffsubmission/{{this._id}}" class="staffsubmission-btn__view" >View</a>
                             <a href="/staffsubmission/{{this._id}}/exportZip.zip" class="staffsubmission-btn__download-zip" download>Export Zip</a>
                             <a href="/staffsubmission/{{this._id}}/exportIdea" class="staffsubmission-btn__download-excel" download>Export Excel</a>
-                    </td>
-                </tr>
+                    </div>
+                </div>
                 <span class="department-submission">{{this.department}}</span>
-                </tbody>
-                </table>
                 </div>
                 {{/each}}
                 {{else ifeq user 'manager'}}
                 {{#each submission}}
                 <div class="table-wrapper">
-                <table class="table-staffsubmission" >
-            <tbody id="staffsubmission-list">
-                <tr class="show-submission__list">
-                    <td class="name-submission">{{this.name}}</td>
-                    <td class="time-deadline1">{{moment this.deadline_1 format ="DD MMM YYYY HH:mm:ss" }}</td>
-                    <td class="time-deadline2">{{moment this.deadline_2 format ="DD MMM YYYY HH:mm:ss" }}</td>
-                    <td class="status-deadline">Ongoing <i class="bi bi-flag-fill"></i></td>
-                    <td class="action-item">                         
+                <div class="show-submission__list">
+                    <span class="name-submission">{{this.name}}</span>
+                    <span class="time-deadline1">{{moment this.deadline_1 format ="DD MMM YYYY HH:mm:ss" }}</span>
+                    <span class="time-deadline2">{{moment this.deadline_2 format ="DD MMM YYYY HH:mm:ss" }}</span>
+                    <span class="status-deadline">Ongoing <i class="bi bi-flag-fill"></i></span>
+                    <div class="action-item">                         
                             <a href="/staffsubmission/{{this._id}}" class="staffsubmission-btn__view" >View</a>
                             <a href="/staffsubmission/{{this._id}}/exportZip.zip" class="staffsubmission-btn__download-zip" download>Export Zip</a>
                             <a href="/staffsubmission/{{this._id}}/exportIdea" class="staffsubmission-btn__download-excel" download>Export Excel</a>
-                    </td>
-                </tr>
+                    </div>
+                </div>
                 <span class="department-submission">{{this.department}}</span>
-                </tbody>
-                </table>
                 </div>
                 {{/each}}
                 {{else}}
                 {{#each submission}}
                 <div class="table-wrapper">
-                <table class="table-staffsubmission" >
-            <tbody id="staffsubmission-list">
-                <tr class="show-submission__list">
-                    <td class="name-submission">{{this.name}}</td>
-                    <td class="time-deadline1">{{moment this.deadline_1 format ="DD MMM YYYY HH:mm:ss" }}</td>
-                    <td class="time-deadline2">{{moment this.deadline_2 format ="DD MMM YYYY HH:mm:ss" }}</td>
-                    <td class="status-deadline">Ongoing <i class="bi bi-flag-fill"></i></td>
-                    <td class="action-item action-item__user">                         
-                            <a href="/staffsubmission/{{this._id}}" class="staffsubmission-btn__view">View Detail</a>
-                    </td>
-                </tr>
+                <div class="show-submission__list">
+                    <span class="name-submission">{{this.name}}</span>
+                    <span class="time-deadline1">{{moment this.deadline_1 format ="DD MMM YYYY HH:mm:ss" }}</span>
+                    <span class="time-deadline2">{{moment this.deadline_2 format ="DD MMM YYYY HH:mm:ss" }}</span>
+                    <span class="status-deadline">Ongoing <i class="bi bi-flag-fill"></i></span>
+                    <div class="action-item">                         
+                            <a href="/staffsubmission/{{this._id}}" class="staffsubmission-btn__view" >View</a>
+                    </div>
+                </div>
                 <span class="department-submission">{{this.department}}</span>
-                </tbody>
-                </table>
                 </div>
                 {{/each}}
                 {{/ifeq}}
@@ -113,7 +101,7 @@ for (var i = 0; i < checkDeadline2.length; i++) {
     var endGet = limit * thisPage - 1;
     list.forEach((item, key) => {
       if (key >= beginGet && key <= endGet) {
-        item.style.display = 'block';
+        item.style.display = 'flex';
       } else {
         item.style.display = 'none';
       }
