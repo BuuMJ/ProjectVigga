@@ -1,0 +1,59 @@
+<div class="edit__user">
+  <div class="header-user__profile">
+    <h1>edit information</h1>
+  </div>
+  <form method="post" action="/user/profile/update?_method=PUT" enctype="multipart/form-data" class="edit__card">
+    <h3 class="title-create__user">Edit Your Profile</h3>
+    <div class="full__type change-avatar">
+      <label class="parent-change" for="changeavatar"><img class="avatar_user-show" src="{{getAvatar user}}" alt=""></label>
+      <input type="file" id="changeavatar" name="avatar" hidden>
+      <label class="child-change" for="changeavatar">change</label>
+      <label class="user__change-avatar" for="changeavatar">Change Your Avatar</label>
+    </div>
+    <div class="full__type">
+      <label for="inputFullname">Full name</label>
+      <input name="fullname" type="text" value="{{getFullname user}}" class="type_fullName" id="inputFullname" />
+    </div>
+    <div class="full__type">
+      <label for="inputEmail4">Email</label>
+      <input style="cursor: not-allowed; color:#C4C4C4" title="you cannot change the email, if there is a mistake please contact the Administrator" name="adremail" type="email" value="{{getEmail user}}" class="type_email" id="inputEmail4" readonly/>
+    </div>
+    <div class="full__type">
+      <label for="inputName">User name</label>
+      <input style="cursor: not-allowed; color:#C4C4C4" title="you cannot change the Username, if there is a mistake please contact the Administrator" name="username" type="text" value="{{getName user}}" class="type_name" id="inputName"  readonly/>
+    </div>
+    <div class="full__type">
+      <label for="inputPassword4">Password</label>
+      <input name="password" type="password"  class="type_password" id="inputPassword4" />
+    </div>
+    <div class="edit__checkbox">
+      <input type="checkbox" id="checkbox" name="edit__checkbox" oninvalid="this.setCustomValidity('agree to change click here')" oninput="setCustomValidity('')" required>
+      <label for="checkbox">I agree to terms</label>
+    </div>
+    <div class="full__type btn-user">
+    <button id="btn-user" type="submit" class="button__user">Save Changes</button>
+    </div>
+  </form>
+</div>
+<script>
+  var file = document.querySelector('#changeavatar');
+    var img = document.querySelector('.avatar_user-show');
+    file.addEventListener('change', () => {
+        const chooseFile = file.files[0];
+        if (chooseFile) {
+            const reader = new FileReader();
+            reader.addEventListener('load', () => {
+                img.setAttribute('src', reader.result);
+            });
+            reader.readAsDataURL(chooseFile);
+        }
+    });
+  const hover = document.querySelector('.parent-change');
+  const showChange = document.querySelector('.child-change');
+  hover.addEventListener('mouseover',() =>{
+    showChange.style.cssText = 'display: flex;';
+  });
+  showChange.addEventListener('mouseout', ()=>{
+    showChange.style.cssText = 'display: none';
+  });
+</script>

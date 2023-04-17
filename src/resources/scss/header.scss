@@ -193,12 +193,12 @@ ul.login-not-user{
   background-color: rgba(0, 0, 0, 0.9);
   padding: 10px 12px!important;
   border-bottom: 2px solid #e10d11;
-  bottom: -172px;
+  bottom: -202px;
   right: 0;
   text-decoration: none;
   list-style-type: none;
   font-weight: 700;
-  height: 170px;
+  height: 200px;
   font-size: 16px;
 }
 
@@ -207,7 +207,8 @@ ul.login-not-user{
   margin-bottom: 8px;
 }
 
-a.out-user:hover{
+a.out-user:hover,
+a.profile-user:hover{
   cursor: pointer;
   text-decoration: underline;
 }
@@ -275,12 +276,23 @@ a.out-user:hover{
   }
   .user-info__mini .avatar-user__header{
     width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
   }
   .user-info__mini .avatar-user__header img{
     width: 80px;
     height: 80px;
     border: 1px solid $primarycolor;
     padding: 4px;
+  }
+  .user-info__mini .avatar-user__header span{
+    width: 100%;
+    text-align: center;
+  }
+  .user-info__mini .avatar-user__header .profile-user{
+    padding: unset !important;
   }
   .avatar-user__header-left {
     width: 70%;

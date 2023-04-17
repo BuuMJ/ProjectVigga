@@ -38,7 +38,7 @@
       </select>
     </div>
     <div class="user__checkbox">
-      <input type="checkbox" id="checkbox" name="user__checkbox" required>
+      <input type="checkbox" id="checkbox" name="user__checkbox" oninvalid="this.setCustomValidity('Are you sure with the above information before creating an account?')" oninput="setCustomValidity('')" required>
       <label for="checkbox">I agree to terms</label>
     </div>
     <div class="full__type btn-user">
@@ -49,7 +49,7 @@
   <div class="boxer-user">
     {{#each account}}
     <div class="card-user">
-      <img src="{{getAvatar this}}" alt="">
+      <img src="{{getAvataraccount this}}" alt="">
       <h4 class="card-user__info">{{this.fullname}}</h1>
       <h4 class="card-user__info">{{this.adremail}}</h4>
       <h4 class="card-user__info">{{this.role}}</h2>

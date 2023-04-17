@@ -22,7 +22,14 @@ module.exports = {
       return 'aaaaâ';
     }
   },
-  getAvatar: function (account) {
+  getAvatar: function (user) {
+    if (user && user.avatar) {
+      return `/avatar/${user.avatar}`;
+    } else {
+      return "/img/profileimg.jpeg";
+    }
+  },
+  getAvataraccount: function (account) {
     if (account && account.avatar) {
       return `/avatar/${account.avatar}`;
     } else {

@@ -191,19 +191,20 @@ ul.login-not-user {
   background-color: rgba(0, 0, 0, 0.9);
   padding: 10px 12px !important;
   border-bottom: 2px solid #e10d11;
-  bottom: -172px;
+  bottom: -202px;
   right: 0;
   text-decoration: none;
   list-style-type: none;
   font-weight: 700;
-  height: 170px;
+  height: 200px;
   font-size: 16px; }
 
 .show-user-info > *,
 .show-user-info__mini > * {
   margin-bottom: 8px; }
 
-a.out-user:hover {
+a.out-user:hover,
+a.profile-user:hover {
   cursor: pointer;
   text-decoration: underline; }
 
@@ -251,12 +252,21 @@ a.out-user:hover {
     justify-content: space-around;
     align-items: flex-start; }
   .user-info__mini .avatar-user__header {
-    width: 30%; }
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center; }
   .user-info__mini .avatar-user__header img {
     width: 80px;
     height: 80px;
     border: 1px solid #e10d11;
     padding: 4px; }
+  .user-info__mini .avatar-user__header span {
+    width: 100%;
+    text-align: center; }
+  .user-info__mini .avatar-user__header .profile-user {
+    padding: unset !important; }
   .avatar-user__header-left {
     width: 70%; }
   .avatar-user__header-left > * {
@@ -2718,7 +2728,8 @@ a.btn-category-back {
   background: unset;
   background-color: #f9f9fa; }
 
-.header-user {
+.header-user,
+.header-user__profile {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -2727,6 +2738,9 @@ a.btn-category-back {
   height: 450px;
   position: relative;
   background: linear-gradient(to top, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.3)), url("/img/bguser.jpeg") center/cover no-repeat; }
+
+.header-user__profile {
+  background: linear-gradient(to top, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.3)), url("/img/bgprofile.jpeg") center/cover no-repeat; }
 
 .title-create__user {
   font-size: 28px;
@@ -2774,7 +2788,8 @@ a.btn-category-back {
 .edit__card .full__type label {
   text-align: start; }
 
-.header-user h1 {
+.header-user h1,
+.header-user__profile h1 {
   color: white;
   text-transform: uppercase;
   letter-spacing: 1.5px;
@@ -3044,7 +3059,10 @@ h4.department-position {
   .card-user {
     height: 55%; }
   .card-user img {
-    margin-top: 35px; } }
+    margin-top: 35px; }
+  .header-user__profile h1 {
+    font-size: 40px;
+    text-align: center; } }
 
 @media screen and (max-width: 376px) {
   .user__checkbox label,

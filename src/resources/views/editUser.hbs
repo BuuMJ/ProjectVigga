@@ -5,7 +5,7 @@
   <form method="post" action="/user/{{account._id}}?_method=PUT" enctype="multipart/form-data" class="edit__card">
     <h3 class="title-create__user">Edit User</h3>
     <div class="full__type change-avatar">
-      <label class="parent-change" for="changeavatar"><img class="avatar_user-show" src="{{getAvatar account}}" alt=""></label>
+      <label class="parent-change" for="changeavatar"><img class="avatar_user-show" src="{{getAvataraccount account}}" alt=""></label>
       <input type="file" id="changeavatar" name="avatar" hidden>
       <label class="child-change" for="changeavatar">change</label>
       <label class="user__change-avatar" for="changeavatar">Change Avatar User</label>
@@ -44,7 +44,7 @@
       </select>
     </div>
     <div class="edit__checkbox">
-      <input type="checkbox" id="checkbox" name="edit__checkbox" required>
+      <input type="checkbox" id="checkbox" name="edit__checkbox" oninvalid="this.setCustomValidity('Are you sure with your changes? , please double check again and tick here')" oninput="setCustomValidity('')" required>
       <label for="checkbox">I agree to terms</label>
     </div>
     <div class="full__type btn-user">

@@ -33,6 +33,21 @@ class UserController {
       .catch(next);
   }
 
+  //[GET] edit profile
+  editProfile(req, res, next) {
+    Account.find({})
+      .then((account) => {
+        account = account.map((account) => account.toObject());
+        res.render("editprofile", {
+          account,
+          user: req.user,
+          title: "Profile",
+          data: data,
+        });
+      })
+      .catch(next);
+  }
+
   // [GET] edit user
   editUser(req, res, next) {
     Account.findById(req.params.id)
@@ -44,6 +59,62 @@ class UserController {
         })
       )
       .catch(next);
+  }
+
+  //[PUT] edit user
+  async updateProfile(req, res, next) {
+    try {
+      const password = req.body.password;
+      const id = req.user._id;
+      //uploads file
+      if (req.file) {
+        console.log("đã có file");
+        // Kiểm tra xem có file được tải lên không
+        const data = await fs.promises.readFile(req.file.path); // sửa chỗ này
+        if (data) {
+          console.log("đã tới đây và có file");
+          if (password) {
+            console.log("đã tới đây có file và có password");
+            const hash = await bcrypt.hash(password, 10);
+            const updateUser = await AccountModel.findByIdAndUpdate(
+              id,
+              {
+                password: hash,
+                avatar: req.file.filename,
+              },
+              { new: true }
+            );
+            res.redirect("/user/profile");
+          } else {
+            console.log("đã tới đây có file nhưng không có password");
+            const updatedUser = await AccountModel.findByIdAndUpdate(
+              id,
+              {
+                avatar: req.file.filename,
+              },
+              { new: true }
+            );
+            res.redirect("/user/profile");
+          }
+        }
+      } else {
+        console.log("không có file");
+        if (password) {
+          console.log("đã tới đây không có file nhưng có password");
+          const hash = await bcrypt.hash(password, 10);
+          const updateUser = await AccountModel.findByIdAndUpdate(
+            id,
+            {
+              password: hash,
+            },
+            { new: true }
+          );
+          res.redirect("/user/profile");
+        }
+      }
+    } catch {
+      console.log(error);
+    }
   }
 
   // [PUT] Edit User

@@ -11,6 +11,8 @@ const {
 } = require("../util/authonize");
 
 router.get("/", userController.index);
+router.get("/profile", userController.editProfile);
+router.put("/profile/update", upload.single('avatar'), userController.updateProfile);
 router.get("/:id/editUser", userController.editUser);
 router.put("/:id", upload.single('avatar'), userController.updateUser);
 router.delete("/:id", userController.deleteUser);
