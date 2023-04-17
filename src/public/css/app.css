@@ -1489,6 +1489,7 @@ a.btn-create-idea-back {
   font-size: 50px;
   font-weight: 700;
   margin-top: 150px;
+  margin-bottom: 50px;
   color: #f8f8f8; }
 
 .idea-application a {
@@ -1524,18 +1525,17 @@ a.btn-create-idea-back {
 .idea_back_btn:hover {
   transform: scale(1.1); }
 
-.show-idea__list,
-.idea-show-list {
-  border: 1px solid #bcbcbc; }
-
 .table-deadline,
 .table-idea {
-  color: black;
-  margin-bottom: 20px; }
+  color: white;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 14px rgba(255, 255, 255, 0.5);
+  border-radius: 5px;
+  overflow: hidden; }
 
 .table-deadline thead,
 .table-idea thead {
-  background-color: #DCDCDC;
+  background-color: #010302;
   text-align: left; }
 
 .table-deadline th,
@@ -1547,6 +1547,7 @@ a.btn-create-idea-back {
 
 .table-deadline tbody,
 .table-idea tbody {
+  color: black;
   background-color: white;
   height: 40px;
   position: relative; }
