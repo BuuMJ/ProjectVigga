@@ -220,7 +220,10 @@ a.profile-user:hover {
   .show-user-info {
     font-size: 14px; }
   .nav-list a, .nav-list li {
-    width: 170px; } }
+    width: 170px; }
+  .navbar-center .welcome span {
+    font-size: 24px;
+    letter-spacing: 10px; } }
 
 @media screen and (min-width: 319px) and (max-width: 900px) {
   .header {
@@ -3118,7 +3121,7 @@ h4.department-position {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  height: 800px;
+  min-height: 900px;
   background: url("/img/bglogin.jpg") center/cover no-repeat; }
 
 .login-form {
@@ -3262,6 +3265,14 @@ label {
   position: absolute;
   top: 0;
   right: 26px; }
+
+@media screen and (max-width: 1024px) {
+  .box-login {
+    min-height: 1370px;
+    align-items: flex-start; }
+  .login-form,
+  .acc-login {
+    margin-top: 180px; } }
 
 @media screen and (max-width: 768px) {
   .login-form {

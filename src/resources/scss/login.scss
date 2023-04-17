@@ -3,7 +3,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  height: 800px;
+  min-height: 900px;
   background: url("/img/bglogin.jpg") center / cover no-repeat;
 }
 .login-form {
@@ -160,6 +160,16 @@ label {
 }
 
 // Responsive
+@media screen and (max-width: 1024px) {
+  .box-login{
+    min-height: 1370px;
+    align-items: flex-start;
+  }
+  .login-form,
+  .acc-login{
+    margin-top: 180px;
+  }
+}
 @media screen and (max-width: 768px) {
   .login-form {
   width: 70%;

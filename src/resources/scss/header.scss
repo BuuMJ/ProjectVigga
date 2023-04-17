@@ -233,6 +233,10 @@ a.profile-user:hover{
   .nav-list a, .nav-list li{
     width: 170px;
   }
+  .navbar-center .welcome span{
+    font-size: 24px;
+    letter-spacing: 10px;
+  }
 }
 @media screen and (min-width: 319px) and (max-width: 900px) {
   .header {
