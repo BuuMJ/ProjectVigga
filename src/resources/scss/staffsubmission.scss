@@ -434,6 +434,7 @@ a.back-detail{
 }
 .body-detail .content-detail{
     padding: 12px 20px ;
+    white-space: pre-wrap;
 }
 .body-detail .container__file-detail{
     padding: 0 20px 12px 20px  !important;
@@ -472,7 +473,6 @@ a.back-detail{
   }
   .comment-content{
     white-space: pre-wrap;
-    text-transform: capitalize;
   }
 //     .main__info-comment{
 //     display: flex;
