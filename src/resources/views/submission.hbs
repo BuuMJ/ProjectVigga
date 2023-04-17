@@ -142,6 +142,9 @@
         alertDiv.classList.add('login-error', 'alert-managements');
         alertDiv.innerHTML = message;
         document.body.appendChild(alertDiv);
+        setTimeout(function(){
+        alertDiv.style.display = "none";
+      }, 10000);
     }
     let mainTables = document.querySelectorAll('.main-table');
 if (mainTables.length % 2 !== 0) {

@@ -30,8 +30,6 @@
             </div> 
             {{else}}
             {{/if}}
-            <div class="time-deadline1" >Deadline 1: </div>
-            <div class="time-deadline2">Deadline 2:  </div>
          </div>
         </div>
          <div class="detail-application">
@@ -121,5 +119,16 @@ for(let i = 0; i < formDeleteCMT.length; i++ ){
     }
   });
 }
+const urlParams = new URLSearchParams(window.location.search);
+    const message = urlParams.get('message');
+    if (message) {
+        const alertDiv = document.createElement('div');
+        alertDiv.classList.add('login-error', 'alert-managements', 'comment');
+        alertDiv.innerHTML = message;
+        document.body.appendChild(alertDiv);
+        setTimeout(function(){
+        alertDiv.style.display = "none";
+      }, 10000);
+    }
 
 </script>

@@ -1025,6 +1025,13 @@ span.overtime__days-remaining{
     padding: 2px 6px;
     border-radius: 5px;
 }
+ .comment{
+    top: 19.4% !important;
+    width: 430px;
+    left: 50% !important;
+    right: 50%; 
+    transform: translateX(-50%);
+}
 @media  screen and (max-width: 1024px) {
     .main-staffsubmission,
     .main-detail{

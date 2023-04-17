@@ -7,6 +7,7 @@ const upload = multer({ dest: "uploads/" });
 const fs = require("fs");
 const path = require("path");
 const excelJs = require("exceljs");
+const querystring = require('querystring');
 const Admzip = require("adm-zip");
 const Action = require("../models/action");
 const AccountModel = require("../models/Account");
@@ -385,11 +386,15 @@ class StaffsubmissionController {
       const commentId = req.params.commentid;
       const comment = idea.comment.id(commentId);
       if (req.user.username.toString() !== comment.username.toString() && req.user.role !== "admin") {
-        return res.status(401).json({ message: "Bạn không có quyền xoá comment này" });
-      }
+        const message = 'You do not have the right to delete this comment';
+        const url = '/staffsubmission/idea/' + idea._id + '/view?' + querystring.stringify({ message: message });
+        res.redirect(url);
+        // return res.status(401).json({ message: "Bạn không có quyền xoá comment này" });
+      }else{
       comment.remove();
       await idea.save();
       res.redirect('/staffsubmission/idea/' + idea._id + '/view');
+    }
     } catch (error) {
       res.status(400).json({ message: error.message });
       // res.redirect('back');

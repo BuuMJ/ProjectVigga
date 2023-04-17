@@ -131,6 +131,9 @@
         alertDiv.classList.add('login-error', 'alert');
         alertDiv.innerHTML = message;
         document.body.appendChild(alertDiv);
+        setTimeout(function(){
+        alertDiv.style.display = "none";
+      }, 10000);
     }
 </script>
 {{!---------Page---------------}}
