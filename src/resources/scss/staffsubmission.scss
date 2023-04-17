@@ -197,6 +197,7 @@
     justify-content: flex-start;
     align-items: center;
     background: linear-gradient(to top,rgba(255,255,255,0.2), rgba(0,0,0,0.5)), url("/img/bgmaindetail.jpeg") center / cover no-repeat;
+    min-height: 1080px;
   }
   .detail-application {
     display: flex;

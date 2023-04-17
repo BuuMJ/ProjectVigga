@@ -1022,7 +1022,8 @@ a.profile-user:hover {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  background: linear-gradient(to top, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.5)), url("/img/bgmaindetail.jpeg") center/cover no-repeat; }
+  background: linear-gradient(to top, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.5)), url("/img/bgmaindetail.jpeg") center/cover no-repeat;
+  min-height: 1080px; }
 
 .detail-application {
   display: flex;
@@ -2081,7 +2082,8 @@ span.overtime__days-remaining {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  background: url("/img/bgcontent.jpg") center/cover no-repeat; }
+  background: url("/img/bgcontent.jpg") center/cover no-repeat;
+  min-height: 1080px; }
 
 .main-department {
   background-color: #fafafb;
