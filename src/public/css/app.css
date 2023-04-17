@@ -931,6 +931,12 @@ a.profile-user:hover {
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
   color: black; }
 
+.table-wrapper:nth-child(even) .show-submission__list {
+  background-color: #dddddd; }
+
+.show-submission__list:hover {
+  box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.8); }
+
 .show-submission__list .name-submission,
 .show-submission__list .time-deadline1,
 .show-submission__list .time-deadline2,
