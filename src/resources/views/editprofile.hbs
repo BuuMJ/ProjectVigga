@@ -6,7 +6,7 @@
     <h3 class="title-create__user">Edit Your Profile</h3>
     <div class="full__type change-avatar">
       <label class="parent-change" for="changeavatar"><img class="avatar_user-show" src="{{getAvatar user}}" alt=""></label>
-      <input type="file" id="changeavatar" name="avatar" hidden>
+      <input type="file" id="changeavatar" name="avatar" accept="image/*" hidden>
       <label class="child-change" for="changeavatar">change</label>
       <label class="user__change-avatar" for="changeavatar">Change Your Avatar</label>
     </div>
@@ -57,4 +57,14 @@
   showChange.addEventListener('mouseout', ()=>{
     showChange.style.cssText = 'display: none';
   });
+  const fileInput = document.querySelector('#changeavatar');
+fileInput.addEventListener('change', function() {
+  const file = fileInput.files[0];
+  const imageType = /^image\//;
+
+  if (!imageType.test(file.type)) {
+    alert('File không phải là ảnh!');
+    fileInput.value = ''; // Xóa giá trị trong input
+  }
+});
 </script>
