@@ -41,7 +41,7 @@ class StaffsubmissionController {
             data: ideas.map((ideas) => ideas.toObject()),
             submission: staffMongoseToObject(submission),
             user: req.user,
-            title: "Detail submission",
+            title: "List Idea",
             idSub: req.session.idSub,
           });
         });

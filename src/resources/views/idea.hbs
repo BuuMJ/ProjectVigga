@@ -69,12 +69,14 @@ var checkDeadline1 = document.querySelectorAll('.time-deadline1');
 var checkDeadline2 = document.querySelectorAll('.time-deadline2');
 var addStatus = document.querySelectorAll('.status-deadline');
 var noneBtnAdd = document.querySelector('.idea_btn');
+var btnBackDeadline = document.querySelector('.idea_back_btn')
 var currentDate = moment();
 var changeAction = document.getElementById('change-form')
 for (let i = 0; i < checkDeadline1.length; i++) {
   var deadline1 = moment(checkDeadline1[i].textContent, "DD MMM YYYY HH:mm:ss");
   if (deadline1.isBefore(currentDate)) {
     noneBtnAdd.classList.add('none');
+    btnBackDeadline.classList.add('remove');
     addStatus[i].innerHTML = 'Deadline 1 Passed <i class="bi bi-reception-2"></i>'
     addStatus[i].classList.add('warning');
   }
