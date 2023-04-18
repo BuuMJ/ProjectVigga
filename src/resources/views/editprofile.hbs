@@ -37,18 +37,25 @@
   </form>
 </div>
 <script>
-  var file = document.querySelector('#changeavatar');
-    var img = document.querySelector('.avatar_user-show');
-    file.addEventListener('change', () => {
-        const chooseFile = file.files[0];
-        if (chooseFile) {
-            const reader = new FileReader();
-            reader.addEventListener('load', () => {
-                img.setAttribute('src', reader.result);
-            });
-            reader.readAsDataURL(chooseFile);
-        }
+  const fileInput = document.querySelector('#changeavatar');
+const img = document.querySelector('.avatar_user-show');
+let currentImage = img.src;
+fileInput.addEventListener('change', function() {
+  const file = fileInput.files[0];
+  const imageType = /^image\//;
+
+  if (imageType.test(file.type)) {
+    const reader = new FileReader();
+    reader.addEventListener('load', () => {
+      img.setAttribute('src', reader.result);
     });
+    reader.readAsDataURL(file);
+  } else {
+    alert('File is not an image!');
+    fileInput.value = '';
+    img.setAttribute('src', currentImage);
+  }
+});
   const hover = document.querySelector('.parent-change');
   const showChange = document.querySelector('.child-change');
   hover.addEventListener('mouseover',() =>{
@@ -57,14 +64,4 @@
   showChange.addEventListener('mouseout', ()=>{
     showChange.style.cssText = 'display: none';
   });
-  const fileInput = document.querySelector('#changeavatar');
-fileInput.addEventListener('change', function() {
-  const file = fileInput.files[0];
-  const imageType = /^image\//;
-
-  if (!imageType.test(file.type)) {
-    alert('File không phải là ảnh!');
-    fileInput.value = ''; // Xóa giá trị trong input
-  }
-});
 </script>
