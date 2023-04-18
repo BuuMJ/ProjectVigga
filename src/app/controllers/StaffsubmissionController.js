@@ -34,12 +34,12 @@ class StaffsubmissionController {
       .then((submission) => {
         var submissionName = submission.name;
 
-        Idea.find({ submission: submissionName }).then((ideas) => {
+        Idea.find({ submission: submissionName })
+        .then((ideas) => {
           req.session.idSub = submission;
           res.render("idea", {
             data: ideas.map((ideas) => ideas.toObject()),
             submission: staffMongoseToObject(submission),
-
             user: req.user,
             title: "Detail submission",
             idSub: req.session.idSub,

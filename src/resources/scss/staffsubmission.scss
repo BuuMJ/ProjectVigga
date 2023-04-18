@@ -780,6 +780,27 @@ a.btn-create-idea-back {
 //     display: inline-block;
 //     margin-left: 710px;
 // }
+.show-idea__list{
+    position: relative;
+}
+.show-idea__list:nth-child(even){
+    background-color: #dddddd;
+}
+.show-idea__list:hover{
+    background-color: rgba(225, 13, 17, 0.2);
+}
+.position-category{
+    display: inline;
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 8px;
+    border-bottom-right-radius: 5px;
+    color: #bc04fc;
+    background-color: rgba(188, 4, 252, 0.2);
+}
 
 .table-deadline,
 .table-idea {
@@ -800,6 +821,9 @@ a.btn-create-idea-back {
 .table-idea td {
     font-size: 18px;
     padding: 12px 12px;
+}
+.table-idea td.idea-title {
+    padding: 16px 12px 12px 12px !important;
 }
 .table-deadline tbody,
 .table-idea tbody {
@@ -1113,12 +1137,12 @@ span.overtime__days-remaining{
         width: 50%;
     }
     button.like_btn{
-        right: 54px;
-        margin-top: -50px;
+        right: 22px;
+        top: 5px;
         position: absolute;
     }
     button.dislike_btn{
-        right: 54px;
+        right: 22px;
         margin-top: -8px;
         position: absolute;
     }
@@ -1183,14 +1207,30 @@ span.overtime__days-remaining{
     
     .main-idea {
     height: 100%;
+    align-items: flex-start;
+}
+.idea-text {
+    margin: 150px 0 40px 0;
+    text-align: center;
+    width: 100%;
+}
+.idea-application{
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.table-idea{
+    width: 90%;
+}
+.table-deadline {
+    margin: 0 auto;
+    width: 95%;
 }
     button.like_btn{
-    margin-top: -38px;
     right: 12px;
     position: absolute;
 }
 button.dislike_btn {
-    margin-top: 0px;
     right: 12px;
     position: absolute;
 }
@@ -1208,12 +1248,6 @@ button.dislike_btn {
     margin-left: 100px;
 }
 
-.table-deadline {
-    width: 80%;
-}
-.table-idea{
-    width: 100%;
-}
 .sub_btn {
     margin-left: 185px;
 }
@@ -1228,6 +1262,9 @@ button.dislike_btn {
 .show-submission__list .name-submission, .show-submission__list .time-deadline1, .show-submission__list .time-deadline2, .show-submission__list .status-deadline, .submission-show_list .name-title, .submission-show_list .time-deadline1-title, .submission-show_list .time-deadline2-title, .submission-show_list .status-title{
     padding: 28px 4px;
 }
+.idea_btn{
+    margin-right: 135px;
+}
 }
 @media screen and (max-width: 415px) {
     .staffsubmission-application {
@@ -1236,6 +1273,7 @@ button.dislike_btn {
     .idea-application{
         width: 95%;
         overflow-x:auto;
+        align-items: unset;
     }
     button.like_btn,
     button.dislike_btn{

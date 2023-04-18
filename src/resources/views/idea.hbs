@@ -25,28 +25,24 @@
     <table class="table-idea">
       <thead>
         <tr class="idea-show-list">
-          <th>Title</th>
+          <th>Title </th>
           <th>Views</th>
           <th >Like</th>
           <th >Dislike</th>
-          <th></th>
+          <th>{{data.title}}</th>
         </tr>
       </thead>
       <tbody id="idea-list">
         {{#each data}}
         <tr class="show-idea__list">
-          <td>{{this.title}}</td>
+          <td class="idea-title"><div class="category-wrapper">{{this.title}}<span class="position-category">{{this.category}}</span></div></td>
           <td>{{this.view}}</td>
-
-          
             <td>
               <form method="POST" action="/staffsubmission/{{this._id}}/like">
               <span>{{this.like}}</span>
               <button class="like_btn" type="submit">Like</button>
               </form>
             </td>
-          
-
           <td>
             <form method="POST" action="/staffsubmission/{{this._id}}/dislike">
             <span>{{this.dislike}}</span>
@@ -58,7 +54,6 @@
             <button href="/staffsubmission/idea/{{this._id}}" type="submit" class="detail-link">Details</button>
             </form>
           </td>
-          
         </tr>
         {{/each}}
       </tbody>
