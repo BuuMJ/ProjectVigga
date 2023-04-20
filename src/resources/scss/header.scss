@@ -71,6 +71,12 @@
   animation-name: MoveInLeft;
   animation-duration: 2s;
 }
+.nav-list__check{
+  justify-content: center;
+}
+.nav-list__check > * {
+  margin: 0 70px;
+}
 .nav-list a,
 .nav-list li {
   color: $whitecolor;
