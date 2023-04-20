@@ -17,7 +17,7 @@ const {
 } = require("../util/authonize");
 
 function route(app) {
-  app.use("/user", checkLogin, checkAdmin, dataDepartment, userRouter);
+  app.use("/user", checkLogin, dataDepartment, userRouter);
 
   app.use("/managements", checkLogin, checkManager, managementsRouter);
 
