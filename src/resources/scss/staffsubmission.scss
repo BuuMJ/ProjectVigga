@@ -534,6 +534,12 @@ a.back-detail{
     text-transform: capitalize;
     letter-spacing: 1.3px;
   }
+  .overtime-cmt{
+    padding: 4px;
+    font-size: 20px;
+    font-weight: 500;
+    border-top: 1px solid #ccc;
+  }
 .main-create-idea {
     display: flex;
     flex-direction: column;
@@ -727,7 +733,7 @@ a.btn-create-idea-back {
     flex-direction: column;
     justify-content: center;
     width: 80%;
-    margin-bottom: 50px;
+    margin-bottom: 150px;
     margin-top: -20px;
 }
 .idea-text {
@@ -1075,7 +1081,8 @@ span.overtime__days-remaining{
 }
 @media  screen and (max-width: 1024px) {
     .main-staffsubmission,
-    .main-detail{
+    .main-detail,
+    .main-idea{
         height: 1366px;
     }
     .main-idea {
@@ -1111,14 +1118,14 @@ span.overtime__days-remaining{
     .submission-show_list .action-list i{
         display: none;
     }
+    .idea-application{
+        margin-bottom: unset;
+    }
 }
 @media  screen and (max-width: 900px) {
     .main-staffsubmission,
     .main-detail{
         height: unset;
-    }
-    .main-idea {
-        height: 100%;
     }
     .staffsubmission-application {
         display: flex;
@@ -1225,7 +1232,7 @@ span.overtime__days-remaining{
     width: 100%;
 }
 .table-idea{
-    width: 90%;
+    width: 100%;
 }
 .table-deadline {
     margin: 0 auto;
@@ -1421,6 +1428,10 @@ button.dislike_btn {
     .action-title_user,
     .action-item_user{
         width: 25% impr !important;
+    }
+    .overtime-cmt{
+        text-align: center;
+        font-size: 18px;
     }
 }
 @media screen and (max-width: 376px) {

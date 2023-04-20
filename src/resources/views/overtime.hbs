@@ -9,7 +9,9 @@
           </div>
         </div>
           <div class="secondary-detail">
-            <div class="role-detail">{{idea.department}}</div>
+            <div class="role-detail-info">
+              <div class="role-detail">Department: {{idea.department}}</div>
+            </div>
             <div class="center-secondary-detail">-</div>
             <div class="time-post-detail">{{moment idea.createdAt format ="DD MMMM YYYY (HH:mm)" }}</div>
           </div>
@@ -22,14 +24,16 @@
           <div class="body-detail">
             <div class="title-detail">{{idea.title}}</div>
             <div class="content-detail">{{idea.content}}</div> 
+            {{#if idea.file}}
             <div class="container__file-detail">
               <span>File:</span> <a class="file-detail" href="/{{idea.submission}}/{{idea.file}}">{{idea.file}}</a>
             </div> 
-            <div class="time-deadline1">Deadline 1: {{moment submission.deadline_1 format ="DD MMM YYYY HH:mm:ss"}}</div>
-            <div class="time-deadline2">Deadline 2: {{moment submission.deadline_2 format ="DD MMM YYYY HH:mm:ss"}} </div>
+            {{else}}
+            {{/if}}
          </div>
         </div>
          <div class="detail-application">
+          <span class="overtime-cmt">Comment</span>
         <ul>            
         {{#each idea.comment}}
         {{#if this.isannoymous}}
