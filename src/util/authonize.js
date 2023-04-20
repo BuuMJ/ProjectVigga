@@ -44,10 +44,7 @@ function checkStaff(req, res, next) {
   ) {
     next();
   } else {
-    return res.render("home", {
-      title: "authorized",
-      msg: "You are not authorized.",
-    });
+    return res.redirect('/')
   }
 }
 
@@ -57,10 +54,7 @@ function checkCoordinator(req, res, next) {
   if (role === "coordinator" || role === "manager" || role === "admin") {
     next();
   } else {
-    return res.render("home", {
-      title: "authorized",
-      msg: "You are not authorized.",
-    });
+    return res.redirect('/')
   }
 }
 
@@ -70,10 +64,7 @@ function checkManager(req, res, next) {
   if (role === "manager" || role === "admin") {
     next();
   } else {
-    return res.render("home", {
-      title: "authorized",
-      msg: "You are not authorized.",
-    });
+    return res.redirect('/')
   }
 }
 
@@ -83,10 +74,7 @@ function checkAdmin(req, res, next) {
   if (role === "admin") {
     next();
   } else {
-    return res.render("home", {
-      title: "authorized",
-      msg: "You are not authorized.",
-    });
+    return res.redirect('/')
   }
 }
 // send data department
