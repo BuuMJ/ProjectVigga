@@ -34,8 +34,8 @@ var storage = multer.diskStorage({
     fs.mkdirSync(path, { recursive: true });
     cb(null, path);
     }else{
-      // Tạo đường dẫn đầy đủ cho thư mục lưu trữ của submission đó
-    var path = "uploads/avatar/";
+      // Tạo đường dẫn đầy đủ cho thư mục lưu trữ của avatar đó
+    var path = "uploads/";
     // Tạo thư mục nếu chưa tồn tại
     fs.mkdirSync(path, { recursive: true });
     cb(null, path);
@@ -46,6 +46,23 @@ var storage = multer.diskStorage({
     cb(null, Date.now() + "-" + file.originalname);
   },
 });
+ 
+var storage2 = multer.diskStorage({
+  // Thư mục lưu trữ file
+  destination: function (req, file, cb) {
+    // Tạo đường dẫn đầy đủ cho thư mục lưu trữ của avatar đó
+    var path = "uploads/avatar/";
+    // Tạo thư mục nếu chưa tồn tại
+    fs.mkdirSync(path, { recursive: true });
+    cb(null, path);
+  },
+  // Đặt tên file
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + "-" + file.originalname);
+  },
+});
+
+
 
 // Hàm filter
 // const imageFilter = function (req, file, cb) {
@@ -57,6 +74,7 @@ var storage = multer.diskStorage({
 // };
 
 const upload = multer({ storage: storage });
+const upload2 = multer({ storage: storage2 });
 // var storage = multer.diskStorage({
 //   // Thư mục lưu trữ file
 //   destination: function (req, file, cb) {
@@ -70,4 +88,4 @@ const upload = multer({ storage: storage });
 
 // const upload = multer({ storage: storage });
 
-module.exports = { dataStatistics, upload };
+module.exports = { dataStatistics, upload, upload2 };

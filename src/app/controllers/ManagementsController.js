@@ -149,22 +149,23 @@ class ManagementsController {
   // [PUT] Update Submission
   updateSubmission(req, res, next) {
     var name = req.body.name;
-    Submission.findOne({ name: name }).then((data) => {
-      if (data) {
-        const message = "Submission already exists!";
-        const url =
-          "/managements/submission?" +
-          querystring.stringify({ message: message });
-        res.redirect(url);
-      } else {
-        Submission.updateOne({
-          deadline_1: req.body.deadline_1,
-          deadline_2: req.body.deadline_2,
-         })
+    console.log(name + 'fix ne')
+    Submission.updateOne({ _id: req.params.id }, req.body)
           .then(() => res.redirect("/managements/submission"))
           .catch((error) => {});
-      }
-    });
+    // Submission.findOne({ name: name }).then((data) => {
+    //   if (data) {
+    //     const message = "Submission already exists!";
+    //     const url =
+    //       "/managements/submission?" +
+    //       querystring.stringify({ message: message });
+    //     res.redirect(url);
+    //   } else {
+    //     Submission.updateOne({ _id: req.params.id }, req.body)
+    //       .then(() => res.redirect("/managements/submission"))
+    //       .catch((error) => {});
+    //   }
+    // });
   }
 
   // [Delete] Delete Submission
