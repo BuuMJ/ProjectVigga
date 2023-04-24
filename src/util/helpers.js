@@ -41,7 +41,7 @@ module.exports = {
     if (idea && idea.file) {
         var ext = idea.file.split('.').pop().toLowerCase();
         if (['jpg', 'jpeg', 'png', 'gif'].indexOf(ext) !== -1) { 
-            return new Handlebars.SafeString('<img class="file-detail__img" src="' + '/'+idea.submission+'/'+idea.file + '" alt="">');
+            return new Handlebars.SafeString('<img class="file-detail__img" src="' + '/'+idea.submission+'/'+idea.file + '" alt="" onerror="this.onerror=null;this.src=\'/img/errorsimg.webp\'">');
         } else { 
             return new Handlebars.SafeString('<div class="link__file"><span>File:</span> <a class="file-detail" href="' + '/'+idea.submission+'/'+ idea.file + '">' + idea.file + '</a></div>');
         }
