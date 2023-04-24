@@ -28,16 +28,18 @@
     </div>
     <div class="full__type">
       <label for="inputState">Role</label>
-      <select name="role" value="{{account.role}}" id="inputState" class="type__select">
+      <select name="role" id="inputState" class="type__select">
+        <option value="{{account.role}}" selected>{{account.role}}</option>
         <option value="admin">Admin</option>
         <option value="manager">Manager</option>
-        <option value="user">Staff</option>
+        <option value="user">User</option>
         <option value="coordinator">Coordinator</option>
       </select>
       </div>
       <div class="full__type">
       <label for="department">Department</label>
       <select name="department" id="department" class="type__select">
+        <option value="{{account.department}}">{{account.department}}</option>
         {{#each data}}
         <option value="{{this.name}}">{{this.name}}</option>
         {{/each}}
