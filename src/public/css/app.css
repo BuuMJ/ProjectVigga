@@ -1266,14 +1266,27 @@ a.back-detail {
   white-space: pre-wrap; }
 
 .body-detail .container__file-detail {
-  padding: 0 20px 12px 20px  !important; }
+  padding: 0 20px 12px 20px  !important;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center; }
 
-.body-detail .file-detail {
+.link__file {
+  width: 100%; }
+
+.link__file .file-detail {
   font-weight: 600; }
 
-.body-detail .container__file-detail span {
+.link__file .container__file-detail span {
   color: black;
-  text-decoration: none; }
+  text-decoration: none;
+  align-self: flex-start;
+  justify-self: flex-start; }
+
+.file-detail__img {
+  width: 500px;
+  height: 400px; }
 
 .detail-show div td {
   padding-left: 10px; }
@@ -2068,7 +2081,9 @@ span.overtime__days-remaining {
     width: 25% impr !important; }
   .overtime-cmt {
     text-align: center;
-    font-size: 18px; } }
+    font-size: 18px; }
+  .file-detail__img {
+    width: 100%; } }
 
 @media screen and (max-width: 376px) {
   .create-idea-edit__btn {

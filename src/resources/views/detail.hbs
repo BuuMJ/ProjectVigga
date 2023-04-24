@@ -26,7 +26,8 @@
             <div class="content-detail">{{idea.content}}</div> 
             {{#if idea.file}}
             <div class="container__file-detail">
-              <span>File:</span> <a class="file-detail" href="/{{idea.submission}}/{{idea.file}}">{{idea.file}}</a>
+              {{!-- <span>File:</span> <a class="file-detail" href="/{{idea.submission}}/{{idea.file}}">{{idea.file}}</a> --}}
+              {{getFileimg idea}}
             </div> 
             {{else}}
             {{/if}}
