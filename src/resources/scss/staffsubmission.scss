@@ -145,6 +145,7 @@
     }
     .show-submission__list .status-deadline{
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         justify-content: center;
@@ -1488,6 +1489,10 @@ button.dislike_btn {
     }
     .staffsubmission-text{
         font-size: 34px;
+    }
+
+    .show-submission__list .status-deadline{
+        font-size: 12px !important;
     }
 }
 @media screen and (max-width: 321px) {
