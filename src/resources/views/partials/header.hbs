@@ -151,7 +151,7 @@
              {{#if user}}
                 <ul class="user-info__mini">
                   <div class="avatar-user__header">
-                    <img src="{{getAvatar account}}" alt="">
+                    <img src="{{getAvatar user}}" alt="" onerror="this.src='/img/notfoundavatar.jpeg'">
                     <span><a class="profile-user" href="/user/profile">Your Profile</a></span>
                   </div>
                   <div class="avatar-user__header-left">
