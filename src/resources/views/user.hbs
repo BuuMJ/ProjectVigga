@@ -49,7 +49,7 @@
   <div class="boxer-user">
     {{#each account}}
     <div class="card-user">
-      <img src="{{getAvataraccount this}}" alt="">
+      <img src="{{getAvataraccount this}}" alt="" onerror="this.src='/img/notfoundavatar.jpeg'">
       <h4 class="card-user__info">{{this.fullname}}</h1>
       <h4 class="card-user__info">{{this.adremail}}</h4>
       <h4 class="card-user__info">{{this.role}}</h2>

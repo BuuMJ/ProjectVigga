@@ -43,8 +43,8 @@
               {{#ifeq user 'admin'}}
                 {{#each submission}}
                 <div class="table-wrapper">
-                <div class="show-submission__list">
-                    <span class="name-submission">{{this.name}}</span>
+                <div class="show-submission__list" data-submission-id="{{this._id}}">
+                    <span class="name-submission" title="{{this.name}}">{{this.name}}</span>
                     <span class="time-deadline1">{{moment this.deadline_1 format ="DD MMM YYYY HH:mm:ss" }}</span>
                     <span class="time-deadline2">{{moment this.deadline_2 format ="DD MMM YYYY HH:mm:ss" }}</span>
                     <span class="status-deadline">Ongoing <i class="bi bi-flag-fill"></i></span>
@@ -60,7 +60,7 @@
                 {{else ifeq user 'manager'}}
                 {{#each submission}}
                 <div class="table-wrapper">
-                <div class="show-submission__list">
+                <div class="show-submission__list" data-submission-id="{{this._id}}" >
                     <span class="name-submission">{{this.name}}</span>
                     <span class="time-deadline1">{{moment this.deadline_1 format ="DD MMM YYYY HH:mm:ss" }}</span>
                     <span class="time-deadline2">{{moment this.deadline_2 format ="DD MMM YYYY HH:mm:ss" }}</span>
@@ -77,7 +77,7 @@
                 {{else}}
                 {{#each submission}}
                 <div class="table-wrapper">
-                <div class="show-submission__list">
+                <div class="show-submission__list" data-submission-id="{{this._id}}">
                     <span class="name-submission name-submission_user">{{this.name}}</span>
                     <span id="time-deadline1_user" class="time-deadline1">{{moment this.deadline_1 format ="DD MMM YYYY HH:mm:ss" }}</span>
                     <span id="time-deadline2_user" class="time-deadline2">{{moment this.deadline_2 format ="DD MMM YYYY HH:mm:ss" }}</span>
@@ -155,5 +155,12 @@ for (var i = 0; i < checkDeadline2.length; i++) {
   });
   document.querySelector('.listpage li:nth-child(' + (thisPage) + ')').classList.add('active');
     loadIteam()
+  }
+  const getLink = document.querySelectorAll('.show-submission__list');
+  for(let i = 0; i < getLink.length; i++ ){
+    const getId = getLink[i].getAttribute("data-submission-id");
+    getLink[i].addEventListener('click',()=>{
+      window.location.href = `/staffsubmission/${getId}`
+    })
   }
 </script>

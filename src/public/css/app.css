@@ -979,7 +979,16 @@ a.profile-user:hover {
   align-items: center; }
 
 .show-submission__list .name-submission {
-  padding-top: 28px; }
+  padding-top: 28px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; }
+
+.show-submission__list .status-deadline {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: center; }
 
 .table-staffsubmission tbody {
   background-color: white;
@@ -2959,7 +2968,8 @@ a.btn-category-back {
   padding-left: 12px; }
 
 .edit__checkbox label {
-  text-align: start; }
+  text-align: start;
+  width: 100%; }
 
 .full__type input,
 .full__type select {

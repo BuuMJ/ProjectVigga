@@ -139,6 +139,15 @@
 }
     .show-submission__list .name-submission{
         padding-top: 28px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .show-submission__list .status-deadline{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        justify-content: center;
     }
     
   

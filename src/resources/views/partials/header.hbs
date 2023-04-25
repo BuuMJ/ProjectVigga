@@ -85,7 +85,7 @@
         {{#if user}}
         <ul class="show-logout navbar-change">
           {{!-- <span class=""> --}}
-            <img src="{{getAvatar user}}" alt="">
+            <img src="{{getAvatar user}}" alt="" onerror="this.src='/img/notfoundavatar.jpeg'">
           {{!-- </span> --}}
         </ul>
         <ul class="show-user-info">
