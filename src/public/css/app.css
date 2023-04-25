@@ -1848,8 +1848,6 @@ span.overtime__days-remaining {
   .main-detail,
   .main-idea {
     height: 1366px; }
-  .main-idea {
-    height: 100vh; }
   button.dislike_btn {
     right: 42px;
     position: absolute; }
@@ -1960,10 +1958,10 @@ span.overtime__days-remaining {
     margin: 0 auto;
     width: 95%; }
   button.like_btn {
-    right: 12px;
+    right: 35px;
     position: absolute; }
   button.dislike_btn {
-    right: 12px;
+    right: 35px;
     position: absolute; }
   .detail-link {
     margin-top: 85px;
@@ -2133,11 +2131,10 @@ span.overtime__days-remaining {
   .table-idea td {
     font-size: 14px; }
   button.like_btn {
-    right: 14px;
-    margin-top: -55px; }
+    right: 13px; }
   button.dislike_btn {
-    right: 14px;
-    margin-top: -10px; }
+    right: 13px;
+    margin-top: -12px; }
   button.detail-link {
     margin-left: 25px; }
   .staffsubmission-text {
